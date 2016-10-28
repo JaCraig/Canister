@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Canister</id>
+    <version>$version$</version>
+    <title>Canister</title>
+    <authors>James Craig</authors>
+	<owners>James Craig</owners>
+    <licenseUrl>https://github.com/JaCraig/Canister/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/JaCraig/Canister</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2016</copyright>
+    <tags>IoC DI Inversion Control Dependency Injection</tags>
+	<dependencies>
+		<dependency id="Microsoft.NETCore.Portable.Compatibility" version="1.0.1" />
+		<dependency id="NETStandard.Library" version="1.6.0" />
+		<dependency id="Microsoft.Extensions.DependencyInjection" version="1.0.0" />
+	</dependencies>
+  </metadata>
+  <files>
+		<file src="bin\Release\netstandard1.1\Canister.dll" target="lib\netstandard1.1\Canister.dll" />
+		<file src="bin\Release\netstandard1.1\Canister.xml" target="lib\netstandard1.1\Canister.xml" />
+	</files>
+</package>

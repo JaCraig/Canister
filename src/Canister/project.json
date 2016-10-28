@@ -1,0 +1,26 @@
+﻿{
+  "title": "Canister",
+  "version": "1.0.0-*",
+  "authors": [ "James Craig" ],
+  "description": "Canister is a simple Inversion of Control container wrapper. It can be used by itself as a standalone IoC container or wrap around other IoC implementations, thus giving them a common interface to deal with.",
+  "packOptions": {
+    "owners": [ "James Craig" ],
+    "summary": "Canister is a simple Inversion of Control container wrapper.",
+    "projectUrl": "https://github.com/JaCraig/Canister",
+    "licenseUrl": "https://github.com/JaCraig/Canister/blob/master/LICENSE",
+    "tags": [ "IoC", "DI", "Inversion of Control", "Dependency Injection" ]
+  },
+  "dependencies": {
+    "Microsoft.Extensions.DependencyInjection": "1.0.0",
+    "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
+    "NETStandard.Library": "1.6.0"
+  },
+  "frameworks": {
+    "netstandard1.1": {
+      "imports": "dnxcore50"
+    }
+  },
+  "buildOptions": {
+    "xmlDoc": true
+  }
+}
