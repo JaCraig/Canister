@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Canister</id>
+    <id>Canister.IoC</id>
     <version>$version$</version>
     <title>Canister</title>
     <authors>James Craig</authors>
