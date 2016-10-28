@@ -60,7 +60,7 @@ While the system has a default bootstrapper, it is possible to wrap other IoC co
 
 The library is available via Nuget with the package name "structure.sketching". To install it run the following command in the Package Manager Console:
 
-Install-Package container
+Install-Package container.ioc
 
 ## Build Process
 
