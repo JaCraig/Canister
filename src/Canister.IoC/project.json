@@ -1,5 +1,5 @@
 ﻿{
-  "title": "Canister",
+  "title": "Canister IoC",
   "version": "1.0.0-*",
   "authors": [ "James Craig" ],
   "description": "Canister is a simple Inversion of Control container wrapper. It can be used by itself as a standalone IoC container or wrap around other IoC implementations, thus giving them a common interface to deal with.",
