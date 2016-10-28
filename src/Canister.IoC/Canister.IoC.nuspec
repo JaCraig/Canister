@@ -3,7 +3,7 @@
   <metadata>
     <id>Canister.IoC</id>
     <version>$version$</version>
-    <title>Canister</title>
+    <title>Canister IoC</title>
     <authors>James Craig</authors>
 	<owners>James Craig</owners>
     <licenseUrl>https://github.com/JaCraig/Canister/blob/master/LICENSE</licenseUrl>
