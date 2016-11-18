@@ -58,7 +58,7 @@ While the system has a default bootstrapper, it is possible to wrap other IoC co
 
 ## Installation
 
-The library is available via Nuget with the package name "structure.sketching". To install it run the following command in the Package Manager Console:
+The library is available via Nuget with the package name "Canister.IoC". To install it run the following command in the Package Manager Console:
 
 Install-Package Canister.IoC
 
