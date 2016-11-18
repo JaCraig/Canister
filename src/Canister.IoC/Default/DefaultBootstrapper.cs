@@ -296,10 +296,16 @@ namespace Canister.Default
         /// <returns>String version of the bootstrapper</returns>
         public override string ToString()
         {
+            if (_AppContainer == null)
+                return "";
             var Builder = new StringBuilder();
-            foreach (Tuple<Type, string> Key in AppContainer.Keys)
+            foreach (Tuple<Type, string> Key in _AppContainer.Keys)
             {
-                Builder.AppendLine(AppContainer[Key].ToString());
+                var TypeBuilder = _AppContainer[Key];
+                if (TypeBuilder != null)
+                {
+                    Builder.AppendLine(TypeBuilder.ToString());
+                }
             }
             return Builder.ToString();
         }
