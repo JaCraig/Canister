@@ -48,6 +48,7 @@ namespace Canister
             var LoadedTypes = Assemblies.SelectMany(x => x.ExportedTypes);
             Bootstrapper = GetBootstrapper(Assemblies, LoadedTypes);
             Bootstrapper.Register<IServiceProvider>(Bootstrapper, ServiceLifetime.Singleton);
+            Bootstrapper.Register(Bootstrapper);
             RegisterModules();
             RegisterServiceDescriptors(descriptors);
             return Bootstrapper;

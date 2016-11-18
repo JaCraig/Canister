@@ -50,7 +50,6 @@ namespace Canister.Default
                 GenericResolveAllMethod = GetType().GetTypeInfo().DeclaredMethods.First(x => x.Name == "ResolveAll" && x.GetParameters().Length == 0);
                 Register<IScope, DefaultBootstrapper>();
                 Register<IServiceScope, DefaultBootstrapper>();
-                Register<IBootstrapper, DefaultBootstrapper>();
                 Register<DefaultBootstrapper, DefaultBootstrapper>();
                 Register<IServiceScopeFactory, ServiceScopeFactory>();
                 Register<IScopeFactory, ServiceScopeFactory>();
