@@ -1,8 +1,5 @@
 ﻿using Canister.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using Xunit;
 
 namespace Canister.Tests.ErrorCases
@@ -12,14 +9,12 @@ namespace Canister.Tests.ErrorCases
         [Fact]
         public void BufferOverflowError()
         {
-            using (IBootstrapper Temp = Canister.Builder.CreateContainer(new List<ServiceDescriptor>(), new Assembly[] { typeof(Builder).GetTypeInfo().Assembly }))
-            {
-                Temp.RegisterAll<IService>();
-                var TestObjects = Temp.ResolveAll<IService>();
-                Assert.Equal(2, TestObjects.Count());
-                Assert.True(TestObjects.Any(x => x.Name == "MyTestService1"));
-                Assert.True(TestObjects.Any(x => x.Name == "MyTestService2"));
-            }
+            IBootstrapper Temp = Canister.Builder.Bootstrapper;
+            Temp.RegisterAll<IService>();
+            var TestObjects = Temp.ResolveAll<IService>();
+            Assert.Equal(2, TestObjects.Count());
+            Assert.True(TestObjects.Any(x => x.Name == "MyTestService1"));
+            Assert.True(TestObjects.Any(x => x.Name == "MyTestService2"));
         }
 
         public interface IService

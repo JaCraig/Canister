@@ -1,24 +1,20 @@
 ﻿using Canister.Default;
 using Canister.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
-using System.Reflection;
+using Canister.Tests.BaseClasses;
 using Xunit;
 
 namespace Canister.Tests
 {
-    public class Builder
+    public class Builder : TestBaseClass
     {
         [Fact]
         public void Creation()
         {
-            using (IBootstrapper Temp = Canister.Builder.CreateContainer(new List<ServiceDescriptor>(), new Assembly[] { typeof(Builder).GetTypeInfo().Assembly }))
-            {
-                Assert.NotNull(Temp);
-                Assert.IsType(typeof(DefaultBootstrapper), Temp);
-                Assert.Equal("Default bootstrapper", Temp.Name);
-                Temp.ToString();
-            }
+            IBootstrapper Temp = Canister.Builder.Bootstrapper;
+            Assert.NotNull(Temp);
+            Assert.IsType(typeof(DefaultBootstrapper), Temp);
+            Assert.Equal("Default bootstrapper", Temp.Name);
+            Temp.ToString();
         }
 
         public class TestModule : IModule
