@@ -42,6 +42,7 @@ namespace Canister
         /// <returns>The resulting bootstrapper</returns>
         public static IBootstrapper CreateContainer(IEnumerable<ServiceDescriptor> descriptors, params Assembly[] assemblies)
         {
+            descriptors = descriptors ?? new List<ServiceDescriptor>();
             assemblies = assemblies ?? new Assembly[0];
             var Assemblies = LoadAssemblies(assemblies);
             var LoadedTypes = Assemblies.SelectMany(x => x.ExportedTypes);
