@@ -1,10 +1,11 @@
 ﻿using Canister.Interfaces;
+using Canister.Tests.BaseClasses;
 using System.Linq;
 using Xunit;
 
 namespace Canister.Tests.ErrorCases
 {
-    public class BootstrapperAsParameter
+    public class BootstrapperAsParameter : TestBaseClass
     {
         [Fact]
         public void BufferOverflowError()
