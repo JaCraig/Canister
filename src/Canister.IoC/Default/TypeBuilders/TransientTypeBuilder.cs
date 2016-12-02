@@ -23,15 +23,16 @@ namespace Canister.Default.TypeBuilders
     /// <summary>
     /// Transient Type builder
     /// </summary>
-    /// <typeparam name="T">Type this builder creates</typeparam>
-    public class TransientTypeBuilder<T> : TypeBuilderBase<T>
+    /// <seealso cref="TypeBuilderBase"/>
+    public class TransientTypeBuilder : TypeBuilderBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransientTypeBuilder{T}"/> class.
+        /// Initializes a new instance of the <see cref="TransientTypeBuilder"/> class.
         /// </summary>
         /// <param name="implementation">Implementation</param>
-        public TransientTypeBuilder(Func<IServiceProvider, T> implementation)
-            : base(implementation)
+        /// <param name="returnType">Type of the return.</param>
+        public TransientTypeBuilder(Func<IServiceProvider, object> implementation, Type returnType)
+            : base(implementation, returnType)
         {
         }
 
@@ -41,7 +42,7 @@ namespace Canister.Default.TypeBuilders
         /// <returns>A copy of this instance.</returns>
         public override ITypeBuilder Copy()
         {
-            return new TransientTypeBuilder<T>(Implementation);
+            return new TransientTypeBuilder(Implementation, ReturnType);
         }
 
         /// <summary>

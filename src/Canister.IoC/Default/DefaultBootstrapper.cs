@@ -137,7 +137,7 @@ namespace Canister.Default
         /// <returns>This</returns>
         public override IBootstrapper Register<T>(T objectToRegister, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
         {
-            return Register(x => objectToRegister, lifeTime, name);
+            return Register<T>(x => objectToRegister, lifeTime, name);
         }
 
         /// <summary>
@@ -163,14 +163,15 @@ namespace Canister.Default
         public override IBootstrapper Register<T1, T2>(ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
         {
             Type Type = typeof(T2);
-            return Register(x =>
+            return Register<T1>(x =>
             {
                 var Constructor = FindConstructor(Type);
                 if (Constructor != null)
                 {
-                    return (T1)Activator.CreateInstance(Type, GetParameters(Constructor).ToArray());
+                    var TempParameters = GetParameters(Constructor).ToArray();
+                    return (T1)Activator.CreateInstance(Type, TempParameters);
                 }
-                return null;
+                return default(T1);
             }, lifeTime, name);
         }
 
@@ -182,10 +183,10 @@ namespace Canister.Default
         /// <param name="lifeTime">The life time.</param>
         /// <param name="name">The name.</param>
         /// <returns>This</returns>
-        public override IBootstrapper Register<T>(Func<IServiceProvider, T> function, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
+        public override IBootstrapper Register<T>(Func<IServiceProvider, object> function, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
         {
             var Key = new Tuple<Type, string>(typeof(T), name);
-            var Value = GetTypeBuilder(function, lifeTime);
+            var Value = GetTypeBuilder(function, lifeTime, typeof(T));
             _AppContainer.AddOrUpdate(Key,
                 x => Value,
                 (x, y) => Value);
@@ -210,6 +211,86 @@ namespace Canister.Default
                 GenericRegisterMethod.MakeGenericMethod(TempType, TempType)
                     .Invoke(this, new object[] { lifeTime, "" });
             }
+            return this;
+        }
+
+        /// <summary>
+        /// Registers a generic with the default constructor
+        /// </summary>
+        /// <typeparam name="T">Object type to register</typeparam>
+        /// <param name="lifeTime">The life time.</param>
+        /// <param name="name">The name.</param>
+        /// <returns>This</returns>
+        public override IBootstrapper RegisterGeneric<T>(ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
+        {
+            return RegisterGeneric<T, T>(lifeTime, name);
+        }
+
+        /// <summary>
+        /// Registers a generic type with the default constructor of a child class
+        /// </summary>
+        /// <typeparam name="T1">Base class/interface type</typeparam>
+        /// <typeparam name="T2">Child class type</typeparam>
+        /// <param name="lifeTime">The life time.</param>
+        /// <param name="name">The name.</param>
+        /// <returns>This</returns>
+        public override IBootstrapper RegisterGeneric<T1, T2>(ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
+        {
+            Type ImplementationType = typeof(T2);
+            return RegisterGeneric<T1>((x, y) =>
+            {
+                var TempType = ImplementationType.MakeGenericType(y);
+                var Constructor = FindConstructor(TempType);
+                if (Constructor != null)
+                {
+                    return (T1)Activator.CreateInstance(TempType, GetParameters(Constructor).ToArray());
+                }
+                return default(T1);
+            }, lifeTime, name);
+        }
+
+        /// <summary>
+        /// Registers a generic type with a function
+        /// </summary>
+        /// <typeparam name="T">Type that the function returns</typeparam>
+        /// <param name="function">The function.</param>
+        /// <param name="lifeTime">The life time.</param>
+        /// <param name="name">The name.</param>
+        /// <returns>This</returns>
+        public override IBootstrapper RegisterGeneric<T>(Func<IServiceProvider, Type[], object> function, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
+        {
+            var Key = new Tuple<Type, string>(typeof(T), name);
+            var Value = GetTypeBuilder(function, lifeTime, typeof(T));
+            _AppContainer.AddOrUpdate(Key,
+                x => Value,
+                (x, y) => Value);
+            return this;
+        }
+
+        /// <summary>
+        /// Registers a generic type with the default constructor of a child class
+        /// </summary>
+        /// <param name="service">The service.</param>
+        /// <param name="implementation">The implementation.</param>
+        /// <param name="lifeTime">The life time.</param>
+        /// <param name="name">The name.</param>
+        /// <returns>This</returns>
+        public override IBootstrapper RegisterGeneric(Type service, Type implementation, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
+        {
+            var Key = new Tuple<Type, string>(service, name);
+            var Value = GetTypeBuilder((x, y) =>
+            {
+                var TempType = implementation.MakeGenericType(y);
+                var Constructor = FindConstructor(TempType);
+                if (Constructor != null)
+                {
+                    return Activator.CreateInstance(TempType, GetParameters(Constructor).ToArray());
+                }
+                return null;
+            }, lifeTime, service);
+            _AppContainer.AddOrUpdate(Key,
+                x => Value,
+                (x, y) => Value);
             return this;
         }
 
@@ -260,7 +341,27 @@ namespace Canister.Default
             {
                 var Key = new Tuple<Type, string>(objectType, name);
                 ITypeBuilder Builder = null;
-                return _AppContainer.TryGetValue(Key, out Builder) ? Builder.Create(this) : defaultObject;
+                var GenericBuilder = Builder as IGenericTypeBuilder;
+                if (!_AppContainer.TryGetValue(Key, out Builder))
+                {
+                    if (objectType.GenericTypeArguments.Length > 0)
+                    {
+                        var GenericObjectType = objectType.GetGenericTypeDefinition();
+                        Key = new Tuple<Type, string>(GenericObjectType, name);
+                        if (_AppContainer.TryGetValue(Key, out Builder))
+                        {
+                            GenericBuilder = Builder as IGenericTypeBuilder;
+                            if (GenericBuilder != null)
+                                return GenericBuilder.Create(this, objectType.GenericTypeArguments);
+                            return Builder.Create(this);
+                        }
+                    }
+                    return defaultObject;
+                }
+                GenericBuilder = Builder as IGenericTypeBuilder;
+                if (GenericBuilder != null)
+                    return GenericBuilder.Create(this, objectType.GenericTypeArguments);
+                return Builder.Create(this);
             }
             catch { return defaultObject; }
         }
@@ -339,17 +440,33 @@ namespace Canister.Default
         /// <summary>
         /// Gets the type builder.
         /// </summary>
-        /// <typeparam name="T">Object type it should return</typeparam>
         /// <param name="function">The function.</param>
         /// <param name="lifeTime">The life time.</param>
+        /// <param name="returnType">Type of the return.</param>
         /// <returns>The type builder based on the lifetime value.</returns>
-        private static ITypeBuilder GetTypeBuilder<T>(Func<IServiceProvider, T> function, ServiceLifetime lifeTime)
+        private static ITypeBuilder GetTypeBuilder(Func<IServiceProvider, object> function, ServiceLifetime lifeTime, Type returnType)
         {
             if (lifeTime == ServiceLifetime.Transient)
-                return new TransientTypeBuilder<T>(function);
+                return new TransientTypeBuilder(function, returnType);
             if (lifeTime == ServiceLifetime.Scoped)
-                return new ScopedTypeBuilder<T>(function);
-            return new SingletonTypeBuilder<T>(function);
+                return new ScopedTypeBuilder(function, returnType);
+            return new SingletonTypeBuilder(function, returnType);
+        }
+
+        /// <summary>
+        /// Gets the type builder.
+        /// </summary>
+        /// <param name="function">The function.</param>
+        /// <param name="lifeTime">The life time.</param>
+        /// <param name="returnType">Type of the return.</param>
+        /// <returns>The type builder based on the lifetime value.</returns>
+        private static ITypeBuilder GetTypeBuilder(Func<IServiceProvider, Type[], object> function, ServiceLifetime lifeTime, Type returnType)
+        {
+            if (lifeTime == ServiceLifetime.Transient)
+                return new GenericTransientTypeBuilder(function, returnType);
+            if (lifeTime == ServiceLifetime.Scoped)
+                return new GenericScopedTypeBuilder(function, returnType);
+            return new GenericSingletonTypeBuilder(function, returnType);
         }
 
         /// <summary>
@@ -372,16 +489,29 @@ namespace Canister.Default
                     if (Parameter.ParameterType.GetTypeInfo().ImplementedInterfaces.Contains(typeof(IEnumerable)) && Parameter.ParameterType.GetTypeInfo().IsGenericType)
                     {
                         ParameterType = ParameterType.GetTypeInfo().GenericTypeArguments.First();
-                        if (!AppContainer.Keys.Any(x => x.Item1 == ParameterType))
+                        if (!AppContainer.Keys.Any(x => x.Item1 == ParameterType)
+                            && !AppContainer.Keys.Any(x => x.Item1 == ParameterType.GetGenericTypeDefinition()))
                         {
                             Found = false;
                             break;
                         }
                     }
-                    else if (!AppContainer.Keys.Contains(new Tuple<Type, string>(ParameterType, "")))
+                    else if (ParameterType.GenericTypeArguments.Length > 0)
                     {
-                        Found = false;
-                        break;
+                        if (!AppContainer.Keys.Contains(new Tuple<Type, string>(ParameterType.GetGenericTypeDefinition(), ""))
+                        && !AppContainer.Keys.Contains(new Tuple<Type, string>(ParameterType, "")))
+                        {
+                            Found = false;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        if (!AppContainer.Keys.Contains(new Tuple<Type, string>(ParameterType, "")))
+                        {
+                            Found = false;
+                            break;
+                        }
                     }
                 }
                 if (Found)
@@ -405,17 +535,21 @@ namespace Canister.Default
             var Params = new List<object>();
             foreach (ParameterInfo Parameter in constructor.GetParameters())
             {
-                if (Parameter.ParameterType.GetTypeInfo().ImplementedInterfaces.Contains(typeof(IEnumerable)) && Parameter.ParameterType.GetTypeInfo().IsGenericType)
+                Type TypeToCreate = Parameter.ParameterType;
+                if (TypeToCreate.GetTypeInfo().ImplementedInterfaces.Contains(typeof(IEnumerable)) && TypeToCreate.GetTypeInfo().IsGenericType)
                 {
-                    var GenericParamType = Parameter.ParameterType.GetTypeInfo().GenericTypeArguments.First();
-                    Params.Add(GenericResolveAllMethod.MakeGenericMethod(GenericParamType).Invoke(this, new object[] { }));
+                    TypeToCreate = TypeToCreate.GetTypeInfo().GenericTypeArguments.First();
+                    if (TypeToCreate.GenericTypeArguments.Length > 0
+                        && AppContainer.Keys.Any(x => x.Item1 == TypeToCreate.GetGenericTypeDefinition()))
+                    {
+                        TypeToCreate = TypeToCreate.GetGenericTypeDefinition();
+                    }
+
+                    Params.Add(GenericResolveAllMethod.MakeGenericMethod(TypeToCreate).Invoke(this, new object[] { }));
                 }
                 else
                 {
-                    Params.Add(GenericResolveMethod.MakeGenericMethod(Parameter.ParameterType)
-                                                   .Invoke(this, new object[] {
-                                                                    Parameter.ParameterType.GetTypeInfo().IsValueType ? Activator.CreateInstance(Parameter.ParameterType) : null
-                                                   }));
+                    Params.Add(Resolve(TypeToCreate, (object)null));
                 }
             }
             return Params;

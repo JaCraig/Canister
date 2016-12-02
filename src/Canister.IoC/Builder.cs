@@ -92,11 +92,15 @@ namespace Canister
             var RegisterTypes = typeof(IBootstrapper).GetTypeInfo()
                                                                  .GetDeclaredMethods("Register")
                                                                  .First(x => x.GetGenericArguments().Count() == 2);
+            var RegisterGenerics = typeof(IBootstrapper).GetTypeInfo()
+                                                                 .GetDeclaredMethods("RegisterGeneric")
+                                                                 .First(x => x.GetGenericArguments().Count() == 2);
             var RegisterFunc = typeof(IBootstrapper).GetTypeInfo()
                                                     .GetDeclaredMethods("Register")
                                                      .First(x => x.GetGenericArguments().Count() == 1 &&
                                                             x.GetParameters().Count() == 3 &&
-                                                            x.GetParameters()[0].ParameterType.GenericTypeArguments.Length == 2);
+                                                            x.GetParameters()[0].ParameterType.GenericTypeArguments.Length == 2 &&
+                                                            x.GetParameters()[0].ParameterType.GenericTypeArguments[1] == typeof(object));
             var RegisterObj = typeof(IBootstrapper).GetTypeInfo()
                                                     .GetDeclaredMethods("Register")
                                                      .First(x => x.GetGenericArguments().Count() == 1 &&
@@ -106,27 +110,24 @@ namespace Canister
             {
                 if (item.ImplementationType != null)
                 {
-                    var serviceTypeInfo = item.ServiceType.GetTypeInfo();
-                    if (serviceTypeInfo.IsGenericTypeDefinition)
+                    if (item.ImplementationType.GetTypeInfo().IsGenericTypeDefinition)
                     {
-                        var tempType = serviceTypeInfo.MakeGenericType(item.ServiceType);
-                        var tempRegistration = RegisterTypes.MakeGenericMethod(item.ImplementationType, tempType);
-                        tempRegistration.Invoke(Bootstrapper, new object[] { item.Lifetime, "" });
+                        Bootstrapper.RegisterGeneric(item.ServiceType, item.ImplementationType, item.Lifetime, "");
                     }
                     else
                     {
-                        var tempRegistration = RegisterTypes.MakeGenericMethod(item.ImplementationType, item.ServiceType);
+                        var tempRegistration = RegisterTypes.MakeGenericMethod(item.ServiceType, item.ImplementationType);
                         tempRegistration.Invoke(Bootstrapper, new object[] { item.Lifetime, "" });
                     }
                 }
                 else if (item.ImplementationFactory != null)
                 {
-                    var tempRegistration = RegisterFunc.MakeGenericMethod(item.ImplementationType, item.ServiceType);
+                    var tempRegistration = RegisterFunc.MakeGenericMethod(item.ServiceType);
                     tempRegistration.Invoke(Bootstrapper, new object[] { item.ImplementationFactory, item.Lifetime, "" });
                 }
                 else
                 {
-                    var tempRegistration = RegisterObj.MakeGenericMethod(item.ImplementationType, item.ServiceType);
+                    var tempRegistration = RegisterObj.MakeGenericMethod(item.ServiceType);
                     tempRegistration.Invoke(Bootstrapper, new object[] { item.ImplementationInstance, item.Lifetime, "" });
                 }
             }

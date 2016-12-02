@@ -23,15 +23,17 @@ namespace Canister.Default.TypeBuilders
     /// <summary>
     /// Scoped type builder
     /// </summary>
-    /// <typeparam name="T">The type of the object it returns</typeparam>
-    public class ScopedTypeBuilder<T> : TypeBuilderBase<T>, IScopedTypeBuilder
+    /// <seealso cref="TypeBuilderBase"/>
+    /// <seealso cref="IScopedTypeBuilder"/>
+    public class ScopedTypeBuilder : TypeBuilderBase, IScopedTypeBuilder
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ScopedTypeBuilder{T}"/> class.
+        /// Initializes a new instance of the <see cref="ScopedTypeBuilder"/> class.
         /// </summary>
         /// <param name="implementation">Implementation</param>
-        public ScopedTypeBuilder(Func<IServiceProvider, T> implementation)
-            : base(implementation)
+        /// <param name="returnType">Type of the return.</param>
+        public ScopedTypeBuilder(Func<IServiceProvider, object> implementation, Type returnType)
+            : base(implementation, returnType)
         {
         }
 
@@ -39,7 +41,7 @@ namespace Canister.Default.TypeBuilders
         /// Gets or sets the resolved object.
         /// </summary>
         /// <value>The resolved object.</value>
-        protected T ResolvedObject { get; set; }
+        protected object ResolvedObject { get; set; }
 
         /// <summary>
         /// Copies this instance.
@@ -47,7 +49,7 @@ namespace Canister.Default.TypeBuilders
         /// <returns>A copy of this instance.</returns>
         public override ITypeBuilder Copy()
         {
-            return new ScopedTypeBuilder<T>(Implementation);
+            return new ScopedTypeBuilder(Implementation, ReturnType);
         }
 
         /// <summary>
@@ -57,7 +59,7 @@ namespace Canister.Default.TypeBuilders
         /// <returns>The created object</returns>
         public override object Create(IServiceProvider provider)
         {
-            if (Equals(ResolvedObject, default(T)))
+            if (Equals(ResolvedObject, null))
                 ResolvedObject = Implementation(provider);
             return ResolvedObject;
         }
@@ -72,7 +74,7 @@ namespace Canister.Default.TypeBuilders
             if (tempValue != null)
             {
                 tempValue.Dispose();
-                ResolvedObject = default(T);
+                ResolvedObject = null;
             }
         }
     }

@@ -146,8 +146,7 @@ namespace Canister.BaseClasses
         /// <param name="lifeTime">The life time.</param>
         /// <param name="name">The name.</param>
         /// <returns>This</returns>
-        public abstract IBootstrapper Register<T>(Func<IServiceProvider, T> function, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
-            where T : class;
+        public abstract IBootstrapper Register<T>(Func<IServiceProvider, object> function, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "") where T : class;
 
         /// <summary>
         /// Registers all objects of a certain type with the bootstrapper
@@ -157,6 +156,49 @@ namespace Canister.BaseClasses
         /// <returns>This</returns>
         public abstract IBootstrapper RegisterAll<T>(ServiceLifetime lifeTime = ServiceLifetime.Transient)
             where T : class;
+
+        /// <summary>
+        /// Registers a generic with the default constructor
+        /// </summary>
+        /// <typeparam name="T">Object type to register</typeparam>
+        /// <param name="lifeTime">The life time.</param>
+        /// <param name="name">The name.</param>
+        /// <returns>This</returns>
+        public abstract IBootstrapper RegisterGeneric<T>(ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
+            where T : class, new();
+
+        /// <summary>
+        /// Registers a generic type with the default constructor of a child class
+        /// </summary>
+        /// <typeparam name="T1">Base class/interface type</typeparam>
+        /// <typeparam name="T2">Child class type</typeparam>
+        /// <param name="lifeTime">The life time.</param>
+        /// <param name="name">The name.</param>
+        /// <returns>This</returns>
+        public abstract IBootstrapper RegisterGeneric<T1, T2>(ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
+            where T2 : class
+            where T1 : class;
+
+        /// <summary>
+        /// Registers a generic type with a function
+        /// </summary>
+        /// <typeparam name="T">Type that the function returns</typeparam>
+        /// <param name="function">The function.</param>
+        /// <param name="lifeTime">The life time.</param>
+        /// <param name="name">The name.</param>
+        /// <returns>This</returns>
+        public abstract IBootstrapper RegisterGeneric<T>(Func<IServiceProvider, Type[], object> function, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
+            where T : class;
+
+        /// <summary>
+        /// Registers a generic type with the default constructor of a child class
+        /// </summary>
+        /// <param name="service">The service.</param>
+        /// <param name="implementation">The implementation.</param>
+        /// <param name="lifeTime">The life time.</param>
+        /// <param name="name">The name.</param>
+        /// <returns>This</returns>
+        public abstract IBootstrapper RegisterGeneric(Type service, Type implementation, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "");
 
         /// <summary>
         /// Resolves the object based on the type specified

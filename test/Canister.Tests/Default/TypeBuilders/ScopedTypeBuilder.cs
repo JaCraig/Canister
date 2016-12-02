@@ -5,7 +5,7 @@ namespace Canister.Tests.Default.TypeBuilders
 {
     public class ScopedTypeBuilder
     {
-        private static int DisposedCount = 0;
+        private static int DisposedCount;
 
         [Theory]
         [InlineData(1)]
@@ -14,7 +14,7 @@ namespace Canister.Tests.Default.TypeBuilders
         [InlineData(123)]
         public void Copy(int value)
         {
-            using (var Temp = new Canister.Default.TypeBuilders.ScopedTypeBuilder<int>(x => value))
+            using (var Temp = new Canister.Default.TypeBuilders.ScopedTypeBuilder(x => value, typeof(int)))
             {
                 using (var Temp2 = Temp.Copy())
                 {
@@ -33,7 +33,7 @@ namespace Canister.Tests.Default.TypeBuilders
         [InlineData(123)]
         public void Creation(int value)
         {
-            using (var Temp = new Canister.Default.TypeBuilders.ScopedTypeBuilder<int>(x => value))
+            using (var Temp = new Canister.Default.TypeBuilders.ScopedTypeBuilder(x => value, typeof(int)))
             {
                 Assert.NotNull(Temp);
                 Assert.Equal(typeof(int), Temp.ReturnType);
@@ -44,7 +44,7 @@ namespace Canister.Tests.Default.TypeBuilders
         [Fact]
         public void ScopeTest()
         {
-            using (var Temp = new Canister.Default.TypeBuilders.ScopedTypeBuilder<ScopedTestClass>(x => new ScopedTestClass()))
+            using (var Temp = new Canister.Default.TypeBuilders.ScopedTypeBuilder(x => new ScopedTestClass(), typeof(ScopedTestClass)))
             {
                 Assert.NotNull(Temp);
                 Assert.Equal(typeof(ScopedTestClass), Temp.ReturnType);

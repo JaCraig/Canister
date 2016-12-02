@@ -5,7 +5,7 @@ namespace Canister.Tests.Default.TypeBuilders
 {
     public class SingletonTypeBuilder
     {
-        private static int DisposedCount = 0;
+        private static int DisposedCount;
 
         [Theory]
         [InlineData(1)]
@@ -14,7 +14,7 @@ namespace Canister.Tests.Default.TypeBuilders
         [InlineData(123)]
         public void Copy(int value)
         {
-            using (var Temp = new Canister.Default.TypeBuilders.SingletonTypeBuilder<int>(x => value))
+            using (var Temp = new Canister.Default.TypeBuilders.SingletonTypeBuilder(x => value, typeof(int)))
             {
                 using (var Temp2 = Temp.Copy())
                 {
@@ -33,7 +33,7 @@ namespace Canister.Tests.Default.TypeBuilders
         [InlineData(123)]
         public void Creation(int value)
         {
-            using (var Temp = new Canister.Default.TypeBuilders.SingletonTypeBuilder<int>(x => value))
+            using (var Temp = new Canister.Default.TypeBuilders.SingletonTypeBuilder(x => value, typeof(int)))
             {
                 Assert.NotNull(Temp);
                 Assert.Equal(typeof(int), Temp.ReturnType);
@@ -44,7 +44,7 @@ namespace Canister.Tests.Default.TypeBuilders
         [Fact]
         public void ScopeTest()
         {
-            using (var Temp = new Canister.Default.TypeBuilders.SingletonTypeBuilder<SingletonTestClass>(x => new SingletonTestClass()))
+            using (var Temp = new Canister.Default.TypeBuilders.SingletonTypeBuilder(x => new SingletonTestClass(), typeof(SingletonTestClass)))
             {
                 Assert.NotNull(Temp);
                 Assert.Equal(typeof(SingletonTestClass), Temp.ReturnType);

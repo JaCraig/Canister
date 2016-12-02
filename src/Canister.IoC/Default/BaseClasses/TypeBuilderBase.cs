@@ -22,17 +22,18 @@ namespace Canister.Default.BaseClasses
     /// <summary>
     /// Type builder base class
     /// </summary>
-    /// <typeparam name="T">The type of the object it creates</typeparam>
-    public abstract class TypeBuilderBase<T> : ITypeBuilder
+    /// <seealso cref="ITypeBuilder"/>
+    public abstract class TypeBuilderBase : ITypeBuilder
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TypeBuilderBase{T}"/> class.
+        /// Initializes a new instance of the <see cref="TypeBuilderBase"/> class.
         /// </summary>
         /// <param name="implementation">Implementation</param>
-        protected TypeBuilderBase(Func<IServiceProvider, T> implementation)
+        /// <param name="returnType">Type of the return.</param>
+        protected TypeBuilderBase(Func<IServiceProvider, object> implementation, Type returnType)
         {
-            Implementation = implementation ?? new Func<IServiceProvider, T>(x => (T)Activator.CreateInstance(typeof(T)));
-            ReturnType = typeof(T);
+            Implementation = implementation ?? new Func<IServiceProvider, object>(x => Activator.CreateInstance(returnType));
+            ReturnType = returnType;
         }
 
         /// <summary>
@@ -43,7 +44,7 @@ namespace Canister.Default.BaseClasses
         /// <summary>
         /// Implementation used to create the type
         /// </summary>
-        protected Func<IServiceProvider, T> Implementation { get; private set; }
+        protected Func<IServiceProvider, object> Implementation { get; private set; }
 
         /// <summary>
         /// Copies this instance.
