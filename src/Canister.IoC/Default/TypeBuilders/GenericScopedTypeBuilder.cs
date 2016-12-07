@@ -16,6 +16,7 @@ limitations under the License.
 
 using Canister.Default.BaseClasses;
 using Canister.Default.Interfaces;
+using Canister.IoC.Default.TypeBuilders.DataClasses;
 using System;
 using System.Collections.Concurrent;
 
@@ -36,14 +37,14 @@ namespace Canister.Default.TypeBuilders
         public GenericScopedTypeBuilder(Func<IServiceProvider, Type[], object> implementation, Type returnType)
             : base(implementation, returnType)
         {
-            ResolvedObjects = new ConcurrentDictionary<Type[], object>();
+            ResolvedObjects = new ConcurrentDictionary<TypeKey, object>();
         }
 
         /// <summary>
         /// Gets or sets the resolved object.
         /// </summary>
         /// <value>The resolved object.</value>
-        protected ConcurrentDictionary<Type[], object> ResolvedObjects { get; set; }
+        protected ConcurrentDictionary<TypeKey, object> ResolvedObjects { get; set; }
 
         /// <summary>
         /// Copies this instance.
@@ -58,33 +59,16 @@ namespace Canister.Default.TypeBuilders
         /// Creates the object
         /// </summary>
         /// <param name="provider">The provider.</param>
-        /// <returns>The created object</returns>
-        public override object Create(IServiceProvider provider)
-        {
-            object ResolvedObject = null;
-            if (!ResolvedObjects.TryGetValue(new Type[0], out ResolvedObject) || Equals(ResolvedObjects, null))
-            {
-                ResolvedObject = Implementation(provider, new Type[0]);
-                ResolvedObjects.AddOrUpdate(new Type[0],
-                    x => ResolvedObject,
-                    (x, y) => y);
-            }
-            return ResolvedObject;
-        }
-
-        /// <summary>
-        /// Creates the object
-        /// </summary>
-        /// <param name="provider">The provider.</param>
         /// <param name="genericParameters">The generic parameters.</param>
         /// <returns>The created object</returns>
         public override object Create(IServiceProvider provider, Type[] genericParameters)
         {
             object ResolvedObject = null;
-            if (!ResolvedObjects.TryGetValue(genericParameters, out ResolvedObject) || Equals(ResolvedObjects, null))
+            var TempKey = new TypeKey(genericParameters);
+            if (!ResolvedObjects.TryGetValue(TempKey, out ResolvedObject) || Equals(ResolvedObjects, null))
             {
                 ResolvedObject = Implementation(provider, genericParameters);
-                ResolvedObjects.AddOrUpdate(genericParameters,
+                ResolvedObjects.AddOrUpdate(TempKey,
                     x => ResolvedObject,
                     (x, y) => y);
             }

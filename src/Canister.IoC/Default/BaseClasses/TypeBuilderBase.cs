@@ -46,6 +46,11 @@ namespace Canister.Default.BaseClasses
         /// </summary>
         protected Func<IServiceProvider, object> Implementation { get; private set; }
 
+        public bool CanResolve(Type objectType)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Copies this instance.
         /// </summary>
@@ -56,8 +61,9 @@ namespace Canister.Default.BaseClasses
         /// Creates the object
         /// </summary>
         /// <param name="provider">The provider.</param>
+        /// <param name="genericParameters">The generic parameters.</param>
         /// <returns>The object</returns>
-        public abstract object Create(IServiceProvider provider);
+        public abstract object Create(IServiceProvider provider, Type[] genericParameters);
 
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting

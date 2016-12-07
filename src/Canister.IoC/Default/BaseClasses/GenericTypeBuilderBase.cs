@@ -50,18 +50,16 @@ namespace Canister.Default.BaseClasses
         /// </summary>
         protected Func<IServiceProvider, Type[], object> Implementation { get; private set; }
 
+        public bool CanResolve(Type objectType)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Copies this instance.
         /// </summary>
         /// <returns>A copy of this instance.</returns>
         public abstract ITypeBuilder Copy();
-
-        /// <summary>
-        /// Creates the object
-        /// </summary>
-        /// <param name="provider">The provider.</param>
-        /// <returns>The object</returns>
-        public abstract object Create(IServiceProvider provider);
 
         /// <summary>
         /// Creates the object

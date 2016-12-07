@@ -20,7 +20,7 @@ namespace Canister.Tests.Default.TypeBuilders
                 {
                     Assert.NotNull(Temp2);
                     Assert.Equal(typeof(int), Temp2.ReturnType);
-                    Assert.Equal(value, Temp2.Create(null));
+                    Assert.Equal(value, Temp2.Create(null, new Type[0]));
                     Assert.NotSame(Temp, Temp2);
                 }
             }
@@ -37,20 +37,20 @@ namespace Canister.Tests.Default.TypeBuilders
             {
                 Assert.NotNull(Temp);
                 Assert.Equal(typeof(int), Temp.ReturnType);
-                Assert.Equal(value, Temp.Create(null));
+                Assert.Equal(value, Temp.Create(null, new Type[0]));
             }
         }
 
         [Fact]
         public void ScopeTest()
         {
-            using (var Temp = new Canister.Default.TypeBuilders.GenericScopedTypeBuilder((x, y) => new GenericScopedTestClass<int>(), typeof(GenericScopedTestClass<int>)))
+            using (var Temp = new Canister.Default.TypeBuilders.GenericScopedTypeBuilder((x, y) => Activator.CreateInstance(typeof(GenericScopedTestClass<>).MakeGenericType(y)), typeof(GenericScopedTestClass<>)))
             {
                 Assert.NotNull(Temp);
-                Assert.Equal(typeof(GenericScopedTestClass<int>), Temp.ReturnType);
-                var Value = Temp.Create(null);
+                Assert.Equal(typeof(GenericScopedTestClass<>), Temp.ReturnType);
+                var Value = Temp.Create(null, new Type[] { typeof(int) });
                 Assert.IsType(typeof(GenericScopedTestClass<int>), Value);
-                var Value2 = Temp.Create(null);
+                var Value2 = Temp.Create(null, new Type[] { typeof(int) });
                 Assert.Same(Value, Value2);
             }
             Assert.Equal(1, DisposedCount);
@@ -62,9 +62,21 @@ namespace Canister.Tests.Default.TypeBuilders
 
         private class GenericScopedTestClass<T> : IGenericScopedTestInterface<T>
         {
+            public T Value { get; set; }
+
             public void Dispose()
             {
                 ++DisposedCount;
+            }
+
+            public override bool Equals(object obj)
+            {
+                return GetHashCode() == obj.GetHashCode();
+            }
+
+            public override int GetHashCode()
+            {
+                return Value.GetHashCode();
             }
         }
     }

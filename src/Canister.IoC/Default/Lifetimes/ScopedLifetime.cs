@@ -14,25 +14,24 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-using Canister.Default.BaseClasses;
-using Canister.Default.Interfaces;
+using Canister.Default.Lifetimes.BaseClasses;
+using Canister.Default.Lifetimes.Interfaces;
 using System;
 
-namespace Canister.Default.TypeBuilders
+namespace Canister.Default.Lifetimes
 {
     /// <summary>
-    /// Scoped type builder
+    /// Scoped life time
     /// </summary>
-    /// <seealso cref="TypeBuilderBase"/>
-    /// <seealso cref="IScopedTypeBuilder"/>
-    public class ScopedTypeBuilder : TypeBuilderBase, IScopedTypeBuilder
+    /// <seealso cref="LifetimeBase"/>
+    public class ScopedLifetime : LifetimeBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ScopedTypeBuilder"/> class.
+        /// Initializes a new instance of the <see cref="ScopedLifetime"/> class.
         /// </summary>
-        /// <param name="implementation">Implementation</param>
+        /// <param name="implementation">The implementation.</param>
         /// <param name="returnType">Type of the return.</param>
-        public ScopedTypeBuilder(Func<IServiceProvider, object> implementation, Type returnType)
+        public ScopedLifetime(Func<IServiceProvider, object> implementation, Type returnType)
             : base(implementation, returnType)
         {
         }
@@ -46,28 +45,14 @@ namespace Canister.Default.TypeBuilders
         /// <summary>
         /// Copies this instance.
         /// </summary>
-        /// <returns>A copy of this instance.</returns>
-        public override ITypeBuilder Copy()
+        /// <returns>A new copy of this life time object</returns>
+        public override ILifetime Copy()
         {
-            return new ScopedTypeBuilder(Implementation, ReturnType);
+            return new ScopedLifetime(Implementation, ReturnType);
         }
 
         /// <summary>
-        /// Creates the object
-        /// </summary>
-        /// <param name="provider">The provider.</param>
-        /// <param name="genericParameters">The generic parameters.</param>
-        /// <returns>The created object</returns>
-        public override object Create(IServiceProvider provider, Type[] genericParameters)
-        {
-            if (Equals(ResolvedObject, null))
-                ResolvedObject = Implementation(provider);
-            return ResolvedObject;
-        }
-
-        /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting
-        /// unmanaged resources.
+        /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
         public override void Dispose()
         {
@@ -77,6 +62,18 @@ namespace Canister.Default.TypeBuilders
                 tempValue.Dispose();
                 ResolvedObject = null;
             }
+        }
+
+        /// <summary>
+        /// Resolves this instance.
+        /// </summary>
+        /// <param name="provider">The provider.</param>
+        /// <returns>The object to resolve</returns>
+        public override object Resolve(IServiceProvider provider)
+        {
+            if (Equals(ResolvedObject, null))
+                ResolvedObject = Implementation(provider);
+            return ResolvedObject;
         }
     }
 }

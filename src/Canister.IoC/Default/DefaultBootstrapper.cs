@@ -341,7 +341,6 @@ namespace Canister.Default
             {
                 var Key = new Tuple<Type, string>(objectType, name);
                 ITypeBuilder Builder = null;
-                var GenericBuilder = Builder as IGenericTypeBuilder;
                 if (!_AppContainer.TryGetValue(Key, out Builder))
                 {
                     if (objectType.GenericTypeArguments.Length > 0)
@@ -350,18 +349,14 @@ namespace Canister.Default
                         Key = new Tuple<Type, string>(GenericObjectType, name);
                         if (_AppContainer.TryGetValue(Key, out Builder))
                         {
-                            GenericBuilder = Builder as IGenericTypeBuilder;
-                            if (GenericBuilder != null)
-                                return GenericBuilder.Create(this, objectType.GenericTypeArguments);
-                            return Builder.Create(this);
+                            return Builder.Create(this, objectType.GenericTypeArguments);
                         }
                     }
                     return defaultObject;
                 }
-                GenericBuilder = Builder as IGenericTypeBuilder;
-                if (GenericBuilder != null)
-                    return GenericBuilder.Create(this, objectType.GenericTypeArguments);
-                return Builder.Create(this);
+                return objectType.GenericTypeArguments.Length > 0 ?
+                    Builder.Create(this, objectType.GenericTypeArguments) :
+                    Builder.Create(this, new Type[0]);
             }
             catch { return defaultObject; }
         }

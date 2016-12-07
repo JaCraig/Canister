@@ -16,39 +16,31 @@ limitations under the License.
 
 using System;
 
-namespace Canister.Default.Interfaces
+namespace Canister.Default.Lifetimes.Interfaces
 {
     /// <summary>
-    /// Type builder interface
+    /// Lifetime interface
     /// </summary>
-    public interface ITypeBuilder : IDisposable
+    /// <seealso cref="IDisposable"/>
+    public interface ILifetime : IDisposable
     {
         /// <summary>
-        /// Return type of the builder
+        /// Gets the type of the object.
         /// </summary>
+        /// <value>The type of the object.</value>
         Type ReturnType { get; }
-
-        /// <summary>
-        /// Determines whether this instance can resolve the specified object type.
-        /// </summary>
-        /// <param name="objectType">Type of the object.</param>
-        /// <returns>
-        /// <c>true</c> if this instance can resolve the specified object type; otherwise, <c>false</c>.
-        /// </returns>
-        bool CanResolve(Type objectType);
 
         /// <summary>
         /// Copies this instance.
         /// </summary>
-        /// <returns>A copy of this instance.</returns>
-        ITypeBuilder Copy();
+        /// <returns>A new copy of this life time object</returns>
+        ILifetime Copy();
 
         /// <summary>
-        /// Creates the object
+        /// Resolves this instance.
         /// </summary>
         /// <param name="provider">The provider.</param>
-        /// <param name="genericParameters">The generic parameters.</param>
-        /// <returns>The object</returns>
-        object Create(IServiceProvider provider, Type[] genericParameters);
+        /// <returns>The object to resolve</returns>
+        object Resolve(IServiceProvider provider);
     }
 }

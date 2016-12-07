@@ -1,9 +1,9 @@
 ﻿using System;
 using Xunit;
 
-namespace Canister.Tests.Default.TypeBuilders
+namespace Canister.Tests.Default.Lifetimes
 {
-    public class SingletonTypeBuilder
+    public class ScopedLifetimeTests
     {
         private static int DisposedCount;
 
@@ -14,14 +14,14 @@ namespace Canister.Tests.Default.TypeBuilders
         [InlineData(123)]
         public void Copy(int value)
         {
-            using (var Temp = new Canister.Default.TypeBuilders.SingletonTypeBuilder(x => value, typeof(int)))
+            using (var Temp = new Canister.Default.Lifetimes.ScopedLifetime(x => value, typeof(int)))
             {
                 using (var Temp2 = Temp.Copy())
                 {
                     Assert.NotNull(Temp2);
                     Assert.Equal(typeof(int), Temp2.ReturnType);
-                    Assert.Equal(value, Temp2.Create(null, new Type[0]));
-                    Assert.Same(Temp, Temp2);
+                    Assert.Equal(value, Temp.Resolve(null));
+                    Assert.NotSame(Temp, Temp2);
                 }
             }
         }
@@ -33,30 +33,30 @@ namespace Canister.Tests.Default.TypeBuilders
         [InlineData(123)]
         public void Creation(int value)
         {
-            using (var Temp = new Canister.Default.TypeBuilders.SingletonTypeBuilder(x => value, typeof(int)))
+            using (var Temp = new Canister.Default.Lifetimes.ScopedLifetime(x => value, typeof(int)))
             {
                 Assert.NotNull(Temp);
                 Assert.Equal(typeof(int), Temp.ReturnType);
-                Assert.Equal(value, Temp.Create(null, new Type[0]));
+                Assert.Equal(value, Temp.Resolve(null));
             }
         }
 
         [Fact]
         public void ScopeTest()
         {
-            using (var Temp = new Canister.Default.TypeBuilders.SingletonTypeBuilder(x => new SingletonTestClass(), typeof(SingletonTestClass)))
+            using (var Temp = new Canister.Default.Lifetimes.ScopedLifetime(x => new ScopedTestClass(), typeof(ScopedTestClass)))
             {
                 Assert.NotNull(Temp);
-                Assert.Equal(typeof(SingletonTestClass), Temp.ReturnType);
-                var Value = Temp.Create(null, new Type[0]);
-                Assert.IsType(typeof(SingletonTestClass), Value);
-                var Value2 = Temp.Create(null, new Type[0]);
+                Assert.Equal(typeof(ScopedTestClass), Temp.ReturnType);
+                var Value = Temp.Resolve(null);
+                Assert.IsType(typeof(ScopedTestClass), Value);
+                var Value2 = Temp.Resolve(null);
                 Assert.Same(Value, Value2);
             }
             Assert.Equal(1, DisposedCount);
         }
 
-        private class SingletonTestClass : IDisposable
+        private class ScopedTestClass : IDisposable
         {
             public void Dispose()
             {

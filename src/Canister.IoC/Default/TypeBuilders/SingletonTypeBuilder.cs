@@ -55,8 +55,9 @@ namespace Canister.Default.TypeBuilders
         /// Creates the object
         /// </summary>
         /// <param name="provider">The provider.</param>
+        /// <param name="genericParameters">The generic parameters.</param>
         /// <returns>The created object</returns>
-        public override object Create(IServiceProvider provider)
+        public override object Create(IServiceProvider provider, Type[] genericParameters)
         {
             if (Equals(ResolvedObject, null))
                 ResolvedObject = Implementation(provider);

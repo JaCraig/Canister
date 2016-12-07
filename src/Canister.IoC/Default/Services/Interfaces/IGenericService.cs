@@ -14,12 +14,26 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-namespace Canister.Default.Interfaces
+using System;
+
+namespace Canister.Default.Services.Interfaces
 {
     /// <summary>
-    /// IGeneric type builder
+    /// Generic service interface
     /// </summary>
-    public interface IGenericTypeBuilder : ITypeBuilder
+    public interface IGenericService
     {
+        /// <summary>
+        /// Gets the type of the return.
+        /// </summary>
+        /// <value>The type of the return.</value>
+        Type ReturnType { get; }
+
+        /// <summary>
+        /// Creates the specified service
+        /// </summary>
+        /// <param name="closedType">The closed object type</param>
+        /// <returns>The resulting object</returns>
+        IService CreateService(Type closedType);
     }
 }

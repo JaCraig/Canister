@@ -20,7 +20,7 @@ namespace Canister.Tests.Default.TypeBuilders
                 {
                     Assert.NotNull(Temp2);
                     Assert.Equal(typeof(int), Temp2.ReturnType);
-                    Assert.Equal(value, Temp2.Create(null));
+                    Assert.Equal(value, Temp2.Create(null, new Type[0]));
                     Assert.NotSame(Temp, Temp2);
                 }
             }
@@ -37,7 +37,7 @@ namespace Canister.Tests.Default.TypeBuilders
             {
                 Assert.NotNull(Temp);
                 Assert.Equal(typeof(int), Temp.ReturnType);
-                Assert.Equal(value, Temp.Create(null));
+                Assert.Equal(value, Temp.Create(null, new Type[0]));
             }
         }
 
@@ -48,9 +48,9 @@ namespace Canister.Tests.Default.TypeBuilders
             {
                 Assert.NotNull(Temp);
                 Assert.Equal(typeof(ScopedTestClass), Temp.ReturnType);
-                var Value = Temp.Create(null);
+                var Value = Temp.Create(null, new Type[0]);
                 Assert.IsType(typeof(ScopedTestClass), Value);
-                var Value2 = Temp.Create(null);
+                var Value2 = Temp.Create(null, new Type[0]);
                 Assert.Same(Value, Value2);
             }
             Assert.Equal(1, DisposedCount);
