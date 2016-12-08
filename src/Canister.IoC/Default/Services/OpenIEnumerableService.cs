@@ -31,20 +31,31 @@ namespace Canister.Default.Services
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenIEnumerableService"/> class.
         /// </summary>
+        /// <param name="openIEnumerableService">The open i enumerable service.</param>
+        public OpenIEnumerableService(OpenIEnumerableService openIEnumerableService)
+            : base(openIEnumerableService)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OpenIEnumerableService"/> class.
+        /// </summary>
         /// <param name="returnType">Type of the return.</param>
         /// <param name="table">The table.</param>
         /// <param name="lifetime">The lifetime.</param>
         public OpenIEnumerableService(Type returnType, ServiceTable table, ServiceLifetime lifetime)
             : base(returnType, table, lifetime)
         {
-            Table = table;
         }
 
         /// <summary>
-        /// Gets or sets the table.
+        /// Copies this instance.
         /// </summary>
-        /// <value>The table.</value>
-        public ServiceTable Table { get; set; }
+        /// <returns>A copy of this instance</returns>
+        public override IGenericService Copy()
+        {
+            return new OpenIEnumerableService(this);
+        }
 
         /// <summary>
         /// Creates the specified service

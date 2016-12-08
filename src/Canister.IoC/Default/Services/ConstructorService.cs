@@ -15,6 +15,7 @@ limitations under the License.
 */
 
 using Canister.Default.Services.BaseClasses;
+using Canister.Default.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
@@ -28,6 +29,16 @@ namespace Canister.Default.Services
     /// <seealso cref="ServiceBase"/>
     public class ConstructorService : ServiceBase
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConstructorService"/> class.
+        /// </summary>
+        /// <param name="constructorService">The constructor service.</param>
+        public ConstructorService(ConstructorService constructorService)
+            : base(constructorService)
+        {
+            ImplementationType = constructorService.ImplementationType;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstructorService"/> class.
         /// </summary>
@@ -52,6 +63,15 @@ namespace Canister.Default.Services
         /// </summary>
         /// <value>The type of the implementation.</value>
         public Type ImplementationType { get; set; }
+
+        /// <summary>
+        /// Copies this instance.
+        /// </summary>
+        /// <returns>A copy of this instance</returns>
+        public override IService Copy()
+        {
+            return new ConstructorService(this);
+        }
 
         /// <summary>
         /// Creates the specified service

@@ -27,7 +27,7 @@ namespace Canister.Default.Services
     /// <summary>
     /// Service table
     /// </summary>
-    public class ServiceTable
+    public class ServiceTable : IDisposable
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceTable"/> class.
@@ -37,11 +37,35 @@ namespace Canister.Default.Services
         public ServiceTable(IEnumerable<ServiceDescriptor> descriptors, IServiceProvider provider)
         {
             Provider = provider;
-            Services = new ConcurrentDictionary<Type, List<IService>>();
-            GenericServices = new ConcurrentDictionary<Type, List<IGenericService>>();
+            Services = new ConcurrentDictionary<ServiceKey, List<IService>>();
+            GenericServices = new ConcurrentDictionary<ServiceKey, List<IGenericService>>();
 
             SetupDescriptors(descriptors);
-            Add(typeof(IEnumerable<>), new OpenIEnumerableService(typeof(IEnumerable<>), this, ServiceLifetime.Transient));
+            Add(typeof(IEnumerable<>), "", new OpenIEnumerableService(typeof(IEnumerable<>), this, ServiceLifetime.Transient));
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ServiceTable"/> class.
+        /// </summary>
+        /// <param name="table">The table.</param>
+        public ServiceTable(ServiceTable table)
+        {
+            Parent = table;
+            Provider = table.Provider;
+            Services = new ConcurrentDictionary<ServiceKey, List<IService>>();
+            GenericServices = new ConcurrentDictionary<ServiceKey, List<IGenericService>>();
+            foreach (var Key in table.Services)
+            {
+                Services.AddOrUpdate(Key.Key,
+                    x => Key.Value.Select(z => z.Copy()).ToList(),
+                    (x, y) => Key.Value.Select(z => z.Copy()).ToList());
+            }
+            foreach (var Key in table.GenericServices)
+            {
+                GenericServices.AddOrUpdate(Key.Key,
+                    x => Key.Value.Select(z => z.Copy()).ToList(),
+                    (x, y) => Key.Value.Select(z => z.Copy()).ToList());
+            }
         }
 
         /// <summary>
@@ -54,22 +78,29 @@ namespace Canister.Default.Services
         /// Gets or sets the generic services.
         /// </summary>
         /// <value>The generic services.</value>
-        private ConcurrentDictionary<Type, List<IGenericService>> GenericServices { get; set; }
+        private ConcurrentDictionary<ServiceKey, List<IGenericService>> GenericServices { get; set; }
+
+        /// <summary>
+        /// Gets or sets the parent.
+        /// </summary>
+        /// <value>The parent.</value>
+        private ServiceTable Parent { get; set; }
 
         /// <summary>
         /// Gets or sets the services.
         /// </summary>
         /// <value>The services.</value>
-        private ConcurrentDictionary<Type, List<IService>> Services { get; set; }
+        private ConcurrentDictionary<ServiceKey, List<IService>> Services { get; set; }
 
         /// <summary>
         /// Adds the specified service type.
         /// </summary>
         /// <param name="serviceType">Type of the service.</param>
+        /// <param name="name">The name.</param>
         /// <param name="instanceService">The instance service.</param>
-        public void Add(Type serviceType, IService instanceService)
+        public void Add(Type serviceType, string name, IService instanceService)
         {
-            Services.AddOrUpdate(serviceType,
+            Services.AddOrUpdate(new ServiceKey(serviceType, name),
                 x =>
                 {
                     var TempList = new List<IService>();
@@ -87,10 +118,11 @@ namespace Canister.Default.Services
         /// Adds the specified service type.
         /// </summary>
         /// <param name="serviceType">Type of the service.</param>
+        /// <param name="name">The name.</param>
         /// <param name="genericService">The generic service.</param>
-        public void Add(Type serviceType, IGenericService genericService)
+        public void Add(Type serviceType, string name, IGenericService genericService)
         {
-            GenericServices.AddOrUpdate(serviceType,
+            GenericServices.AddOrUpdate(new ServiceKey(serviceType, name),
                 x =>
                 {
                     var TempList = new List<IGenericService>();
@@ -104,10 +136,28 @@ namespace Canister.Default.Services
                 });
         }
 
-        public ServiceTable Copy()
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting
+        /// unmanaged resources.
+        /// </summary>
+        public void Dispose()
         {
-            foreach (var Key in Services)
+            if (Services != null)
             {
+                var ItemsToDispose = Services.Values.Reverse().SelectMany(x => x);
+                if (Parent != null)
+                    ItemsToDispose = ItemsToDispose.Where(x => x.LifetimeOfService == ServiceLifetime.Scoped);
+                foreach (IDisposable Item in ItemsToDispose)
+                {
+                    Item.Dispose();
+                }
+                Services.Clear();
+                Services = null;
+            }
+            if (GenericServices != null)
+            {
+                GenericServices.Clear();
+                GenericServices = null;
             }
         }
 
@@ -115,40 +165,42 @@ namespace Canister.Default.Services
         /// Gets the service specified.
         /// </summary>
         /// <param name="parameterType">Type of the parameter.</param>
+        /// <param name="name">The name.</param>
         /// <returns>The service associated with the parameter type.</returns>
-        public IService GetService(Type parameterType)
+        public IService GetService(Type parameterType, string name = "")
         {
-            return GetServices(parameterType).Last();
+            return GetServices(parameterType, name).Last();
         }
 
         /// <summary>
         /// Gets the services.
         /// </summary>
         /// <param name="serviceType">Type of the service.</param>
+        /// <param name="name">The name.</param>
         /// <returns>The list of services that satisfy the request</returns>
-        public List<IService> GetServices(Type serviceType)
+        public List<IService> GetServices(Type serviceType, string name = "")
         {
-            List<IService> ReturnValue = new List<IService>();
-            if (Services.TryGetValue(serviceType, out ReturnValue))
+            var ReturnValue = new List<IService>();
+            if (Services.TryGetValue(new ServiceKey(serviceType, name), out ReturnValue))
             {
                 return ReturnValue;
             }
             var ServiceTypeInfo = serviceType.GetTypeInfo();
             if (ServiceTypeInfo.IsGenericType)
             {
-                Type OpenServiceType = serviceType.GetGenericTypeDefinition();
-                List<IGenericService> GenericServicesReturned = new List<IGenericService>();
-                if (GenericServices.TryGetValue(OpenServiceType, out GenericServicesReturned))
+                var OpenServiceType = serviceType.GetGenericTypeDefinition();
+                var GenericServicesReturned = new List<IGenericService>();
+                if (GenericServices.TryGetValue(new ServiceKey(OpenServiceType, name), out GenericServicesReturned))
                 {
                     foreach (var Item in GenericServicesReturned)
                     {
                         var ClosedService = Item.CreateService(serviceType);
                         if (ClosedService != null)
                         {
-                            Add(serviceType, ClosedService);
+                            Add(serviceType, name, ClosedService);
                         }
                     }
-                    Services.TryGetValue(serviceType, out ReturnValue);
+                    Services.TryGetValue(new ServiceKey(serviceType, name), out ReturnValue);
                 }
             }
             else if (!ServiceTypeInfo.IsGenericTypeDefinition &&
@@ -156,7 +208,7 @@ namespace Canister.Default.Services
                         !ServiceTypeInfo.IsInterface)
             {
                 var TempService = new ConstructorService(serviceType, serviceType, this, ServiceLifetime.Transient);
-                Add(serviceType, TempService);
+                Add(serviceType, name, TempService);
                 ReturnValue = new List<IService>();
                 ReturnValue.Add(TempService);
             }
@@ -167,11 +219,12 @@ namespace Canister.Default.Services
         /// Resolves the specified parameter type.
         /// </summary>
         /// <param name="parameterType">Type of the parameter.</param>
+        /// <param name="name">The name.</param>
         /// <returns>The object of the type specified.</returns>
-        public object Resolve(Type parameterType)
+        public object Resolve(Type parameterType, string name = "")
         {
             var ParameterTypeInfo = parameterType.GetTypeInfo();
-            return GetService(parameterType).Create(Provider);
+            return GetService(parameterType, name).Create(Provider);
         }
 
         private void SetupDescriptors(IEnumerable<ServiceDescriptor> descriptors)
@@ -195,15 +248,15 @@ namespace Canister.Default.Services
                         throw new ArgumentException("Implementation must be a class that can be activated");
                     }
 
-                    Add(Descriptor.ServiceType, new GenericService(Descriptor.ImplementationType, this, Descriptor.Lifetime));
+                    Add(Descriptor.ServiceType, "", new GenericService(Descriptor.ImplementationType, this, Descriptor.Lifetime));
                 }
                 else if (Descriptor.ImplementationInstance != null)
                 {
-                    Add(Descriptor.ServiceType, new InstanceService(Descriptor.ServiceType, Descriptor.ImplementationInstance, this, Descriptor.Lifetime));
+                    Add(Descriptor.ServiceType, "", new InstanceService(Descriptor.ServiceType, Descriptor.ImplementationInstance, this, Descriptor.Lifetime));
                 }
                 else if (Descriptor.ImplementationFactory != null)
                 {
-                    Add(Descriptor.ServiceType, new FactoryService(Descriptor.ServiceType, Descriptor.ImplementationFactory, this, Descriptor.Lifetime));
+                    Add(Descriptor.ServiceType, "", new FactoryService(Descriptor.ServiceType, Descriptor.ImplementationFactory, this, Descriptor.Lifetime));
                 }
                 else
                 {
@@ -216,7 +269,7 @@ namespace Canister.Default.Services
                         throw new ArgumentException("Implementation must be concrete");
                     }
 
-                    Add(Descriptor.ServiceType, new ConstructorService(Descriptor.ServiceType, Descriptor.ImplementationType, this, Descriptor.Lifetime));
+                    Add(Descriptor.ServiceType, "", new ConstructorService(Descriptor.ServiceType, Descriptor.ImplementationType, this, Descriptor.Lifetime));
                 }
             }
         }

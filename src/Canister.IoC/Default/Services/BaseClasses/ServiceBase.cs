@@ -38,6 +38,7 @@ namespace Canister.Default.Services.BaseClasses
         {
             Table = table;
             ReturnType = returnType;
+            LifetimeOfService = lifetime;
             if (lifetime == ServiceLifetime.Scoped)
                 Lifetime = new ScopedLifetime(InternalCreate, ReturnType);
             else if (lifetime == ServiceLifetime.Singleton)
@@ -47,10 +48,28 @@ namespace Canister.Default.Services.BaseClasses
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="ServiceBase"/> class.
+        /// </summary>
+        /// <param name="service">The service.</param>
+        protected ServiceBase(ServiceBase service)
+        {
+            Table = service.Table;
+            ReturnType = service.ReturnType;
+            Lifetime = service.Lifetime.Copy();
+            LifetimeOfService = service.LifetimeOfService;
+        }
+
+        /// <summary>
         /// Gets or sets the lifetime.
         /// </summary>
         /// <value>The lifetime.</value>
         public ILifetime Lifetime { get; set; }
+
+        /// <summary>
+        /// Gets the lifetime of service.
+        /// </summary>
+        /// <value>The lifetime of service.</value>
+        public ServiceLifetime LifetimeOfService { get; set; }
 
         /// <summary>
         /// Gets the type of the return.
@@ -65,6 +84,12 @@ namespace Canister.Default.Services.BaseClasses
         public ServiceTable Table { get; set; }
 
         /// <summary>
+        /// Copies this instance.
+        /// </summary>
+        /// <returns>A copy of this instance</returns>
+        public abstract IService Copy();
+
+        /// <summary>
         /// Creates the specified service
         /// </summary>
         /// <param name="provider">The provider.</param>
@@ -74,6 +99,24 @@ namespace Canister.Default.Services.BaseClasses
             return Lifetime.Resolve(provider);
         }
 
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting
+        /// unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
+            if (Lifetime == null)
+            {
+                Lifetime.Dispose();
+                Lifetime = null;
+            }
+        }
+
+        /// <summary>
+        /// Internals the create.
+        /// </summary>
+        /// <param name="provider">The provider.</param>
+        /// <returns>The resulting object</returns>
         protected abstract object InternalCreate(IServiceProvider provider);
     }
 }

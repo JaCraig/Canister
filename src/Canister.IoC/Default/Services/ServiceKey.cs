@@ -15,30 +15,36 @@ limitations under the License.
 */
 
 using System;
-using System.Linq;
-using System.Text;
 
-namespace Canister.IoC.Default.TypeBuilders.DataClasses
+namespace Canister.Default.Services
 {
     /// <summary>
-    /// Type array key class
+    /// Service key
     /// </summary>
-    public class TypeKey
+    public class ServiceKey
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TypeKey"/> class.
+        /// Initializes a new instance of the <see cref="ServiceKey"/> class.
         /// </summary>
-        /// <param name="keys">The keys.</param>
-        public TypeKey(Type[] keys)
+        /// <param name="objectType">Type of the object.</param>
+        /// <param name="name">The name.</param>
+        public ServiceKey(Type objectType, string name)
         {
-            Keys = keys;
+            Name = name;
+            ObjectType = objectType;
         }
 
         /// <summary>
-        /// Gets or sets the keys.
+        /// Gets or sets the name.
         /// </summary>
-        /// <value>The keys.</value>
-        public Type[] Keys { get; set; }
+        /// <value>The name.</value>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets the type of the object.
+        /// </summary>
+        /// <value>The type of the object.</value>
+        public Type ObjectType { get; private set; }
 
         /// <summary>
         /// Determines whether the specified <see cref="System.Object"/>, is equal to this instance.
@@ -50,12 +56,10 @@ namespace Canister.IoC.Default.TypeBuilders.DataClasses
         /// </returns>
         public override bool Equals(object obj)
         {
-            var TempObj = obj as TypeKey;
-            if (TempObj == null)
+            var key = obj as ServiceKey;
+            if (ReferenceEquals(key, null))
                 return false;
-            if (Keys.Length != TempObj.Keys.Length)
-                return false;
-            return Keys.All(TempObj.Keys.Contains);
+            return key.ObjectType == ObjectType && Name == key.Name;
         }
 
         /// <summary>
@@ -67,7 +71,10 @@ namespace Canister.IoC.Default.TypeBuilders.DataClasses
         /// </returns>
         public override int GetHashCode()
         {
-            return Keys.Sum(x => x.GetHashCode());
+            unchecked
+            {
+                return ObjectType.GetHashCode() + Name.GetHashCode();
+            }
         }
 
         /// <summary>
@@ -76,14 +83,7 @@ namespace Canister.IoC.Default.TypeBuilders.DataClasses
         /// <returns>A <see cref="System.String"/> that represents this instance.</returns>
         public override string ToString()
         {
-            var Builder = new StringBuilder();
-            string Seperator = "";
-            foreach (var Key in Keys)
-            {
-                Builder.AppendFormat("{0}{1}", Seperator, Key.Name);
-                Seperator = ",";
-            }
-            return Builder.ToString();
+            return Name + " : " + ObjectType;
         }
     }
 }

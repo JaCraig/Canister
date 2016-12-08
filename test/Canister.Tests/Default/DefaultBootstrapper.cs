@@ -192,7 +192,7 @@ namespace Canister.Tests.Default
 
         private Canister.Default.DefaultBootstrapper GetBootstrapper()
         {
-            return new Canister.Default.DefaultBootstrapper(new Assembly[] { typeof(DefaultBootstrapper).GetTypeInfo().Assembly }, typeof(DefaultBootstrapper).GetTypeInfo().Assembly.GetTypes());
+            return new Canister.Default.DefaultBootstrapper(new Assembly[] { typeof(DefaultBootstrapper).GetTypeInfo().Assembly }, new List<ServiceDescriptor>());
         }
 
         protected interface ITestClass

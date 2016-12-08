@@ -15,6 +15,7 @@ limitations under the License.
 */
 
 using Canister.Default.Services.BaseClasses;
+using Canister.Default.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
@@ -29,8 +30,20 @@ namespace Canister.Default.Services
         /// <summary>
         /// Initializes a new instance of the <see cref="InstanceService"/> class.
         /// </summary>
+        /// <param name="instanceService">The instance service.</param>
+        public InstanceService(InstanceService instanceService)
+            : base(instanceService)
+        {
+            ReturnValue = instanceService.ReturnValue;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InstanceService"/> class.
+        /// </summary>
         /// <param name="returnType">Type of the return.</param>
         /// <param name="returnValue">The return value.</param>
+        /// <param name="table">The table.</param>
+        /// <param name="lifetime">The lifetime.</param>
         public InstanceService(Type returnType, object returnValue, ServiceTable table, ServiceLifetime lifetime)
             : base(returnType, table, lifetime)
         {
@@ -42,6 +55,15 @@ namespace Canister.Default.Services
         /// </summary>
         /// <value>The return value.</value>
         public object ReturnValue { get; set; }
+
+        /// <summary>
+        /// Copies this instance.
+        /// </summary>
+        /// <returns>A copy of this instance</returns>
+        public override IService Copy()
+        {
+            return new InstanceService(this);
+        }
 
         /// <summary>
         /// Creates the specified service

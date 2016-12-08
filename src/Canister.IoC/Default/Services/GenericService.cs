@@ -31,12 +31,30 @@ namespace Canister.Default.Services
         /// <summary>
         /// Initializes a new instance of the <see cref="GenericService"/> class.
         /// </summary>
+        /// <param name="genericService">The generic service.</param>
+        public GenericService(GenericService genericService)
+            : base(genericService)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GenericService"/> class.
+        /// </summary>
         /// <param name="returnType">Type of the return.</param>
         /// <param name="table">The table.</param>
         /// <param name="lifetime">The lifetime.</param>
         public GenericService(Type returnType, ServiceTable table, ServiceLifetime lifetime)
             : base(returnType, table, lifetime)
         {
+        }
+
+        /// <summary>
+        /// Copies this instance.
+        /// </summary>
+        /// <returns>A copy of this instance</returns>
+        public override IGenericService Copy()
+        {
+            return new GenericService(this);
         }
 
         /// <summary>
@@ -47,7 +65,7 @@ namespace Canister.Default.Services
         public override IService CreateService(Type closedType)
         {
             Type[] GenericArguments = closedType.GetTypeInfo().GenericTypeArguments;
-            Type ClosedType = ReturnType.MakeGenericType(GenericArguments);
+            var ClosedType = ReturnType.MakeGenericType(GenericArguments);
             return new ConstructorService(ReturnType, ClosedType, Table, Lifetime);
         }
     }

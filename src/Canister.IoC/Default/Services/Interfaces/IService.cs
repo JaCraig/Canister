@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace Canister.Default.Services.Interfaces
@@ -21,13 +22,25 @@ namespace Canister.Default.Services.Interfaces
     /// <summary>
     /// Service interface
     /// </summary>
-    public interface IService
+    public interface IService : IDisposable
     {
+        /// <summary>
+        /// Gets the lifetime of service.
+        /// </summary>
+        /// <value>The lifetime of service.</value>
+        ServiceLifetime LifetimeOfService { get; }
+
         /// <summary>
         /// Gets the type of the return.
         /// </summary>
         /// <value>The type of the return.</value>
         Type ReturnType { get; }
+
+        /// <summary>
+        /// Copies this instance.
+        /// </summary>
+        /// <returns>A copy of this instance</returns>
+        IService Copy();
 
         /// <summary>
         /// Creates the specified service

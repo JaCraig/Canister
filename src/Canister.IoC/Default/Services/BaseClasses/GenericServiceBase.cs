@@ -37,6 +37,19 @@ namespace Canister.Default.Services.BaseClasses
             Lifetime = lifetime;
             Table = table;
             ReturnType = returnType;
+            LifetimeOfService = lifetime;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GenericServiceBase"/> class.
+        /// </summary>
+        /// <param name="genericService">The generic service.</param>
+        protected GenericServiceBase(GenericServiceBase genericService)
+        {
+            Lifetime = genericService.Lifetime;
+            Table = genericService.Table;
+            ReturnType = genericService.ReturnType;
+            LifetimeOfService = genericService.LifetimeOfService;
         }
 
         /// <summary>
@@ -44,6 +57,12 @@ namespace Canister.Default.Services.BaseClasses
         /// </summary>
         /// <value>The lifetime.</value>
         public ServiceLifetime Lifetime { get; set; }
+
+        /// <summary>
+        /// Gets the lifetime of service.
+        /// </summary>
+        /// <value>The lifetime of service.</value>
+        public ServiceLifetime LifetimeOfService { get; set; }
 
         /// <summary>
         /// Gets the type of the return.
@@ -56,6 +75,12 @@ namespace Canister.Default.Services.BaseClasses
         /// </summary>
         /// <value>The table.</value>
         public ServiceTable Table { get; set; }
+
+        /// <summary>
+        /// Copies this instance.
+        /// </summary>
+        /// <returns>A copy of this instance</returns>
+        public abstract IGenericService Copy();
 
         /// <summary>
         /// Creates the specified service

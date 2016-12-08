@@ -15,6 +15,7 @@ limitations under the License.
 */
 
 using Canister.Default.Services.BaseClasses;
+using Canister.Default.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
@@ -26,6 +27,16 @@ namespace Canister.Default.Services
     /// <seealso cref="ServiceBase"/>
     public class FactoryService : ServiceBase
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FactoryService"/> class.
+        /// </summary>
+        /// <param name="factoryService">The factory service.</param>
+        public FactoryService(FactoryService factoryService)
+            : base(factoryService)
+        {
+            Implementation = factoryService.Implementation;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FactoryService"/> class.
         /// </summary>
@@ -44,6 +55,15 @@ namespace Canister.Default.Services
         /// </summary>
         /// <value>The implementation.</value>
         public Func<IServiceProvider, object> Implementation { get; set; }
+
+        /// <summary>
+        /// Copies this instance.
+        /// </summary>
+        /// <returns>A copy of this instance</returns>
+        public override IService Copy()
+        {
+            return new FactoryService(this);
+        }
 
         /// <summary>
         /// Creates the specified service

@@ -43,10 +43,29 @@ namespace Canister.Default.Services
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="ClosedIEnumerableService"/> class.
+        /// </summary>
+        /// <param name="service">The service.</param>
+        public ClosedIEnumerableService(ClosedIEnumerableService service)
+            : base(service)
+        {
+            Services = service.Services;
+        }
+
+        /// <summary>
         /// Gets or sets the services.
         /// </summary>
         /// <value>The services.</value>
         public List<IService> Services { get; set; }
+
+        /// <summary>
+        /// Copies this instance.
+        /// </summary>
+        /// <returns>A copy of this instance</returns>
+        public override IService Copy()
+        {
+            return new ClosedIEnumerableService(this);
+        }
 
         /// <summary>
         /// Creates the specified service
