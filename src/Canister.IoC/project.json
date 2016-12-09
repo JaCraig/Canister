@@ -1,4 +1,4 @@
-﻿{
+{
   "title": "Canister IoC",
   "version": "1.0.0",
   "authors": [ "James Craig" ],
@@ -11,8 +11,8 @@
     "tags": [ "IoC", "DI", "Inversion of Control", "Dependency Injection" ]
   },
   "dependencies": {
-    "Microsoft.Extensions.DependencyInjection": "1.0.0",
-    "NETStandard.Library": "1.6.0"
+    "Microsoft.Extensions.DependencyInjection": "1.1.0",
+    "NETStandard.Library": "1.6.1"
   },
   "frameworks": {
     "netstandard1.1": {
