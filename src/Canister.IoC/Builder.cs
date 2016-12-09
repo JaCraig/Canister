@@ -46,15 +46,14 @@ namespace Canister
             assemblies = assemblies ?? new Assembly[0];
             var Assemblies = LoadAssemblies(assemblies);
             var LoadedTypes = Assemblies.SelectMany(x => x.ExportedTypes);
-            Bootstrapper = GetBootstrapper(Assemblies, LoadedTypes);
+            Bootstrapper = GetBootstrapper(Assemblies, LoadedTypes, descriptors);
             Bootstrapper.Register<IServiceProvider>(Bootstrapper, ServiceLifetime.Singleton);
             Bootstrapper.Register(Bootstrapper);
             RegisterModules();
-            RegisterServiceDescriptors(descriptors);
             return Bootstrapper;
         }
 
-        private static IBootstrapper GetBootstrapper(IEnumerable<Assembly> Assemblies, IEnumerable<Type> LoadedTypes)
+        private static IBootstrapper GetBootstrapper(IEnumerable<Assembly> Assemblies, IEnumerable<Type> LoadedTypes, IEnumerable<ServiceDescriptor> descriptors)
         {
             var Bootstrappers = LoadedTypes.Where(x => x.GetTypeInfo()
                                                         .ImplementedInterfaces
@@ -66,7 +65,7 @@ namespace Canister
                                                        .ToList();
             if (Bootstrappers.Count == 0)
                 Bootstrappers.Add(typeof(DefaultBootstrapper));
-            return (IBootstrapper)Activator.CreateInstance(Bootstrappers[0], Assemblies, LoadedTypes);
+            return (IBootstrapper)Activator.CreateInstance(Bootstrappers[0], Assemblies, descriptors);
         }
 
         private static IEnumerable<Assembly> LoadAssemblies(Assembly[] assemblies)
@@ -84,51 +83,6 @@ namespace Canister
             foreach (IModule Module in Bootstrapper.ResolveAll<IModule>().OrderBy(x => x.Order))
             {
                 Module.Load(Bootstrapper);
-            }
-        }
-
-        private static void RegisterServiceDescriptors(IEnumerable<ServiceDescriptor> descriptors)
-        {
-            var RegisterTypes = typeof(IBootstrapper).GetTypeInfo()
-                                                                 .GetDeclaredMethods("Register")
-                                                                 .First(x => x.GetGenericArguments().Count() == 2);
-            var RegisterFunc = typeof(IBootstrapper).GetTypeInfo()
-                                                    .GetDeclaredMethods("Register")
-                                                     .First(x => x.GetGenericArguments().Count() == 1 &&
-                                                            x.GetParameters().Count() == 3 &&
-                                                            x.GetParameters()[0].ParameterType.GenericTypeArguments.Length == 2);
-            var RegisterObj = typeof(IBootstrapper).GetTypeInfo()
-                                                    .GetDeclaredMethods("Register")
-                                                     .First(x => x.GetGenericArguments().Count() == 1 &&
-                                                            x.GetParameters().Count() == 3 &&
-                                                            x.GetParameters()[0].ParameterType.GenericTypeArguments.Length != 2);
-            foreach (var item in descriptors)
-            {
-                if (item.ImplementationType != null)
-                {
-                    var serviceTypeInfo = item.ServiceType.GetTypeInfo();
-                    if (serviceTypeInfo.IsGenericTypeDefinition)
-                    {
-                        var tempType = serviceTypeInfo.MakeGenericType(item.ServiceType);
-                        var tempRegistration = RegisterTypes.MakeGenericMethod(item.ImplementationType, tempType);
-                        tempRegistration.Invoke(Bootstrapper, new object[] { item.Lifetime, "" });
-                    }
-                    else
-                    {
-                        var tempRegistration = RegisterTypes.MakeGenericMethod(item.ImplementationType, item.ServiceType);
-                        tempRegistration.Invoke(Bootstrapper, new object[] { item.Lifetime, "" });
-                    }
-                }
-                else if (item.ImplementationFactory != null)
-                {
-                    var tempRegistration = RegisterFunc.MakeGenericMethod(item.ImplementationType, item.ServiceType);
-                    tempRegistration.Invoke(Bootstrapper, new object[] { item.ImplementationFactory, item.Lifetime, "" });
-                }
-                else
-                {
-                    var tempRegistration = RegisterObj.MakeGenericMethod(item.ImplementationType, item.ServiceType);
-                    tempRegistration.Invoke(Bootstrapper, new object[] { item.ImplementationInstance, item.Lifetime, "" });
-                }
             }
         }
     }

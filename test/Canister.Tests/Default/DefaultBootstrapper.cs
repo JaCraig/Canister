@@ -24,7 +24,7 @@ namespace Canister.Tests.Default
             Temp.RegisterAll<ITestClass>();
             Temp.Register<TestClass3>();
             Temp.Register<TestClass4>();
-            TestClass4 Object = Temp.Resolve<TestClass4>();
+            var Object = Temp.Resolve<TestClass4>();
             Assert.NotNull(Object);
             Assert.NotNull(Object.Class);
             Assert.Equal(2, Object.Class.Classes.Count());
@@ -89,14 +89,14 @@ namespace Canister.Tests.Default
         }
 
         [Fact]
-        public void FailedResolve()
+        public void FailedResolveSoCreateOnFly()
         {
             var Temp = GetBootstrapper();
             Temp.RegisterAll<ITestClass>();
             Temp.Register<TestClass4>();
             var Object = Temp.Resolve(typeof(TestClass4), new TestClass4()) as TestClass4;
             Assert.NotNull(Object);
-            Assert.Null(Object.Class);
+            Assert.NotNull(Object.Class);
         }
 
         [Fact]
@@ -118,7 +118,7 @@ namespace Canister.Tests.Default
             var Temp = GetBootstrapper();
             Temp.RegisterAll<ITestClass>();
             Temp.Register<TestClass3>();
-            TestClass3 Object = Temp.Resolve<TestClass3>();
+            var Object = Temp.Resolve<TestClass3>();
             Assert.NotNull(Object);
             Assert.Equal(2, Object.Classes.Count());
         }
@@ -131,7 +131,7 @@ namespace Canister.Tests.Default
             Assert.Equal(12, Temp.Resolve<TestClass>().A);
             Temp.Register<TestClass>();
             Assert.Equal(0, Temp.Resolve<TestClass>().A);
-            Temp.Register(x => new TestClass { A = 12 });
+            Temp.Register<TestClass>(x => new TestClass { A = 12 });
             Assert.Equal(12, Temp.Resolve<TestClass>().A);
             Temp.Register<ITestClass, TestClass>();
             Assert.Equal(0, Temp.Resolve<ITestClass>().A);
@@ -146,7 +146,7 @@ namespace Canister.Tests.Default
         {
             var Temp = GetBootstrapper();
             Temp.RegisterAll<ITestClass>();
-            Assert.Null(Temp.Resolve<ITestClass>());
+            Assert.NotNull(Temp.Resolve<ITestClass>());
             Assert.Equal(2, Temp.ResolveAll<ITestClass>().Count());
             Assert.NotNull(Temp.Resolve<TestClass>());
             Assert.NotNull(Temp.Resolve<TestClass2>());
@@ -169,7 +169,7 @@ namespace Canister.Tests.Default
             Temp.Register(new TestClass { A = 12 });
             Temp.Register(new TestClass { A = 13 }, ServiceLifetime.Transient, "A");
             Temp.Register(new TestClass { A = 14 }, ServiceLifetime.Transient, "B");
-            IEnumerable<TestClass> Objects = Temp.ResolveAll<TestClass>();
+            var Objects = Temp.ResolveAll<TestClass>();
             Assert.Equal(3, Objects.Count());
             foreach (TestClass Object in Objects)
             {
@@ -192,7 +192,7 @@ namespace Canister.Tests.Default
 
         private Canister.Default.DefaultBootstrapper GetBootstrapper()
         {
-            return new Canister.Default.DefaultBootstrapper(new Assembly[] { typeof(DefaultBootstrapper).GetTypeInfo().Assembly }, typeof(DefaultBootstrapper).GetTypeInfo().Assembly.GetTypes());
+            return new Canister.Default.DefaultBootstrapper(new Assembly[] { typeof(DefaultBootstrapper).GetTypeInfo().Assembly }, new List<ServiceDescriptor>());
         }
 
         protected interface ITestClass

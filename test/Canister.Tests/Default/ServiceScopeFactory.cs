@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
+using System.Reflection;
 using Xunit;
 
 namespace Canister.Tests.Default
@@ -24,7 +26,7 @@ namespace Canister.Tests.Default
 
         private Canister.Default.DefaultBootstrapper GetBootstrapper()
         {
-            return new Canister.Default.DefaultBootstrapper(new Assembly[] { typeof(DefaultBootstrapper).GetTypeInfo().Assembly }, typeof(DefaultBootstrapper).GetTypeInfo().Assembly.GetTypes());
+            return new Canister.Default.DefaultBootstrapper(new Assembly[] { typeof(DefaultBootstrapper).GetTypeInfo().Assembly }, new List<ServiceDescriptor>());
         }
     }
 }

@@ -56,7 +56,7 @@ namespace Canister.Interfaces
         /// <param name="name">The name.</param>
         /// <returns>This</returns>
         IBootstrapper Register<T>(ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
-            where T : class, new();
+            where T : class;
 
         /// <summary>
         /// Registers a type with the default constructor of a child class
@@ -78,7 +78,7 @@ namespace Canister.Interfaces
         /// <param name="lifeTime">The life time.</param>
         /// <param name="name">The name.</param>
         /// <returns>This</returns>
-        IBootstrapper Register<T>(Func<IServiceProvider, T> function, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
+        IBootstrapper Register<T>(Func<IServiceProvider, object> function, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
             where T : class;
 
         /// <summary>

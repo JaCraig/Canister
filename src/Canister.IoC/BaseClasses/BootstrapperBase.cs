@@ -33,11 +33,9 @@ namespace Canister.BaseClasses
         /// Constructor
         /// </summary>
         /// <param name="assemblies">The assemblies.</param>
-        /// <param name="types">The types.</param>
-        protected BootstrapperBase(IEnumerable<Assembly> assemblies, IEnumerable<Type> types)
+        protected BootstrapperBase(IEnumerable<Assembly> assemblies)
         {
             Assemblies = assemblies.ToList();
-            Types = types.ToList();
         }
 
         /// <summary>
@@ -57,12 +55,6 @@ namespace Canister.BaseClasses
         protected List<Assembly> Assemblies { get; set; }
 
         /// <summary>
-        /// Gets the types.
-        /// </summary>
-        /// <value>The types.</value>
-        protected List<Type> Types { get; private set; }
-
-        /// <summary>
         /// Adds the assembly.
         /// </summary>
         /// <param name="assemblies">The assemblies.</param>
@@ -75,12 +67,7 @@ namespace Canister.BaseClasses
             {
                 if (!Assemblies.Contains(TempAssembly))
                 {
-                    try
-                    {
-                        Types.AddRange(TempAssembly.ExportedTypes);
-                        Assemblies.Add(TempAssembly);
-                    }
-                    catch (ReflectionTypeLoadException) { }
+                    Assemblies.Add(TempAssembly);
                 }
             }
             return this;
@@ -124,7 +111,7 @@ namespace Canister.BaseClasses
         /// <param name="name">The name.</param>
         /// <returns>This</returns>
         public abstract IBootstrapper Register<T>(ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
-            where T : class, new();
+            where T : class;
 
         /// <summary>
         /// Registers a type with the default constructor of a child class
@@ -146,8 +133,7 @@ namespace Canister.BaseClasses
         /// <param name="lifeTime">The life time.</param>
         /// <param name="name">The name.</param>
         /// <returns>This</returns>
-        public abstract IBootstrapper Register<T>(Func<IServiceProvider, T> function, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
-            where T : class;
+        public abstract IBootstrapper Register<T>(Func<IServiceProvider, object> function, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "") where T : class;
 
         /// <summary>
         /// Registers all objects of a certain type with the bootstrapper
