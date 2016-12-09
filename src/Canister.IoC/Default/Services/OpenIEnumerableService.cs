@@ -66,7 +66,9 @@ namespace Canister.Default.Services
         {
             Type ObjectType = closedType.GetTypeInfo().GenericTypeArguments[0];
             var TempServices = Table.GetServices(ObjectType);
-            return TempServices.Count > 0 ? new ClosedIEnumerableService(ObjectType, TempServices, Table, Lifetime) : null;
+            return TempServices.Count > 0 ?
+                (IService)new ClosedIEnumerableService(ObjectType, TempServices, Table, Lifetime) :
+                (IService)new EmptyIEnumerableService(ObjectType, Table, Lifetime);
         }
     }
 }

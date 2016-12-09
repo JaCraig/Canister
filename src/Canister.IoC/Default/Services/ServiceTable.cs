@@ -54,6 +54,7 @@ namespace Canister.Default.Services
             Provider = table.Provider;
             Services = new ConcurrentDictionary<ServiceKey, List<IService>>();
             GenericServices = new ConcurrentDictionary<ServiceKey, List<IGenericService>>();
+
             foreach (var Key in table.Services)
             {
                 Services.AddOrUpdate(Key.Key,
@@ -162,6 +163,31 @@ namespace Canister.Default.Services
         }
 
         /// <summary>
+        /// Gets all services, regardless of name.
+        /// </summary>
+        /// <param name="serviceType">Type of the service.</param>
+        /// <returns>The services associated with the type.</returns>
+        public List<IService> GetAllServices(Type serviceType)
+        {
+            List<IService> ReturnValue = new List<IService>();
+            foreach (var Key in Services.Where(x => x.Key.ObjectType == serviceType))
+            {
+                ReturnValue.AddRange(GetServices(serviceType, Key.Key.Name));
+            }
+            if (ReturnValue.Count > 0)
+                return ReturnValue;
+            var ServiceTypeInfo = serviceType.GetTypeInfo();
+            if (ServiceTypeInfo.IsGenericType)
+            {
+                foreach (var Key in GenericServices.Where(x => x.Key.ObjectType == serviceType))
+                {
+                    ReturnValue.AddRange(GetServices(serviceType, Key.Key.Name));
+                }
+            }
+            return ReturnValue;
+        }
+
+        /// <summary>
         /// Gets the service specified.
         /// </summary>
         /// <param name="parameterType">Type of the parameter.</param>
@@ -169,7 +195,10 @@ namespace Canister.Default.Services
         /// <returns>The service associated with the parameter type.</returns>
         public IService GetService(Type parameterType, string name = "")
         {
-            return GetServices(parameterType, name).Last();
+            var ReturnedServices = GetServices(parameterType, name);
+            if (ReturnedServices.Count > 0)
+                return ReturnedServices.Last();
+            return null;
         }
 
         /// <summary>
@@ -223,13 +252,15 @@ namespace Canister.Default.Services
         /// <returns>The object of the type specified.</returns>
         public object Resolve(Type parameterType, string name = "")
         {
-            var ParameterTypeInfo = parameterType.GetTypeInfo();
-            return GetService(parameterType, name).Create(Provider);
+            var TempService = GetService(parameterType, name);
+            if (TempService != null)
+                return TempService.Create(Provider);
+            return null;
         }
 
         private void SetupDescriptors(IEnumerable<ServiceDescriptor> descriptors)
         {
-            foreach (var Descriptor in descriptors)
+            foreach (var Descriptor in descriptors.Where(x => x != null))
             {
                 var ServiceTypeInfo = Descriptor.ServiceType.GetTypeInfo();
                 if (ServiceTypeInfo.IsGenericTypeDefinition)

@@ -39,9 +39,9 @@ namespace Canister.Default
             : base(assemblies)
         {
             _AppContainer = new ServiceTable(descriptors, this);
-            Register<IScope, DefaultBootstrapper>();
-            Register<IServiceScope, DefaultBootstrapper>();
-            Register<DefaultBootstrapper, DefaultBootstrapper>();
+            Register<IScope>(this);
+            Register<IServiceScope>(this);
+            Register<DefaultBootstrapper>(this);
             Register<IServiceScopeFactory, ServiceScopeFactory>();
             Register<IScopeFactory, ServiceScopeFactory>();
             Register<ServiceScopeFactory, ServiceScopeFactory>();
@@ -241,7 +241,7 @@ namespace Canister.Default
         /// <returns>An IEnumerable containing all objects of the type specified</returns>
         public override IEnumerable<object> ResolveAll(Type objectType)
         {
-            return AppContainer.GetServices(objectType).Select(x => x.Create(this));
+            return AppContainer.GetAllServices(objectType).Select(x => x.Create(this));
         }
 
         /// <summary>

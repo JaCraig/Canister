@@ -89,14 +89,14 @@ namespace Canister.Tests.Default
         }
 
         [Fact]
-        public void FailedResolve()
+        public void FailedResolveSoCreateOnFly()
         {
             var Temp = GetBootstrapper();
             Temp.RegisterAll<ITestClass>();
             Temp.Register<TestClass4>();
             var Object = Temp.Resolve(typeof(TestClass4), new TestClass4()) as TestClass4;
             Assert.NotNull(Object);
-            Assert.Null(Object.Class);
+            Assert.NotNull(Object.Class);
         }
 
         [Fact]
@@ -146,7 +146,7 @@ namespace Canister.Tests.Default
         {
             var Temp = GetBootstrapper();
             Temp.RegisterAll<ITestClass>();
-            Assert.Null(Temp.Resolve<ITestClass>());
+            Assert.NotNull(Temp.Resolve<ITestClass>());
             Assert.Equal(2, Temp.ResolveAll<ITestClass>().Count());
             Assert.NotNull(Temp.Resolve<TestClass>());
             Assert.NotNull(Temp.Resolve<TestClass2>());
