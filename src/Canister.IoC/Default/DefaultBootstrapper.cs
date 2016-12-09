@@ -231,7 +231,7 @@ namespace Canister.Default
         /// <returns>An IEnumerable containing all objects of the type specified</returns>
         public override IEnumerable<T> ResolveAll<T>()
         {
-            return ResolveAll(typeof(T)).Select(x => (T)x);
+            return ResolveAll(typeof(T)).Select(x => (T)x).ToList();
         }
 
         /// <summary>
@@ -241,7 +241,7 @@ namespace Canister.Default
         /// <returns>An IEnumerable containing all objects of the type specified</returns>
         public override IEnumerable<object> ResolveAll(Type objectType)
         {
-            return AppContainer.GetAllServices(objectType).Select(x => x.Create(this));
+            return AppContainer.GetAllServices(objectType).Select(x => x.Create(this)).ToList();
         }
 
         /// <summary>
