@@ -136,6 +136,15 @@ namespace Canister.BaseClasses
         public abstract IBootstrapper Register<T>(Func<IServiceProvider, object> function, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "") where T : class;
 
         /// <summary>
+        /// Registers a generic type with the default constructor
+        /// </summary>
+        /// <param name="objectType">Type of the object.</param>
+        /// <param name="lifeTime">The life time.</param>
+        /// <param name="name">The name.</param>
+        /// <returns>This</returns>
+        public abstract IBootstrapper Register(Type objectType, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "");
+
+        /// <summary>
         /// Registers all objects of a certain type with the bootstrapper
         /// </summary>
         /// <typeparam name="T">Object type</typeparam>

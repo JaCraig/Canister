@@ -100,6 +100,18 @@ namespace Canister.Tests.Default
         }
 
         [Fact]
+        public void GenericTypeResolve()
+        {
+            var Temp = GetBootstrapper();
+            Temp.Register(new TestClass { A = 13 }, ServiceLifetime.Transient);
+            Temp.Register(typeof(GenericTestClass<>));
+            var Object = Temp.Resolve(typeof(GenericTestClass<TestClass>), new GenericTestClass<TestClass>(null)) as GenericTestClass<TestClass>;
+            Assert.NotNull(Object);
+            Assert.NotNull(Object.Value);
+            Assert.Equal(13, Object.Value.A);
+        }
+
+        [Fact]
         public void GetService()
         {
             var Temp = GetBootstrapper();
@@ -198,6 +210,16 @@ namespace Canister.Tests.Default
         protected interface ITestClass
         {
             int A { get; set; }
+        }
+
+        protected class GenericTestClass<T>
+        {
+            public GenericTestClass(T param1)
+            {
+                Value = param1;
+            }
+
+            public T Value { get; set; }
         }
 
         protected class TestClass : ITestClass

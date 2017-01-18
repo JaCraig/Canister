@@ -156,6 +156,22 @@ namespace Canister.Default
         }
 
         /// <summary>
+        /// Registers a generic type with the default constructor
+        /// </summary>
+        /// <param name="objectType">Type of the object.</param>
+        /// <param name="lifeTime">The life time.</param>
+        /// <param name="name">The name.</param>
+        /// <returns>This</returns>
+        public override IBootstrapper Register(Type objectType, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
+        {
+            if (objectType.GetTypeInfo().IsGenericTypeDefinition)
+                AppContainer.Add(objectType, "", new GenericService(objectType, AppContainer, lifeTime));
+            else
+                AppContainer.Add(objectType, name, new ConstructorService(objectType, objectType, AppContainer, lifeTime));
+            return this;
+        }
+
+        /// <summary>
         /// Registers all objects of a certain type with the bootstrapper
         /// </summary>
         /// <typeparam name="T">Object type</typeparam>

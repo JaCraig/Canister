@@ -59,6 +59,15 @@ namespace Canister.Interfaces
             where T : class;
 
         /// <summary>
+        /// Registers a generic type with the default constructor
+        /// </summary>
+        /// <param name="objectType">Type of the object.</param>
+        /// <param name="lifeTime">The life time.</param>
+        /// <param name="name">The name.</param>
+        /// <returns>This</returns>
+        IBootstrapper Register(Type objectType, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "");
+
+        /// <summary>
         /// Registers a type with the default constructor of a child class
         /// </summary>
         /// <typeparam name="T1">Base class/interface type</typeparam>
