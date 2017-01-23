@@ -49,7 +49,6 @@ namespace Canister
             Bootstrapper = GetBootstrapper(Assemblies, LoadedTypes, descriptors);
             Bootstrapper.Register<IServiceProvider>(Bootstrapper, ServiceLifetime.Singleton);
             Bootstrapper.Register(Bootstrapper);
-            RegisterModules();
             return Bootstrapper;
         }
 
@@ -75,15 +74,6 @@ namespace Canister
             if (Assemblies.Count == 0 || !Assemblies.Contains(typeof(Builder).GetTypeInfo().Assembly))
                 Assemblies.Add(typeof(Builder).GetTypeInfo().Assembly);
             return Assemblies;
-        }
-
-        private static void RegisterModules()
-        {
-            Bootstrapper.RegisterAll<IModule>();
-            foreach (IModule Module in Bootstrapper.ResolveAll<IModule>().OrderBy(x => x.Order))
-            {
-                Module.Load(Bootstrapper);
-            }
         }
     }
 }

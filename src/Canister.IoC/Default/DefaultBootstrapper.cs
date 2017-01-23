@@ -287,14 +287,5 @@ namespace Canister.Default
             }
             base.Dispose(managed);
         }
-
-        private bool IsOfType(TypeInfo x, TypeInfo type)
-        {
-            if (x == typeof(object).GetTypeInfo() || x == null)
-                return false;
-            if (x == type || x.ImplementedInterfaces.Any(y => y.GetTypeInfo() == type))
-                return true;
-            return IsOfType(x.BaseType.GetTypeInfo(), type);
-        }
     }
 }

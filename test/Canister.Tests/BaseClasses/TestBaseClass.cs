@@ -9,7 +9,9 @@ namespace Canister.Tests.BaseClasses
         protected TestBaseClass()
         {
             if (Canister.Builder.Bootstrapper == null)
-                Canister.Builder.CreateContainer(new List<ServiceDescriptor>(), typeof(TestBaseClass).GetTypeInfo().Assembly);
+                Canister.Builder.CreateContainer(new List<ServiceDescriptor>())
+                    .AddAssembly(typeof(TestBaseClass).GetTypeInfo().Assembly)
+                    .Build();
         }
     }
 }

@@ -35,7 +35,14 @@ namespace Canister.Interfaces
         /// Adds the assembly.
         /// </summary>
         /// <param name="assemblies">The assemblies.</param>
+        /// <returns>This</returns>
         IBootstrapper AddAssembly(params Assembly[] assemblies);
+
+        /// <summary>
+        /// Builds this instance, loads all modules, etc.
+        /// </summary>
+        /// <returns>This</returns>
+        IBootstrapper Build();
 
         /// <summary>
         /// Registers an object with the bootstrapper

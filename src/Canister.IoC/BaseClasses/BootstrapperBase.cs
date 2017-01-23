@@ -74,6 +74,20 @@ namespace Canister.BaseClasses
         }
 
         /// <summary>
+        /// Builds this instance, loads all modules, etc.
+        /// </summary>
+        /// <returns>This</returns>
+        public IBootstrapper Build()
+        {
+            RegisterAll<IModule>();
+            foreach (IModule ResolvedModule in ResolveAll<IModule>().OrderBy(x => x.Order))
+            {
+                ResolvedModule.Load(this);
+            }
+            return this;
+        }
+
+        /// <summary>
         /// Disposes of the object
         /// </summary>
         public void Dispose()
@@ -213,6 +227,21 @@ namespace Canister.BaseClasses
         /// </param>
         protected virtual void Dispose(bool managed)
         {
+        }
+
+        /// <summary>
+        /// Determines whether [is of type] [the specified type].
+        /// </summary>
+        /// <param name="x">The type to check.</param>
+        /// <param name="type">The type to check against.</param>
+        /// <returns><c>true</c> if [is of type] [the specified type]; otherwise, <c>false</c>.</returns>
+        protected bool IsOfType(TypeInfo x, TypeInfo type)
+        {
+            if (x == typeof(object).GetTypeInfo() || x == null)
+                return false;
+            if (x == type || x.ImplementedInterfaces.Any(y => y.GetTypeInfo() == type))
+                return true;
+            return IsOfType(x.BaseType.GetTypeInfo(), type);
         }
 
         /// <summary>
