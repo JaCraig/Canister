@@ -8,12 +8,15 @@ Canister is a simple Inversion of Control container wrapper. It can be used by i
 
 The system has a fairly simple interface and only a couple of functions that need explaining. The first is setup:
 
-    using (IBootstrapper Bootstrapper = Canister.Builder.CreateContainer(new List<ServiceDescriptor>(), typeof(MyClass).Assembly, typeof(IMyInterface).Assembly)
+    using (IBootstrapper Bootstrapper = Canister.Builder.CreateContainer(new List<ServiceDescriptor>())
+                                                        .AddAssembly(typeof(MyClass).Assembly)
+                                                        .AddAssembly(typeof(IMyInterface).Assembly)
+                                                        .Build())
 	{
 		...
 	}
 	
-The CreateContainer function initializes the IoC container and returns it ready for use. If using ASP.Net MVC Core, it accepts the current ServiceDescriptors from the built in IoC container and adds them to the system. You may also pass in other assemblies that you want it to search in for modules and classes. Once created it can be accessed here:
+The CreateContainer function initializes the IoC container and returns it. If using ASP.Net MVC Core, it accepts the current ServiceDescriptors from the built in IoC container and adds them to the system. You may also pass in other assemblies that you want it to search in for modules and classes as either parameters or by calling AddAssembly on the IBootstrapper object that is returned. Finally calling Build() on the IBootstrapper will register and call any IModules that are found in the assemblies specified. Once created it can be accessed here:
 
     IBootstrapper Bootstrapper = Canister.Builder.Bootstrapper;
 	
@@ -35,6 +38,16 @@ The Resolve function resolves an individual item of the type specified based on 
 	
 The ResolveAll function, on the other hand, will resolve all objects that are associated with the class or interface specified. Generally speaking you would use this in conjunction with RegisterAll.
 
+## Generic types
+
+It is possible to register open generic types in the system:
+
+    Canister.Builder.Bootstrapper.Register(typeof(GenericExampleClass<>));
+
+This class can then be resolved by supplying a closed generic type to the Resolve function:
+
+    GenericExampleClass<AnotherClass> MyObject=Canister.Builder.Bootstrapper.Resolve(typeof(GenericExampleClass<AnotherClass>)) as GenericExampleClass<AnotherClass>;
+
 ## Modules
 
 Generally speaking though you should register and wire up your objects by using modules. Under Canister.Interfaces there is the IModule interface. This interface, when implemented, has two items in it. The first is a property called Order. This determines the order that the modules are loaded in. The second is a function called Load:
@@ -54,7 +67,11 @@ The module above is loaded automatically by the system and will have the Load fu
 
 ## Wrapping Other IoC Containers
 
-While the system has a default bootstrapper, it is possible to wrap other IoC containers. In order to do this, simply wrap the other IoC container in a class that implements the Canister.Interfaces.IBootstrapper interface. You may also like to use the Canister.BaseClasses.BootstrapperBase abstract class but is not required by the system. The system will then automatically detect the bootstrapper in your code when initializing the system and use that instead of the default IoC container. It will, however still register and call the modules that it finds in the system regardless of the IoC container used.
+While the system has a default bootstrapper, it is possible to wrap other IoC containers. In order to do this, simply wrap the other IoC container in a class that implements the Canister.Interfaces.IBootstrapper interface. You may also like to use the Canister.BaseClasses.BootstrapperBase abstract class but is not required by the system. The system will then automatically detect the bootstrapper in your code when initializing the system and use that instead of the default IoC container. However you must register/resolve the modules within the Builder method as it does not happen automatically.
+
+## Using Canister in Your library
+
+If you wish to use Canister in your library it is recommended that you build an extension method off of the IBootstrapper interface that will allow you to register your needed assemblies for the user to make the experience a bit simpler.
 
 ## Installation
 
