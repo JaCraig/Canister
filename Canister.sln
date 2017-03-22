@@ -1,22 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A22C6ABE-F5A0-4353-9783-BE76E9E5C66A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AE662B5A-1274-40C6-8FE5-180456C2A692}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{08338D52-A2D3-4F1B-81B7-E115A53ABF90}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Canister.Tests", "test\Canister.Tests\Canister.Tests.xproj", "{55FF9EE1-AF91-47F0-AD2D-1AE72817FEAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canister.Tests", "test\Canister.Tests\Canister.Tests.csproj", "{55FF9EE1-AF91-47F0-AD2D-1AE72817FEAB}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Canister.IoC", "src\Canister.IoC\Canister.IoC.xproj", "{AB6B2461-F558-48F9-82E9-00367D253F43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canister.IoC", "src\Canister.IoC\Canister.IoC.csproj", "{AB6B2461-F558-48F9-82E9-00367D253F43}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SimpleMVCTest", "test\SimpleMVCTest\SimpleMVCTest.xproj", "{A2DE2FC4-E332-42E5-AC7C-CF32263A49B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleMVCTest", "test\SimpleMVCTest\SimpleMVCTest.csproj", "{A2DE2FC4-E332-42E5-AC7C-CF32263A49B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
