@@ -81,9 +81,8 @@ Install-Package Canister.IoC
 
 ## Build Process
 
-In order to build the library you will require the following:
+In order to build the library you may require the following:
 
-1. Visual Studio 2015 with Update 3
-2. .Net Core 1.0 SDK
+1. Visual Studio 2017
 
 Other than that, just clone the project and you should be able to load the solution and build without too much effort.
