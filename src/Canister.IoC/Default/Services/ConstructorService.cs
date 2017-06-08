@@ -98,7 +98,7 @@ namespace Canister.Default.Services
                 foreach (var Parameter in TempConstructor.GetParameters())
                 {
                     var TempServices = Table.GetServices(Parameter.ParameterType);
-                    if (TempServices.Count == 0)
+                    if (TempServices.Count == 0 && !Parameter.IsOptional)
                     {
                         Found = false;
                         break;
@@ -116,7 +116,7 @@ namespace Canister.Default.Services
             var ReturnObject = new object[Parameters.Length];
             for (int x = 0; x < Parameters.Length; ++x)
             {
-                ReturnObject[x] = Table.Resolve(Parameters[x].ParameterType);
+                ReturnObject[x] = Table.Resolve(Parameters[x].ParameterType) ?? Parameters[x].DefaultValue;
             }
             return ReturnObject;
         }

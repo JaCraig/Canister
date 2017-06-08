@@ -104,8 +104,10 @@ namespace Canister.Default.Services
             Services.AddOrUpdate(new ServiceKey(serviceType, name),
                 x =>
                 {
-                    var TempList = new List<IService>();
-                    TempList.Add(instanceService);
+                    var TempList = new List<IService>
+                    {
+                        instanceService
+                    };
                     return TempList;
                 },
                 (x, y) =>
@@ -126,8 +128,10 @@ namespace Canister.Default.Services
             GenericServices.AddOrUpdate(new ServiceKey(serviceType, name),
                 x =>
                 {
-                    var TempList = new List<IGenericService>();
-                    TempList.Add(genericService);
+                    var TempList = new List<IGenericService>
+                    {
+                        genericService
+                    };
                     return TempList;
                 },
                 (x, y) =>
@@ -238,8 +242,10 @@ namespace Canister.Default.Services
             {
                 var TempService = new ConstructorService(serviceType, serviceType, this, ServiceLifetime.Transient);
                 Add(serviceType, name, TempService);
-                ReturnValue = new List<IService>();
-                ReturnValue.Add(TempService);
+                ReturnValue = new List<IService>
+                {
+                    TempService
+                };
             }
             return ReturnValue ?? new List<IService>();
         }

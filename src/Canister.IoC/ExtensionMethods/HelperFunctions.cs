@@ -23,8 +23,7 @@ namespace Canister.ExtensionMethods
         {
             while (true)
             {
-                TValue value;
-                if (dictionary.TryGetValue(key, out value))
+                if (dictionary.TryGetValue(key, out TValue value))
                 {
                     return value;
                 }

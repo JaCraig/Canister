@@ -30,6 +30,7 @@ namespace Canister.Tests.Default.Services
         [InlineData(typeof(ClassWithMultipleConstructors), typeof(ClassWithMultipleConstructors), 2)]
         [InlineData(typeof(ClassWithParameterlessPublicConstructor), typeof(ClassWithParameterlessPublicConstructor), 12)]
         [InlineData(typeof(ClassWithUnresolvableEnumerableParameters), typeof(ClassWithUnresolvableEnumerableParameters), 0)]
+        [InlineData(typeof(ClassWithOptionalParameters), typeof(ClassWithOptionalParameters), 123)]
         public void Create(Type returnType, Type implementationType, int value)
         {
             var TestObject = new ConstructorService(returnType, implementationType, Table, ServiceLifetime.Transient);

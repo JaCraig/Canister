@@ -56,8 +56,7 @@ namespace Canister.Default.Lifetimes
         /// </summary>
         public override void Dispose()
         {
-            var tempValue = ResolvedObject as IDisposable;
-            if (tempValue != null)
+            if (ResolvedObject is IDisposable tempValue)
             {
                 tempValue.Dispose();
                 ResolvedObject = null;

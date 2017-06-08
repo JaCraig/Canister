@@ -32,12 +32,8 @@ namespace Canister.Default.Lifetimes.BaseClasses
         /// <param name="returnType">Type of the object.</param>
         protected LifetimeBase(Func<IServiceProvider, object> implementation, Type returnType)
         {
-            if (implementation == null)
-                throw new ArgumentNullException(nameof(implementation));
-            if (returnType == null)
-                throw new ArgumentNullException(nameof(returnType));
-            Implementation = implementation;
-            ReturnType = returnType;
+            Implementation = implementation ?? throw new ArgumentNullException(nameof(implementation));
+            ReturnType = returnType ?? throw new ArgumentNullException(nameof(returnType));
         }
 
         /// <summary>
