@@ -16,6 +16,7 @@ namespace Canister.Tests.Default.Services.BaseClasses
             Table.Add(typeof(IGenericInterface<>), "", new GenericService(typeof(GenericClass<>), Table, ServiceLifetime.Transient));
             Table.Add(typeof(int), "", new InstanceService(typeof(int), 1, Table, ServiceLifetime.Transient));
             Table.Add(typeof(int), "", new InstanceService(typeof(int), 2, Table, ServiceLifetime.Transient));
+            Table.Add(typeof(string), "", new InstanceService(typeof(string), "", Table, ServiceLifetime.Transient));
         }
 
         public ServiceTable Table { get; set; }
