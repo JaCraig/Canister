@@ -79,6 +79,7 @@ namespace Canister.BaseClasses
         /// <returns>This</returns>
         public IBootstrapper Build()
         {
+            Register<IEnumerable<Assembly>>(Assemblies);
             RegisterAll<IModule>();
             foreach (IModule ResolvedModule in ResolveAll<IModule>().OrderBy(x => x.Order))
             {
