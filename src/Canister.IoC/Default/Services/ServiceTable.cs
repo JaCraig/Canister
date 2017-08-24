@@ -147,17 +147,20 @@ namespace Canister.Default.Services
         /// </summary>
         public void Dispose()
         {
-            if (Services != null)
+            lock (Services)
             {
-                var ItemsToDispose = Services.Values.Reverse().SelectMany(x => x);
-                if (Parent != null)
-                    ItemsToDispose = ItemsToDispose.Where(x => x.LifetimeOfService == ServiceLifetime.Scoped);
-                foreach (IDisposable Item in ItemsToDispose)
+                if (Services != null)
                 {
-                    Item.Dispose();
+                    var ItemsToDispose = Services.Values.Reverse().SelectMany(x => x);
+                    if (Parent != null)
+                        ItemsToDispose = ItemsToDispose.Where(x => x.LifetimeOfService == ServiceLifetime.Scoped);
+                    foreach (IDisposable Item in ItemsToDispose)
+                    {
+                        Item.Dispose();
+                    }
+                    Services.Clear();
+                    Services = null;
                 }
-                Services.Clear();
-                Services = null;
             }
             if (GenericServices != null)
             {
@@ -196,10 +199,11 @@ namespace Canister.Default.Services
         /// </summary>
         /// <param name="parameterType">Type of the parameter.</param>
         /// <param name="name">The name.</param>
+        /// <param name="lifeTimeOfService">The life time of service.</param>
         /// <returns>The service associated with the parameter type.</returns>
-        public IService GetService(Type parameterType, string name = "")
+        public IService GetService(Type parameterType, string name = "", ServiceLifetime lifeTimeOfService = ServiceLifetime.Transient)
         {
-            var ReturnedServices = GetServices(parameterType, name);
+            var ReturnedServices = GetServices(parameterType, name, lifeTimeOfService);
             if (ReturnedServices.Count > 0)
                 return ReturnedServices.Last();
             return null;
@@ -210,8 +214,9 @@ namespace Canister.Default.Services
         /// </summary>
         /// <param name="serviceType">Type of the service.</param>
         /// <param name="name">The name.</param>
+        /// <param name="lifeTimeOfService">The life time of service.</param>
         /// <returns>The list of services that satisfy the request</returns>
-        public List<IService> GetServices(Type serviceType, string name = "")
+        public List<IService> GetServices(Type serviceType, string name = "", ServiceLifetime lifeTimeOfService = ServiceLifetime.Transient)
         {
             var ReturnValue = new List<IService>();
             if (Services.TryGetValue(new ServiceKey(serviceType, name), out ReturnValue))
@@ -240,7 +245,7 @@ namespace Canister.Default.Services
                         !ServiceTypeInfo.IsAbstract &&
                         !ServiceTypeInfo.IsInterface)
             {
-                var TempService = new ConstructorService(serviceType, serviceType, this, ServiceLifetime.Transient);
+                var TempService = new ConstructorService(serviceType, serviceType, this, lifeTimeOfService);
                 Add(serviceType, name, TempService);
                 ReturnValue = new List<IService>
                 {
@@ -255,10 +260,11 @@ namespace Canister.Default.Services
         /// </summary>
         /// <param name="parameterType">Type of the parameter.</param>
         /// <param name="name">The name.</param>
+        /// <param name="lifeTimeOfService">The life time of service.</param>
         /// <returns>The object of the type specified.</returns>
-        public object Resolve(Type parameterType, string name = "")
+        public object Resolve(Type parameterType, string name = "", ServiceLifetime lifeTimeOfService = ServiceLifetime.Transient)
         {
-            var TempService = GetService(parameterType, name);
+            var TempService = GetService(parameterType, name, lifeTimeOfService);
             if (TempService != null)
                 return TempService.Create(Provider);
             return null;

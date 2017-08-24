@@ -69,7 +69,7 @@ namespace Canister.Default.Lifetimes
         /// <returns>The object to resolve</returns>
         public override object Resolve(IServiceProvider provider)
         {
-            if (Equals(ResolvedObject, null))
+            if (ReferenceEquals(ResolvedObject, null))
                 ResolvedObject = Implementation(provider);
             return ResolvedObject;
         }

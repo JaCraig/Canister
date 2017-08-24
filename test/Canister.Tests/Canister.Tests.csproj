@@ -4,7 +4,7 @@
     <Description>Tests for Canister</Description>
     <AssemblyTitle>Canister.Tests</AssemblyTitle>
     <Authors>James Craig</Authors>
-    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <DebugType>portable</DebugType>
     <AssemblyName>Canister.Tests</AssemblyName>
     <PackageId>Canister.Tests</PackageId>
@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
     <PackageReference Include="xunit" Version="2.2.0" />
   </ItemGroup>

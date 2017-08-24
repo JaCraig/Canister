@@ -116,8 +116,8 @@ namespace Canister.Default.Services
             var ReturnObject = new object[Parameters.Length];
             for (int x = 0; x < Parameters.Length; ++x)
             {
-                ReturnObject[x] = Table.Resolve(Parameters[x].ParameterType);
-                if (ReturnObject[x] == null && Parameters[x].IsOptional)
+                ReturnObject[x] = Table.Resolve(Parameters[x].ParameterType, "", LifetimeOfService);
+                if (ReferenceEquals(ReturnObject[x], null) && Parameters[x].IsOptional)
                     ReturnObject[x] = Parameters[x].DefaultValue;
             }
             return ReturnObject;

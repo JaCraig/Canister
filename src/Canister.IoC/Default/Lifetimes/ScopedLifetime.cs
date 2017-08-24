@@ -58,9 +58,12 @@ namespace Canister.Default.Lifetimes
         {
             if (ResolvedObject is IDisposable tempValue)
             {
-                tempValue.Dispose();
-                ResolvedObject = null;
+                if (tempValue != null)
+                {
+                    tempValue.Dispose();
+                }
             }
+            ResolvedObject = null;
         }
 
         /// <summary>
@@ -70,7 +73,7 @@ namespace Canister.Default.Lifetimes
         /// <returns>The object to resolve</returns>
         public override object Resolve(IServiceProvider provider)
         {
-            if (Equals(ResolvedObject, null))
+            if (ReferenceEquals(ResolvedObject, null))
                 ResolvedObject = Implementation(provider);
             return ResolvedObject;
         }

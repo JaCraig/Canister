@@ -59,6 +59,11 @@ namespace Canister.Default
         }
 
         /// <summary>
+        /// The application container
+        /// </summary>
+        private ServiceTable _AppContainer;
+
+        /// <summary>
         /// Name of the bootstrapper
         /// </summary>
         public override string Name => "Default bootstrapper";
@@ -79,11 +84,6 @@ namespace Canister.Default
         /// </summary>
         /// <value>The parent.</value>
         private DefaultBootstrapper Parent { get; set; }
-
-        /// <summary>
-        /// The application container
-        /// </summary>
-        private ServiceTable _AppContainer;
 
         /// <summary>
         /// Creates a new sub scope.

@@ -105,7 +105,7 @@ namespace Canister.Default.Services.BaseClasses
         /// </summary>
         public void Dispose()
         {
-            if (Lifetime == null)
+            if (Lifetime != null)
             {
                 Lifetime.Dispose();
                 Lifetime = null;
