@@ -179,7 +179,14 @@ namespace Canister.Default
         /// <returns>This</returns>
         public override IBootstrapper RegisterAll<T>(ServiceLifetime lifeTime = ServiceLifetime.Transient)
         {
-            foreach (TypeInfo TempType in Assemblies.SelectMany(x => x.DefinedTypes)
+            foreach (TypeInfo TempType in Assemblies.SelectMany(x =>
+            {
+                try
+                {
+                    return x.DefinedTypes;
+                }
+                catch { return new TypeInfo[0]; }
+            })
                                                 .Where(x => x.IsClass
                                                     && !x.IsAbstract
                                                     && !x.ContainsGenericParameters
