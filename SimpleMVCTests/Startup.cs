@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Reflection;
 
 namespace SimpleMVCTests
@@ -40,10 +39,10 @@ namespace SimpleMVCTests
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public IServiceProvider ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            return Canister.Builder.CreateContainer(services)
+            Canister.Builder.CreateContainer(services)
                                             .AddAssembly(typeof(Startup).GetTypeInfo().Assembly)
                                             .Build();
         }

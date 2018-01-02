@@ -57,7 +57,7 @@ namespace Canister.Default.Services
         public override bool Equals(object obj)
         {
             var key = obj as ServiceKey;
-            if (ReferenceEquals(key, null))
+            if (key is null)
                 return false;
             return key.ObjectType == ObjectType && Name == key.Name;
         }
