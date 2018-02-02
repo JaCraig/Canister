@@ -55,7 +55,7 @@ namespace Canister.Tests.Default.Lifetimes
                 Assert.NotNull(Temp);
                 Assert.Equal(typeof(TransientTestClass), Temp.ReturnType);
                 var Value = Temp.Resolve(null);
-                Assert.IsType(typeof(TransientTestClass), Value);
+                Assert.IsType<TransientTestClass>(Value);
                 var Value2 = Temp.Resolve(null);
                 Assert.NotSame(Value, Value2);
             }

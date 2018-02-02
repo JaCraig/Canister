@@ -49,7 +49,7 @@ namespace Canister.Tests.Default.Lifetimes
                 Assert.NotNull(Temp);
                 Assert.Equal(typeof(ScopedTestClass), Temp.ReturnType);
                 var Value = Temp.Resolve(null);
-                Assert.IsType(typeof(ScopedTestClass), Value);
+                Assert.IsType<ScopedTestClass>(Value);
                 var Value2 = Temp.Resolve(null);
                 Assert.Same(Value, Value2);
             }

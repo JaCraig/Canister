@@ -24,7 +24,7 @@ namespace Canister.Tests.Default.Services
         };
 
         [Theory]
-        [MemberData("Data")]
+        [MemberData(nameof(Data))]
         public void Create(Type returnType, ISimpleInterface instance, int value)
         {
             var TestObject = new InstanceService(returnType, instance, Table, ServiceLifetime.Transient);

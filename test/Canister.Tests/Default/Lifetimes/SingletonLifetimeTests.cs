@@ -49,7 +49,7 @@ namespace Canister.Tests.Default.Lifetimes
                 Assert.NotNull(Temp);
                 Assert.Equal(typeof(SingletonTestClass), Temp.ReturnType);
                 var Value = Temp.Resolve(null);
-                Assert.IsType(typeof(SingletonTestClass), Value);
+                Assert.IsType<SingletonTestClass>(Value);
                 var Value2 = Temp.Resolve(null);
                 Assert.Same(Value, Value2);
             }

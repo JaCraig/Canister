@@ -14,8 +14,8 @@ namespace Canister.Tests.ErrorCases
             Temp.RegisterAll<IService>();
             var TestObjects = Temp.ResolveAll<IService>();
             Assert.Equal(2, TestObjects.Count());
-            Assert.True(TestObjects.Any(x => x.Name == "MyTestService1"));
-            Assert.True(TestObjects.Any(x => x.Name == "MyTestService2"));
+            Assert.Contains(TestObjects, x => x.Name == "MyTestService1");
+            Assert.Contains(TestObjects, x => x.Name == "MyTestService2");
         }
 
         public interface IService

@@ -19,6 +19,7 @@ using Canister.Default.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 
 namespace Canister.Default.Services
@@ -37,6 +38,9 @@ namespace Canister.Default.Services
             : base(constructorService)
         {
             ImplementationType = constructorService.ImplementationType;
+            Constructors = constructorService.Constructors;
+            Implementation = constructorService.Implementation;
+            Constructor = constructorService.Constructor;
         }
 
         /// <summary>
@@ -50,19 +54,41 @@ namespace Canister.Default.Services
             : base(returnType, table, lifetime)
         {
             ImplementationType = implementationType;
+            var TempConstructors = ImplementationType.GetConstructors(BindingFlags.Public | BindingFlags.Instance).OrderByDescending(x => x.GetParameters().Length).ToArray();
+            Constructors = new CachedConstructorInfo[TempConstructors.Length];
+            for (int x = 0, TempConstructorsLength = TempConstructors.Length; x < TempConstructorsLength; ++x)
+            {
+                Constructors[x] = new CachedConstructorInfo
+                {
+                    Constructor = TempConstructors[x],
+                    Parameters = TempConstructors[x].GetParameters()
+                };
+            }
         }
-
-        /// <summary>
-        /// Gets or sets the constructor.
-        /// </summary>
-        /// <value>The constructor.</value>
-        public ConstructorInfo Constructor { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the implementation.
         /// </summary>
         /// <value>The type of the implementation.</value>
         public Type ImplementationType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the constructor.
+        /// </summary>
+        /// <value>The constructor.</value>
+        private CachedConstructorInfo Constructor { get; set; }
+
+        /// <summary>
+        /// Gets or sets the constructors.
+        /// </summary>
+        /// <value>The constructors.</value>
+        private CachedConstructorInfo[] Constructors { get; set; }
+
+        /// <summary>
+        /// Gets or sets the implementation.
+        /// </summary>
+        /// <value>The implementation.</value>
+        private Func<IServiceProvider, object> Implementation { get; set; }
 
         /// <summary>
         /// Copies this instance.
@@ -80,23 +106,53 @@ namespace Canister.Default.Services
         /// <returns>The resulting object</returns>
         protected override object InternalCreate(IServiceProvider provider)
         {
-            if (Constructor == null)
+            if (Constructor is null)
                 Constructor = FindConstructor();
-            if (Constructor != null)
-            {
-                return Constructor.Invoke(GetParameters());
-            }
-            return null;
+
+            if (Implementation is null && LifetimeOfService != ServiceLifetime.Singleton)
+                Implementation = CreateFunc(Constructor);
+
+            if (!(Implementation is null))
+                return Implementation(provider);
+
+            return !(Constructor is null) ? Constructor.Constructor.Invoke(GetParameters()) : null;
         }
 
-        private ConstructorInfo FindConstructor()
+        /// <summary>
+        /// Creates the function.
+        /// </summary>
+        /// <param name="constructor">The constructor.</param>
+        /// <returns></returns>
+        private Func<IServiceProvider, object> CreateFunc(CachedConstructorInfo constructor)
         {
-            var Constructors = ImplementationType.GetTypeInfo().DeclaredConstructors.Where(x => x.IsPublic).OrderByDescending(x => x.GetParameters().Length);
-            foreach (var TempConstructor in Constructors)
+            if (Constructor is null) return null;
+            ParameterExpression ServiceProviderParameter = Expression.Parameter(typeof(IServiceProvider));
+            Expression[] parameters = new Expression[constructor.Parameters.Length];
+            MethodInfo ServiceMethod = typeof(IServiceProvider).GetMethod("GetService");
+            for (int x = 0, parametersLength = parameters.Length; x < parametersLength; ++x)
             {
+                var ExpressionConstant = Expression.Constant(constructor.Parameters[x].ParameterType, typeof(Type));
+                parameters[x] = Expression.Convert(Expression.Call(ServiceProviderParameter, ServiceMethod, ExpressionConstant), constructor.Parameters[x].ParameterType);
+            }
+            NewExpression newExpression = Expression.New(constructor.Constructor, parameters);
+            LambdaExpression lambda = Expression.Lambda<Func<IServiceProvider, object>>(newExpression, ServiceProviderParameter);
+            return (Func<IServiceProvider, object>)lambda.Compile();
+        }
+
+        /// <summary>
+        /// Finds the constructor.
+        /// </summary>
+        /// <returns>The appropriate construtor</returns>
+        private CachedConstructorInfo FindConstructor()
+        {
+            for (int x = 0, ConstructorsLength = Constructors.Length; x < ConstructorsLength; x++)
+            {
+                var TempConstructor = Constructors[x];
                 bool Found = true;
-                foreach (var Parameter in TempConstructor.GetParameters())
+                var Parameters = TempConstructor.Parameters;
+                for (int y = 0, maxLength = Parameters.Length; y < maxLength; y++)
                 {
+                    var Parameter = Parameters[y];
                     var TempServices = Table.GetServices(Parameter.ParameterType);
                     if (TempServices.Count == 0 && !Parameter.IsOptional)
                     {
@@ -104,23 +160,48 @@ namespace Canister.Default.Services
                         break;
                     }
                 }
+
                 if (Found)
                     return TempConstructor;
             }
+
             return null;
         }
 
+        /// <summary>
+        /// Gets the parameters if using the constructor.
+        /// </summary>
+        /// <returns>Called to get the parameters.</returns>
         private object[] GetParameters()
         {
-            var Parameters = Constructor.GetParameters();
+            var Parameters = Constructor.Parameters;
             var ReturnObject = new object[Parameters.Length];
-            for (int x = 0; x < Parameters.Length; ++x)
+            for (int x = 0, ParametersLength = Parameters.Length; x < ParametersLength; ++x)
             {
-                ReturnObject[x] = Table.Resolve(Parameters[x].ParameterType, "", LifetimeOfService);
-                if (ReturnObject[x] is null && Parameters[x].IsOptional)
-                    ReturnObject[x] = Parameters[x].DefaultValue;
+                var TempParameter = Parameters[x];
+                ReturnObject[x] = Table.Resolve(TempParameter.ParameterType, "", LifetimeOfService);
+                if (ReturnObject[x] is null && TempParameter.IsOptional)
+                    ReturnObject[x] = TempParameter.DefaultValue;
             }
             return ReturnObject;
+        }
+
+        /// <summary>
+        /// Caches the constructor info.
+        /// </summary>
+        private class CachedConstructorInfo
+        {
+            /// <summary>
+            /// Gets or sets the constructor.
+            /// </summary>
+            /// <value>The constructor.</value>
+            public ConstructorInfo Constructor { get; set; }
+
+            /// <summary>
+            /// Gets or sets the parameters.
+            /// </summary>
+            /// <value>The parameters.</value>
+            public ParameterInfo[] Parameters { get; set; }
         }
     }
 }

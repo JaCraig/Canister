@@ -12,7 +12,7 @@ namespace Canister.Tests
         {
             IBootstrapper Temp = Canister.Builder.Bootstrapper;
             Assert.NotNull(Temp);
-            Assert.IsType(typeof(DefaultBootstrapper), Temp);
+            Assert.IsType<DefaultBootstrapper>(Temp);
             Assert.Equal("Default bootstrapper", Temp.Name);
             Temp.ToString();
         }

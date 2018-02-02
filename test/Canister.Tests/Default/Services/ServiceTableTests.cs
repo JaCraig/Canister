@@ -20,7 +20,7 @@ namespace Canister.Tests.Default.Services
         public void Create()
         {
             var TestObject = new ServiceTable(new List<ServiceDescriptor>(), null);
-            Assert.Equal(null, TestObject.Provider);
+            Assert.Null(TestObject.Provider);
         }
 
         [Fact]

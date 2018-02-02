@@ -24,7 +24,7 @@ namespace Canister.Tests.Default.Services
         };
 
         [Theory]
-        [MemberData("Data")]
+        [MemberData(nameof(Data))]
         public void Create(Type returnType, Func<IServiceProvider, object> func, int value)
         {
             var TestObject = new FactoryService(returnType, func, Table, ServiceLifetime.Transient);

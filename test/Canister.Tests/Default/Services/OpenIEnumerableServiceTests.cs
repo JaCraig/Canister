@@ -25,7 +25,7 @@ namespace Canister.Tests.Default.Services
             var TestObject = new OpenIEnumerableService(typeof(IEnumerable<>), Table, ServiceLifetime.Transient);
             Assert.Equal(typeof(IEnumerable<>), TestObject.ReturnType);
             var ReturnedList = (float[])TestObject.CreateService(typeof(IEnumerable<float>)).Create(null);
-            Assert.Equal(1, ReturnedList.Length);
+            Assert.Single(ReturnedList);
             Assert.Equal(0, ReturnedList[0]);
         }
 

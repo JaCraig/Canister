@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A22C6ABE-F5A0-4353-9783-BE76E9E5C66A}"
 EndProject
@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canister.Tests", "test\Cani
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canister.IoC", "src\Canister.IoC\Canister.IoC.csproj", "{AB6B2461-F558-48F9-82E9-00367D253F43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMVCTests", "SimpleMVCTests\SimpleMVCTests.csproj", "{5444EA49-D7A7-4158-AE59-ED4503A94EDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleMVCTests", "SimpleMVCTests\SimpleMVCTests.csproj", "{5444EA49-D7A7-4158-AE59-ED4503A94EDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canister.Benchmarks", "Canister.Benchmarks\Canister.Benchmarks.csproj", "{A5E5EC6E-29BD-4A94-9FD8-44B44B520861}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{5444EA49-D7A7-4158-AE59-ED4503A94EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5444EA49-D7A7-4158-AE59-ED4503A94EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5444EA49-D7A7-4158-AE59-ED4503A94EDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5E5EC6E-29BD-4A94-9FD8-44B44B520861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5E5EC6E-29BD-4A94-9FD8-44B44B520861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5E5EC6E-29BD-4A94-9FD8-44B44B520861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5E5EC6E-29BD-4A94-9FD8-44B44B520861}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{55FF9EE1-AF91-47F0-AD2D-1AE72817FEAB} = {08338D52-A2D3-4F1B-81B7-E115A53ABF90}
 		{AB6B2461-F558-48F9-82E9-00367D253F43} = {A22C6ABE-F5A0-4353-9783-BE76E9E5C66A}
 		{5444EA49-D7A7-4158-AE59-ED4503A94EDF} = {08338D52-A2D3-4F1B-81B7-E115A53ABF90}
+		{A5E5EC6E-29BD-4A94-9FD8-44B44B520861} = {08338D52-A2D3-4F1B-81B7-E115A53ABF90}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {65A3E030-B4BC-476E-8CF5-B52FBD376439}

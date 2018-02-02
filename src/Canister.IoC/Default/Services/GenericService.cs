@@ -18,7 +18,6 @@ using Canister.Default.Services.BaseClasses;
 using Canister.Default.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Reflection;
 
 namespace Canister.Default.Services
 {
@@ -64,7 +63,7 @@ namespace Canister.Default.Services
         /// <returns>The resulting object</returns>
         public override IService CreateService(Type closedType)
         {
-            Type[] GenericArguments = closedType.GetTypeInfo().GenericTypeArguments;
+            Type[] GenericArguments = closedType.GenericTypeArguments;
             var ClosedType = ReturnType.MakeGenericType(GenericArguments);
             return new ConstructorService(ReturnType, ClosedType, Table, Lifetime);
         }

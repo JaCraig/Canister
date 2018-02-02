@@ -20,7 +20,6 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
 namespace Canister.Default.Services
 {
@@ -183,8 +182,7 @@ namespace Canister.Default.Services
             }
             if (ReturnValue.Count > 0)
                 return ReturnValue;
-            var ServiceTypeInfo = serviceType.GetTypeInfo();
-            if (ServiceTypeInfo.IsGenericType)
+            if (serviceType.IsGenericType)
             {
                 foreach (var Key in GenericServices.Where(x => x.Key.ObjectType == serviceType))
                 {
@@ -223,27 +221,28 @@ namespace Canister.Default.Services
             {
                 return ReturnValue;
             }
-            var ServiceTypeInfo = serviceType.GetTypeInfo();
-            if (ServiceTypeInfo.IsGenericType)
+            if (serviceType.IsGenericType)
             {
                 var OpenServiceType = serviceType.GetGenericTypeDefinition();
                 var GenericServicesReturned = new List<IGenericService>();
                 if (GenericServices.TryGetValue(new ServiceKey(OpenServiceType, name), out GenericServicesReturned))
                 {
-                    foreach (var Item in GenericServicesReturned)
+                    for (int i = 0, GenericServicesReturnedCount = GenericServicesReturned.Count; i < GenericServicesReturnedCount; i++)
                     {
+                        var Item = GenericServicesReturned[i];
                         var ClosedService = Item.CreateService(serviceType);
                         if (ClosedService != null)
                         {
                             Add(serviceType, name, ClosedService);
                         }
                     }
+
                     Services.TryGetValue(new ServiceKey(serviceType, name), out ReturnValue);
                 }
             }
-            else if (!ServiceTypeInfo.IsGenericTypeDefinition &&
-                        !ServiceTypeInfo.IsAbstract &&
-                        !ServiceTypeInfo.IsInterface)
+            else if (!serviceType.IsGenericTypeDefinition &&
+                        !serviceType.IsAbstract &&
+                        !serviceType.IsInterface)
             {
                 var TempService = new ConstructorService(serviceType, serviceType, this, lifeTimeOfService);
                 Add(serviceType, name, TempService);
@@ -274,10 +273,9 @@ namespace Canister.Default.Services
         {
             foreach (var Descriptor in descriptors.Where(x => x != null))
             {
-                var ServiceTypeInfo = Descriptor.ServiceType.GetTypeInfo();
-                if (ServiceTypeInfo.IsGenericTypeDefinition)
+                if (Descriptor.ServiceType.IsGenericTypeDefinition)
                 {
-                    var implementationTypeInfo = Descriptor.ImplementationType?.GetTypeInfo();
+                    var implementationTypeInfo = Descriptor.ImplementationType;
 
                     if (implementationTypeInfo == null ||
                         !implementationTypeInfo.IsGenericTypeDefinition)
@@ -303,7 +301,7 @@ namespace Canister.Default.Services
                 }
                 else
                 {
-                    var ImplementationTypeInfo = Descriptor.ImplementationType.GetTypeInfo();
+                    var ImplementationTypeInfo = Descriptor.ImplementationType;
 
                     if (ImplementationTypeInfo.IsGenericTypeDefinition ||
                         ImplementationTypeInfo.IsAbstract ||

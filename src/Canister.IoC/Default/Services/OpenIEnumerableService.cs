@@ -18,7 +18,6 @@ using Canister.Default.Services.BaseClasses;
 using Canister.Default.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Reflection;
 
 namespace Canister.Default.Services
 {
@@ -64,7 +63,7 @@ namespace Canister.Default.Services
         /// <returns>The resulting object</returns>
         public override IService CreateService(Type closedType)
         {
-            Type ObjectType = closedType.GetTypeInfo().GenericTypeArguments[0];
+            Type ObjectType = closedType.GenericTypeArguments[0];
             var TempServices = Table.GetServices(ObjectType);
             return TempServices.Count > 0 ?
                 (IService)new ClosedIEnumerableService(ObjectType, TempServices, Table, Lifetime) :

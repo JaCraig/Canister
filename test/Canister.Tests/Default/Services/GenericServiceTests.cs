@@ -16,7 +16,7 @@ namespace Canister.Tests.Default.Services
         {
             var TestObject = new GenericService(returnType, Table, ServiceLifetime.Transient);
             Assert.Equal(returnType, TestObject.ReturnType);
-            var ReturnedValue = (ISimpleInterface)TestObject.CreateService(closedType).Create(null);
+            var ReturnedValue = (ISimpleInterface)TestObject.CreateService(closedType).Create(ServiceProvider);
             Assert.Equal(value, ReturnedValue.Value);
         }
 

@@ -35,8 +35,13 @@ namespace Canister.BaseClasses
         /// <param name="assemblies">The assemblies.</param>
         protected BootstrapperBase(IEnumerable<Assembly> assemblies)
         {
-            Assemblies = assemblies.ToList();
+            Assemblies = assemblies.ToArray();
         }
+
+        /// <summary>
+        /// The IoC container
+        /// </summary>
+        public abstract Container AppContainer { get; }
 
         /// <summary>
         /// Name of the bootstrapper
@@ -44,15 +49,10 @@ namespace Canister.BaseClasses
         public abstract string Name { get; }
 
         /// <summary>
-        /// The IoC container
-        /// </summary>
-        protected abstract Container AppContainer { get; }
-
-        /// <summary>
         /// Gets the assemblies.
         /// </summary>
         /// <value>The assemblies.</value>
-        protected List<Assembly> Assemblies { get; set; }
+        protected Assembly[] Assemblies { get; set; }
 
         /// <summary>
         /// Adds the assembly.
@@ -63,13 +63,17 @@ namespace Canister.BaseClasses
         {
             if (assemblies == null || assemblies.Length == 0)
                 return this;
-            foreach (Assembly TempAssembly in assemblies)
+            List<Assembly> TempAssemblies = new List<Assembly>(Assemblies);
+            for (int i = 0, assembliesLength = assemblies.Length; i < assembliesLength; i++)
             {
-                if (!Assemblies.Contains(TempAssembly))
+                Assembly TempAssembly = assemblies[i];
+                if (!TempAssemblies.Contains(TempAssembly))
                 {
-                    Assemblies.Add(TempAssembly);
+                    TempAssemblies.Add(TempAssembly);
                 }
             }
+            Assemblies = TempAssemblies.ToArray();
+
             return this;
         }
 
@@ -236,13 +240,13 @@ namespace Canister.BaseClasses
         /// <param name="x">The type to check.</param>
         /// <param name="type">The type to check against.</param>
         /// <returns><c>true</c> if [is of type] [the specified type]; otherwise, <c>false</c>.</returns>
-        protected bool IsOfType(TypeInfo x, TypeInfo type)
+        protected bool IsOfType(Type x, Type type)
         {
-            if (x == typeof(object).GetTypeInfo() || x == null)
+            if (x == typeof(object) || x == null)
                 return false;
-            if (x == type || x.ImplementedInterfaces.Any(y => y.GetTypeInfo() == type))
+            if (x == type || x.GetInterfaces().Any(y => y == type))
                 return true;
-            return IsOfType(x.BaseType.GetTypeInfo(), type);
+            return IsOfType(x.BaseType, type);
         }
 
         /// <summary>

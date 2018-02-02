@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Canister.Tests.Default
 {
-    public class DefaultBootstrapper
+    public class DefaultBootstrapperTests
     {
         [Fact]
         public void AddAssembly()
@@ -204,7 +204,7 @@ namespace Canister.Tests.Default
 
         private Canister.Default.DefaultBootstrapper GetBootstrapper()
         {
-            return new Canister.Default.DefaultBootstrapper(new Assembly[] { typeof(DefaultBootstrapper).GetTypeInfo().Assembly }, new List<ServiceDescriptor>());
+            return new Canister.Default.DefaultBootstrapper(new Assembly[] { typeof(DefaultBootstrapperTests).GetTypeInfo().Assembly }, new List<ServiceDescriptor>());
         }
 
         protected interface ITestClass

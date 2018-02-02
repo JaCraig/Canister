@@ -54,13 +54,12 @@ namespace Canister
 
         private static IBootstrapper GetBootstrapper(IEnumerable<Assembly> Assemblies, IEnumerable<Type> LoadedTypes, IEnumerable<ServiceDescriptor> descriptors)
         {
-            var Bootstrappers = LoadedTypes.Where(x => x.GetTypeInfo()
-                                                        .ImplementedInterfaces
+            var Bootstrappers = LoadedTypes.Where(x => x.GetInterfaces()
                                                         .Contains(typeof(IBootstrapper))
-                                                            && x.GetTypeInfo().IsClass
-                                                            && !x.GetTypeInfo().IsAbstract
-                                                            && !x.GetTypeInfo().ContainsGenericParameters
-                                                            && !x.GetTypeInfo().Namespace.StartsWith("CANISTER", StringComparison.OrdinalIgnoreCase))
+                                                            && x.IsClass
+                                                            && !x.IsAbstract
+                                                            && !x.ContainsGenericParameters
+                                                            && !x.Namespace.StartsWith("CANISTER", StringComparison.OrdinalIgnoreCase))
                                                        .ToList();
             if (Bootstrappers.Count == 0)
                 Bootstrappers.Add(typeof(DefaultBootstrapper));
@@ -71,8 +70,8 @@ namespace Canister
         {
             var Assemblies = new List<Assembly>();
             Assemblies.AddRange(assemblies);
-            if (Assemblies.Count == 0 || !Assemblies.Contains(typeof(Builder).GetTypeInfo().Assembly))
-                Assemblies.Add(typeof(Builder).GetTypeInfo().Assembly);
+            if (Assemblies.Count == 0 || !Assemblies.Contains(typeof(Builder).Assembly))
+                Assemblies.Add(typeof(Builder).Assembly);
             return Assemblies;
         }
     }

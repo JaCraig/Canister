@@ -31,17 +31,17 @@ namespace Canister.Tests.Default.Services
         {
             var ServicesToUse = new IService[] { }.ToList();
             var TestObject = new ClosedIEnumerableService(typeof(int), ServicesToUse, Table, ServiceLifetime.Transient);
-            Assert.Equal(0, TestObject.Services.Count);
+            Assert.Empty(TestObject.Services);
             Assert.Equal(typeof(int), TestObject.ReturnType);
             var ReturnedList = (int[])TestObject.Create(null);
-            Assert.Equal(0, ReturnedList.Length);
+            Assert.Empty(ReturnedList);
         }
 
         [Fact]
         public void Creation()
         {
             var TestObject = new ClosedIEnumerableService(typeof(int), new List<IService>(), Table, ServiceLifetime.Transient);
-            Assert.Equal(0, TestObject.Services.Count);
+            Assert.Empty(TestObject.Services);
             Assert.Equal(typeof(int), TestObject.ReturnType);
         }
     }

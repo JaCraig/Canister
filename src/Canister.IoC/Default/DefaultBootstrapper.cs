@@ -64,6 +64,11 @@ namespace Canister.Default
         private ServiceTable _AppContainer;
 
         /// <summary>
+        /// The IoC container
+        /// </summary>
+        public override ServiceTable AppContainer => _AppContainer;
+
+        /// <summary>
         /// Name of the bootstrapper
         /// </summary>
         public override string Name => "Default bootstrapper";
@@ -73,11 +78,6 @@ namespace Canister.Default
         /// </summary>
         /// <value>The service provider.</value>
         public IServiceProvider ServiceProvider => this;
-
-        /// <summary>
-        /// The IoC container
-        /// </summary>
-        protected override ServiceTable AppContainer => _AppContainer;
 
         /// <summary>
         /// Gets or sets the parent.
@@ -117,7 +117,7 @@ namespace Canister.Default
         /// <returns>This</returns>
         public override IBootstrapper Register<T>(ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
         {
-            if (typeof(T).GetTypeInfo().IsGenericTypeDefinition)
+            if (typeof(T).IsGenericTypeDefinition)
                 AppContainer.Add(typeof(T), "", new GenericService(typeof(T), AppContainer, lifeTime));
             else
                 AppContainer.Add(typeof(T), name, new ConstructorService(typeof(T), typeof(T), AppContainer, lifeTime));
@@ -134,7 +134,7 @@ namespace Canister.Default
         /// <returns>This</returns>
         public override IBootstrapper Register<T1, T2>(ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
         {
-            if (typeof(T1).GetTypeInfo().IsGenericTypeDefinition && typeof(T2).GetTypeInfo().IsGenericTypeDefinition)
+            if (typeof(T1).IsGenericTypeDefinition && typeof(T2).IsGenericTypeDefinition)
                 AppContainer.Add(typeof(T1), "", new GenericService(typeof(T2), AppContainer, lifeTime));
             else
                 AppContainer.Add(typeof(T1), name, new ConstructorService(typeof(T1), typeof(T2), AppContainer, lifeTime));
@@ -164,7 +164,7 @@ namespace Canister.Default
         /// <returns>This</returns>
         public override IBootstrapper Register(Type objectType, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
         {
-            if (objectType.GetTypeInfo().IsGenericTypeDefinition)
+            if (objectType.IsGenericTypeDefinition)
                 AppContainer.Add(objectType, "", new GenericService(objectType, AppContainer, lifeTime));
             else
                 AppContainer.Add(objectType, name, new ConstructorService(objectType, objectType, AppContainer, lifeTime));
@@ -179,20 +179,20 @@ namespace Canister.Default
         /// <returns>This</returns>
         public override IBootstrapper RegisterAll<T>(ServiceLifetime lifeTime = ServiceLifetime.Transient)
         {
-            foreach (TypeInfo TempType in Assemblies.SelectMany(x =>
+            foreach (Type TempType in Assemblies.SelectMany(x =>
             {
                 try
                 {
-                    return x.DefinedTypes;
+                    return x.GetTypes();
                 }
-                catch { return new TypeInfo[0]; }
+                catch { return new Type[0]; }
             })
                                                 .Where(x => x.IsClass
                                                     && !x.IsAbstract
                                                     && !x.ContainsGenericParameters
-                                                    && IsOfType(x, typeof(T).GetTypeInfo())))
+                                                    && IsOfType(x, typeof(T))))
             {
-                AppContainer.Add(typeof(T), "", new ConstructorService(typeof(T), TempType.AsType(), AppContainer, lifeTime));
+                AppContainer.Add(typeof(T), "", new ConstructorService(typeof(T), TempType, AppContainer, lifeTime));
             }
             return this;
         }
