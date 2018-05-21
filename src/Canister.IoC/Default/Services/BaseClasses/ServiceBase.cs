@@ -75,7 +75,7 @@ namespace Canister.Default.Services.BaseClasses
         /// Gets the type of the return.
         /// </summary>
         /// <value>The type of the return.</value>
-        public Type ReturnType { get; private set; }
+        public Type ReturnType { get; }
 
         /// <summary>
         /// Gets or sets the table.

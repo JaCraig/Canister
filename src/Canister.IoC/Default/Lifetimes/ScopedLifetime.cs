@@ -58,10 +58,7 @@ namespace Canister.Default.Lifetimes
         {
             if (ResolvedObject is IDisposable tempValue)
             {
-                if (tempValue != null)
-                {
-                    tempValue.Dispose();
-                }
+                tempValue?.Dispose();
             }
             ResolvedObject = null;
         }

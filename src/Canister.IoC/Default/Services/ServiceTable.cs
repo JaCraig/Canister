@@ -84,7 +84,7 @@ namespace Canister.Default.Services
         /// Gets or sets the parent.
         /// </summary>
         /// <value>The parent.</value>
-        private ServiceTable Parent { get; set; }
+        private ServiceTable Parent { get; }
 
         /// <summary>
         /// Gets or sets the services.
@@ -240,9 +240,9 @@ namespace Canister.Default.Services
                     Services.TryGetValue(new ServiceKey(serviceType, name), out ReturnValue);
                 }
             }
-            else if (!serviceType.IsGenericTypeDefinition &&
-                        !serviceType.IsAbstract &&
-                        !serviceType.IsInterface)
+            else if (!serviceType.IsGenericTypeDefinition
+                        && !serviceType.IsAbstract
+                        && !serviceType.IsInterface)
             {
                 var TempService = new ConstructorService(serviceType, serviceType, this, lifeTimeOfService);
                 Add(serviceType, name, TempService);
@@ -277,14 +277,13 @@ namespace Canister.Default.Services
                 {
                     var implementationTypeInfo = Descriptor.ImplementationType;
 
-                    if (implementationTypeInfo == null ||
-                        !implementationTypeInfo.IsGenericTypeDefinition)
+                    if (implementationTypeInfo?.IsGenericTypeDefinition != true)
                     {
                         throw new ArgumentException("Implementation must be open generic");
                     }
 
-                    if (implementationTypeInfo.IsAbstract ||
-                        implementationTypeInfo.IsInterface)
+                    if (implementationTypeInfo.IsAbstract
+                        || implementationTypeInfo.IsInterface)
                     {
                         throw new ArgumentException("Implementation must be a class that can be activated");
                     }
@@ -303,9 +302,9 @@ namespace Canister.Default.Services
                 {
                     var ImplementationTypeInfo = Descriptor.ImplementationType;
 
-                    if (ImplementationTypeInfo.IsGenericTypeDefinition ||
-                        ImplementationTypeInfo.IsAbstract ||
-                        ImplementationTypeInfo.IsInterface)
+                    if (ImplementationTypeInfo.IsGenericTypeDefinition
+                        || ImplementationTypeInfo.IsAbstract
+                        || ImplementationTypeInfo.IsInterface)
                     {
                         throw new ArgumentException("Implementation must be concrete");
                     }

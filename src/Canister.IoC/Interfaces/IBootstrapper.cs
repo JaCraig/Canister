@@ -83,8 +83,8 @@ namespace Canister.Interfaces
         /// <param name="name">The name.</param>
         /// <returns>This</returns>
         IBootstrapper Register<T1, T2>(ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
-            where T2 : class, T1
-            where T1 : class;
+            where T1 : class
+            where T2 : class, T1;
 
         /// <summary>
         /// Registers a type with a function

@@ -82,7 +82,7 @@ namespace Canister.Default.Services
         /// Gets or sets the constructors.
         /// </summary>
         /// <value>The constructors.</value>
-        private CachedConstructorInfo[] Constructors { get; set; }
+        private CachedConstructorInfo[] Constructors { get; }
 
         /// <summary>
         /// Gets or sets the implementation.
@@ -115,7 +115,7 @@ namespace Canister.Default.Services
             if (!(Implementation is null))
                 return Implementation(provider);
 
-            return !(Constructor is null) ? Constructor.Constructor.Invoke(GetParameters()) : null;
+            return Constructor?.Constructor.Invoke(GetParameters());
         }
 
         /// <summary>

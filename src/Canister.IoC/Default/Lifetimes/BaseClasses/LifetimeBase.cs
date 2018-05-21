@@ -46,7 +46,7 @@ namespace Canister.Default.Lifetimes.BaseClasses
         /// Gets the type of the object.
         /// </summary>
         /// <value>The type of the object.</value>
-        public Type ReturnType { get; private set; }
+        public Type ReturnType { get; }
 
         /// <summary>
         /// Copies this instance.

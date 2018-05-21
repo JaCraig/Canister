@@ -83,7 +83,7 @@ namespace Canister.Default
         /// Gets or sets the parent.
         /// </summary>
         /// <value>The parent.</value>
-        private DefaultBootstrapper Parent { get; set; }
+        private DefaultBootstrapper Parent { get; }
 
         /// <summary>
         /// Creates a new sub scope.

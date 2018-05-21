@@ -44,7 +44,7 @@ namespace Canister.Default.Services
         /// Gets the type of the object.
         /// </summary>
         /// <value>The type of the object.</value>
-        public Type ObjectType { get; private set; }
+        public Type ObjectType { get; }
 
         /// <summary>
         /// Determines whether the specified <see cref="System.Object"/>, is equal to this instance.
@@ -56,8 +56,7 @@ namespace Canister.Default.Services
         /// </returns>
         public override bool Equals(object obj)
         {
-            var key = obj as ServiceKey;
-            if (key is null)
+            if (!(obj is ServiceKey key))
                 return false;
             return key.ObjectType == ObjectType && Name == key.Name;
         }
