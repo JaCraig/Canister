@@ -109,7 +109,7 @@ namespace Canister.Default.Services
             if (Constructor is null)
                 Constructor = FindConstructor();
 
-            if (Implementation is null && LifetimeOfService != ServiceLifetime.Singleton)
+            if (Implementation is null && LifetimeOfService == ServiceLifetime.Transient)
                 Implementation = CreateFunc(Constructor);
 
             if (!(Implementation is null))
@@ -131,8 +131,19 @@ namespace Canister.Default.Services
             MethodInfo ServiceMethod = typeof(IServiceProvider).GetMethod("GetService");
             for (int x = 0, parametersLength = parameters.Length; x < parametersLength; ++x)
             {
-                var ExpressionConstant = Expression.Constant(constructor.Parameters[x].ParameterType, typeof(Type));
-                parameters[x] = Expression.Convert(Expression.Call(ServiceProviderParameter, ServiceMethod, ExpressionConstant), constructor.Parameters[x].ParameterType);
+                if (constructor.Parameters[x].ParameterType.IsValueType && !constructor.Parameters[x].IsOptional)
+                {
+                    parameters[x] = Expression.Constant(Activator.CreateInstance(constructor.Parameters[x].ParameterType), constructor.Parameters[x].ParameterType);
+                }
+                else if (constructor.Parameters[x].ParameterType.IsValueType && constructor.Parameters[x].IsOptional)
+                {
+                    parameters[x] = Expression.Constant(constructor.Parameters[x].DefaultValue, constructor.Parameters[x].ParameterType);
+                }
+                else
+                {
+                    var ExpressionConstant = Expression.Constant(constructor.Parameters[x].ParameterType, typeof(Type));
+                    parameters[x] = Expression.Convert(Expression.Call(ServiceProviderParameter, ServiceMethod, ExpressionConstant), constructor.Parameters[x].ParameterType);
+                }
             }
             NewExpression newExpression = Expression.New(constructor.Constructor, parameters);
             LambdaExpression lambda = Expression.Lambda<Func<IServiceProvider, object>>(newExpression, ServiceProviderParameter);
