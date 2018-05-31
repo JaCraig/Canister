@@ -89,14 +89,14 @@ namespace Canister.Tests.Default
         }
 
         [Fact]
-        public void FailedResolveSoCreateOnFly()
+        public void FailedResolveDependency()
         {
             var Temp = GetBootstrapper();
             Temp.RegisterAll<ITestClass>();
             Temp.Register<TestClass4>();
-            var Object = Temp.Resolve(typeof(TestClass4), new TestClass4()) as TestClass4;
+            var Object = Temp.Resolve(typeof(TestClass4), new TestClass4() { Class = new TestClass3() }) as TestClass4;
             Assert.NotNull(Object);
-            Assert.NotNull(Object.Class);
+            Assert.Null(Object.Class);
         }
 
         [Fact]
@@ -143,14 +143,11 @@ namespace Canister.Tests.Default
             Assert.Equal(12, Temp.Resolve<TestClass>().A);
             Temp.Register<TestClass>();
             Assert.Equal(0, Temp.Resolve<TestClass>().A);
-            Temp.Register<TestClass>(x => new TestClass { A = 12 });
-            Assert.Equal(12, Temp.Resolve<TestClass>().A);
             Temp.Register<ITestClass, TestClass>();
             Assert.Equal(0, Temp.Resolve<ITestClass>().A);
             Temp.Register(new TestClass { A = 21 }, ServiceLifetime.Transient, "Test");
             Assert.Equal(21, Temp.Resolve<TestClass>("Test").A);
             Assert.Equal(0, Temp.Resolve<ITestClass>().A);
-            Assert.Equal(12, Temp.Resolve<TestClass>().A);
         }
 
         [Fact]
@@ -204,7 +201,9 @@ namespace Canister.Tests.Default
 
         private Canister.Default.DefaultBootstrapper GetBootstrapper()
         {
-            return new Canister.Default.DefaultBootstrapper(new Assembly[] { typeof(DefaultBootstrapperTests).GetTypeInfo().Assembly }, new List<ServiceDescriptor>());
+            var ReturnValue = new Canister.Default.DefaultBootstrapper(new Assembly[] { typeof(DefaultBootstrapperTests).GetTypeInfo().Assembly }, new ServiceCollection());
+            ReturnValue.Build();
+            return ReturnValue;
         }
 
         protected interface ITestClass

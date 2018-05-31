@@ -52,7 +52,7 @@ namespace Canister.Interfaces
         /// <param name="lifeTime">The life time.</param>
         /// <param name="name">The name.</param>
         /// <returns>This</returns>
-        IBootstrapper Register<T>(T objectToRegister, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
+        IBootstrapper Register<T>(T objectToRegister, ServiceLifetime lifeTime = ServiceLifetime.Singleton, string name = "")
             where T : class;
 
         /// <summary>

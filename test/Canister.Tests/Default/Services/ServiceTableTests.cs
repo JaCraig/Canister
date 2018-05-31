@@ -12,21 +12,21 @@ namespace Canister.Tests.Default.Services
         [Fact]
         public void Add()
         {
-            var TestObject = new ServiceTable(new List<ServiceDescriptor>(), null);
+            var TestObject = new ServiceTable(new ServiceCollection(), null);
             TestObject.Add(typeof(int), "", new InstanceService(typeof(int), 1, TestObject, ServiceLifetime.Transient));
         }
 
         [Fact]
         public void Create()
         {
-            var TestObject = new ServiceTable(new List<ServiceDescriptor>(), null);
+            var TestObject = new ServiceTable(new ServiceCollection(), null);
             Assert.Null(TestObject.Provider);
         }
 
         [Fact]
         public void CreateFromOtherTable()
         {
-            var TestObject = new ServiceTable(new List<ServiceDescriptor>(), null);
+            var TestObject = new ServiceTable(new ServiceCollection(), null);
             TestObject.Add(typeof(int), "", new InstanceService(typeof(int), 1, TestObject, ServiceLifetime.Transient));
             var TestObject2 = new ServiceTable(TestObject);
             var ServiceObject = TestObject2.GetService(typeof(int));
@@ -37,7 +37,7 @@ namespace Canister.Tests.Default.Services
         [Fact]
         public void GetService()
         {
-            var TestObject = new ServiceTable(new List<ServiceDescriptor>(), null);
+            var TestObject = new ServiceTable(new ServiceCollection(), null);
             TestObject.Add(typeof(int), "", new InstanceService(typeof(int), 1, TestObject, ServiceLifetime.Transient));
             var ServiceObject = TestObject.GetService(typeof(int));
             Assert.Equal(typeof(int), ServiceObject.ReturnType);
@@ -46,7 +46,7 @@ namespace Canister.Tests.Default.Services
         [Fact]
         public void GetServiceMultipleInstaces()
         {
-            var TestObject = new ServiceTable(new List<ServiceDescriptor>(), null);
+            var TestObject = new ServiceTable(new ServiceCollection(), null);
             TestObject.Add(typeof(int), "", new InstanceService(typeof(int), 1, TestObject, ServiceLifetime.Transient));
             TestObject.Add(typeof(int), "", new InstanceService(typeof(int), 2, TestObject, ServiceLifetime.Transient));
             var ServiceObject = TestObject.GetService(typeof(int));
@@ -57,7 +57,7 @@ namespace Canister.Tests.Default.Services
         [Fact]
         public void GetServices()
         {
-            var TestObject = new ServiceTable(new List<ServiceDescriptor>(), null);
+            var TestObject = new ServiceTable(new ServiceCollection(), null);
             TestObject.Add(typeof(int), "", new InstanceService(typeof(int), 1, TestObject, ServiceLifetime.Transient));
             TestObject.Add(typeof(int), "", new InstanceService(typeof(int), 2, TestObject, ServiceLifetime.Transient));
             var ServiceObjects = TestObject.GetServices(typeof(int));
@@ -71,7 +71,7 @@ namespace Canister.Tests.Default.Services
         [Fact]
         public void Resolve()
         {
-            var TestObject = new ServiceTable(new List<ServiceDescriptor>(), null);
+            var TestObject = new ServiceTable(new ServiceCollection(), null);
             TestObject.Add(typeof(int), "", new InstanceService(typeof(int), 1, TestObject, ServiceLifetime.Transient));
             var ServiceObject = (int)TestObject.Resolve(typeof(int));
             Assert.Equal(1, ServiceObject);
@@ -80,7 +80,7 @@ namespace Canister.Tests.Default.Services
         [Fact]
         public void ResolveIEnumerable()
         {
-            var TestObject = new ServiceTable(new List<ServiceDescriptor>(), null);
+            var TestObject = new ServiceTable(new ServiceCollection(), null);
             TestObject.Add(typeof(int), "", new InstanceService(typeof(int), 1, TestObject, ServiceLifetime.Transient));
             TestObject.Add(typeof(int), "", new InstanceService(typeof(int), 2, TestObject, ServiceLifetime.Transient));
             TestObject.Add(typeof(int), "", new InstanceService(typeof(int), 3, TestObject, ServiceLifetime.Transient));
@@ -92,7 +92,7 @@ namespace Canister.Tests.Default.Services
         [Fact]
         public void ScopedObject()
         {
-            var TestObject = new ServiceTable(new List<ServiceDescriptor>(), null);
+            var TestObject = new ServiceTable(new ServiceCollection(), null);
             TestObject.Add(typeof(SimpleClassWithDefaultConstructor), "", new FactoryService(typeof(SimpleClassWithDefaultConstructor), x => new SimpleClassWithDefaultConstructor(), TestObject, ServiceLifetime.Scoped));
             var ServiceObject = TestObject.Resolve(typeof(SimpleClassWithDefaultConstructor));
             using (var TestObject2 = new ServiceTable(TestObject))
@@ -107,7 +107,7 @@ namespace Canister.Tests.Default.Services
         [Fact]
         public void ScopedObjectWithName()
         {
-            var TestObject = new ServiceTable(new List<ServiceDescriptor>(), null);
+            var TestObject = new ServiceTable(new ServiceCollection(), null);
             TestObject.Add(typeof(SimpleClassWithDefaultConstructor), "", new FactoryService(typeof(SimpleClassWithDefaultConstructor), x => new SimpleClassWithDefaultConstructor(), TestObject, ServiceLifetime.Scoped));
             TestObject.Add(typeof(SimpleClassWithDefaultConstructor), "A", new FactoryService(typeof(SimpleClassWithDefaultConstructor), x => new SimpleClassWithDefaultConstructor(), TestObject, ServiceLifetime.Scoped));
             var ServiceObject = TestObject.Resolve(typeof(SimpleClassWithDefaultConstructor), "A");
@@ -125,7 +125,7 @@ namespace Canister.Tests.Default.Services
         [Fact]
         public void SingletonObject()
         {
-            var TestObject = new ServiceTable(new List<ServiceDescriptor>(), null);
+            var TestObject = new ServiceTable(new ServiceCollection(), null);
             TestObject.Add(typeof(SimpleClassWithDefaultConstructor), "", new FactoryService(typeof(SimpleClassWithDefaultConstructor), x => new SimpleClassWithDefaultConstructor(), TestObject, ServiceLifetime.Singleton));
             var ServiceObject = TestObject.Resolve(typeof(SimpleClassWithDefaultConstructor));
             using (var TestObject2 = new ServiceTable(TestObject))
@@ -140,7 +140,7 @@ namespace Canister.Tests.Default.Services
         [Fact]
         public void TransientObject()
         {
-            var TestObject = new ServiceTable(new List<ServiceDescriptor>(), null);
+            var TestObject = new ServiceTable(new ServiceCollection(), null);
             TestObject.Add(typeof(SimpleClassWithDefaultConstructor), "", new FactoryService(typeof(SimpleClassWithDefaultConstructor), x => new SimpleClassWithDefaultConstructor(), TestObject, ServiceLifetime.Transient));
             var ServiceObject = TestObject.Resolve(typeof(SimpleClassWithDefaultConstructor));
             using (var TestObject2 = new ServiceTable(TestObject))

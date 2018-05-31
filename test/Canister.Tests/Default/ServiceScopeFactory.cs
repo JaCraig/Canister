@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
+﻿using Canister.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Xunit;
 
@@ -24,9 +24,11 @@ namespace Canister.Tests.Default
             Assert.NotNull(TestObject);
         }
 
-        private Canister.Default.DefaultBootstrapper GetBootstrapper()
+        private IScope GetBootstrapper()
         {
-            return new Canister.Default.DefaultBootstrapper(new Assembly[] { typeof(DefaultBootstrapperTests).GetTypeInfo().Assembly }, new List<ServiceDescriptor>());
+            var ReturnValue = new Canister.Default.DefaultBootstrapper(new Assembly[] { typeof(DefaultBootstrapperTests).GetTypeInfo().Assembly }, new ServiceCollection());
+            ReturnValue.Build();
+            return ReturnValue;
         }
     }
 }

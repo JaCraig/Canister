@@ -83,12 +83,14 @@ namespace Canister.BaseClasses
         /// <returns>This</returns>
         public IBootstrapper Build()
         {
+            BeforeBuild();
             Register<IEnumerable<Assembly>>(Assemblies);
             RegisterAll<IModule>();
             foreach (IModule ResolvedModule in ResolveAll<IModule>().OrderBy(x => x.Order))
             {
                 ResolvedModule.Load(this);
             }
+            AfterBuild();
             return this;
         }
 
@@ -119,7 +121,7 @@ namespace Canister.BaseClasses
         /// <param name="lifeTime">The life time.</param>
         /// <param name="name">The name.</param>
         /// <returns>This</returns>
-        public abstract IBootstrapper Register<T>(T objectToRegister, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
+        public abstract IBootstrapper Register<T>(T objectToRegister, ServiceLifetime lifeTime = ServiceLifetime.Singleton, string name = "")
             where T : class;
 
         /// <summary>
@@ -222,6 +224,16 @@ namespace Canister.BaseClasses
         /// <param name="objectType">Type of the object.</param>
         /// <returns>A list of objects of the specified type</returns>
         public abstract IEnumerable<object> ResolveAll(Type objectType);
+
+        /// <summary>
+        /// Called after the build step.
+        /// </summary>
+        protected abstract void AfterBuild();
+
+        /// <summary>
+        /// Called before the build step.
+        /// </summary>
+        protected abstract void BeforeBuild();
 
         /// <summary>
         /// Disposes of the object

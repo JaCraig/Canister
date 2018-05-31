@@ -1,5 +1,4 @@
 ﻿using Canister.Default;
-using Canister.Default.Services;
 using Canister.Tests.Default.Services.Types;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
@@ -11,19 +10,19 @@ namespace Canister.Tests.Default.Services.BaseClasses
     {
         public ServiceTestBase()
         {
-            ServiceProvider = new DefaultBootstrapper(new List<Assembly>(), new List<ServiceDescriptor>());
+            ServiceProvider = new DefaultBootstrapper(new List<Assembly>(), new ServiceCollection());
             Table = ServiceProvider.AppContainer;
-            Table.Add(typeof(ISimpleInterface), "", new InstanceService(typeof(SimpleClassWithAbstractParent), new SimpleClassWithAbstractParent(), Table, ServiceLifetime.Transient));
-            Table.Add(typeof(ISimpleInterface), "", new InstanceService(typeof(SimpleClassWithDefaultConstructor), new SimpleClassWithDefaultConstructor(), Table, ServiceLifetime.Transient));
-            Table.Add(typeof(SimpleAbstractClass), "", new InstanceService(typeof(SimpleClassWithAbstractParent), new SimpleClassWithAbstractParent(), Table, ServiceLifetime.Transient));
-            Table.Add(typeof(IGenericInterface<>), "", new GenericService(typeof(GenericClass<>), Table, ServiceLifetime.Transient));
-            Table.Add(typeof(int), "", new InstanceService(typeof(int), 1, Table, ServiceLifetime.Transient));
-            Table.Add(typeof(int), "", new InstanceService(typeof(int), 2, Table, ServiceLifetime.Transient));
-            Table.Add(typeof(string), "", new InstanceService(typeof(string), "", Table, ServiceLifetime.Transient));
+            Table.AddTransient(typeof(ISimpleInterface), x => new SimpleClassWithAbstractParent());
+            Table.AddTransient(typeof(ISimpleInterface), x => new SimpleClassWithDefaultConstructor());
+            Table.AddTransient(typeof(SimpleAbstractClass), x => new SimpleClassWithAbstractParent());
+            Table.AddTransient(typeof(IGenericInterface<>), typeof(GenericClass<>));
+            Table.AddTransient(typeof(int), x => 1);
+            Table.AddTransient(typeof(int), x => 2);
+            Table.AddTransient(typeof(string), x => "");
         }
 
         public DefaultBootstrapper ServiceProvider { get; set; }
 
-        public ServiceTable Table { get; set; }
+        public IServiceCollection Table { get; set; }
     }
 }

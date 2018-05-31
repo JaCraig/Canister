@@ -1,7 +1,5 @@
-﻿using Canister.Default.Services;
-using Canister.Tests.Default.Services.BaseClasses;
+﻿using Canister.Tests.Default.Services.BaseClasses;
 using Canister.Tests.Default.Services.Types;
-using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using Xunit;
@@ -23,22 +21,22 @@ namespace Canister.Tests.Default.Services
             {typeof(ClassWithUnresolvableEnumerableParameters), new ClassWithUnresolvableEnumerableParameters(), 100}
         };
 
-        [Theory]
-        [MemberData(nameof(Data))]
-        public void Create(Type returnType, ISimpleInterface instance, int value)
-        {
-            var TestObject = new InstanceService(returnType, instance, Table, ServiceLifetime.Transient);
-            Assert.Equal(returnType, TestObject.ReturnType);
-            var ReturnedValue = (ISimpleInterface)TestObject.Create(null);
-            Assert.Equal(value, ReturnedValue.Value);
-        }
+        //[Theory]
+        //[MemberData(nameof(Data))]
+        //public void Create(Type returnType, ISimpleInterface instance, int value)
+        //{
+        //    var TestObject = new InstanceService(returnType, instance, Table, ServiceLifetime.Transient);
+        //    Assert.Equal(returnType, TestObject.ReturnType);
+        //    var ReturnedValue = (ISimpleInterface)TestObject.Create(null);
+        //    Assert.Equal(value, ReturnedValue.Value);
+        //}
 
-        [Fact]
-        public void Creation()
-        {
-            var TestObject = new InstanceService(typeof(int), 1, Table, ServiceLifetime.Transient);
-            Assert.Equal(typeof(int), TestObject.ReturnType);
-            Assert.Equal(1, TestObject.ReturnValue);
-        }
+        //[Fact]
+        //public void Creation()
+        //{
+        //    var TestObject = new InstanceService(typeof(int), 1, Table, ServiceLifetime.Transient);
+        //    Assert.Equal(typeof(int), TestObject.ReturnType);
+        //    Assert.Equal(1, TestObject.ReturnValue);
+        //}
     }
 }

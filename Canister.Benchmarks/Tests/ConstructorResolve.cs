@@ -1,6 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
 using System.Reflection;
 
 namespace Canister.Benchmarks.Tests
@@ -22,11 +21,12 @@ namespace Canister.Benchmarks.Tests
         [GlobalSetup]
         public void Setup()
         {
-            Builder.CreateContainer(new List<ServiceDescriptor>())
+            Builder.CreateContainer(new ServiceCollection())
                     .AddAssembly(typeof(ConstructorResolve).GetTypeInfo().Assembly)
                     .Build();
             Canister.Builder.Bootstrapper.Register<TestClass>(name: "A");
             Canister.Builder.Bootstrapper.Register<TestClass>(x => new TestClass(), name: "B");
+            Canister.Builder.Bootstrapper.Build();
         }
 
         private class TestClass

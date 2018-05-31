@@ -12,6 +12,7 @@ namespace Canister.Tests.ErrorCases
         {
             IBootstrapper Temp = Canister.Builder.Bootstrapper;
             Temp.RegisterAll<IService>();
+            Temp.Build();
             var TestObjects = Temp.ResolveAll<IService>();
             Assert.Equal(2, TestObjects.Count());
             Assert.Contains(TestObjects, x => x.Name == "MyTestService1");
