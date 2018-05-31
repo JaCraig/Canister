@@ -17,6 +17,7 @@ limitations under the License.
 using Canister.Default;
 using Canister.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,9 +45,10 @@ namespace Canister
         {
             descriptors = descriptors ?? new ServiceCollection();
             assemblies = assemblies ?? new Assembly[0];
+            var TempCollection = new ServiceCollection().Add(descriptors);
             var Assemblies = LoadAssemblies(assemblies);
             var LoadedTypes = Assemblies.SelectMany(x => x.ExportedTypes);
-            Bootstrapper = GetBootstrapper(Assemblies, LoadedTypes, descriptors);
+            Bootstrapper = GetBootstrapper(Assemblies, LoadedTypes, TempCollection);
             Bootstrapper.Register<IServiceProvider>(Bootstrapper, ServiceLifetime.Singleton);
             Bootstrapper.Register(Bootstrapper);
             return Bootstrapper;
