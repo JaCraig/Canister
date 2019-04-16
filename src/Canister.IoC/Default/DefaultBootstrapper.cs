@@ -274,7 +274,13 @@ namespace Canister.Default
         protected override void BeforeBuild()
         {
             AvailableTypes = GetAvailableTypes();
+        }
 
+        /// <summary>
+        /// Runs before the module resolve.
+        /// </summary>
+        protected override void BeforeModuleResolve()
+        {
             ServiceProvider = new DefaultServiceProviderFactory().CreateServiceProvider(AppContainer);
         }
 

@@ -86,6 +86,8 @@ namespace Canister.BaseClasses
             BeforeBuild();
             Register<IEnumerable<Assembly>>(Assemblies);
             RegisterAll<IModule>();
+            BeforeModuleResolve();
+
             foreach (IModule ResolvedModule in ResolveAll<IModule>().OrderBy(x => x.Order))
             {
                 ResolvedModule.Load(this);
@@ -234,6 +236,11 @@ namespace Canister.BaseClasses
         /// Called before the build step.
         /// </summary>
         protected abstract void BeforeBuild();
+
+        /// <summary>
+        /// Runs before the module resolve.
+        /// </summary>
+        protected abstract void BeforeModuleResolve();
 
         /// <summary>
         /// Disposes of the object
