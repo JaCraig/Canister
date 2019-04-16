@@ -201,7 +201,7 @@ namespace Canister.Default
         /// <returns>An object of the specified type</returns>
         public override T Resolve<T>(T defaultObject = null)
         {
-            return ServiceProvider.GetRequiredService<T>() ?? defaultObject;
+            return ServiceProvider.GetRequiredService<T>();
         }
 
         /// <summary>
@@ -213,7 +213,7 @@ namespace Canister.Default
         /// <returns>An object of the specified type</returns>
         public override T Resolve<T>(string name, T defaultObject = null)
         {
-            return ServiceProvider.GetRequiredService<T>() ?? defaultObject;
+            return ServiceProvider.GetRequiredService<T>();
         }
 
         /// <summary>
@@ -224,7 +224,7 @@ namespace Canister.Default
         /// <returns>An object of the specified type</returns>
         public override object Resolve(Type objectType, object defaultObject = null)
         {
-            return ServiceProvider.GetRequiredService(objectType) ?? defaultObject;
+            return ServiceProvider.GetRequiredService(objectType);
         }
 
         /// <summary>
@@ -236,7 +236,7 @@ namespace Canister.Default
         /// <returns>An object of the specified type</returns>
         public override object Resolve(Type objectType, string name, object defaultObject = null)
         {
-            return ServiceProvider.GetRequiredService(objectType) ?? defaultObject;
+            return ServiceProvider.GetRequiredService(objectType);
         }
 
         /// <summary>
@@ -246,7 +246,7 @@ namespace Canister.Default
         /// <returns>A list of objects of the specified type</returns>
         public override IEnumerable<T> ResolveAll<T>()
         {
-            return ServiceProvider.GetRequiredService<IEnumerable<T>>() ?? Array.Empty<T>();
+            return ServiceProvider.GetRequiredService<IEnumerable<T>>();
         }
 
         /// <summary>
