@@ -54,6 +54,13 @@ namespace Canister
             return Bootstrapper;
         }
 
+        /// <summary>
+        /// Gets the bootstrapper.
+        /// </summary>
+        /// <param name="Assemblies">The assemblies.</param>
+        /// <param name="LoadedTypes">The loaded types.</param>
+        /// <param name="descriptors">The descriptors.</param>
+        /// <returns>The bootstrapper.</returns>
         private static IBootstrapper GetBootstrapper(IEnumerable<Assembly> Assemblies, IEnumerable<Type> LoadedTypes, IEnumerable<ServiceDescriptor> descriptors)
         {
             var Bootstrappers = LoadedTypes.Where(x => x.GetInterfaces()
@@ -61,13 +68,18 @@ namespace Canister
                                                             && x.IsClass
                                                             && !x.IsAbstract
                                                             && !x.ContainsGenericParameters
-                                                            && !x.Namespace.StartsWith("CANISTER", StringComparison.OrdinalIgnoreCase))
+                                                            && x.Assembly != typeof(Builder).Assembly)
                                                        .ToList();
             if (Bootstrappers.Count == 0)
                 Bootstrappers.Add(typeof(DefaultBootstrapper));
             return (IBootstrapper)Activator.CreateInstance(Bootstrappers[0], Assemblies, descriptors);
         }
 
+        /// <summary>
+        /// Loads the assemblies.
+        /// </summary>
+        /// <param name="assemblies">The assemblies.</param>
+        /// <returns>The loaded assemblies.</returns>
         private static IEnumerable<Assembly> LoadAssemblies(Assembly[] assemblies)
         {
             var Assemblies = new List<Assembly>();

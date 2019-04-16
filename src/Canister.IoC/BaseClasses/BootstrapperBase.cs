@@ -254,11 +254,7 @@ namespace Canister.BaseClasses
         /// <returns><c>true</c> if [is of type] [the specified type]; otherwise, <c>false</c>.</returns>
         protected bool IsOfType(Type x, Type type)
         {
-            if (x == typeof(object) || x == null)
-                return false;
-            if (x == type || x.GetInterfaces().Any(y => y == type))
-                return true;
-            return IsOfType(x.BaseType, type);
+            return type?.IsAssignableFrom(x) == true;
         }
 
         /// <summary>

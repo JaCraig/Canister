@@ -44,6 +44,12 @@ namespace Canister.Default
         public IServiceProvider ServiceProvider { get; private set; }
 
         /// <summary>
+        /// Gets the available types.
+        /// </summary>
+        /// <value>The available types.</value>
+        private Type[] AvailableTypes { get; set; }
+
+        /// <summary>
         /// Creates the service scope.
         /// </summary>
         /// <returns>The service scope</returns>
@@ -63,13 +69,13 @@ namespace Canister.Default
         public override IBootstrapper Register<T>(T objectToRegister, ServiceLifetime lifeTime = ServiceLifetime.Singleton, string name = "")
         {
             if (lifeTime == ServiceLifetime.Scoped)
-                AppContainer.AddScoped(x => objectToRegister);
+                AppContainer.AddScoped(_ => objectToRegister);
             else if (lifeTime == ServiceLifetime.Singleton)
-                AppContainer.AddSingleton(x => objectToRegister);
+                AppContainer.AddSingleton(_ => objectToRegister);
             else
-                AppContainer.AddTransient(x => objectToRegister);
-            if (ServiceProvider != null)
-                ServiceProvider = new DefaultServiceProviderFactory().CreateServiceProvider(AppContainer);
+                AppContainer.AddTransient(_ => objectToRegister);
+            if (AvailableTypes == null)
+                UpdateServiceProvider();
             return this;
         }
 
@@ -88,8 +94,8 @@ namespace Canister.Default
                 AppContainer.AddSingleton<T>();
             else
                 AppContainer.AddTransient<T>();
-            if (ServiceProvider != null)
-                ServiceProvider = new DefaultServiceProviderFactory().CreateServiceProvider(AppContainer);
+            if (AvailableTypes == null)
+                UpdateServiceProvider();
             return this;
         }
 
@@ -109,8 +115,8 @@ namespace Canister.Default
                 AppContainer.AddSingleton<T1, T2>();
             else
                 AppContainer.AddTransient<T1, T2>();
-            if (ServiceProvider != null)
-                ServiceProvider = new DefaultServiceProviderFactory().CreateServiceProvider(AppContainer);
+            if (AvailableTypes == null)
+                UpdateServiceProvider();
             return this;
         }
 
@@ -130,8 +136,8 @@ namespace Canister.Default
                 AppContainer.AddSingleton(function);
             else
                 AppContainer.AddTransient(function);
-            if (ServiceProvider != null)
-                ServiceProvider = new DefaultServiceProviderFactory().CreateServiceProvider(AppContainer);
+            if (AvailableTypes == null)
+                UpdateServiceProvider();
             return this;
         }
 
@@ -150,8 +156,8 @@ namespace Canister.Default
                 AppContainer.AddSingleton(objectType);
             else
                 AppContainer.AddTransient(objectType);
-            if (ServiceProvider != null)
-                ServiceProvider = new DefaultServiceProviderFactory().CreateServiceProvider(AppContainer);
+            if (AvailableTypes == null)
+                UpdateServiceProvider();
             return this;
         }
 
@@ -163,37 +169,27 @@ namespace Canister.Default
         /// <returns>This</returns>
         public override IBootstrapper RegisterAll<T>(ServiceLifetime lifeTime = ServiceLifetime.Transient)
         {
-            foreach (Type TempType in Assemblies.SelectMany(x =>
-            {
-                try
-                {
-                    return x.GetTypes();
-                }
-                catch { return new Type[0]; }
-            })
-                                                .Where(x => x.IsClass
-                                                    && !x.IsAbstract
-                                                    && !x.ContainsGenericParameters
-                                                    && IsOfType(x, typeof(T))))
+            var RegisterType = typeof(T);
+            foreach (Type TempType in GetAvailableTypes().Where(x => IsOfType(x, typeof(T))))
             {
                 if (lifeTime == ServiceLifetime.Scoped)
                 {
                     AppContainer.AddScoped(TempType, TempType);
-                    AppContainer.AddScoped(typeof(T), TempType);
+                    AppContainer.AddScoped(RegisterType, TempType);
                 }
                 else if (lifeTime == ServiceLifetime.Singleton)
                 {
                     AppContainer.AddSingleton(TempType, TempType);
-                    AppContainer.AddSingleton(typeof(T), TempType);
+                    AppContainer.AddSingleton(RegisterType, TempType);
                 }
                 else
                 {
                     AppContainer.AddTransient(TempType, TempType);
-                    AppContainer.AddTransient(typeof(T), TempType);
+                    AppContainer.AddTransient(RegisterType, TempType);
                 }
             }
-            if (ServiceProvider != null)
-                ServiceProvider = new DefaultServiceProviderFactory().CreateServiceProvider(AppContainer);
+            if (AvailableTypes == null)
+                UpdateServiceProvider();
             return this;
         }
 
@@ -268,6 +264,7 @@ namespace Canister.Default
         /// </summary>
         protected override void AfterBuild()
         {
+            AvailableTypes = null;
             ServiceProvider = new DefaultServiceProviderFactory().CreateServiceProvider(AppContainer);
         }
 
@@ -276,7 +273,38 @@ namespace Canister.Default
         /// </summary>
         protected override void BeforeBuild()
         {
+            AvailableTypes = GetAvailableTypes();
+
             ServiceProvider = new DefaultServiceProviderFactory().CreateServiceProvider(AppContainer);
+        }
+
+        /// <summary>
+        /// Gets the available types.
+        /// </summary>
+        /// <returns>The available types.</returns>
+        private Type[] GetAvailableTypes()
+        {
+            return AvailableTypes
+                ?? Assemblies.SelectMany(x =>
+                     {
+                         try
+                         {
+                             return x.GetTypes();
+                         }
+                         catch { return new Type[0]; }
+                     }).Where(x => x.IsClass
+                         && !x.IsAbstract
+                         && !x.ContainsGenericParameters)
+                    .ToArray();
+        }
+
+        /// <summary>
+        /// Updates the service provider.
+        /// </summary>
+        private void UpdateServiceProvider()
+        {
+            if (ServiceProvider != null)
+                ServiceProvider = new DefaultServiceProviderFactory().CreateServiceProvider(AppContainer);
         }
     }
 }
