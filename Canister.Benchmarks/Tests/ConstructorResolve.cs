@@ -4,6 +4,7 @@ using System.Reflection;
 
 namespace Canister.Benchmarks.Tests
 {
+    [MemoryDiagnoser]
     public class ConstructorResolve
     {
         [Benchmark(Baseline = true)]

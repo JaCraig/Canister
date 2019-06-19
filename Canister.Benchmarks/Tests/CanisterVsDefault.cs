@@ -6,6 +6,7 @@ using System.Reflection;
 
 namespace Canister.Benchmarks.Tests
 {
+    [MemoryDiagnoser]
     public class CanisterVsDefault
     {
         private IBootstrapper Bootstrapper { get; set; }
