@@ -10,7 +10,7 @@ namespace Canister.Tests
         [Fact]
         public void Creation()
         {
-            IBootstrapper Temp = Canister.Builder.Bootstrapper;
+            var Temp = Canister.Builder.Bootstrapper;
             Assert.NotNull(Temp);
             Assert.IsType<DefaultBootstrapper>(Temp);
             Assert.Equal("Default bootstrapper", Temp.Name);

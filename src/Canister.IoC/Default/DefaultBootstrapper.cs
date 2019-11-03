@@ -53,10 +53,7 @@ namespace Canister.Default
         /// Creates the service scope.
         /// </summary>
         /// <returns>The service scope</returns>
-        public IServiceScope CreateScope()
-        {
-            return ServiceProvider.CreateScope();
-        }
+        public IServiceScope CreateScope() => ServiceProvider.CreateScope();
 
         /// <summary>
         /// Registers an object with the bootstrapper
@@ -170,7 +167,7 @@ namespace Canister.Default
         public override IBootstrapper RegisterAll<T>(ServiceLifetime lifeTime = ServiceLifetime.Transient)
         {
             var RegisterType = typeof(T);
-            foreach (Type TempType in GetAvailableTypes().Where(x => IsOfType(x, typeof(T))))
+            foreach (var TempType in GetAvailableTypes().Where(x => IsOfType(x, typeof(T))))
             {
                 if (lifeTime == ServiceLifetime.Scoped)
                 {
@@ -199,10 +196,7 @@ namespace Canister.Default
         /// <typeparam name="T">Type to resolve</typeparam>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        public override T Resolve<T>(T defaultObject = null)
-        {
-            return ServiceProvider.GetRequiredService<T>();
-        }
+        public override T Resolve<T>(T defaultObject = null) => ServiceProvider.GetRequiredService<T>();
 
         /// <summary>
         /// Resolves the object based on the type specified
@@ -211,10 +205,7 @@ namespace Canister.Default
         /// <param name="name">The name.</param>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        public override T Resolve<T>(string name, T defaultObject = null)
-        {
-            return ServiceProvider.GetRequiredService<T>();
-        }
+        public override T Resolve<T>(string name, T defaultObject = null) => ServiceProvider.GetRequiredService<T>();
 
         /// <summary>
         /// Resolves the object based on the type specified
@@ -222,10 +213,7 @@ namespace Canister.Default
         /// <param name="objectType">Type of the object.</param>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        public override object Resolve(Type objectType, object defaultObject = null)
-        {
-            return ServiceProvider.GetRequiredService(objectType);
-        }
+        public override object Resolve(Type objectType, object defaultObject = null) => ServiceProvider.GetRequiredService(objectType);
 
         /// <summary>
         /// Resolves the object based on the type specified
@@ -234,30 +222,21 @@ namespace Canister.Default
         /// <param name="name">The name.</param>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        public override object Resolve(Type objectType, string name, object defaultObject = null)
-        {
-            return ServiceProvider.GetRequiredService(objectType);
-        }
+        public override object Resolve(Type objectType, string name, object defaultObject = null) => ServiceProvider.GetRequiredService(objectType);
 
         /// <summary>
         /// Resolves the objects based on the type specified
         /// </summary>
         /// <typeparam name="T">Type to resolve</typeparam>
         /// <returns>A list of objects of the specified type</returns>
-        public override IEnumerable<T> ResolveAll<T>()
-        {
-            return ServiceProvider.GetRequiredService<IEnumerable<T>>();
-        }
+        public override IEnumerable<T> ResolveAll<T>() => ServiceProvider.GetRequiredService<IEnumerable<T>>();
 
         /// <summary>
         /// Resolves all objects based on the type specified
         /// </summary>
         /// <param name="objectType">Type of the object.</param>
         /// <returns>A list of objects of the specified type</returns>
-        public override IEnumerable<object> ResolveAll(Type objectType)
-        {
-            return ServiceProvider.GetRequiredService(typeof(IEnumerable<>).MakeGenericType(objectType)) as IEnumerable<object> ?? Array.Empty<object>();
-        }
+        public override IEnumerable<object> ResolveAll(Type objectType) => ServiceProvider.GetRequiredService(typeof(IEnumerable<>).MakeGenericType(objectType)) as IEnumerable<object> ?? Array.Empty<object>();
 
         /// <summary>
         /// Called after the build step.
@@ -271,18 +250,12 @@ namespace Canister.Default
         /// <summary>
         /// Called before the build step.
         /// </summary>
-        protected override void BeforeBuild()
-        {
-            AvailableTypes = GetAvailableTypes();
-        }
+        protected override void BeforeBuild() => AvailableTypes = GetAvailableTypes();
 
         /// <summary>
         /// Runs before the module resolve.
         /// </summary>
-        protected override void BeforeModuleResolve()
-        {
-            ServiceProvider = new DefaultServiceProviderFactory().CreateServiceProvider(AppContainer);
-        }
+        protected override void BeforeModuleResolve() => ServiceProvider = new DefaultServiceProviderFactory().CreateServiceProvider(AppContainer);
 
         /// <summary>
         /// Gets the available types.

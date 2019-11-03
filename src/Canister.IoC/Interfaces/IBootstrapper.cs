@@ -112,7 +112,7 @@ namespace Canister.Interfaces
         /// <typeparam name="T">Type to resolve</typeparam>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        T Resolve<T>(T defaultObject = default(T))
+        T Resolve<T>(T defaultObject = default)
             where T : class;
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace Canister.Interfaces
         /// <param name="name">The name.</param>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        T Resolve<T>(string name, T defaultObject = default(T))
+        T Resolve<T>(string name, T defaultObject = default)
             where T : class;
 
         /// <summary>

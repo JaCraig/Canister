@@ -63,10 +63,10 @@ namespace Canister.BaseClasses
         {
             if (assemblies == null || assemblies.Length == 0)
                 return this;
-            List<Assembly> TempAssemblies = new List<Assembly>(Assemblies);
+            var TempAssemblies = new List<Assembly>(Assemblies);
             for (int i = 0, assembliesLength = assemblies.Length; i < assembliesLength; i++)
             {
-                Assembly TempAssembly = assemblies[i];
+                var TempAssembly = assemblies[i];
                 if (!TempAssemblies.Contains(TempAssembly))
                 {
                     TempAssemblies.Add(TempAssembly);
@@ -88,7 +88,7 @@ namespace Canister.BaseClasses
             RegisterAll<IModule>();
             BeforeModuleResolve();
 
-            foreach (IModule ResolvedModule in ResolveAll<IModule>().OrderBy(x => x.Order))
+            foreach (var ResolvedModule in ResolveAll<IModule>().OrderBy(x => x.Order))
             {
                 ResolvedModule.Load(this);
             }
@@ -110,10 +110,7 @@ namespace Canister.BaseClasses
         /// </summary>
         /// <param name="serviceType">Type of the service.</param>
         /// <returns>The service specified</returns>
-        public object GetService(Type serviceType)
-        {
-            return Resolve(serviceType, "", null);
-        }
+        public object GetService(Type serviceType) => Resolve(serviceType, "", null);
 
         /// <summary>
         /// Registers an object with the bootstrapper
@@ -182,7 +179,7 @@ namespace Canister.BaseClasses
         /// <typeparam name="T">Type to resolve</typeparam>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        public abstract T Resolve<T>(T defaultObject = default(T))
+        public abstract T Resolve<T>(T defaultObject = default)
             where T : class;
 
         /// <summary>
@@ -192,7 +189,7 @@ namespace Canister.BaseClasses
         /// <param name="name">The name.</param>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        public abstract T Resolve<T>(string name, T defaultObject = default(T))
+        public abstract T Resolve<T>(string name, T defaultObject = default)
             where T : class;
 
         /// <summary>
@@ -259,10 +256,7 @@ namespace Canister.BaseClasses
         /// <param name="x">The type to check.</param>
         /// <param name="type">The type to check against.</param>
         /// <returns><c>true</c> if [is of type] [the specified type]; otherwise, <c>false</c>.</returns>
-        protected bool IsOfType(Type x, Type type)
-        {
-            return type?.IsAssignableFrom(x) == true;
-        }
+        protected bool IsOfType(Type x, Type type) => type?.IsAssignableFrom(x) == true;
 
         /// <summary>
         /// Destructor

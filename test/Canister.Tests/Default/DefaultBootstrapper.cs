@@ -180,7 +180,7 @@ namespace Canister.Tests.Default
             Temp.Register(new TestClass { A = 14 }, ServiceLifetime.Transient, "B");
             var Objects = Temp.ResolveAll<TestClass>();
             Assert.Equal(3, Objects.Count());
-            foreach (TestClass Object in Objects)
+            foreach (var Object in Objects)
             {
                 Assert.Contains(Object.A, new int[] { 12, 13, 14 });
             }

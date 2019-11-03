@@ -42,9 +42,6 @@ namespace Canister.Default
         /// Creates a new scope object.
         /// </summary>
         /// <returns>The service scope</returns>
-        public IServiceScope CreateScope()
-        {
-            return Scope.CreateScope();
-        }
+        public IServiceScope CreateScope() => Scope.CreateScope();
     }
 }

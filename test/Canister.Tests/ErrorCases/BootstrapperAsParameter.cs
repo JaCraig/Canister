@@ -10,7 +10,7 @@ namespace Canister.Tests.ErrorCases
         [Fact]
         public void BufferOverflowError()
         {
-            IBootstrapper Temp = Canister.Builder.Bootstrapper;
+            var Temp = Canister.Builder.Bootstrapper;
             Temp.RegisterAll<IService>();
             Temp.Build();
             var TestObjects = Temp.ResolveAll<IService>();
