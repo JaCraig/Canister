@@ -15,6 +15,8 @@ limitations under the License.
 */
 
 using Canister.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Canister.IoC.Modules
 {
@@ -37,7 +39,9 @@ namespace Canister.IoC.Modules
         {
             if (bootstrapper == null)
                 return;
-            bootstrapper.Register("");
+            bootstrapper.Register("")
+                .Register<IServiceProvider>(bootstrapper, ServiceLifetime.Singleton)
+                .Register(bootstrapper);
         }
     }
 }

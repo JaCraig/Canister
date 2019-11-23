@@ -24,9 +24,15 @@ namespace Canister.Default
             : base(assemblies)
         {
             AppContainer = (IServiceCollection)collection;
-            Register<DefaultBootstrapper>(this);
+            Register(this);
             Register<IBootstrapper>(this);
         }
+
+        /// <summary>
+        /// Gets the available types.
+        /// </summary>
+        /// <value>The available types.</value>
+        private Type[]? AvailableTypes;
 
         /// <summary>
         /// The IoC container
@@ -36,18 +42,12 @@ namespace Canister.Default
         /// <summary>
         /// Name of the bootstrapper
         /// </summary>
-        public override string Name => "Default bootstrapper";
+        public override string Name { get; } = "Default bootstrapper";
 
         /// <summary>
         /// The <see cref="T:System.IServiceProvider"/> used to resolve dependencies from the scope.
         /// </summary>
-        public IServiceProvider ServiceProvider { get; private set; }
-
-        /// <summary>
-        /// Gets the available types.
-        /// </summary>
-        /// <value>The available types.</value>
-        private Type[] AvailableTypes { get; set; }
+        public IServiceProvider? ServiceProvider { get; private set; }
 
         /// <summary>
         /// Creates the service scope.
@@ -196,7 +196,8 @@ namespace Canister.Default
         /// <typeparam name="T">Type to resolve</typeparam>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        public override T Resolve<T>(T defaultObject = null) => ServiceProvider.GetRequiredService<T>();
+        public override T Resolve<T>(T? defaultObject = null)
+            where T : class => ServiceProvider.GetRequiredService<T>();
 
         /// <summary>
         /// Resolves the object based on the type specified
@@ -205,7 +206,8 @@ namespace Canister.Default
         /// <param name="name">The name.</param>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        public override T Resolve<T>(string name, T defaultObject = null) => ServiceProvider.GetRequiredService<T>();
+        public override T Resolve<T>(string name, T? defaultObject = null)
+            where T : class => ServiceProvider.GetRequiredService<T>();
 
         /// <summary>
         /// Resolves the object based on the type specified
@@ -213,7 +215,7 @@ namespace Canister.Default
         /// <param name="objectType">Type of the object.</param>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        public override object Resolve(Type objectType, object defaultObject = null) => ServiceProvider.GetRequiredService(objectType);
+        public override object Resolve(Type objectType, object? defaultObject = null) => ServiceProvider.GetRequiredService(objectType);
 
         /// <summary>
         /// Resolves the object based on the type specified
@@ -222,7 +224,7 @@ namespace Canister.Default
         /// <param name="name">The name.</param>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        public override object Resolve(Type objectType, string name, object defaultObject = null) => ServiceProvider.GetRequiredService(objectType);
+        public override object Resolve(Type objectType, string name, object? defaultObject = null) => ServiceProvider.GetRequiredService(objectType);
 
         /// <summary>
         /// Resolves the objects based on the type specified
@@ -270,7 +272,7 @@ namespace Canister.Default
                          {
                              return x.GetTypes();
                          }
-                         catch { return new Type[0]; }
+                         catch (ReflectionTypeLoadException) { return Array.Empty<Type>(); }
                      }).Where(x => x.IsClass
                          && !x.IsAbstract
                          && !x.ContainsGenericParameters)

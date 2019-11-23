@@ -10,13 +10,13 @@ namespace Canister.Benchmarks.Tests
         [Benchmark(Baseline = true)]
         public void ConstructorInfo()
         {
-            var Results = Canister.Builder.Bootstrapper.Resolve<TestClass>("A");
+            _ = Builder.Bootstrapper.Resolve<TestClass>("A");
         }
 
         [Benchmark]
         public void Factory()
         {
-            var Results = Canister.Builder.Bootstrapper.Resolve<TestClass>("B");
+            _ = Builder.Bootstrapper.Resolve<TestClass>("B");
         }
 
         [GlobalSetup]
@@ -25,9 +25,9 @@ namespace Canister.Benchmarks.Tests
             Builder.CreateContainer(new ServiceCollection())
                     .AddAssembly(typeof(ConstructorResolve).GetTypeInfo().Assembly)
                     .Build();
-            Canister.Builder.Bootstrapper.Register<TestClass>(name: "A");
-            Canister.Builder.Bootstrapper.Register<TestClass>(x => new TestClass(), name: "B");
-            Canister.Builder.Bootstrapper.Build();
+            Builder.Bootstrapper.Register<TestClass>(name: "A");
+            Builder.Bootstrapper.Register<TestClass>(_ => new TestClass(), name: "B");
+            Builder.Bootstrapper.Build();
         }
 
         private class TestClass

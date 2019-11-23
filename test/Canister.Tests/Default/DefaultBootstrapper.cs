@@ -14,7 +14,7 @@ namespace Canister.Tests.Default
             var Temp = GetBootstrapper();
             Temp.AddAssembly(GetType().GetTypeInfo().Assembly);
             Temp.AddAssembly(null);
-            Temp.AddAssembly(new Assembly[] { });
+            Temp.AddAssembly(System.Array.Empty<Assembly>());
         }
 
         [Fact]
@@ -43,14 +43,12 @@ namespace Canister.Tests.Default
                 Assert.NotNull(Object);
                 Assert.NotNull(Object.Class);
                 Assert.Equal(2, Object.Class.Classes.Count());
-                using (var NewScope2 = Temp.CreateScope())
-                {
-                    var Object2 = NewScope2.ServiceProvider.GetService(typeof(TestClass4)) as TestClass4;
-                    Assert.NotNull(Object);
-                    Assert.NotNull(Object.Class);
-                    Assert.Equal(2, Object.Class.Classes.Count());
-                    Assert.NotSame(Object, Object2);
-                }
+                using var NewScope2 = Temp.CreateScope();
+                var Object2 = NewScope2.ServiceProvider.GetService(typeof(TestClass4)) as TestClass4;
+                Assert.NotNull(Object);
+                Assert.NotNull(Object.Class);
+                Assert.Equal(2, Object.Class.Classes.Count());
+                Assert.NotSame(Object, Object2);
             }
             using (var NewScope = Temp.CreateScope())
             {
@@ -70,15 +68,13 @@ namespace Canister.Tests.Default
             Temp.RegisterAll<ITestClass>();
             Temp.Register<TestClass3>(ServiceLifetime.Scoped);
             Temp.Register<TestClass4>(ServiceLifetime.Scoped);
-            using (var NewScope = Temp.CreateScope())
-            {
-                var Object = NewScope.ServiceProvider.GetService(typeof(TestClass4)) as TestClass4;
-                Assert.NotNull(Object);
-                Assert.NotNull(Object.Class);
-                Assert.Equal(2, Object.Class.Classes.Count());
-                var Object2 = NewScope.ServiceProvider.GetService(typeof(TestClass4)) as TestClass4;
-                Assert.Same(Object, Object2);
-            }
+            using var NewScope = Temp.CreateScope();
+            var Object = NewScope.ServiceProvider.GetService(typeof(TestClass4)) as TestClass4;
+            Assert.NotNull(Object);
+            Assert.NotNull(Object.Class);
+            Assert.Equal(2, Object.Class.Classes.Count());
+            var Object2 = NewScope.ServiceProvider.GetService(typeof(TestClass4)) as TestClass4;
+            Assert.Same(Object, Object2);
         }
 
         [Fact]

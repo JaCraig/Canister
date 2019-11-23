@@ -15,13 +15,13 @@ namespace Canister.Benchmarks.Tests
         [Benchmark(Baseline = true)]
         public void ConstructorInfo()
         {
-            var Results = Bootstrapper.Resolve<TestClass>();
+            _ = Bootstrapper.Resolve<TestClass>();
         }
 
         [Benchmark]
         public void Factory()
         {
-            var Results = Collection.GetRequiredService<TestClass>();
+            _ = Collection.GetRequiredService<TestClass>();
         }
 
         [GlobalSetup]

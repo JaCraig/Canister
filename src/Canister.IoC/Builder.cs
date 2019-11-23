@@ -33,7 +33,7 @@ namespace Canister
         /// <summary>
         /// Bootstrapper object
         /// </summary>
-        public static IBootstrapper Bootstrapper { get; private set; }
+        public static IBootstrapper? Bootstrapper { get; private set; }
 
         /// <summary>
         /// Creates the IoC Container
@@ -43,14 +43,12 @@ namespace Canister
         /// <returns>The resulting bootstrapper</returns>
         public static IBootstrapper CreateContainer(IEnumerable<ServiceDescriptor> descriptors, params Assembly[] assemblies)
         {
-            descriptors = descriptors ?? new ServiceCollection();
-            assemblies = assemblies ?? new Assembly[0];
+            descriptors ??= new ServiceCollection();
+            assemblies ??= Array.Empty<Assembly>();
             var TempCollection = new ServiceCollection().Add(descriptors);
             var Assemblies = LoadAssemblies(assemblies);
             var LoadedTypes = Assemblies.SelectMany(x => x.ExportedTypes);
             Bootstrapper = GetBootstrapper(Assemblies, LoadedTypes, TempCollection);
-            Bootstrapper.Register<IServiceProvider>(Bootstrapper, ServiceLifetime.Singleton);
-            Bootstrapper.Register(Bootstrapper);
             return Bootstrapper;
         }
 

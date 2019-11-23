@@ -112,7 +112,7 @@ namespace Canister.Interfaces
         /// <typeparam name="T">Type to resolve</typeparam>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        T Resolve<T>(T defaultObject = default)
+        T Resolve<T>(T? defaultObject = default)
             where T : class;
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace Canister.Interfaces
         /// <param name="name">The name.</param>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        T Resolve<T>(string name, T defaultObject = default)
+        T Resolve<T>(string name, T? defaultObject = default)
             where T : class;
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace Canister.Interfaces
         /// <param name="objectType">Type of the object.</param>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        object Resolve(Type objectType, object defaultObject = null);
+        object Resolve(Type objectType, object? defaultObject = null);
 
         /// <summary>
         /// Resolves the object based on the type specified
@@ -140,7 +140,7 @@ namespace Canister.Interfaces
         /// <param name="name">The name.</param>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        object Resolve(Type objectType, string name, object defaultObject = null);
+        object Resolve(Type objectType, string name, object? defaultObject = null);
 
         /// <summary>
         /// Resolves the objects based on the type specified

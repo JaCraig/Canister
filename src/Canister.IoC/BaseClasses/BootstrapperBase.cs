@@ -39,6 +39,12 @@ namespace Canister.BaseClasses
         }
 
         /// <summary>
+        /// Gets the assemblies.
+        /// </summary>
+        /// <value>The assemblies.</value>
+        protected Assembly[] Assemblies;
+
+        /// <summary>
         /// The IoC container
         /// </summary>
         public abstract Container AppContainer { get; }
@@ -47,12 +53,6 @@ namespace Canister.BaseClasses
         /// Name of the bootstrapper
         /// </summary>
         public abstract string Name { get; }
-
-        /// <summary>
-        /// Gets the assemblies.
-        /// </summary>
-        /// <value>The assemblies.</value>
-        protected Assembly[] Assemblies { get; set; }
 
         /// <summary>
         /// Adds the assembly.
@@ -179,7 +179,7 @@ namespace Canister.BaseClasses
         /// <typeparam name="T">Type to resolve</typeparam>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        public abstract T Resolve<T>(T defaultObject = default)
+        public abstract T Resolve<T>(T? defaultObject = default)
             where T : class;
 
         /// <summary>
@@ -189,7 +189,7 @@ namespace Canister.BaseClasses
         /// <param name="name">The name.</param>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        public abstract T Resolve<T>(string name, T defaultObject = default)
+        public abstract T Resolve<T>(string name, T? defaultObject = default)
             where T : class;
 
         /// <summary>
@@ -198,7 +198,7 @@ namespace Canister.BaseClasses
         /// <param name="objectType">Type of the object.</param>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        public abstract object Resolve(Type objectType, object defaultObject = null);
+        public abstract object Resolve(Type objectType, object? defaultObject = null);
 
         /// <summary>
         /// Resolves the object based on the type specified
@@ -207,7 +207,7 @@ namespace Canister.BaseClasses
         /// <param name="name">The name.</param>
         /// <param name="defaultObject">The default object.</param>
         /// <returns>An object of the specified type</returns>
-        public abstract object Resolve(Type objectType, string name, object defaultObject = null);
+        public abstract object Resolve(Type objectType, string name, object? defaultObject = null);
 
         /// <summary>
         /// Resolves the objects based on the type specified
@@ -243,8 +243,8 @@ namespace Canister.BaseClasses
         /// Disposes of the object
         /// </summary>
         /// <param name="managed">
-        /// <c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only
-        /// unmanaged resources.
+        /// <c>true</c> to release both managed and unmanaged resources; <c>false</c> to release
+        /// only unmanaged resources.
         /// </param>
         protected virtual void Dispose(bool managed)
         {
