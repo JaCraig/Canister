@@ -36,6 +36,12 @@ namespace Canister
         public static IBootstrapper? Bootstrapper { get; private set; }
 
         /// <summary>
+        /// Gets the builder assembly.
+        /// </summary>
+        /// <value>The builder assembly.</value>
+        private static Assembly BuilderAssembly { get; } = typeof(Builder).Assembly;
+
+        /// <summary>
         /// Creates the IoC Container
         /// </summary>
         /// <param name="descriptors">The service descriptors.</param>
@@ -61,12 +67,13 @@ namespace Canister
         /// <returns>The bootstrapper.</returns>
         private static IBootstrapper GetBootstrapper(IEnumerable<Assembly> Assemblies, IEnumerable<Type> LoadedTypes, IEnumerable<ServiceDescriptor> descriptors)
         {
+            var IBootstrapperType = typeof(IBootstrapper);
             var Bootstrappers = LoadedTypes.Where(x => x.GetInterfaces()
-                                                        .Contains(typeof(IBootstrapper))
+                                                        .Contains(IBootstrapperType)
                                                             && x.IsClass
                                                             && !x.IsAbstract
                                                             && !x.ContainsGenericParameters
-                                                            && x.Assembly != typeof(Builder).Assembly)
+                                                            && x.Assembly != BuilderAssembly)
                                                        .ToList();
             if (Bootstrappers.Count == 0)
                 Bootstrappers.Add(typeof(DefaultBootstrapper));
@@ -82,8 +89,8 @@ namespace Canister
         {
             var Assemblies = new List<Assembly>();
             Assemblies.AddRange(assemblies);
-            if (Assemblies.Count == 0 || !Assemblies.Contains(typeof(Builder).Assembly))
-                Assemblies.Add(typeof(Builder).Assembly);
+            if (Assemblies.Count == 0 || !Assemblies.Contains(BuilderAssembly))
+                Assemblies.Add(BuilderAssembly);
             return Assemblies;
         }
     }
