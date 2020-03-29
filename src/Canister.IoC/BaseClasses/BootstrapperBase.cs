@@ -35,14 +35,14 @@ namespace Canister.BaseClasses
         /// <param name="assemblies">The assemblies.</param>
         protected BootstrapperBase(IEnumerable<Assembly> assemblies)
         {
-            Assemblies = assemblies.ToArray();
+            Assemblies = new List<Assembly>(assemblies);
         }
 
         /// <summary>
         /// Gets the assemblies.
         /// </summary>
         /// <value>The assemblies.</value>
-        protected Assembly[] Assemblies;
+        protected List<Assembly> Assemblies;
 
         /// <summary>
         /// The IoC container
@@ -61,18 +61,16 @@ namespace Canister.BaseClasses
         /// <returns>This</returns>
         public IBootstrapper AddAssembly(params Assembly[] assemblies)
         {
-            if (assemblies == null || assemblies.Length == 0)
+            if (assemblies is null || assemblies.Length == 0)
                 return this;
-            var TempAssemblies = new List<Assembly>(Assemblies);
             for (int i = 0, assembliesLength = assemblies.Length; i < assembliesLength; i++)
             {
                 var TempAssembly = assemblies[i];
-                if (!TempAssemblies.Contains(TempAssembly))
+                if (!Assemblies.Contains(TempAssembly))
                 {
-                    TempAssemblies.Add(TempAssembly);
+                    Assemblies.Add(TempAssembly);
                 }
             }
-            Assemblies = TempAssemblies.ToArray();
 
             return this;
         }

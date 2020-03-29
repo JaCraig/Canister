@@ -26,6 +26,7 @@ namespace Canister.Default
             AppContainer = (IServiceCollection)collection;
             Register(this);
             Register<IBootstrapper>(this);
+            ServiceProviderFactory = new DefaultServiceProviderFactory();
         }
 
         /// <summary>
@@ -50,6 +51,11 @@ namespace Canister.Default
         public IServiceProvider? ServiceProvider { get; private set; }
 
         /// <summary>
+        /// The service provider factory
+        /// </summary>
+        private DefaultServiceProviderFactory ServiceProviderFactory { get; }
+
+        /// <summary>
         /// Creates the service scope.
         /// </summary>
         /// <returns>The service scope</returns>
@@ -71,7 +77,7 @@ namespace Canister.Default
                 AppContainer.AddSingleton(_ => objectToRegister);
             else
                 AppContainer.AddTransient(_ => objectToRegister);
-            if (AvailableTypes == null)
+            if (AvailableTypes is null)
                 UpdateServiceProvider();
             return this;
         }
@@ -91,7 +97,7 @@ namespace Canister.Default
                 AppContainer.AddSingleton<T>();
             else
                 AppContainer.AddTransient<T>();
-            if (AvailableTypes == null)
+            if (AvailableTypes is null)
                 UpdateServiceProvider();
             return this;
         }
@@ -112,7 +118,7 @@ namespace Canister.Default
                 AppContainer.AddSingleton<T1, T2>();
             else
                 AppContainer.AddTransient<T1, T2>();
-            if (AvailableTypes == null)
+            if (AvailableTypes is null)
                 UpdateServiceProvider();
             return this;
         }
@@ -133,7 +139,7 @@ namespace Canister.Default
                 AppContainer.AddSingleton(function);
             else
                 AppContainer.AddTransient(function);
-            if (AvailableTypes == null)
+            if (AvailableTypes is null)
                 UpdateServiceProvider();
             return this;
         }
@@ -153,7 +159,7 @@ namespace Canister.Default
                 AppContainer.AddSingleton(objectType);
             else
                 AppContainer.AddTransient(objectType);
-            if (AvailableTypes == null)
+            if (AvailableTypes is null)
                 UpdateServiceProvider();
             return this;
         }
@@ -185,7 +191,7 @@ namespace Canister.Default
                     AppContainer.AddTransient(RegisterType, TempType);
                 }
             }
-            if (AvailableTypes == null)
+            if (AvailableTypes is null)
                 UpdateServiceProvider();
             return this;
         }
@@ -284,8 +290,8 @@ namespace Canister.Default
         /// </summary>
         private void UpdateServiceProvider()
         {
-            if (ServiceProvider != null)
-                ServiceProvider = new DefaultServiceProviderFactory().CreateServiceProvider(AppContainer);
+            if (!(ServiceProvider is null))
+                ServiceProvider = ServiceProviderFactory.CreateServiceProvider(AppContainer);
         }
     }
 }
