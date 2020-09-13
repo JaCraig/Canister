@@ -290,8 +290,9 @@ namespace Canister.Default
         /// </summary>
         private void UpdateServiceProvider()
         {
-            if (!(ServiceProvider is null))
-                ServiceProvider = ServiceProviderFactory.CreateServiceProvider(AppContainer);
+            if (ServiceProvider is null)
+                return;
+            ServiceProvider = ServiceProviderFactory.CreateServiceProvider(AppContainer);
         }
     }
 }
