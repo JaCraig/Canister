@@ -37,7 +37,10 @@ namespace TestApp.Modules
 #endif
                                             .Enrich.FromLogContext()
                                             .WriteTo
-                                                .RollingFile(RootPath + "/Logs/log-{Date}.txt", outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] [{UserName}] {Message}{NewLine}{Exception}")
+                                                .File(
+                                                    RootPath + "/Logs/log-{Date}.txt",
+                                                    outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] [{UserName}] {Message}{NewLine}{Exception}",
+                                                    rollingInterval: RollingInterval.Day)
                                             .CreateLogger();
             bootstrapper.Register(Log.Logger, ServiceLifetime.Singleton);
         }

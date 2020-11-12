@@ -30,6 +30,6 @@ namespace Canister.Interfaces
         /// Loads the module using the bootstrapper
         /// </summary>
         /// <param name="bootstrapper">The bootstrapper.</param>
-        void Load(IBootstrapper bootstrapper);
+        void Load(IBootstrapper? bootstrapper);
     }
 }

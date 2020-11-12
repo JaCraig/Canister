@@ -29,12 +29,6 @@ namespace Canister.Default
         }
 
         /// <summary>
-        /// Gets the available types.
-        /// </summary>
-        /// <value>The available types.</value>
-        private Type[]? AvailableTypes;
-
-        /// <summary>
         /// The IoC container
         /// </summary>
         public override IServiceCollection AppContainer { get; }
@@ -48,6 +42,12 @@ namespace Canister.Default
         /// The <see cref="T:System.IServiceProvider"/> used to resolve dependencies from the scope.
         /// </summary>
         public IServiceProvider? ServiceProvider { get; private set; }
+
+        /// <summary>
+        /// Gets the available types.
+        /// </summary>
+        /// <value>The available types.</value>
+        private Type[]? AvailableTypes;
 
         /// <summary>
         /// Creates the service scope.
@@ -284,7 +284,7 @@ namespace Canister.Default
         /// </summary>
         private void UpdateServiceProvider()
         {
-            if (ServiceProvider != null)
+            if (!(ServiceProvider is null))
                 ServiceProvider = new DefaultServiceProviderFactory().CreateServiceProvider(AppContainer);
         }
     }

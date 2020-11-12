@@ -35,13 +35,11 @@ namespace Canister.IoC.Modules
         /// Loads the module using the bootstrapper
         /// </summary>
         /// <param name="bootstrapper">The bootstrapper.</param>
-        public void Load(IBootstrapper bootstrapper)
+        public void Load(IBootstrapper? bootstrapper)
         {
-            if (bootstrapper == null)
-                return;
-            bootstrapper.Register("")
-                .Register<IServiceProvider>(bootstrapper, ServiceLifetime.Singleton)
-                .Register(bootstrapper);
+            bootstrapper?.Register("")
+                         .Register<IServiceProvider>(bootstrapper, ServiceLifetime.Singleton)
+                         .Register(bootstrapper);
         }
     }
 }
