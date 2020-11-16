@@ -39,10 +39,12 @@ namespace Canister.BaseClasses
         }
 
         /// <summary>
-        /// Gets the assemblies.
+        /// Destructor
         /// </summary>
-        /// <value>The assemblies.</value>
-        protected List<Assembly> Assemblies;
+        ~BootstrapperBase()
+        {
+            Dispose(false);
+        }
 
         /// <summary>
         /// The IoC container
@@ -53,6 +55,12 @@ namespace Canister.BaseClasses
         /// Name of the bootstrapper
         /// </summary>
         public abstract string Name { get; }
+
+        /// <summary>
+        /// Gets the assemblies.
+        /// </summary>
+        /// <value>The assemblies.</value>
+        protected List<Assembly> Assemblies;
 
         /// <summary>
         /// Adds the assembly.
@@ -108,7 +116,7 @@ namespace Canister.BaseClasses
         /// </summary>
         /// <param name="serviceType">Type of the service.</param>
         /// <returns>The service specified</returns>
-        public object GetService(Type serviceType) => Resolve(serviceType, "", null);
+        public object GetService(Type serviceType) => Resolve(serviceType, string.Empty, null);
 
         /// <summary>
         /// Registers an object with the bootstrapper
@@ -255,13 +263,5 @@ namespace Canister.BaseClasses
         /// <param name="type">The type to check against.</param>
         /// <returns><c>true</c> if [is of type] [the specified type]; otherwise, <c>false</c>.</returns>
         protected bool IsOfType(Type x, Type type) => type?.IsAssignableFrom(x) == true;
-
-        /// <summary>
-        /// Destructor
-        /// </summary>
-        ~BootstrapperBase()
-        {
-            Dispose(false);
-        }
     }
 }

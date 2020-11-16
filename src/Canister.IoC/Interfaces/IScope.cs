@@ -27,6 +27,6 @@ namespace Canister.Interfaces
         /// Creates the service scope.
         /// </summary>
         /// <returns>The service scope</returns>
-        IServiceScope CreateScope();
+        IServiceScope? CreateScope();
     }
 }

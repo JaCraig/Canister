@@ -37,7 +37,7 @@ namespace Canister.IoC.Modules
         /// <param name="bootstrapper">The bootstrapper.</param>
         public void Load(IBootstrapper? bootstrapper)
         {
-            bootstrapper?.Register("")
+            bootstrapper?.Register(string.Empty)
                          .Register<IServiceProvider>(bootstrapper, ServiceLifetime.Singleton)
                          .Register(bootstrapper);
         }

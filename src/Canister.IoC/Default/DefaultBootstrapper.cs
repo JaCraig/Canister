@@ -45,21 +45,21 @@ namespace Canister.Default
         public IServiceProvider? ServiceProvider { get; private set; }
 
         /// <summary>
+        /// The service provider factory
+        /// </summary>
+        private DefaultServiceProviderFactory ServiceProviderFactory { get; }
+
+        /// <summary>
         /// Gets the available types.
         /// </summary>
         /// <value>The available types.</value>
         private Type[]? AvailableTypes;
 
         /// <summary>
-        /// The service provider factory
-        /// </summary>
-        private DefaultServiceProviderFactory ServiceProviderFactory { get; }
-
-        /// <summary>
         /// Creates the service scope.
         /// </summary>
         /// <returns>The service scope</returns>
-        public IServiceScope CreateScope() => ServiceProvider.CreateScope();
+        public IServiceScope? CreateScope() => ServiceProvider?.CreateScope();
 
         /// <summary>
         /// Registers an object with the bootstrapper
@@ -71,12 +71,20 @@ namespace Canister.Default
         /// <returns>This</returns>
         public override IBootstrapper Register<T>(T objectToRegister, ServiceLifetime lifeTime = ServiceLifetime.Singleton, string name = "")
         {
-            if (lifeTime == ServiceLifetime.Scoped)
-                AppContainer.AddScoped(_ => objectToRegister);
-            else if (lifeTime == ServiceLifetime.Singleton)
-                AppContainer.AddSingleton(_ => objectToRegister);
-            else
-                AppContainer.AddTransient(_ => objectToRegister);
+            switch (lifeTime)
+            {
+                case ServiceLifetime.Scoped:
+                    AppContainer.AddScoped(_ => objectToRegister);
+                    break;
+
+                case ServiceLifetime.Singleton:
+                    AppContainer.AddSingleton(_ => objectToRegister);
+                    break;
+
+                default:
+                    AppContainer.AddTransient(_ => objectToRegister);
+                    break;
+            }
             if (AvailableTypes is null)
                 UpdateServiceProvider();
             return this;
@@ -91,12 +99,20 @@ namespace Canister.Default
         /// <returns>This</returns>
         public override IBootstrapper Register<T>(ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
         {
-            if (lifeTime == ServiceLifetime.Scoped)
-                AppContainer.AddScoped<T>();
-            else if (lifeTime == ServiceLifetime.Singleton)
-                AppContainer.AddSingleton<T>();
-            else
-                AppContainer.AddTransient<T>();
+            switch (lifeTime)
+            {
+                case ServiceLifetime.Scoped:
+                    AppContainer.AddScoped<T>();
+                    break;
+
+                case ServiceLifetime.Singleton:
+                    AppContainer.AddSingleton<T>();
+                    break;
+
+                default:
+                    AppContainer.AddTransient<T>();
+                    break;
+            }
             if (AvailableTypes is null)
                 UpdateServiceProvider();
             return this;
@@ -112,12 +128,20 @@ namespace Canister.Default
         /// <returns>This</returns>
         public override IBootstrapper Register<T1, T2>(ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
         {
-            if (lifeTime == ServiceLifetime.Scoped)
-                AppContainer.AddScoped<T1, T2>();
-            else if (lifeTime == ServiceLifetime.Singleton)
-                AppContainer.AddSingleton<T1, T2>();
-            else
-                AppContainer.AddTransient<T1, T2>();
+            switch (lifeTime)
+            {
+                case ServiceLifetime.Scoped:
+                    AppContainer.AddScoped<T1, T2>();
+                    break;
+
+                case ServiceLifetime.Singleton:
+                    AppContainer.AddSingleton<T1, T2>();
+                    break;
+
+                default:
+                    AppContainer.AddTransient<T1, T2>();
+                    break;
+            }
             if (AvailableTypes is null)
                 UpdateServiceProvider();
             return this;
@@ -133,12 +157,20 @@ namespace Canister.Default
         /// <returns>This</returns>
         public override IBootstrapper Register<T>(Func<IServiceProvider, object> function, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
         {
-            if (lifeTime == ServiceLifetime.Scoped)
-                AppContainer.AddScoped(function);
-            else if (lifeTime == ServiceLifetime.Singleton)
-                AppContainer.AddSingleton(function);
-            else
-                AppContainer.AddTransient(function);
+            switch (lifeTime)
+            {
+                case ServiceLifetime.Scoped:
+                    AppContainer.AddScoped(function);
+                    break;
+
+                case ServiceLifetime.Singleton:
+                    AppContainer.AddSingleton(function);
+                    break;
+
+                default:
+                    AppContainer.AddTransient(function);
+                    break;
+            }
             if (AvailableTypes is null)
                 UpdateServiceProvider();
             return this;
@@ -153,12 +185,20 @@ namespace Canister.Default
         /// <returns>This</returns>
         public override IBootstrapper Register(Type objectType, ServiceLifetime lifeTime = ServiceLifetime.Transient, string name = "")
         {
-            if (lifeTime == ServiceLifetime.Scoped)
-                AppContainer.AddScoped(objectType);
-            else if (lifeTime == ServiceLifetime.Singleton)
-                AppContainer.AddSingleton(objectType);
-            else
-                AppContainer.AddTransient(objectType);
+            switch (lifeTime)
+            {
+                case ServiceLifetime.Scoped:
+                    AppContainer.AddScoped(objectType);
+                    break;
+
+                case ServiceLifetime.Singleton:
+                    AppContainer.AddSingleton(objectType);
+                    break;
+
+                default:
+                    AppContainer.AddTransient(objectType);
+                    break;
+            }
             if (AvailableTypes is null)
                 UpdateServiceProvider();
             return this;
@@ -175,20 +215,22 @@ namespace Canister.Default
             var RegisterType = typeof(T);
             foreach (var TempType in GetAvailableTypes().Where(x => IsOfType(x, typeof(T))))
             {
-                if (lifeTime == ServiceLifetime.Scoped)
+                switch (lifeTime)
                 {
-                    AppContainer.AddScoped(TempType, TempType);
-                    AppContainer.AddScoped(RegisterType, TempType);
-                }
-                else if (lifeTime == ServiceLifetime.Singleton)
-                {
-                    AppContainer.AddSingleton(TempType, TempType);
-                    AppContainer.AddSingleton(RegisterType, TempType);
-                }
-                else
-                {
-                    AppContainer.AddTransient(TempType, TempType);
-                    AppContainer.AddTransient(RegisterType, TempType);
+                    case ServiceLifetime.Scoped:
+                        AppContainer.AddScoped(TempType, TempType);
+                        AppContainer.AddScoped(RegisterType, TempType);
+                        break;
+
+                    case ServiceLifetime.Singleton:
+                        AppContainer.AddSingleton(TempType, TempType);
+                        AppContainer.AddSingleton(RegisterType, TempType);
+                        break;
+
+                    default:
+                        AppContainer.AddTransient(TempType, TempType);
+                        AppContainer.AddTransient(RegisterType, TempType);
+                        break;
                 }
             }
             if (AvailableTypes is null)

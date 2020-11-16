@@ -68,16 +68,13 @@ namespace Canister
         private static IBootstrapper GetBootstrapper(IEnumerable<Assembly> Assemblies, IEnumerable<Type> LoadedTypes, IEnumerable<ServiceDescriptor> descriptors)
         {
             var IBootstrapperType = typeof(IBootstrapper);
-            var Bootstrappers = LoadedTypes.Where(x => x.GetInterfaces()
+            var BootstrapperType = LoadedTypes.FirstOrDefault(x => x.GetInterfaces()
                                                         .Contains(IBootstrapperType)
                                                             && x.IsClass
                                                             && !x.IsAbstract
                                                             && !x.ContainsGenericParameters
-                                                            && x.Assembly != BuilderAssembly)
-                                                       .ToList();
-            if (Bootstrappers.Count == 0)
-                Bootstrappers.Add(typeof(DefaultBootstrapper));
-            return (IBootstrapper)Activator.CreateInstance(Bootstrappers[0], Assemblies, descriptors);
+                                                            && x.Assembly != BuilderAssembly);
+            return (IBootstrapper)Activator.CreateInstance(BootstrapperType ?? typeof(DefaultBootstrapper), Assemblies, descriptors);
         }
 
         /// <summary>
