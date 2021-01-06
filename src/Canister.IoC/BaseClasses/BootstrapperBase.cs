@@ -67,7 +67,7 @@ namespace Canister.BaseClasses
         /// </summary>
         /// <param name="assemblies">The assemblies.</param>
         /// <returns>This</returns>
-        public IBootstrapper AddAssembly(params Assembly[] assemblies)
+        public ICanisterConfiguration AddAssembly(params Assembly[] assemblies)
         {
             if (assemblies is null || assemblies.Length == 0)
                 return this;

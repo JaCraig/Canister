@@ -27,7 +27,6 @@ namespace TestApp.Modules
             catch { }
             var Environment = System.Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
             var AssemblyName = System.Reflection.Assembly.GetEntryAssembly().GetName().Name;
-            var IndexName = "errorlog-" + AssemblyName.ToLower() + "-" + Environment.ToLower() + "-{0:yyyy.MM.dd}";
             Log.Logger = new LoggerConfiguration()
                                             .MinimumLevel
 #if RELEASE
@@ -38,7 +37,7 @@ namespace TestApp.Modules
                                             .Enrich.FromLogContext()
                                             .WriteTo
                                                 .File(
-                                                    RootPath + "/Logs/log-{Date}.txt",
+                                                    RootPath + "/Logs/log-.txt",
                                                     outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] [{UserName}] {Message}{NewLine}{Exception}",
                                                     rollingInterval: RollingInterval.Day)
                                             .CreateLogger();

@@ -17,7 +17,6 @@ limitations under the License.
 using Canister.Default;
 using Canister.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,14 +46,13 @@ namespace Canister
         /// <param name="descriptors">The service descriptors.</param>
         /// <param name="assemblies">The assemblies to scan for modules/types.</param>
         /// <returns>The resulting bootstrapper</returns>
-        public static IBootstrapper CreateContainer(IEnumerable<ServiceDescriptor> descriptors, params Assembly[] assemblies)
+        public static IBootstrapper CreateContainer(IServiceCollection descriptors, params Assembly[] assemblies)
         {
             descriptors ??= new ServiceCollection();
             assemblies ??= Array.Empty<Assembly>();
-            var TempCollection = new ServiceCollection().Add(descriptors);
             var Assemblies = LoadAssemblies(assemblies);
             var LoadedTypes = Assemblies.SelectMany(x => x.ExportedTypes);
-            Bootstrapper = GetBootstrapper(Assemblies, LoadedTypes, TempCollection);
+            Bootstrapper = GetBootstrapper(Assemblies, LoadedTypes, descriptors);
             return Bootstrapper;
         }
 
@@ -68,8 +66,7 @@ namespace Canister
         private static IBootstrapper GetBootstrapper(IEnumerable<Assembly> Assemblies, IEnumerable<Type> LoadedTypes, IEnumerable<ServiceDescriptor> descriptors)
         {
             var IBootstrapperType = typeof(IBootstrapper);
-            var BootstrapperType = LoadedTypes.FirstOrDefault(x => x.GetInterfaces()
-                                                        .Contains(IBootstrapperType)
+            var BootstrapperType = LoadedTypes.FirstOrDefault(x => IBootstrapperType.IsAssignableFrom(x)
                                                             && x.IsClass
                                                             && !x.IsAbstract
                                                             && !x.ContainsGenericParameters
@@ -85,7 +82,7 @@ namespace Canister
         private static IEnumerable<Assembly> LoadAssemblies(Assembly[] assemblies)
         {
             var Assemblies = new List<Assembly>();
-            Assemblies.AddRange(assemblies);
+            Assemblies.AddRange(assemblies.Distinct());
             if (Assemblies.Count == 0 || !Assemblies.Contains(BuilderAssembly))
                 Assemblies.Add(BuilderAssembly);
             return Assemblies;

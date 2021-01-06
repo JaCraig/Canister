@@ -1,6 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Canister.Benchmarks.Tests
 {
@@ -10,19 +9,19 @@ namespace Canister.Benchmarks.Tests
         [Benchmark(Baseline = true)]
         public void List()
         {
-            _ = GetList(new int[] { 1, 2, 3 });
+            foreach (var Item in GetList(new int[] { 1, 2, 3 })) { }
         }
 
         [Benchmark]
         public void ListNotConstructor()
         {
-            _ = GetList2(new int[] { 1, 2, 3 });
+            foreach (var Item in GetList2(new int[] { 1, 2, 3 })) { }
         }
 
         [Benchmark]
         public void Yield()
         {
-            _ = GetYield(new int[] { 1, 2, 3 }).ToList();
+            foreach (var Item in GetYield(new int[] { 1, 2, 3 })) { }
         }
 
         private IEnumerable<int> GetList(int[] Items)
