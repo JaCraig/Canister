@@ -37,20 +37,31 @@ namespace Microsoft.Extensions.DependencyInjection
             var EntryAssembly = Assembly.GetEntryAssembly();
             if (EntryAssembly is null)
                 return Array.Empty<Assembly>();
+            var ExecutingAssembly = Assembly.GetExecutingAssembly();
+            if (ExecutingAssembly is null)
+                return Array.Empty<Assembly>();
             var AssembliesFound = new List<Assembly>
             {
-                EntryAssembly
+                EntryAssembly,
+                ExecutingAssembly
             };
-            var Temp = EntryAssembly.Location;
-            foreach (var TempAssembly in new FileInfo(Temp).Directory.EnumerateFiles("*.dll", SearchOption.TopDirectoryOnly))
+            var PathsFound = new List<string>
             {
-                try
+                EntryAssembly.Location,
+                ExecutingAssembly.Location
+            };
+            foreach (var Path in PathsFound)
+            {
+                foreach (var TempAssembly in new FileInfo(Path).Directory.EnumerateFiles("*.dll", SearchOption.TopDirectoryOnly))
                 {
-                    var LoadedTempAssembly = Assembly.Load(AssemblyName.GetAssemblyName(TempAssembly.FullName));
-                    if (!AssembliesFound.Contains(LoadedTempAssembly))
-                        AssembliesFound.Add(LoadedTempAssembly);
+                    try
+                    {
+                        var LoadedTempAssembly = Assembly.Load(AssemblyName.GetAssemblyName(TempAssembly.FullName));
+                        if (!AssembliesFound.Contains(LoadedTempAssembly))
+                            AssembliesFound.Add(LoadedTempAssembly);
+                    }
+                    catch { }
                 }
-                catch { }
             }
             return AssembliesFound.ToArray();
         }
