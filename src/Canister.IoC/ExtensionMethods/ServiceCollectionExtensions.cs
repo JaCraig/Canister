@@ -19,8 +19,6 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns>The service collection.</returns>
         public static IServiceCollection AddCanisterModules(this IServiceCollection serviceDescriptors, Action<ICanisterConfiguration>? configure = default)
         {
-            if (!(Canister.Builder.Bootstrapper is null))
-                return serviceDescriptors;
             var Bootstrapper = Canister.Builder.CreateContainer(serviceDescriptors);
             configure ??= LoadModules;
             configure(Bootstrapper);
