@@ -99,6 +99,7 @@ namespace Canister.BaseClasses
                 ResolvedModule.Load(this);
             }
             AfterBuild();
+            Builder.Bootstrapper = this;
             return this;
         }
 

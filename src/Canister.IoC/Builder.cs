@@ -32,7 +32,7 @@ namespace Canister
         /// <summary>
         /// Bootstrapper object
         /// </summary>
-        public static IBootstrapper? Bootstrapper { get; private set; }
+        public static IBootstrapper? Bootstrapper { get; internal set; }
 
         /// <summary>
         /// Gets the builder assembly.
@@ -52,8 +52,7 @@ namespace Canister
             assemblies ??= Array.Empty<Assembly>();
             var Assemblies = LoadAssemblies(assemblies);
             var LoadedTypes = Assemblies.SelectMany(x => x.ExportedTypes);
-            Bootstrapper = GetBootstrapper(Assemblies, LoadedTypes, descriptors);
-            return Bootstrapper;
+            return GetBootstrapper(Assemblies, LoadedTypes, descriptors);
         }
 
         /// <summary>
