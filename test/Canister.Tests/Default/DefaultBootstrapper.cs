@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Canister.Default;
+using Canister.Tests.BaseClasses;
+using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -6,7 +8,7 @@ using Xunit;
 
 namespace Canister.Tests.Default
 {
-    public class DefaultBootstrapperTests
+    public class DefaultBootstrapperTests : TestBaseClass<DefaultBootstrapper>
     {
         [Fact]
         public void AddAssembly()

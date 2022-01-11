@@ -1,5 +1,6 @@
 ﻿using Canister.Interfaces;
 using Canister.Tests.BaseClasses;
+using System;
 using System.Linq;
 using Xunit;
 
@@ -7,6 +8,12 @@ namespace Canister.Tests.ErrorCases
 {
     public class BootstrapperAsParameter : TestBaseClass
     {
+        /// <summary>
+        /// Gets the type of the object.
+        /// </summary>
+        /// <value>The type of the object.</value>
+        protected override Type? ObjectType { get; set; }
+
         [Fact]
         public void BufferOverflowError()
         {

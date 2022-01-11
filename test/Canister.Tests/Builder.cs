@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Canister.Tests
 {
-    public class Builder : TestBaseClass
+    public class Builder : TestBaseClass<DefaultBootstrapper>
     {
         [Fact]
         public void Creation()

@@ -1,11 +1,12 @@
 ﻿using Canister.Interfaces;
+using Canister.Tests.BaseClasses;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Xunit;
 
 namespace Canister.Tests.Default
 {
-    public class ServiceScopeFactory
+    public class ServiceScopeFactory : TestBaseClass<ServiceScopeFactory>
     {
         [Fact]
         public void CreateScope()
