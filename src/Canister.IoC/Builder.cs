@@ -46,7 +46,7 @@ namespace Canister
         /// <param name="descriptors">The service descriptors.</param>
         /// <param name="assemblies">The assemblies to scan for modules/types.</param>
         /// <returns>The resulting bootstrapper</returns>
-        public static IBootstrapper CreateContainer(IServiceCollection descriptors, params Assembly[] assemblies)
+        public static IBootstrapper? CreateContainer(IServiceCollection descriptors, params Assembly[] assemblies)
         {
             descriptors ??= new ServiceCollection();
             assemblies ??= Array.Empty<Assembly>();
@@ -62,7 +62,7 @@ namespace Canister
         /// <param name="LoadedTypes">The loaded types.</param>
         /// <param name="descriptors">The descriptors.</param>
         /// <returns>The bootstrapper.</returns>
-        private static IBootstrapper GetBootstrapper(IEnumerable<Assembly> Assemblies, IEnumerable<Type> LoadedTypes, IEnumerable<ServiceDescriptor> descriptors)
+        private static IBootstrapper? GetBootstrapper(IEnumerable<Assembly> Assemblies, IEnumerable<Type> LoadedTypes, IEnumerable<ServiceDescriptor> descriptors)
         {
             var IBootstrapperType = typeof(IBootstrapper);
             var BootstrapperType = LoadedTypes.FirstOrDefault(x => IBootstrapperType.IsAssignableFrom(x)
@@ -70,7 +70,7 @@ namespace Canister
                                                             && !x.IsAbstract
                                                             && !x.ContainsGenericParameters
                                                             && x.Assembly != BuilderAssembly);
-            return (IBootstrapper)Activator.CreateInstance(BootstrapperType ?? typeof(DefaultBootstrapper), Assemblies, descriptors);
+            return (IBootstrapper?)Activator.CreateInstance(BootstrapperType ?? typeof(DefaultBootstrapper), Assemblies, descriptors);
         }
 
         /// <summary>

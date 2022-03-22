@@ -13,7 +13,7 @@ namespace Canister.Tests.Default
         [Fact]
         public void AddAssembly()
         {
-            var Temp = GetBootstrapper();
+            var Temp = DefaultBootstrapperTests.GetBootstrapper();
             Temp.AddAssembly(GetType().GetTypeInfo().Assembly);
             Temp.AddAssembly(null);
             Temp.AddAssembly(System.Array.Empty<Assembly>());
@@ -22,7 +22,7 @@ namespace Canister.Tests.Default
         [Fact]
         public void CascadeConstructor()
         {
-            var Temp = GetBootstrapper();
+            var Temp = DefaultBootstrapperTests.GetBootstrapper();
             Temp.RegisterAll<ITestClass>();
             Temp.Register<TestClass3>();
             Temp.Register<TestClass4>();
@@ -35,7 +35,7 @@ namespace Canister.Tests.Default
         [Fact]
         public void CreateDifferentScopes()
         {
-            var Temp = GetBootstrapper();
+            var Temp = DefaultBootstrapperTests.GetBootstrapper();
             Temp.RegisterAll<ITestClass>();
             Temp.Register<TestClass3>(ServiceLifetime.Scoped);
             Temp.Register<TestClass4>(ServiceLifetime.Scoped);
@@ -66,7 +66,7 @@ namespace Canister.Tests.Default
         [Fact]
         public void CreateMultipleSameScope()
         {
-            var Temp = GetBootstrapper();
+            var Temp = DefaultBootstrapperTests.GetBootstrapper();
             Temp.RegisterAll<ITestClass>();
             Temp.Register<TestClass3>(ServiceLifetime.Scoped);
             Temp.Register<TestClass4>(ServiceLifetime.Scoped);
@@ -82,14 +82,14 @@ namespace Canister.Tests.Default
         [Fact]
         public void Creation()
         {
-            var Temp = GetBootstrapper();
+            var Temp = DefaultBootstrapperTests.GetBootstrapper();
             Assert.Equal("Default bootstrapper", Temp.Name);
         }
 
         [Fact]
         public void FailedResolveDependency()
         {
-            var Temp = GetBootstrapper();
+            var Temp = DefaultBootstrapperTests.GetBootstrapper();
             Temp.RegisterAll<ITestClass>();
             Temp.Register<TestClass4>();
             var Object = Temp.Resolve(typeof(TestClass4), new TestClass4() { Class = new TestClass3() }) as TestClass4;
@@ -100,7 +100,7 @@ namespace Canister.Tests.Default
         [Fact]
         public void GenericTypeResolve()
         {
-            var Temp = GetBootstrapper();
+            var Temp = DefaultBootstrapperTests.GetBootstrapper();
             Temp.Register(new TestClass { A = 13 }, ServiceLifetime.Transient);
             Temp.Register(typeof(GenericTestClass<>));
             var Object = Temp.Resolve(typeof(GenericTestClass<TestClass>), new GenericTestClass<TestClass>(null)) as GenericTestClass<TestClass>;
@@ -112,7 +112,7 @@ namespace Canister.Tests.Default
         [Fact]
         public void GetService()
         {
-            var Temp = GetBootstrapper();
+            var Temp = DefaultBootstrapperTests.GetBootstrapper();
             Temp.RegisterAll<ITestClass>();
             Temp.Register<TestClass3>();
             Temp.Register<TestClass4>();
@@ -125,7 +125,7 @@ namespace Canister.Tests.Default
         [Fact]
         public void IEnumerableConstructor()
         {
-            var Temp = GetBootstrapper();
+            var Temp = DefaultBootstrapperTests.GetBootstrapper();
             Temp.RegisterAll<ITestClass>();
             Temp.Register<TestClass3>();
             var Object = Temp.Resolve<TestClass3>();
@@ -136,7 +136,7 @@ namespace Canister.Tests.Default
         [Fact]
         public void Register()
         {
-            var Temp = GetBootstrapper();
+            var Temp = DefaultBootstrapperTests.GetBootstrapper();
             Temp.Register(new TestClass { A = 12 });
             Assert.Equal(12, Temp.Resolve<TestClass>().A);
             Temp.Register<TestClass>();
@@ -151,7 +151,7 @@ namespace Canister.Tests.Default
         [Fact]
         public void RegisterAll()
         {
-            var Temp = GetBootstrapper();
+            var Temp = DefaultBootstrapperTests.GetBootstrapper();
             Temp.RegisterAll<ITestClass>();
             Assert.NotNull(Temp.Resolve<ITestClass>());
             Assert.Equal(2, Temp.ResolveAll<ITestClass>().Count());
@@ -162,7 +162,7 @@ namespace Canister.Tests.Default
         [Fact]
         public void Resolve()
         {
-            var Temp = GetBootstrapper();
+            var Temp = DefaultBootstrapperTests.GetBootstrapper();
             Temp.Register(new TestClass { A = 12 });
             Assert.Equal(12, Temp.Resolve<TestClass>().A);
             Assert.Equal(12, Temp.Resolve<TestClass>("").A);
@@ -172,7 +172,7 @@ namespace Canister.Tests.Default
         [Fact]
         public void ResolveAll()
         {
-            var Temp = GetBootstrapper();
+            var Temp = DefaultBootstrapperTests.GetBootstrapper();
             Temp.Register(new TestClass { A = 12 });
             Temp.Register(new TestClass { A = 13 }, ServiceLifetime.Transient, "A");
             Temp.Register(new TestClass { A = 14 }, ServiceLifetime.Transient, "B");
@@ -187,7 +187,7 @@ namespace Canister.Tests.Default
         [Fact]
         public void ResolveType()
         {
-            var Temp = GetBootstrapper();
+            var Temp = DefaultBootstrapperTests.GetBootstrapper();
             Temp.RegisterAll<ITestClass>();
             Temp.Register<TestClass3>();
             Temp.Register<TestClass4>();
@@ -197,7 +197,7 @@ namespace Canister.Tests.Default
             Assert.Equal(2, Object.Class.Classes.Count());
         }
 
-        private Canister.Default.DefaultBootstrapper GetBootstrapper()
+        private static Canister.Default.DefaultBootstrapper GetBootstrapper()
         {
             var ReturnValue = new Canister.Default.DefaultBootstrapper(new Assembly[] { typeof(DefaultBootstrapperTests).GetTypeInfo().Assembly }, new ServiceCollection());
             ReturnValue.Build();

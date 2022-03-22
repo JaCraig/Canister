@@ -10,7 +10,7 @@
     <Description>Canister is a simple Inversion of Control container wrapper. It can be used by itself as a standalone IoC container or wrap around other IoC implementations, thus giving them a common interface to deal with.</Description>
     <AssemblyTitle>Canister IoC</AssemblyTitle>
     <Authors>James Craig</Authors>
-    <TargetFramework>netstandard2.1</TargetFramework>
+	<TargetFrameworks>netstandard2.1;net5.0;net6.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Canister.IoC</AssemblyName>
     <PackageId>Canister.IoC</PackageId>

@@ -13,7 +13,7 @@ namespace Canister.Default
     /// </summary>
     /// <seealso cref="BootstrapperBase{IServiceCollection}"/>
     /// <seealso cref="IScope"/>
-    public class DefaultBootstrapper : BootstrapperBase<IServiceCollection>, IScope
+    public sealed class DefaultBootstrapper : BootstrapperBase<IServiceCollection>, IScope
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultBootstrapper"/> class.
