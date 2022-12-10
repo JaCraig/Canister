@@ -1,8 +1,4 @@
-﻿using Canister.Interfaces;
-using Canister.IoC.Utils;
-using Fast.Activator;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

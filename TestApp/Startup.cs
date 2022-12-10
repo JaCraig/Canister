@@ -48,7 +48,7 @@ namespace TestApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddCanisterModules(configure => configure.AddAssembly(typeof(Startup).Assembly));
+            services.AddCanisterModules();// configure => configure.AddAssembly(typeof(Startup).Assembly));
         }
     }
 }

@@ -1,11 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
-using Xunit;
+﻿using System.Linq;
 
 namespace Canister.Tests.ErrorCases
 {
     public class ServiceCollectionExtensionsExceptions
     {
+        /// <summary>
+        /// Gets the type of the object.
+        /// </summary>
+        /// <value>The type of the object.</value>
+        protected override Type? ObjectType { get; set; }
+
         [Fact]
         public void BufferOverflowError()
         {
