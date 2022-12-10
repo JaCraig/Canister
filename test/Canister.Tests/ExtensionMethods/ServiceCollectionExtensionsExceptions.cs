@@ -18,7 +18,7 @@ namespace Canister.Tests.ErrorCases
             Assert.Contains(TestObjects, x => x.Name == "MyTestService2");
         }
 
-        private IServiceCollection GetBootstrapper() => new ServiceCollection();
+        private static IServiceCollection GetBootstrapper() => new ServiceCollection();
 
         public interface IService
         {

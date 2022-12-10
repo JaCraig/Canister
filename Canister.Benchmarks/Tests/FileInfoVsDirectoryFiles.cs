@@ -7,13 +7,13 @@ namespace Canister.Benchmarks.Tests
     public class FileInfoVsDirectoryFiles
     {
         [Benchmark(Baseline = true)]
-        public void DirectoryFiles()
+        public static void DirectoryFiles()
         {
             foreach (var File in Directory.EnumerateFiles(".", "*.dll")) { }
         }
 
         [Benchmark]
-        public void EnumerateFiles()
+        public static void EnumerateFiles()
         {
             foreach (FileInfo File in new DirectoryInfo(".").EnumerateFiles("*.dll"))
             { }

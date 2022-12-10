@@ -24,7 +24,7 @@ namespace Canister.Benchmarks.Tests
             foreach (var Item in GetYield(new int[] { 1, 2, 3 })) { }
         }
 
-        private IEnumerable<int> GetList(int[] Items)
+        private static IEnumerable<int> GetList(int[] Items)
         {
             return new List<int>(Items)
             {
@@ -32,7 +32,7 @@ namespace Canister.Benchmarks.Tests
             };
         }
 
-        private IEnumerable<int> GetList2(int[] Items)
+        private static IEnumerable<int> GetList2(int[] Items)
         {
             var Results = new List<int>();
             Results.AddRange(Items);
@@ -40,9 +40,9 @@ namespace Canister.Benchmarks.Tests
             return Results;
         }
 
-        private IEnumerable<int> GetYield(int[] Items)
+        private static IEnumerable<int> GetYield(int[] Items)
         {
-            for (int x = 0; x < Items.Length; ++x)
+            for (var x = 0; x < Items.Length; ++x)
             {
                 yield return Items[x];
             }

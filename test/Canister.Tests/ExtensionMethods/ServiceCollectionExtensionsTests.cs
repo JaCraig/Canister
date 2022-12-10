@@ -12,18 +12,18 @@ namespace Canister.Tests.ExtensionMethods
         [Fact]
         public void AddCanisterModulesDefaultAssemblyDiscover()
         {
-            ServiceProvider Provider = GetServices().AddCanisterModules().BuildServiceProvider();
-            Assert.NotNull(Provider.GetService<ModuleTestClass>());
+            ServiceProvider? Provider = GetServices().AddCanisterModules()?.BuildServiceProvider();
+            Assert.NotNull(Provider?.GetService<ModuleTestClass>());
         }
 
         [Fact]
         public void AddCanisterModulesSpecifyAssemblies()
         {
-            ServiceProvider Provider = GetServices().AddCanisterModules(x => x.AddAssembly(typeof(ServiceCollectionExtensionsTests).Assembly)).BuildServiceProvider();
-            Assert.NotNull(Provider.GetService<ModuleTestClass>());
+            ServiceProvider? Provider = GetServices().AddCanisterModules(x => x.AddAssembly(typeof(ServiceCollectionExtensionsTests).Assembly))?.BuildServiceProvider();
+            Assert.NotNull(Provider?.GetService<ModuleTestClass>());
         }
 
-        private IServiceCollection GetServices() => new ServiceCollection();
+        private static IServiceCollection GetServices() => new ServiceCollection();
     }
 
     public class TestModule : IModule

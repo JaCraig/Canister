@@ -11,8 +11,8 @@ namespace Canister.Tests.Default
         public void RegisterAllScoped()
         {
             IServiceCollection Temp = GetBootstrapper();
-            ServiceProvider Provider = Temp.AddAllScoped<ITestClass>().BuildServiceProvider();
-            Assert.NotNull(Provider.GetService<ITestClass>());
+            ServiceProvider? Provider = Temp.AddAllScoped<ITestClass>()?.BuildServiceProvider();
+            Assert.NotNull(Provider?.GetService<ITestClass>());
             Assert.Equal(2, Provider.GetServices<ITestClass>().Count());
             Assert.NotNull(Provider.GetService<TestClass>());
             Assert.NotNull(Provider.GetService<TestClass2>());
@@ -22,8 +22,8 @@ namespace Canister.Tests.Default
         public void RegisterAllSingleton()
         {
             IServiceCollection Temp = GetBootstrapper();
-            ServiceProvider Provider = Temp.AddAllSingleton<ITestClass>().BuildServiceProvider();
-            Assert.NotNull(Provider.GetService<ITestClass>());
+            ServiceProvider? Provider = Temp.AddAllSingleton<ITestClass>()?.BuildServiceProvider();
+            Assert.NotNull(Provider?.GetService<ITestClass>());
             Assert.Equal(2, Provider.GetServices<ITestClass>().Count());
             Assert.NotNull(Provider.GetService<TestClass>());
             Assert.NotNull(Provider.GetService<TestClass2>());
@@ -33,14 +33,14 @@ namespace Canister.Tests.Default
         public void RegisterAllTransient()
         {
             IServiceCollection Temp = GetBootstrapper();
-            ServiceProvider Provider = Temp.AddAllTransient<ITestClass>().BuildServiceProvider();
-            Assert.NotNull(Provider.GetService<ITestClass>());
+            ServiceProvider? Provider = Temp.AddAllTransient<ITestClass>()?.BuildServiceProvider();
+            Assert.NotNull(Provider?.GetService<ITestClass>());
             Assert.Equal(2, Provider.GetServices<ITestClass>().Count());
             Assert.NotNull(Provider.GetService<TestClass>());
             Assert.NotNull(Provider.GetService<TestClass2>());
         }
 
-        private IServiceCollection GetBootstrapper() => new ServiceCollection();
+        private static IServiceCollection GetBootstrapper() => new ServiceCollection();
 
         protected interface ITestClass
         {
@@ -78,7 +78,7 @@ namespace Canister.Tests.Default
                 this.Classes = Classes;
             }
 
-            public IEnumerable<ITestClass> Classes { get; set; }
+            public IEnumerable<ITestClass>? Classes { get; set; }
         }
 
         protected class TestClass4
@@ -92,7 +92,7 @@ namespace Canister.Tests.Default
                 this.Class = Class;
             }
 
-            public TestClass3 Class { get; set; }
+            public TestClass3? Class { get; set; }
         }
     }
 }
