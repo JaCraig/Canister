@@ -21,18 +21,18 @@ namespace TestApp.Modules
         /// Loads the module using the bootstrapper
         /// </summary>
         /// <param name="bootstrapper">The bootstrapper.</param>
-        public void Load(IBootstrapper bootstrapper)
+        public void Load(IServiceCollection bootstrapper)
         {
             if (bootstrapper == null)
                 return;
-            var Configuration = new ConfigurationBuilder()
+            IConfigurationRoot Configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development"}.json", optional: true)
                 .AddEnvironmentVariables()
                 .Build();
-            bootstrapper.Register<IConfiguration>(Configuration, ServiceLifetime.Singleton);
-            bootstrapper.Register(Configuration, ServiceLifetime.Singleton);
+            bootstrapper.AddTransient<IConfiguration>(_ => Configuration);
+            bootstrapper.AddTransient(_ => Configuration);
         }
     }
 }

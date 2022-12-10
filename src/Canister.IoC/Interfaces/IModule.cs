@@ -14,6 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+using Microsoft.Extensions.DependencyInjection;
+
 namespace Canister.Interfaces
 {
     /// <summary>
@@ -27,9 +29,9 @@ namespace Canister.Interfaces
         int Order { get; }
 
         /// <summary>
-        /// Loads the module using the bootstrapper
+        /// Loads the module using the service collection.
         /// </summary>
-        /// <param name="bootstrapper">The bootstrapper.</param>
-        void Load(IBootstrapper? bootstrapper);
+        /// <param name="serviceDescriptors">The service descriptors.</param>
+        void Load(IServiceCollection serviceDescriptors);
     }
 }

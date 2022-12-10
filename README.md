@@ -36,44 +36,22 @@ Canister uses the concept of modules to wire things up. This allows you to place
     {
         public int Order => 1;
 
-        public void Load(IBootstrapper bootstrapper)
+        public void Load(IServiceCollection bootstrapper)
         {
-		    bootstrapper.RegisterAll<IMyInterface>();
-			bootstrapper.Register<MyType>();
+		    bootstrapper.AddAllTransient<IMyInterface>();
+			bootstrapper.AddTransient<MyType>();
         }
     }
 	
-The module above is loaded automatically by the system and will have the Load function called at initialization time. At this point you should be able to resolve and register classes using the bootstrapper parameter. The bootstrapper itself has only a couple of functions that you will need to deal with, namely Register, RegisterAll, Resolve, and ResolveAll:
+The module above is loaded automatically by the system and will have the Load function called at initialization time. At this point you should be able to resolve and register classes using the bootstrapper parameter. The service collection also has a couple of extra extension methods: AddAllTransient, AddAllScoped, AddAllSingleton:
 
-    bootstrapper.Register<MyType>();
+    bootstrapper.AddAllTransient<IMyInterface>();
 	
-The Register function is how you add a class type to the system. You can register a Func to return the object, a static object, or just the type itself. You can also register them based on a string name as well as set the service lifetime for the item that you are registering if the underlying IoC container you're using supports it. Singleton, Scoped, or Transient scopes are supported.
+The AddAllxxxx functions will find everything that implements a class or interface in the Assemblies that you tell it to look in and will register them with the service collection.
 
-    bootstrapper.RegisterAll<IMyInterface>();
-	
-RegisterAll will find everything that implements a class or interface in the Assemblies that you tell it to look for and will register them in the system.
+## Working With Other IoC Containers
 
-    MyType MyObject = bootstrapper.Resolve<MyType>();
-	
-The Resolve function resolves an individual item of the type specified based on the information that you pass into the function.
-
-    IEnumerable<IMyInterface> MyObjects = bootstrapper.ResolveAll<IMyInterface>();
-	
-The ResolveAll function, on the other hand, will resolve all objects that are associated with the class or interface specified.
-
-## Generic types
-
-It is possible to register open generic types in the system:
-
-    bootstrapper.Register(typeof(GenericExampleClass<>));
-
-This class can then be resolved by supplying a closed generic type to the Resolve function:
-
-    GenericExampleClass<AnotherClass> MyObject = bootstrapper.Resolve(typeof(GenericExampleClass<AnotherClass>)) as GenericExampleClass<AnotherClass>;
-
-## Wrapping Other IoC Containers
-
-While the system has a default bootstrapper for ServiceCollection, it is possible to wrap other IoC containers. In order to do this, simply wrap the other IoC container in a class that implements the Canister.Interfaces.IBootstrapper interface. You may also like to use the Canister.BaseClasses.BootstrapperBase abstract class but is not required by the system. The system will then automatically detect the bootstrapper in your code when initializing the system and use that instead of the default IoC container. However you must register/resolve the modules within the Builder method as it does not happen automatically.
+While the library assumes you are using the built in ServiceCollection, it is possible to work with IoC containers. All that is required is that it implements the IServiceCollection interface.
 
 ## Using Canister in Your library
 
@@ -89,6 +67,6 @@ Install-Package Canister.IoC
 
 In order to build the library you may require the following:
 
-1. Visual Studio 2019
+1. Visual Studio 2022
 
 Other than that, just clone the project and you should be able to load the solution and build without too much effort.

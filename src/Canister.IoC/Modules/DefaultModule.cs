@@ -16,7 +16,7 @@ limitations under the License.
 
 using Canister.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
-using System;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Canister.IoC.Modules
 {
@@ -34,12 +34,7 @@ namespace Canister.IoC.Modules
         /// <summary>
         /// Loads the module using the bootstrapper
         /// </summary>
-        /// <param name="bootstrapper">The bootstrapper.</param>
-        public void Load(IBootstrapper? bootstrapper)
-        {
-            bootstrapper?.Register(string.Empty)
-                         .Register<IServiceProvider>(bootstrapper, ServiceLifetime.Singleton)
-                         .Register(bootstrapper);
-        }
+        /// <param name="serviceDescriptors">The service descriptors.</param>
+        public void Load(IServiceCollection serviceDescriptors) => serviceDescriptors?.TryAddTransient(_ => "");
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Canister.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
@@ -16,12 +17,16 @@ namespace TestApp.Modules
         /// </summary>
         public int Order => 1;
 
-        public void Load(IBootstrapper bootstrapper)
+        /// <summary>
+        /// Loads the module using the service collection.
+        /// </summary>
+        /// <param name="bootstrapper"></param>
+        public void Load(IServiceCollection bootstrapper)
         {
-            string RootPath = ".";
+            var RootPath = ".";
             try
             {
-                var HostingEnvironment = bootstrapper.Resolve<IHostEnvironment>();
+                IHostEnvironment HostingEnvironment = bootstrapper.BuildServiceProvider().GetService<IHostEnvironment>();
                 RootPath = HostingEnvironment.ContentRootPath;
             }
             catch { }
@@ -41,7 +46,7 @@ namespace TestApp.Modules
                                                     outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] [{UserName}] {Message}{NewLine}{Exception}",
                                                     rollingInterval: RollingInterval.Day)
                                             .CreateLogger();
-            bootstrapper.Register(Log.Logger, ServiceLifetime.Singleton);
+            bootstrapper.TryAddTransient(_ => Log.Logger);
         }
     }
 }
