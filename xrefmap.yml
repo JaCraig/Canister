@@ -1,0 +1,177 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Canister.Interfaces
+  name: Canister.Interfaces
+  href: api/Canister.Interfaces.html
+  commentId: N:Canister.Interfaces
+  fullName: Canister.Interfaces
+  nameWithType: Canister.Interfaces
+- uid: Canister.Interfaces.ICanisterConfiguration
+  name: ICanisterConfiguration
+  href: api/Canister.Interfaces.ICanisterConfiguration.html
+  commentId: T:Canister.Interfaces.ICanisterConfiguration
+  fullName: Canister.Interfaces.ICanisterConfiguration
+  nameWithType: ICanisterConfiguration
+- uid: Canister.Interfaces.ICanisterConfiguration.AddAssembly(System.Reflection.Assembly[])
+  name: AddAssembly(params Assembly[])
+  href: api/Canister.Interfaces.ICanisterConfiguration.html#Canister_Interfaces_ICanisterConfiguration_AddAssembly_System_Reflection_Assembly___
+  commentId: M:Canister.Interfaces.ICanisterConfiguration.AddAssembly(System.Reflection.Assembly[])
+  name.vb: AddAssembly(ParamArray Assembly())
+  fullName: Canister.Interfaces.ICanisterConfiguration.AddAssembly(params System.Reflection.Assembly[])
+  fullName.vb: Canister.Interfaces.ICanisterConfiguration.AddAssembly(ParamArray System.Reflection.Assembly())
+  nameWithType: ICanisterConfiguration.AddAssembly(params Assembly[])
+  nameWithType.vb: ICanisterConfiguration.AddAssembly(ParamArray Assembly())
+- uid: Canister.Interfaces.ICanisterConfiguration.AddAssembly*
+  name: AddAssembly
+  href: api/Canister.Interfaces.ICanisterConfiguration.html#Canister_Interfaces_ICanisterConfiguration_AddAssembly_
+  commentId: Overload:Canister.Interfaces.ICanisterConfiguration.AddAssembly
+  isSpec: "True"
+  fullName: Canister.Interfaces.ICanisterConfiguration.AddAssembly
+  nameWithType: ICanisterConfiguration.AddAssembly
+- uid: Canister.Interfaces.IModule
+  name: IModule
+  href: api/Canister.Interfaces.IModule.html
+  commentId: T:Canister.Interfaces.IModule
+  fullName: Canister.Interfaces.IModule
+  nameWithType: IModule
+- uid: Canister.Interfaces.IModule.Load(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: Load(IServiceCollection)
+  href: api/Canister.Interfaces.IModule.html#Canister_Interfaces_IModule_Load_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Canister.Interfaces.IModule.Load(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Canister.Interfaces.IModule.Load(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: IModule.Load(IServiceCollection)
+- uid: Canister.Interfaces.IModule.Load*
+  name: Load
+  href: api/Canister.Interfaces.IModule.html#Canister_Interfaces_IModule_Load_
+  commentId: Overload:Canister.Interfaces.IModule.Load
+  isSpec: "True"
+  fullName: Canister.Interfaces.IModule.Load
+  nameWithType: IModule.Load
+- uid: Canister.Interfaces.IModule.Order
+  name: Order
+  href: api/Canister.Interfaces.IModule.html#Canister_Interfaces_IModule_Order
+  commentId: P:Canister.Interfaces.IModule.Order
+  fullName: Canister.Interfaces.IModule.Order
+  nameWithType: IModule.Order
+- uid: Canister.Interfaces.IModule.Order*
+  name: Order
+  href: api/Canister.Interfaces.IModule.html#Canister_Interfaces_IModule_Order_
+  commentId: Overload:Canister.Interfaces.IModule.Order
+  isSpec: "True"
+  fullName: Canister.Interfaces.IModule.Order
+  nameWithType: IModule.Order
+- uid: Canister.IoC.Modules
+  name: Canister.IoC.Modules
+  href: api/Canister.IoC.Modules.html
+  commentId: N:Canister.IoC.Modules
+  fullName: Canister.IoC.Modules
+  nameWithType: Canister.IoC.Modules
+- uid: Canister.IoC.Modules.DefaultModule
+  name: DefaultModule
+  href: api/Canister.IoC.Modules.DefaultModule.html
+  commentId: T:Canister.IoC.Modules.DefaultModule
+  fullName: Canister.IoC.Modules.DefaultModule
+  nameWithType: DefaultModule
+- uid: Canister.IoC.Modules.DefaultModule.Load(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: Load(IServiceCollection)
+  href: api/Canister.IoC.Modules.DefaultModule.html#Canister_IoC_Modules_DefaultModule_Load_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Canister.IoC.Modules.DefaultModule.Load(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Canister.IoC.Modules.DefaultModule.Load(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: DefaultModule.Load(IServiceCollection)
+- uid: Canister.IoC.Modules.DefaultModule.Load*
+  name: Load
+  href: api/Canister.IoC.Modules.DefaultModule.html#Canister_IoC_Modules_DefaultModule_Load_
+  commentId: Overload:Canister.IoC.Modules.DefaultModule.Load
+  isSpec: "True"
+  fullName: Canister.IoC.Modules.DefaultModule.Load
+  nameWithType: DefaultModule.Load
+- uid: Canister.IoC.Modules.DefaultModule.Order
+  name: Order
+  href: api/Canister.IoC.Modules.DefaultModule.html#Canister_IoC_Modules_DefaultModule_Order
+  commentId: P:Canister.IoC.Modules.DefaultModule.Order
+  fullName: Canister.IoC.Modules.DefaultModule.Order
+  nameWithType: DefaultModule.Order
+- uid: Canister.IoC.Modules.DefaultModule.Order*
+  name: Order
+  href: api/Canister.IoC.Modules.DefaultModule.html#Canister_IoC_Modules_DefaultModule_Order_
+  commentId: Overload:Canister.IoC.Modules.DefaultModule.Order
+  isSpec: "True"
+  fullName: Canister.IoC.Modules.DefaultModule.Order
+  nameWithType: DefaultModule.Order
+- uid: Microsoft.Extensions.DependencyInjection
+  name: Microsoft.Extensions.DependencyInjection
+  href: api/Microsoft.Extensions.DependencyInjection.html
+  commentId: N:Microsoft.Extensions.DependencyInjection
+  fullName: Microsoft.Extensions.DependencyInjection
+  nameWithType: Microsoft.Extensions.DependencyInjection
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions
+  name: ServiceCollectionExtensions
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html
+  commentId: T:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions
+  nameWithType: ServiceCollectionExtensions
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllScoped*
+  name: AddAllScoped
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddAllScoped_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllScoped
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllScoped
+  nameWithType: ServiceCollectionExtensions.AddAllScoped
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllScoped``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: AddAllScoped<T>(IServiceCollection?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddAllScoped__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllScoped``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name.vb: AddAllScoped(Of T)(IServiceCollection)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllScoped<T>(Microsoft.Extensions.DependencyInjection.IServiceCollection?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllScoped(Of T)(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: ServiceCollectionExtensions.AddAllScoped<T>(IServiceCollection?)
+  nameWithType.vb: ServiceCollectionExtensions.AddAllScoped(Of T)(IServiceCollection)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllSingleton*
+  name: AddAllSingleton
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddAllSingleton_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllSingleton
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllSingleton
+  nameWithType: ServiceCollectionExtensions.AddAllSingleton
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllSingleton``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: AddAllSingleton<T>(IServiceCollection?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddAllSingleton__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllSingleton``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name.vb: AddAllSingleton(Of T)(IServiceCollection)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllSingleton<T>(Microsoft.Extensions.DependencyInjection.IServiceCollection?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllSingleton(Of T)(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: ServiceCollectionExtensions.AddAllSingleton<T>(IServiceCollection?)
+  nameWithType.vb: ServiceCollectionExtensions.AddAllSingleton(Of T)(IServiceCollection)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllTransient*
+  name: AddAllTransient
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddAllTransient_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllTransient
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllTransient
+  nameWithType: ServiceCollectionExtensions.AddAllTransient
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllTransient``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: AddAllTransient<T>(IServiceCollection?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddAllTransient__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllTransient``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name.vb: AddAllTransient(Of T)(IServiceCollection)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllTransient<T>(Microsoft.Extensions.DependencyInjection.IServiceCollection?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllTransient(Of T)(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: ServiceCollectionExtensions.AddAllTransient<T>(IServiceCollection?)
+  nameWithType.vb: ServiceCollectionExtensions.AddAllTransient(Of T)(IServiceCollection)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Canister.Interfaces.ICanisterConfiguration})
+  name: AddCanisterModules(IServiceCollection?, Action<ICanisterConfiguration>?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddCanisterModules_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Canister_Interfaces_ICanisterConfiguration__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Canister.Interfaces.ICanisterConfiguration})
+  name.vb: AddCanisterModules(IServiceCollection, Action(Of ICanisterConfiguration))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Action<Canister.Interfaces.ICanisterConfiguration>?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of Canister.Interfaces.ICanisterConfiguration))
+  nameWithType: ServiceCollectionExtensions.AddCanisterModules(IServiceCollection?, Action<ICanisterConfiguration>?)
+  nameWithType.vb: ServiceCollectionExtensions.AddCanisterModules(IServiceCollection, Action(Of ICanisterConfiguration))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules*
+  name: AddCanisterModules
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddCanisterModules_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules
+  nameWithType: ServiceCollectionExtensions.AddCanisterModules
