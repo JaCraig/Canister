@@ -8,6 +8,30 @@ namespace Canister.Tests.Default
     public class ServiceCollectionExtensionsAddAll
     {
         [Fact]
+        public void RegisterAllGenericScoped()
+        {
+            IServiceCollection Temp = GetBootstrapper();
+            ServiceProvider? Provider = Temp.AddAllScoped(typeof(GenericTestClass<>))?.AddTransient(_ => "").BuildServiceProvider();
+            Assert.NotNull(Provider?.GetService<GenericTestClass<string>>());
+        }
+
+        [Fact]
+        public void RegisterAllGenericSingleton()
+        {
+            IServiceCollection Temp = GetBootstrapper();
+            ServiceProvider? Provider = Temp.AddAllSingleton(typeof(GenericTestClass<>))?.AddTransient(_ => "").BuildServiceProvider();
+            Assert.NotNull(Provider?.GetService<GenericTestClass<string>>());
+        }
+
+        [Fact]
+        public void RegisterAllGenericTransient()
+        {
+            IServiceCollection Temp = GetBootstrapper();
+            ServiceProvider? Provider = Temp.AddAllTransient(typeof(GenericTestClass<>))?.AddTransient(_ => "").BuildServiceProvider();
+            Assert.NotNull(Provider?.GetService<GenericTestClass<string>>());
+        }
+
+        [Fact]
         public void RegisterAllScoped()
         {
             IServiceCollection Temp = GetBootstrapper();

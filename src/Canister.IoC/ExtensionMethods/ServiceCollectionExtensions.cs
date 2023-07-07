@@ -16,6 +16,26 @@ namespace Microsoft.Extensions.DependencyInjection
     public static class ServiceCollectionExtensions
     {
         /// <summary>
+        /// The lock object
+        /// </summary>
+        private static readonly object AssemblyLockObject = new();
+
+        /// <summary>
+        /// The type lock object
+        /// </summary>
+        private static readonly object TypeLockObject = new();
+
+        /// <summary>
+        /// The assemblies
+        /// </summary>
+        private static Assembly[]? assemblies;
+
+        /// <summary>
+        /// The available types
+        /// </summary>
+        private static Type[]? availableTypes;
+
+        /// <summary>
         /// Gets the assemblies.
         /// </summary>
         /// <value>The assemblies.</value>
@@ -56,41 +76,33 @@ namespace Microsoft.Extensions.DependencyInjection
         }
 
         /// <summary>
-        /// The lock object
-        /// </summary>
-        private static readonly object AssemblyLockObject = new();
-
-        /// <summary>
-        /// The type lock object
-        /// </summary>
-        private static readonly object TypeLockObject = new();
-
-        /// <summary>
-        /// The assemblies
-        /// </summary>
-        private static Assembly[]? assemblies;
-
-        /// <summary>
-        /// The available types
-        /// </summary>
-        private static Type[]? availableTypes;
-
-        /// <summary>
         /// Registers all objects of a certain type with the service collection as scoped.
         /// </summary>
         /// <typeparam name="T">Object type</typeparam>
         /// <param name="serviceDescriptors">The service descriptors.</param>
-        /// <returns>Thie service collection</returns>
+        /// <returns>The service collection</returns>
         public static IServiceCollection? AddAllScoped<T>(this IServiceCollection? serviceDescriptors)
+        {
+            return serviceDescriptors?.AddAllScoped(typeof(T));
+        }
+
+        /// <summary>
+        /// Registers all objects of a certain type with the service collection as scoped.
+        /// </summary>
+        /// <param name="serviceDescriptors">The service descriptors.</param>
+        /// <param name="registerType">Type to register.</param>
+        /// <returns>The service collection</returns>
+        public static IServiceCollection? AddAllScoped(this IServiceCollection? serviceDescriptors, Type registerType)
         {
             if (serviceDescriptors is null)
                 return serviceDescriptors;
-            Type RegisterType = typeof(T);
-            foreach (Type? TempType in AvailableTypes.Where(type => RegisterType.IsAssignableFrom(type)))
+            foreach (Type? TempType in AvailableTypes.Where(type => registerType.IsAssignableFrom(type)))
             {
                 serviceDescriptors.AddScoped(TempType, TempType);
-                serviceDescriptors.AddScoped(RegisterType, TempType);
+                serviceDescriptors.AddScoped(registerType, TempType);
             }
+            if (registerType.IsGenericTypeDefinition)
+                serviceDescriptors.AddScoped(registerType, registerType);
             return serviceDescriptors;
         }
 
@@ -99,17 +111,31 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         /// <typeparam name="T">Object type</typeparam>
         /// <param name="serviceDescriptors">The service descriptors.</param>
-        /// <returns>Thie service collection</returns>
+        /// <returns>The service collection</returns>
         public static IServiceCollection? AddAllSingleton<T>(this IServiceCollection? serviceDescriptors)
+        {
+            return serviceDescriptors?.AddAllSingleton(typeof(T));
+        }
+
+        /// <summary>
+        /// Registers all objects of a certain type with the service collection as a singleton.
+        /// </summary>
+        /// <param name="serviceDescriptors">The service descriptors.</param>
+        /// <param name="registerType">Type to register.</param>
+        /// <returns>
+        /// The service collection
+        /// </returns>
+        public static IServiceCollection? AddAllSingleton(this IServiceCollection? serviceDescriptors, Type registerType)
         {
             if (serviceDescriptors is null)
                 return serviceDescriptors;
-            Type RegisterType = typeof(T);
-            foreach (Type? TempType in AvailableTypes.Where(type => RegisterType.IsAssignableFrom(type)))
+            foreach (Type? TempType in AvailableTypes.Where(type => registerType.IsAssignableFrom(type)))
             {
                 serviceDescriptors.AddSingleton(TempType, TempType);
-                serviceDescriptors.AddSingleton(RegisterType, TempType);
+                serviceDescriptors.AddSingleton(registerType, TempType);
             }
+            if (registerType.IsGenericTypeDefinition)
+                serviceDescriptors.AddSingleton(registerType, registerType);
             return serviceDescriptors;
         }
 
@@ -118,17 +144,31 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         /// <typeparam name="T">Object type</typeparam>
         /// <param name="serviceDescriptors">The service descriptors.</param>
-        /// <returns>Thie service collection</returns>
+        /// <returns>The service collection</returns>
         public static IServiceCollection? AddAllTransient<T>(this IServiceCollection? serviceDescriptors)
+        {
+            return serviceDescriptors?.AddAllTransient(typeof(T));
+        }
+
+        /// <summary>
+        /// Registers all objects of a certain type with the service collection as a transient.
+        /// </summary>
+        /// <param name="serviceDescriptors">The service descriptors.</param>
+        /// <param name="registerType">Type to register.</param>
+        /// <returns>
+        /// The service collection
+        /// </returns>
+        public static IServiceCollection? AddAllTransient(this IServiceCollection? serviceDescriptors, Type registerType)
         {
             if (serviceDescriptors is null)
                 return serviceDescriptors;
-            Type RegisterType = typeof(T);
-            foreach (Type? TempType in AvailableTypes.Where(type => RegisterType.IsAssignableFrom(type)))
+            foreach (Type? TempType in AvailableTypes.Where(type => registerType.IsAssignableFrom(type)))
             {
                 serviceDescriptors.AddTransient(TempType, TempType);
-                serviceDescriptors.AddTransient(RegisterType, TempType);
+                serviceDescriptors.AddTransient(registerType, TempType);
             }
+            if (registerType.IsGenericTypeDefinition)
+                serviceDescriptors.AddTransient(registerType, registerType);
             return serviceDescriptors;
         }
 
