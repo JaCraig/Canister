@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.1.1"></a>
+## [5.1.1](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.1) (2023-7-7)
+
+### Bug Fixes
+
+* Updating nuget package with final info ([389fc29](https://www.github.com/JaCraig/Canister/commit/389fc29c437650897eab1658f5884ebc65f069e8))
+
 <a name="5.1.0"></a>
 ## [5.1.0](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.0) (2023-7-7)
 
