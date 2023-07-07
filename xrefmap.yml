@@ -111,6 +111,15 @@ references:
   commentId: T:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions
   fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions
   nameWithType: ServiceCollectionExtensions
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllScoped(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type)
+  name: AddAllScoped(IServiceCollection?, Type)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddAllScoped_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllScoped(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type)
+  name.vb: AddAllScoped(IServiceCollection, Type)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllScoped(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Type)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllScoped(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type)
+  nameWithType: ServiceCollectionExtensions.AddAllScoped(IServiceCollection?, Type)
+  nameWithType.vb: ServiceCollectionExtensions.AddAllScoped(IServiceCollection, Type)
 - uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllScoped*
   name: AddAllScoped
   href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddAllScoped_
@@ -127,6 +136,15 @@ references:
   fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllScoped(Of T)(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   nameWithType: ServiceCollectionExtensions.AddAllScoped<T>(IServiceCollection?)
   nameWithType.vb: ServiceCollectionExtensions.AddAllScoped(Of T)(IServiceCollection)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllSingleton(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type)
+  name: AddAllSingleton(IServiceCollection?, Type)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddAllSingleton_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllSingleton(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type)
+  name.vb: AddAllSingleton(IServiceCollection, Type)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllSingleton(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Type)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllSingleton(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type)
+  nameWithType: ServiceCollectionExtensions.AddAllSingleton(IServiceCollection?, Type)
+  nameWithType.vb: ServiceCollectionExtensions.AddAllSingleton(IServiceCollection, Type)
 - uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllSingleton*
   name: AddAllSingleton
   href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddAllSingleton_
@@ -143,6 +161,15 @@ references:
   fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllSingleton(Of T)(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   nameWithType: ServiceCollectionExtensions.AddAllSingleton<T>(IServiceCollection?)
   nameWithType.vb: ServiceCollectionExtensions.AddAllSingleton(Of T)(IServiceCollection)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllTransient(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type)
+  name: AddAllTransient(IServiceCollection?, Type)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddAllTransient_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllTransient(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type)
+  name.vb: AddAllTransient(IServiceCollection, Type)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllTransient(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Type)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllTransient(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type)
+  nameWithType: ServiceCollectionExtensions.AddAllTransient(IServiceCollection?, Type)
+  nameWithType.vb: ServiceCollectionExtensions.AddAllTransient(IServiceCollection, Type)
 - uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAllTransient*
   name: AddAllTransient
   href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddAllTransient_
