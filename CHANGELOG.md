@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.1.0"></a>
+## [5.1.0](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.0) (2023-7-7)
+
+### Features
+
+* Adding the ability to do generic classes with AddAll extension methods ([9b1670d](https://www.github.com/JaCraig/Canister/commit/9b1670decb7bf4566a6b0a38dff8d39717c2d54b))
+
 <a name="5.0.1"></a>
 ## [5.0.1](https://www.github.com/JaCraig/Canister/releases/tag/v5.0.1) (2023-7-7)
 
