@@ -1,6 +1,6 @@
 # Canister
 
-[![Build status](https://ci.appveyor.com/api/projects/status/9x5dp1v8qd1o3lii?svg=true)](https://ci.appveyor.com/project/JaCraig/canister)
+
 
 Canister is one of the easiest ways to get IoC configuration under control. No longer do you have to search for that one class that you forgot to register. Instead use Canister to handle discovery and registration for you using a simple interface.
 

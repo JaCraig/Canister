@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.87
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A22C6ABE-F5A0-4353-9783-BE76E9E5C66A}"
 EndProject
@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canister.IoC", "src\Caniste
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canister.Benchmarks", "Canister.Benchmarks\Canister.Benchmarks.csproj", "{A5E5EC6E-29BD-4A94-9FD8-44B44B520861}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{B2220CDB-2733-46A8-8BEE-22047C4F32AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "TestApp\TestApp.csproj", "{B2220CDB-2733-46A8-8BEE-22047C4F32AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canister.IoC.Example", "Canister.IoC.Example\Canister.IoC.Example.csproj", "{02237372-2F9A-4E8D-8543-062F7DA355D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B2220CDB-2733-46A8-8BEE-22047C4F32AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2220CDB-2733-46A8-8BEE-22047C4F32AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2220CDB-2733-46A8-8BEE-22047C4F32AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02237372-2F9A-4E8D-8543-062F7DA355D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02237372-2F9A-4E8D-8543-062F7DA355D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02237372-2F9A-4E8D-8543-062F7DA355D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02237372-2F9A-4E8D-8543-062F7DA355D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

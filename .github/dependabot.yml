@@ -9,3 +9,7 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    commit-message:
+      prefix: "fix"
+    ignore:
+      - dependency-name: "Mecha.xUnit"
