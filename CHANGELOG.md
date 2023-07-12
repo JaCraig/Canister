@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.1.3"></a>
+## [5.1.3](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.3) (2023-7-12)
+
+### Bug Fixes
+
+* bump BenchmarkDotNet from 0.13.5 to 0.13.6 ([268f593](https://www.github.com/JaCraig/Canister/commit/268f5932a0abefe5f2144e17e6d1ad1036f09ef0))
+
+### Other
+
+* Merge pull request #36 from JaCraig/dependabot/nuget/BenchmarkDotNet-0.13.6 ([da19c33](https://www.github.com/JaCraig/Canister/commit/da19c3335a96de034df6d481dd2330f4f90d241d))
+
 <a name="5.1.2"></a>
 ## [5.1.2](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.2) (2023-7-10)
 
