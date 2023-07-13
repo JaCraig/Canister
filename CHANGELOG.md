@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.1.4"></a>
+## [5.1.4](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.4) (2023-7-13)
+
+### Bug Fixes
+
+* bump Fast.Activator from 2.0.19 to 2.0.20 ([5d7db3e](https://www.github.com/JaCraig/Canister/commit/5d7db3e5507139669986391c089e23598599557c))
+
+### Other
+
+* Merge pull request #37 from JaCraig/dependabot/nuget/Fast.Activator-2.0.20 ([64b2d6b](https://www.github.com/JaCraig/Canister/commit/64b2d6b8daefb15b5b010b3dde219e53a9ccf1f4))
+
 <a name="5.1.3"></a>
 ## [5.1.3](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.3) (2023-7-12)
 
