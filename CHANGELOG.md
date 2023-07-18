@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.1.4"></a>
+## [5.1.4](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.4) (2023-7-13)
+
+### Bug Fixes
+
+* bump Fast.Activator from 2.0.19 to 2.0.20 ([5d7db3e](https://www.github.com/JaCraig/Canister/commit/5d7db3e5507139669986391c089e23598599557c))
+
+### Other
+
+* Merge pull request #37 from JaCraig/dependabot/nuget/Fast.Activator-2.0.20 ([64b2d6b](https://www.github.com/JaCraig/Canister/commit/64b2d6b8daefb15b5b010b3dde219e53a9ccf1f4))
+
+<a name="5.1.3"></a>
+## [5.1.3](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.3) (2023-7-12)
+
+### Bug Fixes
+
+* bump BenchmarkDotNet from 0.13.5 to 0.13.6 ([268f593](https://www.github.com/JaCraig/Canister/commit/268f5932a0abefe5f2144e17e6d1ad1036f09ef0))
+
+### Other
+
+* Merge pull request #36 from JaCraig/dependabot/nuget/BenchmarkDotNet-0.13.6 ([da19c33](https://www.github.com/JaCraig/Canister/commit/da19c3335a96de034df6d481dd2330f4f90d241d))
+
+<a name="5.1.2"></a>
+## [5.1.2](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.2) (2023-7-10)
+
+### Bug Fixes
+
+* bump Fast.Activator from 2.0.18 to 2.0.19 ([3d57181](https://www.github.com/JaCraig/Canister/commit/3d571814f2569ea4f43c723da8bb78d0a25c42cd))
+
+### Other
+
+* Merge pull request #35 from JaCraig/dependabot/nuget/Fast.Activator-2.0.19 ([dffba4d](https://www.github.com/JaCraig/Canister/commit/dffba4d991455fa04514dcb3238cf66234541288))
+* Create CODE_OF_CONDUCT.md ([327d633](https://www.github.com/JaCraig/Canister/commit/327d633454e0d56859be1323d759328dd87f4377))
+* Create CONTRIBUTING.md ([a11c496](https://www.github.com/JaCraig/Canister/commit/a11c496d4ba8c289169f7437ae58aff732e4ed5b))
+* Create SECURITY.md ([d8f9bb6](https://www.github.com/JaCraig/Canister/commit/d8f9bb60cd55d24fb46e4989984d298c9fd6761b))
+* Merge ([3b6dca7](https://www.github.com/JaCraig/Canister/commit/3b6dca7c5ac9e963d6958d458d78cf4dd08c21ae))
+* Update bug_report.md ([c243205](https://www.github.com/JaCraig/Canister/commit/c2432059ce680bba03c91675f3c76cf4d7a4ded1))
+* Update dependabot.yml ([c11482e](https://www.github.com/JaCraig/Canister/commit/c11482e0742363408b680a2a1ab4d2fecd933733))
+* Update issue templates ([209f9c2](https://www.github.com/JaCraig/Canister/commit/209f9c2f3ae689380f2e7e711d9aebad565aa5ff))
+* Update README.md ([009ca36](https://www.github.com/JaCraig/Canister/commit/009ca3668780ad239ea871f59ac9f35f576d4929))
+* Wrong icon on documentation ([fc2eeed](https://www.github.com/JaCraig/Canister/commit/fc2eeed19480af811a779e565babebe71ec6cd19))
+
 <a name="5.1.1"></a>
 ## [5.1.1](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.1) (2023-7-7)
 

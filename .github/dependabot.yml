@@ -8,8 +8,22 @@ updates:
   - package-ecosystem: "nuget" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "weekly"
+      interval: "daily"
     commit-message:
       prefix: "fix"
     ignore:
       - dependency-name: "Mecha.xUnit"
+    groups:
+      dependencies:
+        patterns: 
+          - "*"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "chore"
+    groups:
+      dependencies:
+        patterns: 
+          - "*"

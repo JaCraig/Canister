@@ -1,6 +1,6 @@
 # Canister
 
-
+[![.NET Publish](https://github.com/JaCraig/Canister/actions/workflows/dotnet-publish.yml/badge.svg)](https://github.com/JaCraig/Canister/actions/workflows/dotnet-publish.yml)
 
 Canister is one of the easiest ways to get IoC configuration under control. No longer do you have to search for that one class that you forgot to register. Instead use Canister to handle discovery and registration for you using a simple interface.
 
