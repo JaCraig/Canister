@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A22C6ABE-F5A0-4353-9783-BE76E9E5C66A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AE662B5A-1274-40C6-8FE5-180456C2A692}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{08338D52-A2D3-4F1B-81B7-E115A53ABF90}"
 EndProject
@@ -17,7 +20,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canister.Benchmarks", "Cani
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "TestApp\TestApp.csproj", "{B2220CDB-2733-46A8-8BEE-22047C4F32AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canister.IoC.Example", "Canister.IoC.Example\Canister.IoC.Example.csproj", "{02237372-2F9A-4E8D-8543-062F7DA355D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canister.IoC.Example", "Canister.IoC.Example\Canister.IoC.Example.csproj", "{02237372-2F9A-4E8D-8543-062F7DA355D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
