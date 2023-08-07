@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.1.5"></a>
+## [5.1.5](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.5) (2023-8-7)
+
+### Bug Fixes
+
+* bump the dependencies group with 2 updates ([20c0c06](https://www.github.com/JaCraig/Canister/commit/20c0c062200515a8d600e11601bbf33af7198764))
+
+### Other
+
+* Merge pull request #38 from JaCraig/dependabot/nuget/dependencies-b6d9f0c41d ([f7f12e7](https://www.github.com/JaCraig/Canister/commit/f7f12e7c8b8bf5afe600999dc1b9882066120f32))
+* Adding editorconfig ([3113afa](https://www.github.com/JaCraig/Canister/commit/3113afadfdeec63ee8d7a29876a4afc6925bfc48))
+* Merge branch 'master' of https://github.com/JaCraig/Canister ([59dcf11](https://www.github.com/JaCraig/Canister/commit/59dcf11783d6fb9fa5cf2a4be71ac5e7d53606cb))
+* Update dependabot.yml ([2c8b7ff](https://www.github.com/JaCraig/Canister/commit/2c8b7ff467df8d81c302c769b66f82947173faf9))
+* Updating dependabot ([eb03b26](https://www.github.com/JaCraig/Canister/commit/eb03b26624f103cde94e6c82dd478f8527af52eb))
+* updating solution to use config ([0558b72](https://www.github.com/JaCraig/Canister/commit/0558b7279541240eecbdd63bcc6147087593dff8))
+
 <a name="5.1.4"></a>
 ## [5.1.4](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.4) (2023-7-13)
 
