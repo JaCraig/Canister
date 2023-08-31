@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.1.9"></a>
+## [5.1.9](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.9) (2023-8-31)
+
+### Bug Fixes
+
+* bump the dependencies group with 1 update ([acd63f9](https://www.github.com/JaCraig/Canister/commit/acd63f95a83dc43120208481cd0ff86450e8427f))
+
+### Other
+
+* Merge pull request #43 from JaCraig/dependabot/nuget/test/Canister.Tests/dependencies-390ba13de5 ([780aeee](https://www.github.com/JaCraig/Canister/commit/780aeee97272159d78634b6714774b52157ba5a2))
+* Merge pull request #44 from JaCraig/dependabot/nuget/dependencies-30c52ff793 ([59c4497](https://www.github.com/JaCraig/Canister/commit/59c4497c9cd42a4f7b454582f2c56e3b3364c8e4))
+* bump the dependencies group in /test/Canister.Tests with 1 update ([14162f0](https://www.github.com/JaCraig/Canister/commit/14162f07904d914aa4a478d6edc86258eb6bcc3a))
+
 <a name="5.1.8"></a>
 ## [5.1.8](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.8) (2023-8-30)
 
