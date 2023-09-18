@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.1.13"></a>
+## [5.1.13](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.13) (2023-09-18)
+
+### Bug Fixes
+
+* bump the dependencies group with 1 update ([8013321](https://www.github.com/JaCraig/Canister/commit/8013321005d14ca5d2429f8f393138d225455231))
+
+### Other
+
+* Merge pull request #49 from JaCraig/dependabot/nuget/test/Canister.Tests/dependencies-38be4d24c2 ([04c388a](https://www.github.com/JaCraig/Canister/commit/04c388aa13ca18134bd1aaed21fee41b13be36c1))
+* Merge pull request #50 from JaCraig/dependabot/nuget/dependencies-21b85cb6e9 ([7654d1d](https://www.github.com/JaCraig/Canister/commit/7654d1d4d44d7ed80e79af93bcdc14bbe267c2fc))
+* bump the dependencies group ([6626053](https://www.github.com/JaCraig/Canister/commit/662605350feef8e26efeb1cdc87dd3402c7a7d12))
+* Update dependabot.yml ([7d1442a](https://www.github.com/JaCraig/Canister/commit/7d1442ab3d04d9eac2388ae9cc0aa8ac018c6d1f))
+
 <a name="5.1.12"></a>
 ## [5.1.12](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.12) (2023-9-11)
 
