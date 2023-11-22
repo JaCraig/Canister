@@ -18,8 +18,8 @@
       <link rel="stylesheet" href="../styles/discord.css">
       <link rel="stylesheet" href="../styles/singulink.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
+      <meta property="docfx:navrel" content="../toc.json">
+      <meta property="docfx:tocrel" content="toc.json">
   
   <meta property="docfx:rel" content="../">
   <meta property="docfx:newtab" content="true">
@@ -129,7 +129,7 @@ namespace Canister.IoC.Example
         private static void Main(string[] args)
         {
             // Basic service collection
-            var ServiceProvider = new ServiceCollection()
+            ServiceProvider? ServiceProvider = new ServiceCollection()
                                     // Add the canister modules
                                     .AddCanisterModules()
                                     // Add all classes that implement IMyService as singletons
@@ -138,16 +138,16 @@ namespace Canister.IoC.Example
                                     ?.BuildServiceProvider();
 
             // Get all the services that implement IMyService
-            var ServiceClasses = ServiceProvider?.GetServices&lt;IMyService&gt;() ?? Array.Empty&lt;IMyService&gt;();
+            IEnumerable&lt;IMyService&gt; ServiceClasses = ServiceProvider?.GetServices&lt;IMyService&gt;() ?? Array.Empty&lt;IMyService&gt;();
             // Write out the number of services found (should be 2)
             System.Console.WriteLine(&quot;Number of services found: {0}&quot;, ServiceClasses.Count());
             // Write out the names of the services found (should be ExampleService1 and ExampleService2)
-            foreach (var ServiceClass in ServiceClasses)
+            foreach (IMyService ServiceClass in ServiceClasses)
             {
                 System.Console.WriteLine(ServiceClass.Name);
             }
             // Write out the name of the simple example class (should be SimpleExampleClass)
-            var SimpleExampleClass = ServiceProvider?.GetService&lt;SimpleExampleClass&gt;();
+            SimpleExampleClass? SimpleExampleClass = ServiceProvider?.GetService&lt;SimpleExampleClass&gt;();
             System.Console.WriteLine(SimpleExampleClass?.Name);
         }
     }
@@ -197,10 +197,7 @@ namespace Canister.IoC.Example
         /// Loads the module using the service collection.
         /// &lt;/summary&gt;
         /// &lt;param name=&quot;serviceDescriptors&quot;&gt;The service descriptors.&lt;/param&gt;
-        public void Load(IServiceCollection serviceDescriptors)
-        {
-            serviceDescriptors.AddTransient&lt;SimpleExampleClass&gt;();
-        }
+        public void Load(IServiceCollection serviceDescriptors) =&gt; serviceDescriptors.AddTransient&lt;SimpleExampleClass&gt;();
     }
 
     /// &lt;summary&gt;
