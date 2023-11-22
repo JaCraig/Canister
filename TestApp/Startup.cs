@@ -20,25 +20,25 @@ namespace TestApp
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                _ = app.UseDeveloperExceptionPage();
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                _ = app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production
                 // scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                _ = app.UseHsts();
             }
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            _ = app.UseHttpsRedirection();
+            _ = app.UseStaticFiles();
 
-            app.UseRouting();
+            _ = app.UseRouting();
 
-            app.UseAuthorization();
+            _ = app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
+            _ = app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
+                _ = endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
@@ -47,8 +47,8 @@ namespace TestApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-            services.AddCanisterModules();// configure => configure.AddAssembly(typeof(Startup).Assembly));
+            _ = services.AddControllersWithViews();
+            _ = services.AddCanisterModules();// configure => configure.AddAssembly(typeof(Startup).Assembly));
         }
     }
 }

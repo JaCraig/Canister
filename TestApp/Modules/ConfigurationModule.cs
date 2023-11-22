@@ -31,8 +31,8 @@ namespace TestApp.Modules
                 .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development"}.json", optional: true)
                 .AddEnvironmentVariables()
                 .Build();
-            bootstrapper.AddTransient<IConfiguration>(_ => Configuration);
-            bootstrapper.AddTransient(_ => Configuration);
+            _ = bootstrapper.AddTransient<IConfiguration>(_ => Configuration);
+            _ = bootstrapper.AddTransient(_ => Configuration);
         }
     }
 }

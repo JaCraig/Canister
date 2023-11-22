@@ -10,7 +10,7 @@ namespace Canister.Tests.ErrorCases
         public void BufferOverflowError()
         {
             IServiceCollection Temp = GetBootstrapper();
-            Temp.AddAllTransient<IService>();
+            _ = Temp.AddAllTransient<IService>();
             ServiceProvider Provider = Temp.BuildServiceProvider();
             System.Collections.Generic.IEnumerable<IService> TestObjects = Provider.GetServices<IService>();
             Assert.Equal(2, TestObjects.Count());

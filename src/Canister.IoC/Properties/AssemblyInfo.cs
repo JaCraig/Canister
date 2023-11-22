@@ -16,4 +16,4 @@ using System.Runtime.InteropServices;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("ab6b2461-f558-48f9-82e9-00367d253f43")]
 [assembly: InternalsVisibleToAttribute("Canister.Tests")]
-[assembly: InternalsVisibleToAttribute("Canister.Benchmarks")] 
+[assembly: InternalsVisibleToAttribute("Canister.Benchmarks")]

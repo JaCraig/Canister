@@ -16,26 +16,6 @@ namespace Microsoft.Extensions.DependencyInjection
     public static class ServiceCollectionExtensions
     {
         /// <summary>
-        /// The lock object
-        /// </summary>
-        private static readonly object AssemblyLockObject = new();
-
-        /// <summary>
-        /// The type lock object
-        /// </summary>
-        private static readonly object TypeLockObject = new();
-
-        /// <summary>
-        /// The assemblies
-        /// </summary>
-        private static Assembly[]? assemblies;
-
-        /// <summary>
-        /// The available types
-        /// </summary>
-        private static Type[]? availableTypes;
-
-        /// <summary>
         /// Gets the assemblies.
         /// </summary>
         /// <value>The assemblies.</value>
@@ -43,14 +23,14 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             get
             {
-                if (assemblies is not null)
-                    return assemblies;
-                lock (AssemblyLockObject)
+                if (_Assemblies is not null)
+                    return _Assemblies;
+                lock (_AssemblyLockObject)
                 {
-                    if (assemblies is not null)
-                        return assemblies;
-                    assemblies = FindModules();
-                    return assemblies;
+                    if (_Assemblies is not null)
+                        return _Assemblies;
+                    _Assemblies = FindModules();
+                    return _Assemblies;
                 }
             }
         }
@@ -63,17 +43,37 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             get
             {
-                if (availableTypes is not null)
-                    return availableTypes;
-                lock (TypeLockObject)
+                if (_AvailableTypes is not null)
+                    return _AvailableTypes;
+                lock (_TypeLockObject)
                 {
-                    if (availableTypes is not null)
-                        return availableTypes;
-                    availableTypes = GetAvailableTypes();
-                    return availableTypes;
+                    if (_AvailableTypes is not null)
+                        return _AvailableTypes;
+                    _AvailableTypes = GetAvailableTypes();
+                    return _AvailableTypes;
                 }
             }
         }
+
+        /// <summary>
+        /// The lock object
+        /// </summary>
+        private static readonly object _AssemblyLockObject = new();
+
+        /// <summary>
+        /// The type lock object
+        /// </summary>
+        private static readonly object _TypeLockObject = new();
+
+        /// <summary>
+        /// The assemblies
+        /// </summary>
+        private static Assembly[]? _Assemblies;
+
+        /// <summary>
+        /// The available types
+        /// </summary>
+        private static Type[]? _AvailableTypes;
 
         /// <summary>
         /// Registers all objects of a certain type with the service collection as scoped.
@@ -81,10 +81,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <typeparam name="T">Object type</typeparam>
         /// <param name="serviceDescriptors">The service descriptors.</param>
         /// <returns>The service collection</returns>
-        public static IServiceCollection? AddAllScoped<T>(this IServiceCollection? serviceDescriptors)
-        {
-            return serviceDescriptors?.AddAllScoped(typeof(T));
-        }
+        public static IServiceCollection? AddAllScoped<T>(this IServiceCollection? serviceDescriptors) => serviceDescriptors?.AddAllScoped(typeof(T));
 
         /// <summary>
         /// Registers all objects of a certain type with the service collection as scoped.
@@ -98,11 +95,11 @@ namespace Microsoft.Extensions.DependencyInjection
                 return serviceDescriptors;
             foreach (Type? TempType in AvailableTypes.Where(type => registerType.IsAssignableFrom(type)))
             {
-                serviceDescriptors.AddScoped(TempType, TempType);
-                serviceDescriptors.AddScoped(registerType, TempType);
+                _ = serviceDescriptors.AddScoped(TempType, TempType);
+                _ = serviceDescriptors.AddScoped(registerType, TempType);
             }
             if (registerType.IsGenericTypeDefinition)
-                serviceDescriptors.AddScoped(registerType, registerType);
+                _ = serviceDescriptors.AddScoped(registerType, registerType);
             return serviceDescriptors;
         }
 
@@ -112,30 +109,25 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <typeparam name="T">Object type</typeparam>
         /// <param name="serviceDescriptors">The service descriptors.</param>
         /// <returns>The service collection</returns>
-        public static IServiceCollection? AddAllSingleton<T>(this IServiceCollection? serviceDescriptors)
-        {
-            return serviceDescriptors?.AddAllSingleton(typeof(T));
-        }
+        public static IServiceCollection? AddAllSingleton<T>(this IServiceCollection? serviceDescriptors) => serviceDescriptors?.AddAllSingleton(typeof(T));
 
         /// <summary>
         /// Registers all objects of a certain type with the service collection as a singleton.
         /// </summary>
         /// <param name="serviceDescriptors">The service descriptors.</param>
         /// <param name="registerType">Type to register.</param>
-        /// <returns>
-        /// The service collection
-        /// </returns>
+        /// <returns>The service collection</returns>
         public static IServiceCollection? AddAllSingleton(this IServiceCollection? serviceDescriptors, Type registerType)
         {
             if (serviceDescriptors is null)
                 return serviceDescriptors;
             foreach (Type? TempType in AvailableTypes.Where(type => registerType.IsAssignableFrom(type)))
             {
-                serviceDescriptors.AddSingleton(TempType, TempType);
-                serviceDescriptors.AddSingleton(registerType, TempType);
+                _ = serviceDescriptors.AddSingleton(TempType, TempType);
+                _ = serviceDescriptors.AddSingleton(registerType, TempType);
             }
             if (registerType.IsGenericTypeDefinition)
-                serviceDescriptors.AddSingleton(registerType, registerType);
+                _ = serviceDescriptors.AddSingleton(registerType, registerType);
             return serviceDescriptors;
         }
 
@@ -145,30 +137,25 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <typeparam name="T">Object type</typeparam>
         /// <param name="serviceDescriptors">The service descriptors.</param>
         /// <returns>The service collection</returns>
-        public static IServiceCollection? AddAllTransient<T>(this IServiceCollection? serviceDescriptors)
-        {
-            return serviceDescriptors?.AddAllTransient(typeof(T));
-        }
+        public static IServiceCollection? AddAllTransient<T>(this IServiceCollection? serviceDescriptors) => serviceDescriptors?.AddAllTransient(typeof(T));
 
         /// <summary>
         /// Registers all objects of a certain type with the service collection as a transient.
         /// </summary>
         /// <param name="serviceDescriptors">The service descriptors.</param>
         /// <param name="registerType">Type to register.</param>
-        /// <returns>
-        /// The service collection
-        /// </returns>
+        /// <returns>The service collection</returns>
         public static IServiceCollection? AddAllTransient(this IServiceCollection? serviceDescriptors, Type registerType)
         {
             if (serviceDescriptors is null)
                 return serviceDescriptors;
             foreach (Type? TempType in AvailableTypes.Where(type => registerType.IsAssignableFrom(type)))
             {
-                serviceDescriptors.AddTransient(TempType, TempType);
-                serviceDescriptors.AddTransient(registerType, TempType);
+                _ = serviceDescriptors.AddTransient(TempType, TempType);
+                _ = serviceDescriptors.AddTransient(registerType, TempType);
             }
             if (registerType.IsGenericTypeDefinition)
-                serviceDescriptors.AddTransient(registerType, registerType);
+                _ = serviceDescriptors.AddTransient(registerType, registerType);
             return serviceDescriptors;
         }
 
@@ -190,12 +177,12 @@ namespace Microsoft.Extensions.DependencyInjection
             var AssemblyConfiguration = new CanisterConfiguration();
             configure ??= LoadModules;
             configure(AssemblyConfiguration);
-            assemblies = AssemblyConfiguration.Assemblies.ToArray();
-            availableTypes = null;
+            _Assemblies = AssemblyConfiguration.Assemblies.ToArray();
+            _AvailableTypes = null;
 
             //Add assemblies and modules to the service collection
             serviceDescriptors.TryAddTransient<IEnumerable<Assembly>>(_ => AssemblyConfiguration.Assemblies);
-            serviceDescriptors.AddAllTransient<IModule>();
+            _ = serviceDescriptors.AddAllTransient<IModule>();
 
             //Load modules to the service collection
             foreach (IModule ResolvedModule in GetAllOfType<IModule>().OrderBy(x => x.Order))
@@ -205,8 +192,8 @@ namespace Microsoft.Extensions.DependencyInjection
             serviceDescriptors.TryAddSingleton<CanisterRegisteredFlag>();
 
             //Clear info and return
-            assemblies = null;
-            availableTypes = null;
+            _Assemblies = null;
+            _AvailableTypes = null;
             return serviceDescriptors;
         }
 
@@ -238,18 +225,18 @@ namespace Microsoft.Extensions.DependencyInjection
             foreach (var Path in PathsFound)
             {
                 AssembliesFound.AddRange((IEnumerable<Assembly>)Directory.EnumerateFiles(Path, "*.dll", SearchOption.TopDirectoryOnly)
-                    .Select(AssemblyPath =>
+                    .Select(assemblyPath =>
                     {
                         try
                         {
-                            return Assembly.LoadFrom(AssemblyPath);
+                            return Assembly.LoadFrom(assemblyPath);
                         }
                         catch (Exception)
                         {
                             return null;
                         }
                     })
-                    .Where(Assembly => Assembly is not null && !AssembliesFound.Contains(Assembly)));
+                    .Where(assembly => assembly is not null && !AssembliesFound.Contains(assembly)));
             }
 
             return AssembliesFound.Distinct().ToArray();

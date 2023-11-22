@@ -29,7 +29,7 @@ namespace Canister.IoC.Example
         private static void Main(string[] args)
         {
             // Basic service collection
-            var ServiceProvider = new ServiceCollection()
+            ServiceProvider? ServiceProvider = new ServiceCollection()
                                     // Add the canister modules
                                     .AddCanisterModules()
                                     // Add all classes that implement IMyService as singletons
@@ -38,16 +38,16 @@ namespace Canister.IoC.Example
                                     ?.BuildServiceProvider();
 
             // Get all the services that implement IMyService
-            var ServiceClasses = ServiceProvider?.GetServices<IMyService>() ?? Array.Empty<IMyService>();
+            IEnumerable<IMyService> ServiceClasses = ServiceProvider?.GetServices<IMyService>() ?? Array.Empty<IMyService>();
             // Write out the number of services found (should be 2)
             System.Console.WriteLine("Number of services found: {0}", ServiceClasses.Count());
             // Write out the names of the services found (should be ExampleService1 and ExampleService2)
-            foreach (var ServiceClass in ServiceClasses)
+            foreach (IMyService ServiceClass in ServiceClasses)
             {
                 System.Console.WriteLine(ServiceClass.Name);
             }
             // Write out the name of the simple example class (should be SimpleExampleClass)
-            var SimpleExampleClass = ServiceProvider?.GetService<SimpleExampleClass>();
+            SimpleExampleClass? SimpleExampleClass = ServiceProvider?.GetService<SimpleExampleClass>();
             System.Console.WriteLine(SimpleExampleClass?.Name);
         }
     }
@@ -97,10 +97,7 @@ namespace Canister.IoC.Example
         /// Loads the module using the service collection.
         /// </summary>
         /// <param name="serviceDescriptors">The service descriptors.</param>
-        public void Load(IServiceCollection serviceDescriptors)
-        {
-            serviceDescriptors.AddTransient<SimpleExampleClass>();
-        }
+        public void Load(IServiceCollection serviceDescriptors) => serviceDescriptors.AddTransient<SimpleExampleClass>();
     }
 
     /// <summary>

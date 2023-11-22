@@ -9,19 +9,22 @@ namespace Canister.Benchmarks.Tests
         [Benchmark(Baseline = true)]
         public void List()
         {
-            foreach (var Item in GetList(new int[] { 1, 2, 3 })) { }
+            foreach (var Item in GetList(new int[] { 1, 2, 3 }))
+            { }
         }
 
         [Benchmark]
         public void ListNotConstructor()
         {
-            foreach (var Item in GetList2(new int[] { 1, 2, 3 })) { }
+            foreach (var Item in GetList2(new int[] { 1, 2, 3 }))
+            { }
         }
 
         [Benchmark]
         public void Yield()
         {
-            foreach (var Item in GetYield(new int[] { 1, 2, 3 })) { }
+            foreach (var Item in GetYield(new int[] { 1, 2, 3 }))
+            { }
         }
 
         private static IEnumerable<int> GetList(int[] Items)

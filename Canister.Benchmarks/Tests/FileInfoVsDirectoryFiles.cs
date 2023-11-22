@@ -4,12 +4,13 @@ using System.IO;
 namespace Canister.Benchmarks.Tests
 {
     [MemoryDiagnoser, AllStatisticsColumn, RankColumn, RPlotExporter]
-    public class FileInfoVsDirectoryFiles
+    public static class FileInfoVsDirectoryFiles
     {
         [Benchmark(Baseline = true)]
         public static void DirectoryFiles()
         {
-            foreach (var File in Directory.EnumerateFiles(".", "*.dll")) { }
+            foreach (var File in Directory.EnumerateFiles(".", "*.dll"))
+            { }
         }
 
         [Benchmark]
