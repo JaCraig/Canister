@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.2.0"></a>
+## [5.2.0](https://www.github.com/JaCraig/Canister/releases/tag/v5.2.0) (2023-12-10)
+
+### Features
+
+* Adding a few extension methods ([ccbfffe](https://www.github.com/JaCraig/Canister/commit/ccbfffe7ef1b6d5a25102c9a00bec72a210a3f1c))
+
+### Other
+
+* Merge pull request #61 from JaCraig/dependabot/nuget/test/Canister.Tests/dependencies-5afb318d15 ([2ed1321](https://www.github.com/JaCraig/Canister/commit/2ed13210b8343eb529301e48af1674c60aaabec6))
+* Merge pull request #62 from JaCraig/dependabot/github_actions/dependencies-9d15ffb50c ([0f672f4](https://www.github.com/JaCraig/Canister/commit/0f672f49593197e23dece008a9d8b86c457e6f2c))
+* bump the dependencies group ([5cadf1d](https://www.github.com/JaCraig/Canister/commit/5cadf1d6dd306cd43013a50a9cc02d352627045d))
+* bump the dependencies group with 1 update ([87e8c29](https://www.github.com/JaCraig/Canister/commit/87e8c290ba7a0cd97a07f25f5e6560bd9c43e615))
+* Code cleanup ([b5b2deb](https://www.github.com/JaCraig/Canister/commit/b5b2deb6856bc3995b6213c0d7b2c29f4bec18bc))
+* fixing doc gen ([707eafc](https://www.github.com/JaCraig/Canister/commit/707eafc49d35b207e47e2de089aa90e4f88a3bf5))
+
 <a name="5.1.17"></a>
 ## [5.1.17](https://www.github.com/JaCraig/Canister/releases/tag/v5.1.17) (2023-11-17)
 
