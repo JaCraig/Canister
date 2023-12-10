@@ -11,9 +11,7 @@ namespace Canister.IoC.Example
         /// <summary>
         /// Gets the name.
         /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
+        /// <value>The name.</value>
         string Name { get; }
     }
 
@@ -40,52 +38,48 @@ namespace Canister.IoC.Example
             // Get all the services that implement IMyService
             IEnumerable<IMyService> ServiceClasses = ServiceProvider?.GetServices<IMyService>() ?? Array.Empty<IMyService>();
             // Write out the number of services found (should be 2)
-            System.Console.WriteLine("Number of services found: {0}", ServiceClasses.Count());
+            Console.WriteLine("Number of services found: {0}", ServiceClasses.Count());
             // Write out the names of the services found (should be ExampleService1 and ExampleService2)
             foreach (IMyService ServiceClass in ServiceClasses)
             {
-                System.Console.WriteLine(ServiceClass.Name);
+                Console.WriteLine(ServiceClass.Name);
             }
             // Write out the name of the simple example class (should be SimpleExampleClass)
             SimpleExampleClass? SimpleExampleClass = ServiceProvider?.GetService<SimpleExampleClass>();
-            System.Console.WriteLine(SimpleExampleClass?.Name);
+            Console.WriteLine(SimpleExampleClass?.Name);
         }
     }
 
     /// <summary>
     /// Example service 1
     /// </summary>
-    /// <seealso cref="IMyService" />
+    /// <seealso cref="IMyService"/>
     internal class ExampleService1 : IMyService
     {
         /// <summary>
         /// Gets the name.
         /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
+        /// <value>The name.</value>
         public string Name => "ExampleService1";
     }
 
     /// <summary>
     /// Example service 2
     /// </summary>
-    /// <seealso cref="IMyService" />
+    /// <seealso cref="IMyService"/>
     internal class ExampleService2 : IMyService
     {
         /// <summary>
         /// Gets the name.
         /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
+        /// <value>The name.</value>
         public string Name => "ExampleService2";
     }
 
     /// <summary>
     /// This is a module that will be called and loaded into the service collection
     /// </summary>
-    /// <seealso cref="IModule" />
+    /// <seealso cref="IModule"/>
     internal class MyModule : IModule
     {
         /// <summary>
@@ -108,9 +102,7 @@ namespace Canister.IoC.Example
         /// <summary>
         /// Gets the name.
         /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
+        /// <value>The name.</value>
         public string Name => "SimpleExampleClass";
     }
 }

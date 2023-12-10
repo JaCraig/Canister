@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Description>Tests for Canister</Description>
     <AssemblyTitle>Canister.Tests</AssemblyTitle>
     <Authors>James Craig</Authors>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
     <DebugType>portable</DebugType>
     <AssemblyName>Canister.Tests</AssemblyName>
     <PackageId>Canister.Tests</PackageId>
@@ -12,7 +12,7 @@
     <PackageTags>IoC</PackageTags>
     <PackageProjectUrl>https://github.com/JaCraig/Canister</PackageProjectUrl>
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
-    <RuntimeIdentifiers>win7-x64;osx.10.10-x64;ubuntu.14.04-x64</RuntimeIdentifiers>
+    <RuntimeIdentifiers>win-x64;osx-x64;linux-x64</RuntimeIdentifiers>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
@@ -25,11 +25,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.4">
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="xunit" Version="2.6.2" />
+    <PackageReference Include="xunit" Version="2.6.3" />
   </ItemGroup>
 
   <ItemGroup>

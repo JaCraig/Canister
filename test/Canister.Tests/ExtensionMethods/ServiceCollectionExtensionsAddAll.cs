@@ -97,9 +97,9 @@ namespace Canister.Tests.Default
             {
             }
 
-            public TestClass3(IEnumerable<ITestClass> Classes)
+            public TestClass3(IEnumerable<ITestClass> classes)
             {
-                this.Classes = Classes;
+                Classes = classes;
             }
 
             public IEnumerable<ITestClass>? Classes { get; set; }
@@ -111,9 +111,9 @@ namespace Canister.Tests.Default
             {
             }
 
-            public TestClass4(TestClass3 Class)
+            public TestClass4(TestClass3 @class)
             {
-                this.Class = Class;
+                Class = @class;
             }
 
             public TestClass3? Class { get; set; }

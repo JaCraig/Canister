@@ -4,7 +4,7 @@
     <Description>Canister adds functionality to the IServiceCollection including adding all objects of a certain type, automatic registration of types via modules, etc.</Description>
     <AssemblyTitle>Canister IoC</AssemblyTitle>
     <Authors>James Craig</Authors>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Canister.IoC</AssemblyName>
     <PackageId>Canister.IoC</PackageId>
