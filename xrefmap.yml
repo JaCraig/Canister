@@ -195,6 +195,15 @@ references:
   fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of Canister.Interfaces.ICanisterConfiguration))
   nameWithType: ServiceCollectionExtensions.AddCanisterModules(IServiceCollection?, Action<ICanisterConfiguration>?)
   nameWithType.vb: ServiceCollectionExtensions.AddCanisterModules(IServiceCollection, Action(Of ICanisterConfiguration))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly[])
+  name: AddCanisterModules(IServiceCollection?, params Assembly[])
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddCanisterModules_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Reflection_Assembly___
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly[])
+  name.vb: AddCanisterModules(IServiceCollection, ParamArray Assembly())
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules(Microsoft.Extensions.DependencyInjection.IServiceCollection?, params System.Reflection.Assembly[])
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules(Microsoft.Extensions.DependencyInjection.IServiceCollection, ParamArray System.Reflection.Assembly())
+  nameWithType: ServiceCollectionExtensions.AddCanisterModules(IServiceCollection?, params Assembly[])
+  nameWithType.vb: ServiceCollectionExtensions.AddCanisterModules(IServiceCollection, ParamArray Assembly())
 - uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules*
   name: AddCanisterModules
   href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddCanisterModules_
@@ -202,3 +211,484 @@ references:
   isSpec: "True"
   fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules
   nameWithType: ServiceCollectionExtensions.AddCanisterModules
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object)
+  name: AddKeyedScopedIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object)
+  name.vb: AddKeyedScopedIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type, object?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type, Object)
+  nameWithType: ServiceCollectionExtensions.AddKeyedScopedIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedScopedIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Func{System.IServiceProvider,System.Object,System.Object})
+  name: AddKeyedScopedIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?, Func<IServiceProvider, object?, object>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_System_Func_System_IServiceProvider_System_Object_System_Object__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Func{System.IServiceProvider,System.Object,System.Object})
+  name.vb: AddKeyedScopedIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object, Func(Of IServiceProvider, Object, Object))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type, object?, System.Func<System.IServiceProvider, object?, object>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type, Object, System.Func(Of System.IServiceProvider, Object, Object))
+  nameWithType: ServiceCollectionExtensions.AddKeyedScopedIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?, Func<IServiceProvider, object?, object>)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedScopedIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object, Func(Of IServiceProvider, Object, Object))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Type)
+  name: AddKeyedScopedIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?, Type)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_System_Type_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Type)
+  name.vb: AddKeyedScopedIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object, Type)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type, object?, System.Type)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type, Object, System.Type)
+  nameWithType: ServiceCollectionExtensions.AddKeyedScopedIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?, Type)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedScopedIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object, Type)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf*
+  name: AddKeyedScopedIf
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf
+  nameWithType: ServiceCollectionExtensions.AddKeyedScopedIf
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)
+  name: AddKeyedScopedIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, object?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)
+  name.vb: AddKeyedScopedIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf<TService>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, object?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Of TService)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), Object)
+  nameWithType: ServiceCollectionExtensions.AddKeyedScopedIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, object?)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedScopedIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``0})
+  name: AddKeyedScopedIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, object?, Func<IServiceProvider, object?, TService>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_System_Func_System_IServiceProvider_System_Object___0__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``0})
+  name.vb: AddKeyedScopedIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object, Func(Of IServiceProvider, Object, TService))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf<TService>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, object?, System.Func<System.IServiceProvider, object?, TService>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Of TService)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), Object, System.Func(Of System.IServiceProvider, Object, TService))
+  nameWithType: ServiceCollectionExtensions.AddKeyedScopedIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, object?, Func<IServiceProvider, object?, TService>)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedScopedIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object, Func(Of IServiceProvider, Object, TService))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)
+  name: AddKeyedScopedIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, object?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)
+  name.vb: AddKeyedScopedIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf<TService, TImplementation>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, object?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Of TService, TImplementation)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), Object)
+  nameWithType: ServiceCollectionExtensions.AddKeyedScopedIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, object?)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedScopedIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``1})
+  name: AddKeyedScopedIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, object?, Func<IServiceProvider, object?, TImplementation>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_System_Func_System_IServiceProvider_System_Object___1__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``1})
+  name.vb: AddKeyedScopedIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object, Func(Of IServiceProvider, Object, TImplementation))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf<TService, TImplementation>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, object?, System.Func<System.IServiceProvider, object?, TImplementation>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Of TService, TImplementation)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), Object, System.Func(Of System.IServiceProvider, Object, TImplementation))
+  nameWithType: ServiceCollectionExtensions.AddKeyedScopedIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, object?, Func<IServiceProvider, object?, TImplementation>)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedScopedIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object, Func(Of IServiceProvider, Object, TImplementation))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object)
+  name: AddKeyedSingletonIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object)
+  name.vb: AddKeyedSingletonIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type, object?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type, Object)
+  nameWithType: ServiceCollectionExtensions.AddKeyedSingletonIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedSingletonIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Func{System.IServiceProvider,System.Object,System.Object})
+  name: AddKeyedSingletonIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?, Func<IServiceProvider, object?, object>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_System_Func_System_IServiceProvider_System_Object_System_Object__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Func{System.IServiceProvider,System.Object,System.Object})
+  name.vb: AddKeyedSingletonIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object, Func(Of IServiceProvider, Object, Object))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type, object?, System.Func<System.IServiceProvider, object?, object>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type, Object, System.Func(Of System.IServiceProvider, Object, Object))
+  nameWithType: ServiceCollectionExtensions.AddKeyedSingletonIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?, Func<IServiceProvider, object?, object>)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedSingletonIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object, Func(Of IServiceProvider, Object, Object))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Type)
+  name: AddKeyedSingletonIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?, Type)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_System_Type_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Type)
+  name.vb: AddKeyedSingletonIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object, Type)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type, object?, System.Type)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type, Object, System.Type)
+  nameWithType: ServiceCollectionExtensions.AddKeyedSingletonIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?, Type)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedSingletonIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object, Type)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf*
+  name: AddKeyedSingletonIf
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf
+  nameWithType: ServiceCollectionExtensions.AddKeyedSingletonIf
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)
+  name: AddKeyedSingletonIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, object?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)
+  name.vb: AddKeyedSingletonIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf<TService>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, object?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Of TService)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), Object)
+  nameWithType: ServiceCollectionExtensions.AddKeyedSingletonIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, object?)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedSingletonIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``0})
+  name: AddKeyedSingletonIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, object?, Func<IServiceProvider, object?, TService>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_System_Func_System_IServiceProvider_System_Object___0__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``0})
+  name.vb: AddKeyedSingletonIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object, Func(Of IServiceProvider, Object, TService))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf<TService>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, object?, System.Func<System.IServiceProvider, object?, TService>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Of TService)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), Object, System.Func(Of System.IServiceProvider, Object, TService))
+  nameWithType: ServiceCollectionExtensions.AddKeyedSingletonIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, object?, Func<IServiceProvider, object?, TService>)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedSingletonIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object, Func(Of IServiceProvider, Object, TService))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)
+  name: AddKeyedSingletonIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, object?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)
+  name.vb: AddKeyedSingletonIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf<TService, TImplementation>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, object?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Of TService, TImplementation)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), Object)
+  nameWithType: ServiceCollectionExtensions.AddKeyedSingletonIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, object?)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedSingletonIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``1})
+  name: AddKeyedSingletonIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, object?, Func<IServiceProvider, object?, TImplementation>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_System_Func_System_IServiceProvider_System_Object___1__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``1})
+  name.vb: AddKeyedSingletonIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object, Func(Of IServiceProvider, Object, TImplementation))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf<TService, TImplementation>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, object?, System.Func<System.IServiceProvider, object?, TImplementation>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Of TService, TImplementation)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), Object, System.Func(Of System.IServiceProvider, Object, TImplementation))
+  nameWithType: ServiceCollectionExtensions.AddKeyedSingletonIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, object?, Func<IServiceProvider, object?, TImplementation>)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedSingletonIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object, Func(Of IServiceProvider, Object, TImplementation))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object)
+  name: AddKeyedTransientIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object)
+  name.vb: AddKeyedTransientIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type, object?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type, Object)
+  nameWithType: ServiceCollectionExtensions.AddKeyedTransientIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedTransientIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Func{System.IServiceProvider,System.Object,System.Object})
+  name: AddKeyedTransientIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?, Func<IServiceProvider, object?, object>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_System_Func_System_IServiceProvider_System_Object_System_Object__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Func{System.IServiceProvider,System.Object,System.Object})
+  name.vb: AddKeyedTransientIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object, Func(Of IServiceProvider, Object, Object))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type, object?, System.Func<System.IServiceProvider, object?, object>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type, Object, System.Func(Of System.IServiceProvider, Object, Object))
+  nameWithType: ServiceCollectionExtensions.AddKeyedTransientIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?, Func<IServiceProvider, object?, object>)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedTransientIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object, Func(Of IServiceProvider, Object, Object))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Type)
+  name: AddKeyedTransientIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?, Type)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_System_Type_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Type)
+  name.vb: AddKeyedTransientIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object, Type)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type, object?, System.Type)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type, Object, System.Type)
+  nameWithType: ServiceCollectionExtensions.AddKeyedTransientIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, object?, Type)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedTransientIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Object, Type)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf*
+  name: AddKeyedTransientIf
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf
+  nameWithType: ServiceCollectionExtensions.AddKeyedTransientIf
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)
+  name: AddKeyedTransientIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, object?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)
+  name.vb: AddKeyedTransientIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf<TService>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, object?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Of TService)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), Object)
+  nameWithType: ServiceCollectionExtensions.AddKeyedTransientIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, object?)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedTransientIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``0})
+  name: AddKeyedTransientIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, object?, Func<IServiceProvider, object?, TService>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_System_Func_System_IServiceProvider_System_Object___0__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``0})
+  name.vb: AddKeyedTransientIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object, Func(Of IServiceProvider, Object, TService))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf<TService>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, object?, System.Func<System.IServiceProvider, object?, TService>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Of TService)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), Object, System.Func(Of System.IServiceProvider, Object, TService))
+  nameWithType: ServiceCollectionExtensions.AddKeyedTransientIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, object?, Func<IServiceProvider, object?, TService>)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedTransientIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object, Func(Of IServiceProvider, Object, TService))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)
+  name: AddKeyedTransientIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, object?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)
+  name.vb: AddKeyedTransientIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf<TService, TImplementation>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, object?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Of TService, TImplementation)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), Object)
+  nameWithType: ServiceCollectionExtensions.AddKeyedTransientIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, object?)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedTransientIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``1})
+  name: AddKeyedTransientIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, object?, Func<IServiceProvider, object?, TImplementation>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_System_Func_System_IServiceProvider_System_Object___1__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``1})
+  name.vb: AddKeyedTransientIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object, Func(Of IServiceProvider, Object, TImplementation))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf<TService, TImplementation>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, object?, System.Func<System.IServiceProvider, object?, TImplementation>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Of TService, TImplementation)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), Object, System.Func(Of System.IServiceProvider, Object, TImplementation))
+  nameWithType: ServiceCollectionExtensions.AddKeyedTransientIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, object?, Func<IServiceProvider, object?, TImplementation>)
+  nameWithType.vb: ServiceCollectionExtensions.AddKeyedTransientIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Object, Func(Of IServiceProvider, Object, TImplementation))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type)
+  name: AddScopedIf(IServiceCollection?, Func<IServiceCollection, bool>, Type)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type)
+  name.vb: AddScopedIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type)
+  nameWithType: ServiceCollectionExtensions.AddScopedIf(IServiceCollection?, Func<IServiceCollection, bool>, Type)
+  nameWithType.vb: ServiceCollectionExtensions.AddScopedIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Func{System.IServiceProvider,System.Object})
+  name: AddScopedIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, Func<IServiceProvider, object>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Func_System_IServiceProvider_System_Object__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Func{System.IServiceProvider,System.Object})
+  name.vb: AddScopedIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Func(Of IServiceProvider, Object))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type, System.Func<System.IServiceProvider, object>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type, System.Func(Of System.IServiceProvider, Object))
+  nameWithType: ServiceCollectionExtensions.AddScopedIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, Func<IServiceProvider, object>)
+  nameWithType.vb: ServiceCollectionExtensions.AddScopedIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Func(Of IServiceProvider, Object))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Type)
+  name: AddScopedIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, Type)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Type_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Type)
+  name.vb: AddScopedIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Type)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type, System.Type)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type, System.Type)
+  nameWithType: ServiceCollectionExtensions.AddScopedIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, Type)
+  nameWithType.vb: ServiceCollectionExtensions.AddScopedIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Type)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf*
+  name: AddScopedIf
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf
+  nameWithType: ServiceCollectionExtensions.AddScopedIf
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})
+  name: AddScopedIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})
+  name.vb: AddScopedIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf<TService>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Of TService)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean))
+  nameWithType: ServiceCollectionExtensions.AddScopedIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>)
+  nameWithType.vb: ServiceCollectionExtensions.AddScopedIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``0})
+  name: AddScopedIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, Func<IServiceProvider, TService>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Func_System_IServiceProvider___0__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``0})
+  name.vb: AddScopedIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Func(Of IServiceProvider, TService))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf<TService>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Func<System.IServiceProvider, TService>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Of TService)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Func(Of System.IServiceProvider, TService))
+  nameWithType: ServiceCollectionExtensions.AddScopedIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, Func<IServiceProvider, TService>)
+  nameWithType.vb: ServiceCollectionExtensions.AddScopedIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Func(Of IServiceProvider, TService))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})
+  name: AddScopedIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})
+  name.vb: AddScopedIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf<TService, TImplementation>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Of TService, TImplementation)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean))
+  nameWithType: ServiceCollectionExtensions.AddScopedIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>)
+  nameWithType.vb: ServiceCollectionExtensions.AddScopedIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``1})
+  name: AddScopedIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, Func<IServiceProvider, TImplementation>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Func_System_IServiceProvider___1__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``1})
+  name.vb: AddScopedIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Func(Of IServiceProvider, TImplementation))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf<TService, TImplementation>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Func<System.IServiceProvider, TImplementation>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Of TService, TImplementation)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Func(Of System.IServiceProvider, TImplementation))
+  nameWithType: ServiceCollectionExtensions.AddScopedIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, Func<IServiceProvider, TImplementation>)
+  nameWithType.vb: ServiceCollectionExtensions.AddScopedIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Func(Of IServiceProvider, TImplementation))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type)
+  name: AddSingletonIf(IServiceCollection?, Func<IServiceCollection, bool>, Type)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type)
+  name.vb: AddSingletonIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type)
+  nameWithType: ServiceCollectionExtensions.AddSingletonIf(IServiceCollection?, Func<IServiceCollection, bool>, Type)
+  nameWithType.vb: ServiceCollectionExtensions.AddSingletonIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Func{System.IServiceProvider,System.Object})
+  name: AddSingletonIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, Func<IServiceProvider, object>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Func_System_IServiceProvider_System_Object__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Func{System.IServiceProvider,System.Object})
+  name.vb: AddSingletonIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Func(Of IServiceProvider, Object))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type, System.Func<System.IServiceProvider, object>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type, System.Func(Of System.IServiceProvider, Object))
+  nameWithType: ServiceCollectionExtensions.AddSingletonIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, Func<IServiceProvider, object>)
+  nameWithType.vb: ServiceCollectionExtensions.AddSingletonIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Func(Of IServiceProvider, Object))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Type)
+  name: AddSingletonIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, Type)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Type_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Type)
+  name.vb: AddSingletonIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Type)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type, System.Type)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type, System.Type)
+  nameWithType: ServiceCollectionExtensions.AddSingletonIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, Type)
+  nameWithType.vb: ServiceCollectionExtensions.AddSingletonIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Type)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf*
+  name: AddSingletonIf
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf
+  nameWithType: ServiceCollectionExtensions.AddSingletonIf
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})
+  name: AddSingletonIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})
+  name.vb: AddSingletonIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf<TService>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Of TService)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean))
+  nameWithType: ServiceCollectionExtensions.AddSingletonIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>)
+  nameWithType.vb: ServiceCollectionExtensions.AddSingletonIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``0})
+  name: AddSingletonIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, Func<IServiceProvider, TService>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Func_System_IServiceProvider___0__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``0})
+  name.vb: AddSingletonIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Func(Of IServiceProvider, TService))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf<TService>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Func<System.IServiceProvider, TService>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Of TService)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Func(Of System.IServiceProvider, TService))
+  nameWithType: ServiceCollectionExtensions.AddSingletonIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, Func<IServiceProvider, TService>)
+  nameWithType.vb: ServiceCollectionExtensions.AddSingletonIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Func(Of IServiceProvider, TService))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})
+  name: AddSingletonIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})
+  name.vb: AddSingletonIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf<TService, TImplementation>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Of TService, TImplementation)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean))
+  nameWithType: ServiceCollectionExtensions.AddSingletonIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>)
+  nameWithType.vb: ServiceCollectionExtensions.AddSingletonIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``1})
+  name: AddSingletonIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, Func<IServiceProvider, TImplementation>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Func_System_IServiceProvider___1__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``1})
+  name.vb: AddSingletonIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Func(Of IServiceProvider, TImplementation))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf<TService, TImplementation>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Func<System.IServiceProvider, TImplementation>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Of TService, TImplementation)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Func(Of System.IServiceProvider, TImplementation))
+  nameWithType: ServiceCollectionExtensions.AddSingletonIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, Func<IServiceProvider, TImplementation>)
+  nameWithType.vb: ServiceCollectionExtensions.AddSingletonIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Func(Of IServiceProvider, TImplementation))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type)
+  name: AddTransientIf(IServiceCollection?, Func<IServiceCollection, bool>, Type)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type)
+  name.vb: AddTransientIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type)
+  nameWithType: ServiceCollectionExtensions.AddTransientIf(IServiceCollection?, Func<IServiceCollection, bool>, Type)
+  nameWithType.vb: ServiceCollectionExtensions.AddTransientIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Func{System.IServiceProvider,System.Object})
+  name: AddTransientIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, Func<IServiceProvider, object>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Func_System_IServiceProvider_System_Object__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Func{System.IServiceProvider,System.Object})
+  name.vb: AddTransientIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Func(Of IServiceProvider, Object))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type, System.Func<System.IServiceProvider, object>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type, System.Func(Of System.IServiceProvider, Object))
+  nameWithType: ServiceCollectionExtensions.AddTransientIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, Func<IServiceProvider, object>)
+  nameWithType.vb: ServiceCollectionExtensions.AddTransientIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Func(Of IServiceProvider, Object))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Type)
+  name: AddTransientIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, Type)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Type_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Type)
+  name.vb: AddTransientIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Type)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Type, System.Type)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Type, System.Type)
+  nameWithType: ServiceCollectionExtensions.AddTransientIf(IServiceCollection?, Func<IServiceCollection, bool>, Type, Type)
+  nameWithType.vb: ServiceCollectionExtensions.AddTransientIf(IServiceCollection, Func(Of IServiceCollection, Boolean), Type, Type)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf*
+  name: AddTransientIf
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf
+  nameWithType: ServiceCollectionExtensions.AddTransientIf
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})
+  name: AddTransientIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})
+  name.vb: AddTransientIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf<TService>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Of TService)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean))
+  nameWithType: ServiceCollectionExtensions.AddTransientIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>)
+  nameWithType.vb: ServiceCollectionExtensions.AddTransientIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``0})
+  name: AddTransientIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, Func<IServiceProvider, TService>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Func_System_IServiceProvider___0__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``0})
+  name.vb: AddTransientIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Func(Of IServiceProvider, TService))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf<TService>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Func<System.IServiceProvider, TService>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Of TService)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Func(Of System.IServiceProvider, TService))
+  nameWithType: ServiceCollectionExtensions.AddTransientIf<TService>(IServiceCollection?, Func<IServiceCollection, bool>, Func<IServiceProvider, TService>)
+  nameWithType.vb: ServiceCollectionExtensions.AddTransientIf(Of TService)(IServiceCollection, Func(Of IServiceCollection, Boolean), Func(Of IServiceProvider, TService))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})
+  name: AddTransientIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})
+  name.vb: AddTransientIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf<TService, TImplementation>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Of TService, TImplementation)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean))
+  nameWithType: ServiceCollectionExtensions.AddTransientIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>)
+  nameWithType.vb: ServiceCollectionExtensions.AddTransientIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``1})
+  name: AddTransientIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, Func<IServiceProvider, TImplementation>)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Func_System_IServiceProvider___1__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``1})
+  name.vb: AddTransientIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Func(Of IServiceProvider, TImplementation))
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf<TService, TImplementation>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Func<Microsoft.Extensions.DependencyInjection.IServiceCollection, bool>, System.Func<System.IServiceProvider, TImplementation>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Of TService, TImplementation)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Func(Of Microsoft.Extensions.DependencyInjection.IServiceCollection, Boolean), System.Func(Of System.IServiceProvider, TImplementation))
+  nameWithType: ServiceCollectionExtensions.AddTransientIf<TService, TImplementation>(IServiceCollection?, Func<IServiceCollection, bool>, Func<IServiceProvider, TImplementation>)
+  nameWithType.vb: ServiceCollectionExtensions.AddTransientIf(Of TService, TImplementation)(IServiceCollection, Func(Of IServiceCollection, Boolean), Func(Of IServiceProvider, TImplementation))
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type)
+  name: Exists(IServiceCollection?, Type)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type)
+  name.vb: Exists(IServiceCollection, Type)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Type)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type)
+  nameWithType: ServiceCollectionExtensions.Exists(IServiceCollection?, Type)
+  nameWithType.vb: ServiceCollectionExtensions.Exists(IServiceCollection, Type)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,System.Object)
+  name: Exists(IServiceCollection?, Type, object?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_System_Object_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,System.Object)
+  name.vb: Exists(IServiceCollection, Type, Object)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Type, object?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type, Object)
+  nameWithType: ServiceCollectionExtensions.Exists(IServiceCollection?, Type, object?)
+  nameWithType.vb: ServiceCollectionExtensions.Exists(IServiceCollection, Type, Object)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,System.Type)
+  name: Exists(IServiceCollection?, Type, Type)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_System_Type_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,System.Type)
+  name.vb: Exists(IServiceCollection, Type, Type)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Microsoft.Extensions.DependencyInjection.IServiceCollection?, System.Type, System.Type)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type, System.Type)
+  nameWithType: ServiceCollectionExtensions.Exists(IServiceCollection?, Type, Type)
+  nameWithType.vb: ServiceCollectionExtensions.Exists(IServiceCollection, Type, Type)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists*
+  name: Exists
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists
+  nameWithType: ServiceCollectionExtensions.Exists
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: Exists<TService>(IServiceCollection?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name.vb: Exists(Of TService)(IServiceCollection)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists<TService>(Microsoft.Extensions.DependencyInjection.IServiceCollection?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Of TService)(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: ServiceCollectionExtensions.Exists<TService>(IServiceCollection?)
+  nameWithType.vb: ServiceCollectionExtensions.Exists(Of TService)(IServiceCollection)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Object)
+  name: Exists<TService>(IServiceCollection?, object?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Object_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Object)
+  name.vb: Exists(Of TService)(IServiceCollection, Object)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists<TService>(Microsoft.Extensions.DependencyInjection.IServiceCollection?, object?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Of TService)(Microsoft.Extensions.DependencyInjection.IServiceCollection, Object)
+  nameWithType: ServiceCollectionExtensions.Exists<TService>(IServiceCollection?, object?)
+  nameWithType.vb: ServiceCollectionExtensions.Exists(Of TService)(IServiceCollection, Object)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists``2(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: Exists<TService, TImplementation>(IServiceCollection?)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists``2(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name.vb: Exists(Of TService, TImplementation)(IServiceCollection)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists<TService, TImplementation>(Microsoft.Extensions.DependencyInjection.IServiceCollection?)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Of TService, TImplementation)(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: ServiceCollectionExtensions.Exists<TService, TImplementation>(IServiceCollection?)
+  nameWithType.vb: ServiceCollectionExtensions.Exists(Of TService, TImplementation)(IServiceCollection)

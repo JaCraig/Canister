@@ -420,7 +420,7 @@
 
   <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddCanisterModules_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Canister_Interfaces_ICanisterConfiguration__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Canister.Interfaces.ICanisterConfiguration})">
   AddCanisterModules(IServiceCollection?, Action&lt;ICanisterConfiguration&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L179"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Finds the Canister modules and loads them into the service collection.</p>
@@ -449,6 +449,2538 @@ the modules from).</p>
 </dd>
   </dl>
 
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddCanisterModules_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddCanisterModules_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Reflection_Assembly___" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddCanisterModules(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly[])">
+  AddCanisterModules(IServiceCollection?, params Assembly[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds the Canister modules and loads them into the service collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddCanisterModules(this IServiceCollection? serviceDescriptors, params Assembly[] assemblies)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>assemblies</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a>[]</dt>
+    <dd><p>Assemblies</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object)">
+  AddKeyedScopedIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Scoped service of the type specified in serviceType with an implementation of the
+type specified in implementationType to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedScopedIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType, object? serviceKey)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_System_Func_System_IServiceProvider_System_Object_System_Object__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Func{System.IServiceProvider,System.Object,System.Object})">
+  AddKeyedScopedIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type, object?, Func&lt;IServiceProvider, object?, object&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Scoped service of the type specified in serviceType with an implementation
+factory specified in implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedScopedIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType, object? serviceKey, Func&lt;IServiceProvider, object?, object&gt; implementationFactory)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>Implementation factory</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_System_Type_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Type)">
+  AddKeyedScopedIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type, object?, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Scoped service of the type specified in TService with a factory specified in
+implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedScopedIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType, object? serviceKey, Type implementationType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+    <dt><code>implementationType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Implementation type</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)">
+  AddKeyedScopedIf&lt;TService&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L285"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Scoped service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedScopedIf&lt;TService&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, object? serviceKey) where TService : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_System_Func_System_IServiceProvider_System_Object___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``0})">
+  AddKeyedScopedIf&lt;TService&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, object?, Func&lt;IServiceProvider, object?, TService&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L267"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Scoped service of the type specified in TService with a factory specified in
+implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedScopedIf&lt;TService&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, object? serviceKey, Func&lt;IServiceProvider, object?, TService&gt; implementationFactory) where TService : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>, TService&gt;</dt>
+    <dd><p>The implementation factory.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)">
+  AddKeyedScopedIf&lt;TService, TImplementation&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L320"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Scoped service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedScopedIf&lt;TService, TImplementation&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, object? serviceKey) where TService : class where TImplementation : class, TService</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type.</p>
+</dd>
+    <dt><code>TImplementation</code></dt>
+    <dd><p>Implementation type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedScopedIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_System_Func_System_IServiceProvider_System_Object___1__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedScopedIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``1})">
+  AddKeyedScopedIf&lt;TService, TImplementation&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, object?, Func&lt;IServiceProvider, object?, TImplementation&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L300"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Scoped service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedScopedIf&lt;TService, TImplementation&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, object? serviceKey, Func&lt;IServiceProvider, object?, TImplementation&gt; implementationFactory) where TService : class where TImplementation : class, TService</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>, TImplementation&gt;</dt>
+    <dd><p>The implementation factory.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>TImplementation</code></dt>
+    <dd><p>Implementation type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object)">
+  AddKeyedSingletonIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L375"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Singleton service of the type specified in serviceType with an implementation of
+the type specified in implementationType to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedSingletonIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType, object? serviceKey)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_System_Func_System_IServiceProvider_System_Object_System_Object__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Func{System.IServiceProvider,System.Object,System.Object})">
+  AddKeyedSingletonIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type, object?, Func&lt;IServiceProvider, object?, object&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L358"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Singleton service of the type specified in serviceType with an implementation
+factory specified in implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedSingletonIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType, object? serviceKey, Func&lt;IServiceProvider, object?, object&gt; implementationFactory)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>Implementation factory</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_System_Type_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Type)">
+  AddKeyedSingletonIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type, object?, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L340"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Singleton service of the type specified in TService with a factory specified in
+implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedSingletonIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType, object? serviceKey, Type implementationType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+    <dt><code>implementationType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Implementation type</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)">
+  AddKeyedSingletonIf&lt;TService&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L406"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Singleton service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedSingletonIf&lt;TService&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, object? serviceKey) where TService : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_System_Func_System_IServiceProvider_System_Object___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``0})">
+  AddKeyedSingletonIf&lt;TService&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, object?, Func&lt;IServiceProvider, object?, TService&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L388"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Singleton service of the type specified in TService with a factory specified in
+implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedSingletonIf&lt;TService&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, object? serviceKey, Func&lt;IServiceProvider, object?, TService&gt; implementationFactory) where TService : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>, TService&gt;</dt>
+    <dd><p>The implementation factory.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)">
+  AddKeyedSingletonIf&lt;TService, TImplementation&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L441"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Singleton service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedSingletonIf&lt;TService, TImplementation&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, object? serviceKey) where TService : class where TImplementation : class, TService</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type.</p>
+</dd>
+    <dt><code>TImplementation</code></dt>
+    <dd><p>Implementation type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedSingletonIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_System_Func_System_IServiceProvider_System_Object___1__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedSingletonIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``1})">
+  AddKeyedSingletonIf&lt;TService, TImplementation&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, object?, Func&lt;IServiceProvider, object?, TImplementation&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L421"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Singleton service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedSingletonIf&lt;TService, TImplementation&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, object? serviceKey, Func&lt;IServiceProvider, object?, TImplementation&gt; implementationFactory) where TService : class where TImplementation : class, TService</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>, TImplementation&gt;</dt>
+    <dd><p>The implementation factory.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>TImplementation</code></dt>
+    <dd><p>Implementation type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object)">
+  AddKeyedTransientIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L496"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Transient service of the type specified in serviceType with an implementation of
+the type specified in implementationType to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedTransientIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType, object? serviceKey)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_System_Func_System_IServiceProvider_System_Object_System_Object__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Func{System.IServiceProvider,System.Object,System.Object})">
+  AddKeyedTransientIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type, object?, Func&lt;IServiceProvider, object?, object&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L479"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Transient service of the type specified in serviceType with an implementation
+factory specified in implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedTransientIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType, object? serviceKey, Func&lt;IServiceProvider, object?, object&gt; implementationFactory)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>Implementation factory</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Object_System_Type_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Object,System.Type)">
+  AddKeyedTransientIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type, object?, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L461"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Transient service of the type specified in TService with a factory specified in
+implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedTransientIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType, object? serviceKey, Type implementationType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+    <dt><code>implementationType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Implementation type</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)">
+  AddKeyedTransientIf&lt;TService&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L527"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Transient service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedTransientIf&lt;TService&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, object? serviceKey) where TService : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_System_Func_System_IServiceProvider_System_Object___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``0})">
+  AddKeyedTransientIf&lt;TService&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, object?, Func&lt;IServiceProvider, object?, TService&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L509"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Transient service of the type specified in TService with a factory specified in
+implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedTransientIf&lt;TService&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, object? serviceKey, Func&lt;IServiceProvider, object?, TService&gt; implementationFactory) where TService : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>, TService&gt;</dt>
+    <dd><p>The implementation factory.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object)">
+  AddKeyedTransientIf&lt;TService, TImplementation&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L562"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Transient service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedTransientIf&lt;TService, TImplementation&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, object? serviceKey) where TService : class where TImplementation : class, TService</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type.</p>
+</dd>
+    <dt><code>TImplementation</code></dt>
+    <dd><p>Implementation type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddKeyedTransientIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Object_System_Func_System_IServiceProvider_System_Object___1__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeyedTransientIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Object,System.Func{System.IServiceProvider,System.Object,``1})">
+  AddKeyedTransientIf&lt;TService, TImplementation&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, object?, Func&lt;IServiceProvider, object?, TImplementation&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L542"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Transient service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddKeyedTransientIf&lt;TService, TImplementation&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, object? serviceKey, Func&lt;IServiceProvider, object?, TImplementation&gt; implementationFactory) where TService : class where TImplementation : class, TService</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Service key</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>, TImplementation&gt;</dt>
+    <dd><p>The implementation factory.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>TImplementation</code></dt>
+    <dd><p>Implementation type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type)">
+  AddScopedIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L614"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Scoped service of the type specified in serviceType with an implementation of the
+type specified in implementationType to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddScopedIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Func_System_IServiceProvider_System_Object__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Func{System.IServiceProvider,System.Object})">
+  AddScopedIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type, Func&lt;IServiceProvider, object&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L598"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Scoped service of the type specified in serviceType with an implementation
+factory specified in implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddScopedIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType, Func&lt;IServiceProvider, object&gt; implementationFactory)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>Implementation factory</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Type_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Type)">
+  AddScopedIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L581"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Scoped service of the type specified in TService with a factory specified in
+implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddScopedIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType, Type implementationType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>implementationType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Implementation type</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})">
+  AddScopedIf&lt;TService&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L643"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Scoped service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddScopedIf&lt;TService&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate) where TService : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Func_System_IServiceProvider___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``0})">
+  AddScopedIf&lt;TService&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Func&lt;IServiceProvider, TService&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L626"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Scoped service of the type specified in TService with a factory specified in
+implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddScopedIf&lt;TService&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Func&lt;IServiceProvider, TService&gt; implementationFactory) where TService : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, TService&gt;</dt>
+    <dd><p>The implementation factory.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})">
+  AddScopedIf&lt;TService, TImplementation&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L676"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Scoped service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddScopedIf&lt;TService, TImplementation&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate) where TService : class where TImplementation : class, TService</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type.</p>
+</dd>
+    <dt><code>TImplementation</code></dt>
+    <dd><p>Implementation type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddScopedIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Func_System_IServiceProvider___1__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddScopedIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``1})">
+  AddScopedIf&lt;TService, TImplementation&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Func&lt;IServiceProvider, TImplementation&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L657"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Scoped service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddScopedIf&lt;TService, TImplementation&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Func&lt;IServiceProvider, TImplementation&gt; implementationFactory) where TService : class where TImplementation : class, TService</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, TImplementation&gt;</dt>
+    <dd><p>The implementation factory.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>TImplementation</code></dt>
+    <dd><p>Implementation type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type)">
+  AddSingletonIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L728"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Singleton service of the type specified in serviceType with an implementation of
+the type specified in implementationType to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddSingletonIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Func_System_IServiceProvider_System_Object__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Func{System.IServiceProvider,System.Object})">
+  AddSingletonIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type, Func&lt;IServiceProvider, object&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L712"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Singleton service of the type specified in serviceType with an implementation
+factory specified in implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddSingletonIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType, Func&lt;IServiceProvider, object&gt; implementationFactory)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>Implementation factory</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Type_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Type)">
+  AddSingletonIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L695"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Singleton service of the type specified in TService with a factory specified in
+implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddSingletonIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType, Type implementationType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>implementationType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Implementation type</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})">
+  AddSingletonIf&lt;TService&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L762"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Singleton service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddSingletonIf&lt;TService&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate) where TService : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Func_System_IServiceProvider___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``0})">
+  AddSingletonIf&lt;TService&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Func&lt;IServiceProvider, TService&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L745"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Singleton service of the type specified in TService with a factory specified in
+implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddSingletonIf&lt;TService&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Func&lt;IServiceProvider, TService&gt; implementationFactory) where TService : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, TService&gt;</dt>
+    <dd><p>The implementation factory.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})">
+  AddSingletonIf&lt;TService, TImplementation&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L800"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Singleton service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddSingletonIf&lt;TService, TImplementation&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate) where TService : class where TImplementation : class, TService</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type.</p>
+</dd>
+    <dt><code>TImplementation</code></dt>
+    <dd><p>Implementation type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddSingletonIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Func_System_IServiceProvider___1__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddSingletonIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``1})">
+  AddSingletonIf&lt;TService, TImplementation&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Func&lt;IServiceProvider, TImplementation&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L781"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Singleton service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddSingletonIf&lt;TService, TImplementation&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Func&lt;IServiceProvider, TImplementation&gt; implementationFactory) where TService : class where TImplementation : class, TService</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, TImplementation&gt;</dt>
+    <dd><p>The implementation factory.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>TImplementation</code></dt>
+    <dd><p>Implementation type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type)">
+  AddTransientIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L852"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a transient service of the type specified in serviceType with an implementation of
+the type specified in implementationType to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddTransientIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Func_System_IServiceProvider_System_Object__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Func{System.IServiceProvider,System.Object})">
+  AddTransientIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type, Func&lt;IServiceProvider, object&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L836"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a transient service of the type specified in serviceType with an implementation
+factory specified in implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddTransientIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType, Func&lt;IServiceProvider, object&gt; implementationFactory)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>Implementation factory</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Type_System_Type_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Type,System.Type)">
+  AddTransientIf(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L819"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a transient service of the type specified in TService with a factory specified in
+implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddTransientIf(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Type serviceType, Type implementationType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>Service descriptors</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Predicate</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>implementationType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Implementation type</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})">
+  AddTransientIf&lt;TService&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L886"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a transient service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddTransientIf&lt;TService&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate) where TService : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Func_System_IServiceProvider___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``0})">
+  AddTransientIf&lt;TService&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Func&lt;IServiceProvider, TService&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L869"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a transient service of the type specified in TService with a factory specified in
+implementationFactory to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddTransientIf&lt;TService&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Func&lt;IServiceProvider, TService&gt; implementationFactory) where TService : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, TService&gt;</dt>
+    <dd><p>The implementation factory.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean})">
+  AddTransientIf&lt;TService, TImplementation&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L924"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a transient service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddTransientIf&lt;TService, TImplementation&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate) where TService : class where TImplementation : class, TService</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type.</p>
+</dd>
+    <dt><code>TImplementation</code></dt>
+    <dd><p>Implementation type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_AddTransientIf__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Boolean__System_Func_System_IServiceProvider___1__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddTransientIf``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean},System.Func{System.IServiceProvider,``1})">
+  AddTransientIf&lt;TService, TImplementation&gt;(IServiceCollection?, Func&lt;IServiceCollection, bool&gt;, Func&lt;IServiceProvider, TImplementation&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L905"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a transient service of the type specified in TService with an implementation type
+specified in TImplementation to the specified
+Microsoft.Extensions.DependencyInjection.IServiceCollection if the predicate is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection? AddTransientIf&lt;TService, TImplementation&gt;(this IServiceCollection? serviceDescriptors, Func&lt;IServiceCollection, bool&gt; predicate, Func&lt;IServiceProvider, TImplementation&gt; implementationFactory) where TService : class where TImplementation : class, TService</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>implementationFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, TImplementation&gt;</dt>
+    <dd><p>The implementation factory.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>Service type</p>
+</dd>
+    <dt><code>TImplementation</code></dt>
+    <dd><p>Implementation type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type)">
+  Exists(IServiceCollection?, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L947"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if the type exists in the service collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Exists(this IServiceCollection? serviceDescriptors, Type serviceType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>The type of the service.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if it does, false otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_System_Object_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,System.Object)">
+  Exists(IServiceCollection?, Type, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L956"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if the type exists in the service collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Exists(this IServiceCollection? serviceDescriptors, Type serviceType, object? serviceKey)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>The type of the service.</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The service key.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if it does, false otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_System_Type_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,System.Type)">
+  Exists(IServiceCollection?, Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L985"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if the type exists in the service collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Exists(this IServiceCollection? serviceDescriptors, Type serviceType, Type implementationType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>The type of the service.</p>
+</dd>
+    <dt><code>implementationType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>The type of the implementation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if it does, false otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+  Exists&lt;TService&gt;(IServiceCollection?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L939"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if the type exists in the service collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Exists&lt;TService&gt;(this IServiceCollection? serviceDescriptors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if it does, false otherwise.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>The type of the service.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Object_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Object)">
+  Exists&lt;TService&gt;(IServiceCollection?, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L965"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if the type exists in the service collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Exists&lt;TService&gt;(this IServiceCollection? serviceDescriptors, object? serviceKey)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+    <dt><code>serviceKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The service key.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if it does, false otherwise.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>The type of the service.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Exists__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Exists``2(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+  Exists&lt;TService, TImplementation&gt;(IServiceCollection?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/src/Canister.IoC/ExtensionMethods/ServiceCollectionExtensions.cs/#L974"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if the type exists in the service collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Exists&lt;TService, TImplementation&gt;(this IServiceCollection? serviceDescriptors) where TService : class where TImplementation : class, TService</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service descriptors.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if it does, false otherwise.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TService</code></dt>
+    <dd><p>The type of the service.</p>
+</dd>
+    <dt><code>TImplementation</code></dt>
+    <dd><p>The type of the implementation.</p>
+</dd>
+  </dl>
 
 
 

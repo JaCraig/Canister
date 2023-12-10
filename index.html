@@ -124,6 +124,50 @@
 <pre><code>bootstrapper.AddAllTransient&lt;IMyInterface&gt;();
 </code></pre>
 <p>The AddAllxxxx functions will find everything that implements a class or interface in the Assemblies that you tell it to look in and will register them with the service collection.</p>
+<h3 id="canister-extension-methods">Canister Extension Methods</h3>
+<p>Canister provides a set of extension methods to streamline your IoC (Inversion of Control) container registration code. These methods offer convenient ways to conditionally register services based on certain criteria, enhancing the flexibility of your application's dependency injection setup.</p>
+<h4 id="1-addtransientif">1. <code>AddTransientIf()</code></h4>
+<p>The <code>AddTransientIf</code> method registers a service as transient only if a specified condition is met. This is useful when you want to dynamically determine whether a service should be transient or not.</p>
+<pre><code class="lang-csharp">services.AddTransientIf&lt;IMyService, MyService&gt;(services =&gt; condition);
+</code></pre>
+<h4 id="2-addscopedif">2. <code>AddScopedIf()</code></h4>
+<p>Similar to <code>AddTransientIf</code>, <code>AddScopedIf</code> registers a service as scoped based on a given condition.</p>
+<pre><code class="lang-csharp">services.AddScopedIf&lt;IMyScopedService, MyScopedService&gt;(services =&gt; condition);
+</code></pre>
+<h4 id="3-addsingletonif">3. <code>AddSingletonIf()</code></h4>
+<p>The <code>AddSingletonIf</code> method registers a service as a singleton if the specified condition holds true.</p>
+<pre><code class="lang-csharp">services.AddSingletonIf&lt;IMySingletonService, MySingletonService&gt;(services =&gt; condition);
+</code></pre>
+<h4 id="4-addkeyedtransientif-addkeyedscopedif-addkeyedsingletonif">4. <code>AddKeyedTransientIf()</code>, <code>AddKeyedScopedIf()</code>, <code>AddKeyedSingletonIf()</code></h4>
+<p>These methods follow the same pattern as their non-keyed counterparts but additionally allow you to register services with a specified key.</p>
+<pre><code class="lang-csharp">services.AddKeyedTransientIf&lt;IService&gt;(key, implementationType, (services, key) =&gt; condition);
+</code></pre>
+<h4 id="5-exists">5. <code>Exists()</code></h4>
+<p>The <code>Exists</code> method checks whether a service with a specific type and, optionally, a key, has already been registered. This can be helpful in avoiding duplicate registrations or finding issues with your environment before starting the application.</p>
+<pre><code class="lang-csharp">if (!services.Exists&lt;IMyService&gt;())
+{
+    services.AddTransient&lt;IMyService, MyService&gt;();
+}
+</code></pre>
+<h3 id="usage-example">Usage Example</h3>
+<p>Here's an example of how you might use these methods:</p>
+<pre><code class="lang-csharp">
+IHostEnvironment? environment;
+
+// Conditionally register a transient service if in development environment.
+services.AddTransientIf&lt;IMyService, MyDebugService&gt;(_ =&gt; environment.IsDevelopment());
+
+// However if you're in production, add a different implementation.
+services.AddTransientIf&lt;IMyService, MyProductionService&gt;(_ =&gt; environment.IsProduction());
+
+// Check if a keyed service is missing and log a warning if so.
+if (!services.Exists&lt;IService&gt;(key))
+{
+    logger.LogWarning(&quot;Service {Service} is missing&quot;, key);
+}
+
+</code></pre>
+<p>These methods empower you to create more dynamic and adaptive dependency injection configurations tailored to your application's requirements.</p>
 <h2 id="working-with-other-ioc-containers">Working With Other IoC Containers</h2>
 <p>While the library assumes you are using the built in ServiceCollection, it is possible to work with IoC containers. All that is required is that it implements the IServiceCollection interface.</p>
 <h2 id="using-canister-in-your-library">Using Canister in Your library</h2>

@@ -99,9 +99,7 @@ namespace Canister.IoC.Example
         /// &lt;summary&gt;
         /// Gets the name.
         /// &lt;/summary&gt;
-        /// &lt;value&gt;
-        /// The name.
-        /// &lt;/value&gt;
+        /// &lt;value&gt;The name.&lt;/value&gt;
         string Name { get; }
     }
 
@@ -128,52 +126,48 @@ namespace Canister.IoC.Example
             // Get all the services that implement IMyService
             IEnumerable&lt;IMyService&gt; ServiceClasses = ServiceProvider?.GetServices&lt;IMyService&gt;() ?? Array.Empty&lt;IMyService&gt;();
             // Write out the number of services found (should be 2)
-            System.Console.WriteLine(&quot;Number of services found: {0}&quot;, ServiceClasses.Count());
+            Console.WriteLine(&quot;Number of services found: {0}&quot;, ServiceClasses.Count());
             // Write out the names of the services found (should be ExampleService1 and ExampleService2)
             foreach (IMyService ServiceClass in ServiceClasses)
             {
-                System.Console.WriteLine(ServiceClass.Name);
+                Console.WriteLine(ServiceClass.Name);
             }
             // Write out the name of the simple example class (should be SimpleExampleClass)
             SimpleExampleClass? SimpleExampleClass = ServiceProvider?.GetService&lt;SimpleExampleClass&gt;();
-            System.Console.WriteLine(SimpleExampleClass?.Name);
+            Console.WriteLine(SimpleExampleClass?.Name);
         }
     }
 
     /// &lt;summary&gt;
     /// Example service 1
     /// &lt;/summary&gt;
-    /// &lt;seealso cref=&quot;IMyService&quot; /&gt;
+    /// &lt;seealso cref=&quot;IMyService&quot;/&gt;
     internal class ExampleService1 : IMyService
     {
         /// &lt;summary&gt;
         /// Gets the name.
         /// &lt;/summary&gt;
-        /// &lt;value&gt;
-        /// The name.
-        /// &lt;/value&gt;
+        /// &lt;value&gt;The name.&lt;/value&gt;
         public string Name =&gt; &quot;ExampleService1&quot;;
     }
 
     /// &lt;summary&gt;
     /// Example service 2
     /// &lt;/summary&gt;
-    /// &lt;seealso cref=&quot;IMyService&quot; /&gt;
+    /// &lt;seealso cref=&quot;IMyService&quot;/&gt;
     internal class ExampleService2 : IMyService
     {
         /// &lt;summary&gt;
         /// Gets the name.
         /// &lt;/summary&gt;
-        /// &lt;value&gt;
-        /// The name.
-        /// &lt;/value&gt;
+        /// &lt;value&gt;The name.&lt;/value&gt;
         public string Name =&gt; &quot;ExampleService2&quot;;
     }
 
     /// &lt;summary&gt;
     /// This is a module that will be called and loaded into the service collection
     /// &lt;/summary&gt;
-    /// &lt;seealso cref=&quot;IModule&quot; /&gt;
+    /// &lt;seealso cref=&quot;IModule&quot;/&gt;
     internal class MyModule : IModule
     {
         /// &lt;summary&gt;
@@ -196,9 +190,7 @@ namespace Canister.IoC.Example
         /// &lt;summary&gt;
         /// Gets the name.
         /// &lt;/summary&gt;
-        /// &lt;value&gt;
-        /// The name.
-        /// &lt;/value&gt;
+        /// &lt;value&gt;The name.&lt;/value&gt;
         public string Name =&gt; &quot;SimpleExampleClass&quot;;
     }
 }
