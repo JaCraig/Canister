@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.2.1"></a>
+## [5.2.1](https://www.github.com/JaCraig/Canister/releases/tag/v5.2.1) (2023-12-11)
+
+### Bug Fixes
+
+* bump the dependencies group with 1 update ([cff2daf](https://www.github.com/JaCraig/Canister/commit/cff2daf59a9cab4de29b4956872bcc6e99afd017))
+
+### Other
+
+* Merge pull request #63 from JaCraig/dependabot/nuget/dependencies-f239e02c27 ([46ec103](https://www.github.com/JaCraig/Canister/commit/46ec103bb0a6fca4780c15415cd374bad2fb60f8))
+* Update docsfx.yml ([7b4d2f5](https://www.github.com/JaCraig/Canister/commit/7b4d2f53466472abe7f5ef22c16986a1b74bc6df))
+* Update dotnet-publish.yml ([1e7276c](https://www.github.com/JaCraig/Canister/commit/1e7276c013b002a1b925b133447a88fb55eb452d))
+* Update dotnet-test.yml ([880356d](https://www.github.com/JaCraig/Canister/commit/880356dd722960f730ff892ab9c6ed48e147c211))
+
 <a name="5.2.0"></a>
 ## [5.2.0](https://www.github.com/JaCraig/Canister/releases/tag/v5.2.0) (2023-12-10)
 
