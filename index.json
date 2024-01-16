@@ -7,7 +7,7 @@
   "api/Canister.Interfaces.IModule.html": {
     "href": "api/Canister.Interfaces.IModule.html",
     "title": "Interface IModule | Canister API Reference",
-    "keywords": "Interface IModule Namespace Canister.Interfaces Assembly Canister.IoC.dll IoC module base class public interface IModule Properties Order Order to run this in int Order { get; } Property Value int Methods Load(IServiceCollection) Loads the module using the service collection. void Load(IServiceCollection serviceDescriptors) Parameters serviceDescriptors IServiceCollection The service descriptors."
+    "keywords": "Interface IModule Namespace Canister.Interfaces Assembly Canister.IoC.dll IoC module base class public interface IModule Properties Order Order to run this in int Order { get; } Property Value int IoC module base class Methods Load(IServiceCollection) Loads the module using the service collection. void Load(IServiceCollection serviceDescriptors) Parameters serviceDescriptors IServiceCollection The service descriptors."
   },
   "api/Canister.Interfaces.html": {
     "href": "api/Canister.Interfaces.html",
@@ -17,7 +17,7 @@
   "api/Canister.IoC.Modules.DefaultModule.html": {
     "href": "api/Canister.IoC.Modules.DefaultModule.html",
     "title": "Class DefaultModule | Canister API Reference",
-    "keywords": "Class DefaultModule Namespace Canister.IoC.Modules Assembly Canister.IoC.dll Default module public class DefaultModule : IModule Inheritance object DefaultModule Implements IModule Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Properties Order Order to run this in public int Order { get; } Property Value int Methods Load(IServiceCollection) Loads the module using the bootstrapper public void Load(IServiceCollection serviceDescriptors) Parameters serviceDescriptors IServiceCollection The service descriptors. See Also IModule"
+    "keywords": "Class DefaultModule Namespace Canister.IoC.Modules Assembly Canister.IoC.dll Default module public class DefaultModule : IModule Inheritance object DefaultModule Implements IModule Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Properties Order Order to run this in public int Order { get; } Property Value int Default module Methods Load(IServiceCollection) Loads the module using the bootstrapper public void Load(IServiceCollection serviceDescriptors) Parameters serviceDescriptors IServiceCollection The service descriptors. See Also IModule"
   },
   "api/Canister.IoC.Modules.html": {
     "href": "api/Canister.IoC.Modules.html",
