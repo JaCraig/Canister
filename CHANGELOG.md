@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.2.2"></a>
+## [5.2.2](https://www.github.com/JaCraig/Canister/releases/tag/v5.2.2) (2024-01-19)
+
+### Bug Fixes
+
+* bump the dependencies group with 1 update ([e0abee4](https://www.github.com/JaCraig/Canister/commit/e0abee44fac8c561f508b3a95a21a79c6eb0ab14))
+
+### Other
+
+* Merge pull request #64 from JaCraig/dependabot/github_actions/dependencies-cac7d13037 ([8f0662e](https://www.github.com/JaCraig/Canister/commit/8f0662e2bfc4b062bdf44e7558816369676aa25c))
+* Merge pull request #65 from JaCraig/dependabot/github_actions/dependencies-cb1dee63db ([6dddc79](https://www.github.com/JaCraig/Canister/commit/6dddc79ff002b506acb17e92e7a3110a23670124))
+* Merge pull request #66 from JaCraig/dependabot/nuget/test/Canister.Tests/dependencies-07b50e7d0d ([ba3b98f](https://www.github.com/JaCraig/Canister/commit/ba3b98f1f6bb45c9745ae9bcb288aeffde45b646))
+* Merge pull request #67 from JaCraig/dependabot/nuget/test/Canister.Tests/dependencies-3031fe8782 ([e272098](https://www.github.com/JaCraig/Canister/commit/e2720986c8f8a97a5c0886c3ec421f791946dad0))
+* Merge pull request #68 from JaCraig/dependabot/nuget/test/Canister.Tests/dependencies-970de2ab38 ([901dc50](https://www.github.com/JaCraig/Canister/commit/901dc5022ec44a4ecd23f3f9e551b9d9a0406c77))
+* Merge pull request #69 from JaCraig/dependabot/nuget/test/Canister.Tests/dependencies-667f223b7b ([f496d7a](https://www.github.com/JaCraig/Canister/commit/f496d7a7a5f0afbd6ce0700f6cea8e0a6125a05c))
+* Merge pull request #70 from JaCraig/dependabot/nuget/dependencies-b98955ca02 ([87dc6ac](https://www.github.com/JaCraig/Canister/commit/87dc6ac5a6381418e2a85b369575f7a8b2310729))
+* bump the dependencies group ([f0af1fc](https://www.github.com/JaCraig/Canister/commit/f0af1fc7e1113368d2a65a08cb1cd3a941aa7e46))
+* bump the dependencies group in /test/Canister.Tests with 1 update ([11fe181](https://www.github.com/JaCraig/Canister/commit/11fe181cc42ed9654830bde1fbbb3a9664c62955))
+* bump the dependencies group in /test/Canister.Tests with 1 update ([cd9bdc2](https://www.github.com/JaCraig/Canister/commit/cd9bdc22419655197f4ede15bb53e35aae6c696b))
+* bump the dependencies group in /test/Canister.Tests with 1 update ([43a0574](https://www.github.com/JaCraig/Canister/commit/43a05747a20b078a43d09757f87bbd14d8bd9043))
+* bump the dependencies group with 1 update ([2f85d74](https://www.github.com/JaCraig/Canister/commit/2f85d743c37cd8608166566b53a0ea08add6c08b))
+* bump the dependencies group with 1 update ([3620a70](https://www.github.com/JaCraig/Canister/commit/3620a700cd4d7db82dfa1c2b84649dd406f81699))
+
 <a name="5.2.1"></a>
 ## [5.2.1](https://www.github.com/JaCraig/Canister/releases/tag/v5.2.1) (2023-12-11)
 
