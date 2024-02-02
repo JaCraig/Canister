@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.2.4"></a>
+## [5.2.4](https://www.github.com/JaCraig/Canister/releases/tag/v5.2.4) (2024-02-02)
+
+### Bug Fixes
+
+* bump the dependencies group with 1 update ([e71c409](https://www.github.com/JaCraig/Canister/commit/e71c409b22a2b47f094e6f8a970eec8afbcf2430))
+
+### Other
+
+* Merge pull request #72 from JaCraig/dependabot/nuget/dependencies-63f730a0da ([221c03b](https://www.github.com/JaCraig/Canister/commit/221c03b58ea81f1bf62180467134d923dde5ab7a))
+* Update dependabot-reviewer.yml ([c3cb986](https://www.github.com/JaCraig/Canister/commit/c3cb9867655ba5397ffc9d3147a105fb9c689715))
+
 <a name="5.2.3"></a>
 ## [5.2.3](https://www.github.com/JaCraig/Canister/releases/tag/v5.2.3) (2024-01-29)
 
