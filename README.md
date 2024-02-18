@@ -1,4 +1,4 @@
-# Canister
+# <img src="./Icon.png" height="25px" /> Canister
 
 [![.NET Publish](https://github.com/JaCraig/Canister/actions/workflows/dotnet-publish.yml/badge.svg)](https://github.com/JaCraig/Canister/actions/workflows/dotnet-publish.yml)
 
