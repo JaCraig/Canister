@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.3.0"></a>
+## [5.3.0](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.0) (2024-02-19)
+
+### Features
+
+* Adding the ability to register types via attribute ([3376b6a](https://www.github.com/JaCraig/Canister/commit/3376b6a35f62d567b80d233797ed17e81a83fdb7))
+
+### Other
+
+* Merge pull request #73 from JaCraig/dependabot/nuget/test/Canister.Tests/dependencies-dd5dd83d2f ([ad8f561](https://www.github.com/JaCraig/Canister/commit/ad8f561d74d891dc58500f60ed830878f9fb8507))
+* Merge pull request #74 from JaCraig/dependabot/nuget/test/Canister.Tests/dependencies-5305f2162c ([f527292](https://www.github.com/JaCraig/Canister/commit/f5272923fbdecdccf8536a92ec0ba85317748a44))
+* bump the dependencies group ([858bed6](https://www.github.com/JaCraig/Canister/commit/858bed6d53228abdcac72f7d99c50522709fe979))
+* bump the dependencies group in /test/Canister.Tests with 1 update ([dba207e](https://www.github.com/JaCraig/Canister/commit/dba207ed57f7ec3e1a95f54c64ba4fb1d3ba3266))
+* fixing build ([48bd41d](https://www.github.com/JaCraig/Canister/commit/48bd41d62717cd20cd5e4cc0e263e8f05c4a2aaf))
+* Fixing build for coveralls upload ([2762e79](https://www.github.com/JaCraig/Canister/commit/2762e79c1ae3c4803e168a72fa9d5dc1b89dc0b6))
+* Testing readme change ([98f319c](https://www.github.com/JaCraig/Canister/commit/98f319cc624e8947e77f15f96fca629d11e8f9e4))
+
 <a name="5.2.4"></a>
 ## [5.2.4](https://www.github.com/JaCraig/Canister/releases/tag/v5.2.4) (2024-02-02)
 
