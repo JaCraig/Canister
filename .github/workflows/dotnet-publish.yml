@@ -61,7 +61,7 @@ jobs:
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: ./test/Canister.Tests/TestResults-${{ matrix.dotnet-version }}/coverage.net8.0.info
+        path-to-lcov: ./TestResults-${{ matrix.dotnet-version }}/coverage.net8.0.info
       
     - name: Upload NuGet package
       uses: actions/upload-artifact@v4
