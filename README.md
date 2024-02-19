@@ -1,4 +1,4 @@
-# <img src="./Icon.png" height="25px" /> Canister
+# <img src="https://jacraig.github.io/Canister/images/icon.png" height="25px" /> Canister
 
 [![.NET Publish](https://github.com/JaCraig/Canister/actions/workflows/dotnet-publish.yml/badge.svg)](https://github.com/JaCraig/Canister/actions/workflows/dotnet-publish.yml) [![Coverage Status](https://coveralls.io/repos/github/JaCraig/Canister/badge.svg?branch=master)](https://coveralls.io/github/JaCraig/Canister?branch=master)
 
