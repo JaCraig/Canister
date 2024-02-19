@@ -1,4 +1,5 @@
 ﻿using Canister.Interfaces;
+using Canister.IoC.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Canister.IoC.Example
@@ -13,6 +14,14 @@ namespace Canister.IoC.Example
         /// </summary>
         /// <value>The name.</value>
         string Name { get; }
+    }
+
+    /// <summary>
+    /// Interface that has all classes that implement it registered as singletons
+    /// </summary>
+    [RegisterAll(ServiceLifetime.Singleton)]
+    internal interface IRegisteredInterface
+    {
     }
 
     /// <summary>
@@ -34,6 +43,11 @@ namespace Canister.IoC.Example
                                     .AddAllSingleton<IMyService>()
                                     // Build the service provider
                                     ?.BuildServiceProvider();
+
+            // Get all the services that implement IIRegisteredInterface
+            IEnumerable<IRegisteredInterface> RegisteredClasses = ServiceProvider?.GetServices<IRegisteredInterface>() ?? Array.Empty<IRegisteredInterface>();
+            // Write out the number of services found (should be 2)
+            Console.WriteLine("Number of registered classes found: {0}", RegisteredClasses.Count());
 
             // Get all the services that implement IMyService
             IEnumerable<IMyService> ServiceClasses = ServiceProvider?.GetServices<IMyService>() ?? Array.Empty<IMyService>();
@@ -92,6 +106,20 @@ namespace Canister.IoC.Example
         /// </summary>
         /// <param name="serviceDescriptors">The service descriptors.</param>
         public void Load(IServiceCollection serviceDescriptors) => serviceDescriptors.AddTransient<SimpleExampleClass>();
+    }
+
+    /// <summary>
+    /// Class that implements IRegisteredInterface
+    /// </summary>
+    internal class RegisteredClass1 : IRegisteredInterface
+    {
+    }
+
+    /// <summary>
+    /// Class that implements IRegisteredInterface
+    /// </summary>
+    internal class RegisteredClass2 : IRegisteredInterface
+    {
     }
 
     /// <summary>

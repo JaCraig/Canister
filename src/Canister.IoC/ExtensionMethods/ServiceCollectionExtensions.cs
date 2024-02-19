@@ -1,4 +1,5 @@
 ﻿using Canister.Interfaces;
+using Canister.IoC.Attributes;
 using Canister.IoC.Utils;
 using Fast.Activator;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -31,6 +32,25 @@ namespace Microsoft.Extensions.DependencyInjection
                         return _Assemblies;
                     _Assemblies = FindModules();
                     return _Assemblies;
+                }
+            }
+        }
+
+        /// <summary>
+        /// The available interfaces
+        /// </summary>
+        private static Type[] AvailableInterfaces
+        {
+            get
+            {
+                if (_AvailableInterfaces is not null)
+                    return _AvailableInterfaces;
+                lock (_TypeLockObject)
+                {
+                    if (_AvailableInterfaces is not null)
+                        return _AvailableInterfaces;
+                    _AvailableInterfaces = GetAvailableInterfaces();
+                    return _AvailableInterfaces;
                 }
             }
         }
@@ -69,6 +89,11 @@ namespace Microsoft.Extensions.DependencyInjection
         /// The assemblies
         /// </summary>
         private static Assembly[]? _Assemblies;
+
+        /// <summary>
+        /// The available interfaces
+        /// </summary>
+        private static Type[]? _AvailableInterfaces;
 
         /// <summary>
         /// The available types
@@ -197,6 +222,14 @@ namespace Microsoft.Extensions.DependencyInjection
             {
                 ResolvedModule.Load(serviceDescriptors);
             }
+
+            //Load types with the RegisterAttribute to the service collection
+            foreach (Type RegisteredType in GetAllRegisteredTypes())
+            {
+                RegisterClasses(serviceDescriptors, RegisteredType);
+                RegisterInterfaces(serviceDescriptors, RegisteredType);
+            }
+
             serviceDescriptors.TryAddSingleton<CanisterRegisteredFlag>();
 
             //Clear info and return
@@ -1037,6 +1070,32 @@ namespace Microsoft.Extensions.DependencyInjection
         private static IEnumerable<TObject> GetAllOfType<TObject>() => AvailableTypes.Where(type => typeof(TObject).IsAssignableFrom(type)).Select(type => (TObject)FastActivator.CreateInstance(type));
 
         /// <summary>
+        /// Gets all attributes that have the RegisterAttribute.
+        /// </summary>
+        /// <returns>The list of types.</returns>
+        private static IEnumerable<Type> GetAllRegisteredTypes() => AvailableTypes.Where(type => type.GetCustomAttributes<RegisterAttribute>().Any())
+                                                                                  .Concat(AvailableInterfaces.Where(type => type.GetCustomAttributes<RegisterAllAttribute>().Any()));
+
+        /// <summary>
+        /// Gets the available interfaces
+        /// </summary>
+        /// <returns>The interfaces that are available</returns>
+        private static Type[] GetAvailableInterfaces()
+        {
+            return Assemblies.SelectMany(x =>
+            {
+                try
+                {
+                    return x.GetTypes();
+                }
+                catch (ReflectionTypeLoadException) { return Array.Empty<Type>(); }
+            })
+            .Where(x => x.IsInterface
+                           && !x.ContainsGenericParameters)
+            .ToArray();
+        }
+
+        /// <summary>
         /// Gets the available types.
         /// </summary>
         /// <returns>The available types</returns>
@@ -1061,5 +1120,71 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         /// <param name="configuration">The configuration.</param>
         private static void LoadModules(ICanisterConfiguration configuration) => configuration.AddAssembly(Assemblies);
+
+        /// <summary>
+        /// Registers the classes.
+        /// </summary>
+        /// <param name="serviceDescriptors">Services</param>
+        /// <param name="registeredType">Registered type</param>
+        private static void RegisterClasses(IServiceCollection? serviceDescriptors, Type registeredType)
+        {
+            if (serviceDescriptors is null)
+                return;
+            IEnumerable<Type> TypeChain = registeredType.GetInterfaces().Concat(new[] { registeredType });
+            foreach (RegisterAttribute RegisterAttribute in registeredType.GetCustomAttributes<RegisterAttribute>())
+            {
+                foreach (Type? ServiceType in TypeChain)
+                {
+                    switch (RegisterAttribute.Lifetime)
+                    {
+                        case ServiceLifetime.Scoped:
+                            _ = RegisterAttribute.ServiceKey is null
+                                ? serviceDescriptors.AddScoped(ServiceType, registeredType)
+                                : serviceDescriptors.AddKeyedScoped(ServiceType, RegisterAttribute.ServiceKey, registeredType);
+                            break;
+
+                        case ServiceLifetime.Singleton:
+                            _ = RegisterAttribute.ServiceKey is null
+                                ? serviceDescriptors.AddSingleton(ServiceType, registeredType)
+                                : serviceDescriptors.AddKeyedSingleton(ServiceType, RegisterAttribute.ServiceKey, registeredType);
+                            break;
+
+                        case ServiceLifetime.Transient:
+                            _ = RegisterAttribute.ServiceKey is null
+                                ? serviceDescriptors.AddTransient(ServiceType, registeredType)
+                                : serviceDescriptors.AddKeyedTransient(ServiceType, RegisterAttribute.ServiceKey, registeredType);
+                            break;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Registers the interfaces.
+        /// </summary>
+        /// <param name="serviceDescriptors">The service descriptors.</param>
+        /// <param name="registeredType">The registered type.</param>
+        private static void RegisterInterfaces(IServiceCollection? serviceDescriptors, Type registeredType)
+        {
+            if (serviceDescriptors is null)
+                return;
+            foreach (RegisterAllAttribute RegisterAllAttribute in registeredType.GetCustomAttributes<RegisterAllAttribute>())
+            {
+                switch (RegisterAllAttribute.Lifetime)
+                {
+                    case ServiceLifetime.Scoped:
+                        _ = serviceDescriptors.AddAllScoped(registeredType);
+                        break;
+
+                    case ServiceLifetime.Singleton:
+                        _ = serviceDescriptors.AddAllSingleton(registeredType);
+                        break;
+
+                    case ServiceLifetime.Transient:
+                        _ = serviceDescriptors.AddAllTransient(registeredType);
+                        break;
+                }
+            }
+        }
     }
 }

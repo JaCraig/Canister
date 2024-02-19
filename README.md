@@ -49,6 +49,28 @@ The module above is loaded automatically by the system and will have the Load fu
 	
 The AddAllxxxx functions will find everything that implements a class or interface in the Assemblies that you tell it to look in and will register them with the service collection.
 
+## Attributes
+
+Canister also allows for attributes to be used to control registration. There are two attributes that the system uses:
+
+* RegisterAttribute - This attribute is used to control how a class is registered. It will register the class as all interfaces that it implements as well as the class itself. The attribute takes the life time of the registration as a parameter. If no parameter is given, the registration will be transient. It also can take a service key as well.
+
+```csharp
+    [Register(LifeTime.Singleton)]
+    public class MyType : IMyInterface
+    {
+    }
+```
+
+* RegisterAllAttribute - This attribute is used to control how an interface is registered. It will register all classes that implement the interface similar to the AddAllxxxx functions. The attribute takes the life time of the registration as a parameter. If no parameter is given, the registration will be transient.
+
+```csharp
+    [RegisterAll(LifeTime.Singleton)]
+    public interface IMyInterface
+    {
+    }
+```
+
 ### Canister Extension Methods
 
 Canister provides a set of extension methods to streamline your IoC (Inversion of Control) container registration code. These methods offer convenient ways to conditionally register services based on certain criteria, enhancing the flexibility of your application's dependency injection setup.
