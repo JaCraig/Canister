@@ -88,6 +88,7 @@
 <h1 id="code">Code</h1>
 
 <pre><code class="lang-csharp">using Canister.Interfaces;
+using Canister.IoC.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Canister.IoC.Example
@@ -102,6 +103,14 @@ namespace Canister.IoC.Example
         /// &lt;/summary&gt;
         /// &lt;value&gt;The name.&lt;/value&gt;
         string Name { get; }
+    }
+
+    /// &lt;summary&gt;
+    /// Interface that has all classes that implement it registered as singletons
+    /// &lt;/summary&gt;
+    [RegisterAll(ServiceLifetime.Singleton)]
+    internal interface IRegisteredInterface
+    {
     }
 
     /// &lt;summary&gt;
@@ -123,6 +132,11 @@ namespace Canister.IoC.Example
                                     .AddAllSingleton&lt;IMyService&gt;()
                                     // Build the service provider
                                     ?.BuildServiceProvider();
+
+            // Get all the services that implement IIRegisteredInterface
+            IEnumerable&lt;IRegisteredInterface&gt; RegisteredClasses = ServiceProvider?.GetServices&lt;IRegisteredInterface&gt;() ?? Array.Empty&lt;IRegisteredInterface&gt;();
+            // Write out the number of services found (should be 2)
+            Console.WriteLine(&quot;Number of registered classes found: {0}&quot;, RegisteredClasses.Count());
 
             // Get all the services that implement IMyService
             IEnumerable&lt;IMyService&gt; ServiceClasses = ServiceProvider?.GetServices&lt;IMyService&gt;() ?? Array.Empty&lt;IMyService&gt;();
@@ -184,6 +198,20 @@ namespace Canister.IoC.Example
     }
 
     /// &lt;summary&gt;
+    /// Class that implements IRegisteredInterface
+    /// &lt;/summary&gt;
+    internal class RegisteredClass1 : IRegisteredInterface
+    {
+    }
+
+    /// &lt;summary&gt;
+    /// Class that implements IRegisteredInterface
+    /// &lt;/summary&gt;
+    internal class RegisteredClass2 : IRegisteredInterface
+    {
+    }
+
+    /// &lt;summary&gt;
     /// This is a simple example class
     /// &lt;/summary&gt;
     internal class SimpleExampleClass
@@ -196,7 +224,8 @@ namespace Canister.IoC.Example
     }
 }
 </code></pre><h1 id="output">Output</h1>
-<pre><code>Number of services found: 2
+<pre><code>Number of registered classes found: 2
+Number of services found: 2
 ExampleService1
 ExampleService2
 SimpleExampleClass

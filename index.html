@@ -125,6 +125,24 @@
 <pre><code>bootstrapper.AddAllTransient&lt;IMyInterface&gt;();
 </code></pre>
 <p>The AddAllxxxx functions will find everything that implements a class or interface in the Assemblies that you tell it to look in and will register them with the service collection.</p>
+<h2 id="attributes">Attributes</h2>
+<p>Canister also allows for attributes to be used to control registration. There are two attributes that the system uses:</p>
+<ul>
+<li>RegisterAttribute - This attribute is used to control how a class is registered. It will register the class as all interfaces that it implements as well as the class itself. The attribute takes the life time of the registration as a parameter. If no parameter is given, the registration will be transient. It also can take a service key as well.</li>
+</ul>
+<pre><code class="lang-csharp">    [Register(LifeTime.Singleton)]
+    public class MyType : IMyInterface
+    {
+    }
+</code></pre>
+<ul>
+<li>RegisterAllAttribute - This attribute is used to control how an interface is registered. It will register all classes that implement the interface similar to the AddAllxxxx functions. The attribute takes the life time of the registration as a parameter. If no parameter is given, the registration will be transient.</li>
+</ul>
+<pre><code class="lang-csharp">    [RegisterAll(LifeTime.Singleton)]
+    public interface IMyInterface
+    {
+    }
+</code></pre>
 <h3 id="canister-extension-methods">Canister Extension Methods</h3>
 <p>Canister provides a set of extension methods to streamline your IoC (Inversion of Control) container registration code. These methods offer convenient ways to conditionally register services based on certain criteria, enhancing the flexibility of your application's dependency injection setup.</p>
 <h4 id="1-addtransientif">1. <code>AddTransientIf()</code></h4>

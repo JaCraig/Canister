@@ -61,6 +61,119 @@ references:
   isSpec: "True"
   fullName: Canister.Interfaces.IModule.Order
   nameWithType: IModule.Order
+- uid: Canister.IoC.Attributes
+  name: Canister.IoC.Attributes
+  href: api/Canister.IoC.Attributes.html
+  commentId: N:Canister.IoC.Attributes
+  fullName: Canister.IoC.Attributes
+  nameWithType: Canister.IoC.Attributes
+- uid: Canister.IoC.Attributes.RegisterAllAttribute
+  name: RegisterAllAttribute
+  href: api/Canister.IoC.Attributes.RegisterAllAttribute.html
+  commentId: T:Canister.IoC.Attributes.RegisterAllAttribute
+  fullName: Canister.IoC.Attributes.RegisterAllAttribute
+  nameWithType: RegisterAllAttribute
+- uid: Canister.IoC.Attributes.RegisterAllAttribute.#ctor
+  name: RegisterAllAttribute()
+  href: api/Canister.IoC.Attributes.RegisterAllAttribute.html#Canister_IoC_Attributes_RegisterAllAttribute__ctor
+  commentId: M:Canister.IoC.Attributes.RegisterAllAttribute.#ctor
+  name.vb: New()
+  fullName: Canister.IoC.Attributes.RegisterAllAttribute.RegisterAllAttribute()
+  fullName.vb: Canister.IoC.Attributes.RegisterAllAttribute.New()
+  nameWithType: RegisterAllAttribute.RegisterAllAttribute()
+  nameWithType.vb: RegisterAllAttribute.New()
+- uid: Canister.IoC.Attributes.RegisterAllAttribute.#ctor(Microsoft.Extensions.DependencyInjection.ServiceLifetime)
+  name: RegisterAllAttribute(ServiceLifetime)
+  href: api/Canister.IoC.Attributes.RegisterAllAttribute.html#Canister_IoC_Attributes_RegisterAllAttribute__ctor_Microsoft_Extensions_DependencyInjection_ServiceLifetime_
+  commentId: M:Canister.IoC.Attributes.RegisterAllAttribute.#ctor(Microsoft.Extensions.DependencyInjection.ServiceLifetime)
+  name.vb: New(ServiceLifetime)
+  fullName: Canister.IoC.Attributes.RegisterAllAttribute.RegisterAllAttribute(Microsoft.Extensions.DependencyInjection.ServiceLifetime)
+  fullName.vb: Canister.IoC.Attributes.RegisterAllAttribute.New(Microsoft.Extensions.DependencyInjection.ServiceLifetime)
+  nameWithType: RegisterAllAttribute.RegisterAllAttribute(ServiceLifetime)
+  nameWithType.vb: RegisterAllAttribute.New(ServiceLifetime)
+- uid: Canister.IoC.Attributes.RegisterAllAttribute.#ctor*
+  name: RegisterAllAttribute
+  href: api/Canister.IoC.Attributes.RegisterAllAttribute.html#Canister_IoC_Attributes_RegisterAllAttribute__ctor_
+  commentId: Overload:Canister.IoC.Attributes.RegisterAllAttribute.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Canister.IoC.Attributes.RegisterAllAttribute.RegisterAllAttribute
+  fullName.vb: Canister.IoC.Attributes.RegisterAllAttribute.New
+  nameWithType: RegisterAllAttribute.RegisterAllAttribute
+  nameWithType.vb: RegisterAllAttribute.New
+- uid: Canister.IoC.Attributes.RegisterAllAttribute.Lifetime
+  name: Lifetime
+  href: api/Canister.IoC.Attributes.RegisterAllAttribute.html#Canister_IoC_Attributes_RegisterAllAttribute_Lifetime
+  commentId: P:Canister.IoC.Attributes.RegisterAllAttribute.Lifetime
+  fullName: Canister.IoC.Attributes.RegisterAllAttribute.Lifetime
+  nameWithType: RegisterAllAttribute.Lifetime
+- uid: Canister.IoC.Attributes.RegisterAllAttribute.Lifetime*
+  name: Lifetime
+  href: api/Canister.IoC.Attributes.RegisterAllAttribute.html#Canister_IoC_Attributes_RegisterAllAttribute_Lifetime_
+  commentId: Overload:Canister.IoC.Attributes.RegisterAllAttribute.Lifetime
+  isSpec: "True"
+  fullName: Canister.IoC.Attributes.RegisterAllAttribute.Lifetime
+  nameWithType: RegisterAllAttribute.Lifetime
+- uid: Canister.IoC.Attributes.RegisterAttribute
+  name: RegisterAttribute
+  href: api/Canister.IoC.Attributes.RegisterAttribute.html
+  commentId: T:Canister.IoC.Attributes.RegisterAttribute
+  fullName: Canister.IoC.Attributes.RegisterAttribute
+  nameWithType: RegisterAttribute
+- uid: Canister.IoC.Attributes.RegisterAttribute.#ctor
+  name: RegisterAttribute()
+  href: api/Canister.IoC.Attributes.RegisterAttribute.html#Canister_IoC_Attributes_RegisterAttribute__ctor
+  commentId: M:Canister.IoC.Attributes.RegisterAttribute.#ctor
+  name.vb: New()
+  fullName: Canister.IoC.Attributes.RegisterAttribute.RegisterAttribute()
+  fullName.vb: Canister.IoC.Attributes.RegisterAttribute.New()
+  nameWithType: RegisterAttribute.RegisterAttribute()
+  nameWithType.vb: RegisterAttribute.New()
+- uid: Canister.IoC.Attributes.RegisterAttribute.#ctor(Microsoft.Extensions.DependencyInjection.ServiceLifetime,System.Object)
+  name: RegisterAttribute(ServiceLifetime, object?)
+  href: api/Canister.IoC.Attributes.RegisterAttribute.html#Canister_IoC_Attributes_RegisterAttribute__ctor_Microsoft_Extensions_DependencyInjection_ServiceLifetime_System_Object_
+  commentId: M:Canister.IoC.Attributes.RegisterAttribute.#ctor(Microsoft.Extensions.DependencyInjection.ServiceLifetime,System.Object)
+  name.vb: New(ServiceLifetime, Object)
+  fullName: Canister.IoC.Attributes.RegisterAttribute.RegisterAttribute(Microsoft.Extensions.DependencyInjection.ServiceLifetime, object?)
+  fullName.vb: Canister.IoC.Attributes.RegisterAttribute.New(Microsoft.Extensions.DependencyInjection.ServiceLifetime, Object)
+  nameWithType: RegisterAttribute.RegisterAttribute(ServiceLifetime, object?)
+  nameWithType.vb: RegisterAttribute.New(ServiceLifetime, Object)
+- uid: Canister.IoC.Attributes.RegisterAttribute.#ctor*
+  name: RegisterAttribute
+  href: api/Canister.IoC.Attributes.RegisterAttribute.html#Canister_IoC_Attributes_RegisterAttribute__ctor_
+  commentId: Overload:Canister.IoC.Attributes.RegisterAttribute.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Canister.IoC.Attributes.RegisterAttribute.RegisterAttribute
+  fullName.vb: Canister.IoC.Attributes.RegisterAttribute.New
+  nameWithType: RegisterAttribute.RegisterAttribute
+  nameWithType.vb: RegisterAttribute.New
+- uid: Canister.IoC.Attributes.RegisterAttribute.Lifetime
+  name: Lifetime
+  href: api/Canister.IoC.Attributes.RegisterAttribute.html#Canister_IoC_Attributes_RegisterAttribute_Lifetime
+  commentId: P:Canister.IoC.Attributes.RegisterAttribute.Lifetime
+  fullName: Canister.IoC.Attributes.RegisterAttribute.Lifetime
+  nameWithType: RegisterAttribute.Lifetime
+- uid: Canister.IoC.Attributes.RegisterAttribute.Lifetime*
+  name: Lifetime
+  href: api/Canister.IoC.Attributes.RegisterAttribute.html#Canister_IoC_Attributes_RegisterAttribute_Lifetime_
+  commentId: Overload:Canister.IoC.Attributes.RegisterAttribute.Lifetime
+  isSpec: "True"
+  fullName: Canister.IoC.Attributes.RegisterAttribute.Lifetime
+  nameWithType: RegisterAttribute.Lifetime
+- uid: Canister.IoC.Attributes.RegisterAttribute.ServiceKey
+  name: ServiceKey
+  href: api/Canister.IoC.Attributes.RegisterAttribute.html#Canister_IoC_Attributes_RegisterAttribute_ServiceKey
+  commentId: P:Canister.IoC.Attributes.RegisterAttribute.ServiceKey
+  fullName: Canister.IoC.Attributes.RegisterAttribute.ServiceKey
+  nameWithType: RegisterAttribute.ServiceKey
+- uid: Canister.IoC.Attributes.RegisterAttribute.ServiceKey*
+  name: ServiceKey
+  href: api/Canister.IoC.Attributes.RegisterAttribute.html#Canister_IoC_Attributes_RegisterAttribute_ServiceKey_
+  commentId: Overload:Canister.IoC.Attributes.RegisterAttribute.ServiceKey
+  isSpec: "True"
+  fullName: Canister.IoC.Attributes.RegisterAttribute.ServiceKey
+  nameWithType: RegisterAttribute.ServiceKey
 - uid: Canister.IoC.Modules
   name: Canister.IoC.Modules
   href: api/Canister.IoC.Modules.html
