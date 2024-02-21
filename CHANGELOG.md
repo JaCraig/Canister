@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.3.1"></a>
+## [5.3.1](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.1) (2024-02-21)
+
+### Bug Fixes
+
+* bump the dependencies group with 1 update ([65e5b22](https://www.github.com/JaCraig/Canister/commit/65e5b22b8ce4917950816a3025a52f9909c20a54))
+
+### Other
+
+* Merge pull request #75 from JaCraig/dependabot/nuget/dependencies-fbf8aad041 ([2ff5eee](https://www.github.com/JaCraig/Canister/commit/2ff5eeeedbd25969eed4ecb7e44fd30c3002091c))
+* Adding code coverage badge to README ([17acc8d](https://www.github.com/JaCraig/Canister/commit/17acc8d2532463ce3bbf8e66cb3cf8b9ea3335ca))
+* Adding tests ([3175091](https://www.github.com/JaCraig/Canister/commit/3175091ad2aca96a727c4d5d96b9433ccbcaa533))
+* Cleaning up README file ([b75763c](https://www.github.com/JaCraig/Canister/commit/b75763ce6fe38a886042fca6cbf37480ba9879c7))
+* Cleaning up README some more ([ad06752](https://www.github.com/JaCraig/Canister/commit/ad06752cfb0f99791dc9ca4662e3efa4dd84eb92))
+* More readme updates ([5c14d12](https://www.github.com/JaCraig/Canister/commit/5c14d129e108475de49bcd8fd0977cc644975ded))
+
 <a name="5.3.0"></a>
 ## [5.3.0](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.0) (2024-02-19)
 
