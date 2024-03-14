@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.3.5"></a>
+## [5.3.5](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.5) (2024-03-14)
+
+### Bug Fixes
+
+* bump the dependencies group with 1 update ([e38b78f](https://www.github.com/JaCraig/Canister/commit/e38b78f7cc584b241871b6ce48c0971a10693df4))
+
+### Other
+
+* Merge pull request #81 from JaCraig/dependabot/nuget/dependencies-da54b04d37 ([7f99020](https://www.github.com/JaCraig/Canister/commit/7f9902008ada30423a1371c54300f707714b8216))
+
 <a name="5.3.4"></a>
 ## [5.3.4](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.4) (2024-03-13)
 
