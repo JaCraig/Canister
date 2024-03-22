@@ -58,10 +58,11 @@ jobs:
       if: ${{ always() }}
 
     - name: Publish coverage report to coveralls.io
-      uses: coverallsapp/github-action@master
+      uses: coverallsapp/github-action@v2
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: ./test/Canister.Tests/TestResults-${{ matrix.dotnet-version }}/coverage.net8.0.info
+        files: ./test/Canister.Tests/TestResults-${{ matrix.dotnet-version }}/coverage.net8.0.info
+        format: lcov
       
     - name: Upload NuGet package
       uses: actions/upload-artifact@v4
