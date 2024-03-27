@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.3.6"></a>
+## [5.3.6](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.6) (2024-03-27)
+
+### Bug Fixes
+
+* Improvements to memory usage ([f1f8c6d](https://www.github.com/JaCraig/Canister/commit/f1f8c6dc3b6777d24caa969ba0d77fbcca7c9857))
+
+### Other
+
+* Merge pull request #82 from JaCraig/dependabot/github_actions/dependencies-c3ed15e864 ([413b113](https://www.github.com/JaCraig/Canister/commit/413b113514651dbb2773f0409f5317b5fdd08492))
+* Adding a benchmark test ([e79d609](https://www.github.com/JaCraig/Canister/commit/e79d6095c3da95d2bcd249bcbd2b2c73e40a8cbd))
+* bump the dependencies group with 1 update ([e0b69ca](https://www.github.com/JaCraig/Canister/commit/e0b69ca74127a74ef7ffb3bc345e7ce8f9e2fad7))
+* Update dotnet-publish.yml ([70b75b1](https://www.github.com/JaCraig/Canister/commit/70b75b140b3be954efa0e565f58bd6a3b1d8784b))
+
 <a name="5.3.5"></a>
 ## [5.3.5](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.5) (2024-03-14)
 
