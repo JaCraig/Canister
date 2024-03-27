@@ -17,6 +17,31 @@ namespace Microsoft.Extensions.DependencyInjection
     public static class ServiceCollectionExtensions
     {
         /// <summary>
+        /// The lock object
+        /// </summary>
+        private static readonly object _AssemblyLockObject = new();
+
+        /// <summary>
+        /// The type lock object
+        /// </summary>
+        private static readonly object _TypeLockObject = new();
+
+        /// <summary>
+        /// The assemblies
+        /// </summary>
+        private static Assembly[]? _Assemblies;
+
+        /// <summary>
+        /// The available interfaces
+        /// </summary>
+        private static Type[]? _AvailableInterfaces;
+
+        /// <summary>
+        /// The available types
+        /// </summary>
+        private static Type[]? _AvailableTypes;
+
+        /// <summary>
         /// Gets the assemblies.
         /// </summary>
         /// <value>The assemblies.</value>
@@ -74,31 +99,6 @@ namespace Microsoft.Extensions.DependencyInjection
                 }
             }
         }
-
-        /// <summary>
-        /// The lock object
-        /// </summary>
-        private static readonly object _AssemblyLockObject = new();
-
-        /// <summary>
-        /// The type lock object
-        /// </summary>
-        private static readonly object _TypeLockObject = new();
-
-        /// <summary>
-        /// The assemblies
-        /// </summary>
-        private static Assembly[]? _Assemblies;
-
-        /// <summary>
-        /// The available interfaces
-        /// </summary>
-        private static Type[]? _AvailableInterfaces;
-
-        /// <summary>
-        /// The available types
-        /// </summary>
-        private static Type[]? _AvailableTypes;
 
         /// <summary>
         /// Registers all objects of a certain type with the service collection as scoped.
@@ -1031,35 +1031,32 @@ namespace Microsoft.Extensions.DependencyInjection
             if (ExecutingAssembly is null)
                 return Array.Empty<Assembly>();
 
-            var AssembliesFound = new List<Assembly>
+            var AssembliesFound = new HashSet<Assembly>
             {
                 EntryAssembly,
                 ExecutingAssembly
             };
-            IEnumerable<string> PathsFound = new List<string>
+            var PathsFound = new HashSet<string>
             {
                 Path.GetDirectoryName(EntryAssembly.Location) ?? "",
                 Path.GetDirectoryName(ExecutingAssembly.Location) ?? ""
-            }.Distinct();
+            };
 
             foreach (var Path in PathsFound)
             {
-                AssembliesFound.AddRange((IEnumerable<Assembly>)Directory.EnumerateFiles(Path, "*.dll", SearchOption.TopDirectoryOnly)
-                    .Select(assemblyPath =>
+                foreach (var AssemblyFile in Directory.EnumerateFiles(Path, "*.dll", SearchOption.TopDirectoryOnly))
+                {
+                    try
                     {
-                        try
-                        {
-                            return Assembly.LoadFrom(assemblyPath);
-                        }
-                        catch (Exception)
-                        {
-                            return null;
-                        }
-                    })
-                    .Where(assembly => assembly is not null && !AssembliesFound.Contains(assembly)));
+                        AssembliesFound.Add(Assembly.LoadFrom(AssemblyFile));
+                    }
+                    catch
+                    {
+                    }
+                }
             }
 
-            return AssembliesFound.Distinct().ToArray();
+            return AssembliesFound.ToArray();
         }
 
         /// <summary>

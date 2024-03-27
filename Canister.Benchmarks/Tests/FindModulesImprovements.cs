@@ -86,21 +86,15 @@ namespace Canister.Benchmarks.Tests
 
             foreach (var Path in PathsFound)
             {
-                foreach (var Assembly in Directory.EnumerateFiles(Path, "*.dll", SearchOption.TopDirectoryOnly)
-                    .Select(assemblyPath =>
-                    {
-                        try
-                        {
-                            return Assembly.LoadFrom(assemblyPath);
-                        }
-                        catch (Exception)
-                        {
-                            return null;
-                        }
-                    })
-                    .Where(assembly => assembly is not null))
+                foreach (var AssemblyFile in Directory.EnumerateFiles(Path, "*.dll", SearchOption.TopDirectoryOnly))
                 {
-                    AssembliesFound.Add(Assembly);
+                    try
+                    {
+                        AssembliesFound.Add(Assembly.LoadFrom(AssemblyFile));
+                    }
+                    catch
+                    {
+                    }
                 }
             }
 
