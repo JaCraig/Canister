@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.3.7"></a>
+## [5.3.7](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.7) (2024-04-30)
+
+### Bug Fixes
+
+* bump versionize from 1.22.0 to 1.23.0 in the dependencies group ([434a467](https://www.github.com/JaCraig/Canister/commit/434a467eb60cb78b4b5c5d5ad076694a4b9942dd))
+
+### Other
+
+* Merge pull request #83 from JaCraig/dependabot/github_actions/dependencies-45223d3826 ([8413f85](https://www.github.com/JaCraig/Canister/commit/8413f85de686b81a2a876ddaf5f219c153e3dd92))
+* Merge pull request #84 from JaCraig/dependabot/nuget/test/Canister.Tests/dependencies-fc8f0a2f2d ([1264a00](https://www.github.com/JaCraig/Canister/commit/1264a0073f1f1a1d72b1325d1fee9a0c489fe023))
+* Merge pull request #85 from JaCraig/dependabot/github_actions/dependencies-67cf71b959 ([c4bb4a0](https://www.github.com/JaCraig/Canister/commit/c4bb4a07b4ab37338faa193b8756e1e75fbeffaf))
+* Merge pull request #86 from JaCraig/dependabot/nuget/test/Canister.Tests/dependencies-10b8ce0db7 ([952fb63](https://www.github.com/JaCraig/Canister/commit/952fb63c400b66dad30899af365216505b5d80f5))
+* Merge pull request #87 from JaCraig/dependabot/nuget/dependencies-6d2d24f1fd ([2976b2f](https://www.github.com/JaCraig/Canister/commit/2976b2fd2cc2298d1f2d307764ece045658da6e0))
+* bump dependabot/fetch-metadata in the dependencies group ([11ad382](https://www.github.com/JaCraig/Canister/commit/11ad382ec7583c419c78e4eec85d57f210a92779))
+* bump peaceiris/actions-gh-pages in the dependencies group ([5e6c9ec](https://www.github.com/JaCraig/Canister/commit/5e6c9ec250c3d81650f06cb8c6bfde0d3dbec72f))
+* bump the dependencies group ([023b2c9](https://www.github.com/JaCraig/Canister/commit/023b2c9b42970705a9badbe604e9597fb9046b02))
+* bump the dependencies group ([5c4bd7b](https://www.github.com/JaCraig/Canister/commit/5c4bd7b975015a97441f65e64dd9d86607dbab59))
+* Update dependabot.yml ([06039df](https://www.github.com/JaCraig/Canister/commit/06039df264bad96c11e4fd96c9089da7c0d34120))
+
 <a name="5.3.6"></a>
 ## [5.3.6](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.6) (2024-03-27)
 
