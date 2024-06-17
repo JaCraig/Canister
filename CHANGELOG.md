@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.3.10"></a>
+## [5.3.10](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.10) (2024-06-17)
+
+### Bug Fixes
+
+* bump versionize from 1.25.0 to 1.27.0 in the dependencies group ([348f1ea](https://www.github.com/JaCraig/Canister/commit/348f1ea5cd8a46715cd4c564d61965b2ae76eed7))
+
+### Other
+
+* Merge pull request #90 from JaCraig/dependabot/nuget/test/Canister.Tests/dependencies-d10d8338a5 ([9f50f7f](https://www.github.com/JaCraig/Canister/commit/9f50f7f4639de673126e93b5ba9d647007380061))
+* Merge pull request #91 from JaCraig/dependabot/nuget/test/Canister.Tests/dependencies-63bf006411 ([cd72d42](https://www.github.com/JaCraig/Canister/commit/cd72d42e87ef4c08842b7e38b95775073588b61a))
+* Merge pull request #92 from JaCraig/dependabot/nuget/dependencies-6ac438fda8 ([cf95dc4](https://www.github.com/JaCraig/Canister/commit/cf95dc46b72f7a080c02ef1c80d498c58a0bea96))
+* bump Microsoft.NET.Test.Sdk ([f9ba54c](https://www.github.com/JaCraig/Canister/commit/f9ba54c6bdfc435a44c69419079d197eb571560d))
+* bump the dependencies group ([f35d5be](https://www.github.com/JaCraig/Canister/commit/f35d5bec3148a9d8c5a09ebf02ce01a06b905c54))
+
 <a name="5.3.9"></a>
 ## [5.3.9](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.9) (2024-05-06)
 
