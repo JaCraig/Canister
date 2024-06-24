@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.3.11"></a>
+## [5.3.11](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.11) (2024-06-24)
+
+### Bug Fixes
+
+* bump Serilog.Sinks.File in the dependencies group ([f47ae91](https://www.github.com/JaCraig/Canister/commit/f47ae91c828745d46cbb41ff0cdcea30122537d8))
+
+### Other
+
+* Merge pull request [#93](https://www.github.com/JaCraig/Canister/issues/93) from JaCraig/dependabot/nuget/dependencies-95888ce323 ([6b86101](https://www.github.com/JaCraig/Canister/commit/6b861015e4a8180559d322af641c6663a4930f73))
+
 <a name="5.3.10"></a>
 ## [5.3.10](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.10) (2024-06-17)
 
