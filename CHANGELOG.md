@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.3.12"></a>
+## [5.3.12](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.12) (2024-08-01)
+
+### Bug Fixes
+
+* bump Serilog.AspNetCore in the dependencies group ([6d8516c](https://www.github.com/JaCraig/Canister/commit/6d8516cb529cc8ea1e74b520aa34c74ef758217c))
+
+### Other
+
+* Merge pull request #94 from JaCraig/dependabot/github_actions/dependencies-c44bf69c3e ([0a62989](https://www.github.com/JaCraig/Canister/commit/0a629898abed8f7569d83088700b377a71f55f02))
+* Merge pull request #95 from JaCraig/dependabot/nuget/test/Canister.Tests/dependencies-8e312df114 ([64baf45](https://www.github.com/JaCraig/Canister/commit/64baf45dc8caa953813cbb23f8ed8fb4c614814a))
+* Merge pull request #96 from JaCraig/dependabot/github_actions/dependencies-be62d4486d ([062c10b](https://www.github.com/JaCraig/Canister/commit/062c10b73a24af6a369536ab2d593dcb775a045b))
+* Merge pull request #97 from JaCraig/dependabot/nuget/dependencies-afec7361d9 ([9e046ee](https://www.github.com/JaCraig/Canister/commit/9e046ee981270a9ec610ba5793ba209f4486fd42))
+* bump actions/setup-dotnet in the dependencies group ([a7d0e57](https://www.github.com/JaCraig/Canister/commit/a7d0e571bf68f2a63af96121fc190476e06596de))
+* bump dependabot/fetch-metadata in the dependencies group ([e6177da](https://www.github.com/JaCraig/Canister/commit/e6177da0e24ac1630b9c58fc843696285cb51aad))
+* bump the dependencies group ([725fb43](https://www.github.com/JaCraig/Canister/commit/725fb43e5fba22345379278fe5a67c001fb042f4))
+
 <a name="5.3.11"></a>
 ## [5.3.11](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.11) (2024-06-24)
 
