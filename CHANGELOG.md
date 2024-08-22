@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.3.13"></a>
+## [5.3.13](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.13) (2024-08-22)
+
+### Bug Fixes
+
+* bump Fast.Activator from 2.1.4 to 2.1.5 in the dependencies group ([c80fd6f](https://www.github.com/JaCraig/Canister/commit/c80fd6f299e9e09debaa79a79e1763377c68d977))
+
+### Other
+
+* Merge pull request #98 from JaCraig/dependabot/nuget/test/Canister.Tests/dependencies-20452041bf ([6672c10](https://www.github.com/JaCraig/Canister/commit/6672c10c51a404fa30f9b410b4aa3289cd35c6b1))
+* Merge pull request #99 from JaCraig/dependabot/nuget/dependencies-af7f579516 ([2354a88](https://www.github.com/JaCraig/Canister/commit/2354a88a715422be720056f74ee9d3968b5fdd51))
+* bump Microsoft.NET.Test.Sdk ([e631c85](https://www.github.com/JaCraig/Canister/commit/e631c85bef04d5e450eb76ee5114542ba936add2))
+
 <a name="5.3.12"></a>
 ## [5.3.12](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.12) (2024-08-01)
 
