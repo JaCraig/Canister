@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.3.15"></a>
+## [5.3.15](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.15) (2024-10-14)
+
+### Bug Fixes
+
+* bump Serilog.AspNetCore in the dependencies group ([2a8061c](https://www.github.com/JaCraig/Canister/commit/2a8061c4171f0bff10a37d6c3959e3219bbc8cbb))
+
+### Other
+
+* Merge pull request #104 from JaCraig/dependabot/nuget/dependencies-74d1d08835 ([6843013](https://www.github.com/JaCraig/Canister/commit/684301311d4330c3afa69721c17efe30e4b96d28))
+
 <a name="5.3.14"></a>
 ## [5.3.14](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.14) (2024-10-09)
 
