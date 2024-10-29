@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.3.16"></a>
+## [5.3.16](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.16) (2024-10-29)
+
+### Bug Fixes
+
+* bump versionize from 1.27.0 to 2.0.0 in the dependencies group ([149f912](https://www.github.com/JaCraig/Canister/commit/149f9122bfc131e7b053a4b89aa2dbc969fa33ea))
+* bump versionize from 2.0.0 to 2.1.0 in the dependencies group ([e6f2870](https://www.github.com/JaCraig/Canister/commit/e6f2870a00172dbfc48d351eddf2478db5406e4d))
+
+### Other
+
+* Merge pull request #105 from JaCraig/dependabot/nuget/dependencies-9c36df7c76 ([59e93b5](https://www.github.com/JaCraig/Canister/commit/59e93b5edf294ccca320e2f7b7c2a97f8ace6e0d))
+* Merge pull request #106 from JaCraig/dependabot/nuget/dependencies-3894128c1d ([6d661be](https://www.github.com/JaCraig/Canister/commit/6d661be62d653efe8fbf4655bf068281ab783441))
+* Merge pull request #107 from JaCraig/dependabot/github_actions/dependencies-18190d55f2 ([9808961](https://www.github.com/JaCraig/Canister/commit/980896149e187bc4144f1612dff32462cd11cd47))
+* bump actions/setup-dotnet in the dependencies group ([55cc1dd](https://www.github.com/JaCraig/Canister/commit/55cc1dde0806a08d632059a5a7281963536b6ed0))
+* Update versionize configuration ([ff7ae67](https://www.github.com/JaCraig/Canister/commit/ff7ae67a03d4ab404f2a2de9c1082b1ffe5afd4a))
+
 <a name="5.3.15"></a>
 ## [5.3.15](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.15) (2024-10-14)
 
