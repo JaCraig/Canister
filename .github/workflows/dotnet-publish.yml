@@ -14,7 +14,7 @@ jobs:
       dotnet-version: '9.0.x'
       user: 'JaCraig'
       user-email: 'JaCraig@users.noreply.github.com'
-      coveralls-upload: "./Canister.Tests/TestResults-8.0.x/coverage.net8.0.info"
+      coveralls-upload: "./Canister.Tests/TestResults-9.0.x/coverage.net8.0.info"
       test-filter: "Canister.Tests"
     secrets:
       PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
