@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.4.3"></a>
+## [5.4.3](https://www.github.com/JaCraig/Canister/releases/tag/v5.4.3) (2024-11-14)
+
+### Bug Fixes
+
+* Remove dotnet-version specification from workflow files ([609b827](https://www.github.com/JaCraig/Canister/commit/609b82745100f412f212a229246b8cba91377da8))
+
+### Other
+
+* Merge branch 'master' of https://github.com/JaCraig/Canister ([3e36f5a](https://www.github.com/JaCraig/Canister/commit/3e36f5a06f8a806a42586a76f6ced6bae100914c))
+
 <a name="5.4.2"></a>
 ## [5.4.2](https://www.github.com/JaCraig/Canister/releases/tag/v5.4.2) (2024-11-14)
 
