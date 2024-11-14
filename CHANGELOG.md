@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.4.1"></a>
+## [5.4.1](https://www.github.com/JaCraig/Canister/releases/tag/v5.4.1) (2024-11-14)
+
+### Bug Fixes
+
+* Correct code sample path in intro.md ([c28fbbf](https://www.github.com/JaCraig/Canister/commit/c28fbbf4c70dcbc39d40d60f2257ae6b7405fdb5))
+
+### Other
+
+* Merge branch 'master' of https://github.com/JaCraig/Canister ([5a7ae9f](https://www.github.com/JaCraig/Canister/commit/5a7ae9fe4f797a9ae71c9096e1e2f6366473b6c1))
+
 <a name="5.4.0"></a>
 ## [5.4.0](https://www.github.com/JaCraig/Canister/releases/tag/v5.4.0) (2024-11-14)
 
