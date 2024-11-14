@@ -1,5 +1,5 @@
 # Code
-[!code-csharp[](../../Canister.IoC.Example/Program.cs)]
+[!code-csharp[](../Canister.IoC.Example/Program.cs)]
 
 # Output
 

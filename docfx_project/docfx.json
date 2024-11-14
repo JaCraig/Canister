@@ -3,7 +3,7 @@
     {
       "src": [
         {
-          "files": ["src/Canister.IoC/Canister.IoC.csproj"],
+          "files": ["Canister.IoC/Canister.IoC.csproj"],
           "src": "../"
         }
       ],
