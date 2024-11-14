@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.4.0"></a>
+## [5.4.0](https://www.github.com/JaCraig/Canister/releases/tag/v5.4.0) (2024-11-14)
+
+### Features
+
+* Add .NET 9.0 support and update package versions ([a328a6d](https://www.github.com/JaCraig/Canister/commit/a328a6d974cb2c8bcf4f416a356de926ccbf0d68))
+
+### Bug Fixes
+
+* Code cleanup and testing migration to centralized workflows ([0b9f9be](https://www.github.com/JaCraig/Canister/commit/0b9f9bed8d6cf2edec0a8d505ec52da540ba2a49))
+* Refactor workflows to use centralized configurations ([14495ad](https://www.github.com/JaCraig/Canister/commit/14495ad69531d8f50119350aafad10adf9105e22))
+* Update coveralls upload path for .NET 9.0 tests ([7461656](https://www.github.com/JaCraig/Canister/commit/7461656a9fc667145be4394571c7c7949d4e5a92))
+
+### Other
+
+* Merge pull request #111 from JaCraig/dependabot/nuget/SimpleMVCTests/dependencies-0286b1fee0 ([3312796](https://www.github.com/JaCraig/Canister/commit/331279640a6b56925a3bf48d5dad25125f23c96f))
+* bump Microsoft.AspNetCore.All ([aa0caef](https://www.github.com/JaCraig/Canister/commit/aa0caef44874d82c1ffeadcd1815837eedab9982))
+* Update Microsoft.AspNetCore.All to version 2.1.34 ([6cd2bf5](https://www.github.com/JaCraig/Canister/commit/6cd2bf530ef493c036cf314b8581eb119fddc1dc))
+
 <a name="5.3.18"></a>
 ## [5.3.18](https://www.github.com/JaCraig/Canister/releases/tag/v5.3.18) (2024-11-11)
 
