@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="5.4.2"></a>
+## [5.4.2](https://www.github.com/JaCraig/Canister/releases/tag/v5.4.2) (2024-11-14)
+
+### Bug Fixes
+
+* Update CodeQL analysis workflow to specify .NET version 9.0.x ([9b8e75e](https://www.github.com/JaCraig/Canister/commit/9b8e75e664e3fb9516a8848c6ce80a709e1642d0))
+
 <a name="5.4.1"></a>
 ## [5.4.1](https://www.github.com/JaCraig/Canister/releases/tag/v5.4.1) (2024-11-14)
 
