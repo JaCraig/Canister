@@ -10,5 +10,3 @@ on:
 jobs:
   build:
     uses: 'JaCraig/Centralized-Workflows/.github/workflows/dotnet-test.yml@main'
-    with:
-      dotnet-version: '9.0.x'

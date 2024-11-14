@@ -27,5 +27,3 @@ permissions:
 jobs:
   analyze:
     uses: JaCraig/Centralized-Workflows/.github/workflows/codeql.yml@main
-    with:
-      dotnet-version: '9.0.x'

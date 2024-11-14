@@ -11,7 +11,6 @@ jobs:
   build:
     uses: 'JaCraig/Centralized-Workflows/.github/workflows/dotnet-publish.yml@main'
     with:
-      dotnet-version: '9.0.x'
       user: 'JaCraig'
       user-email: 'JaCraig@users.noreply.github.com'
       coveralls-upload: "./Canister.Tests/TestResults-9.0.x/coverage.net8.0.info"

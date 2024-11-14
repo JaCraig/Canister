@@ -10,5 +10,3 @@ permissions:
 jobs:
   publish-docs:
     uses: JaCraig/Centralized-Workflows/.github/workflows/docsfx.yml@main
-    with:
-      dotnet-version: '9.0.x'
