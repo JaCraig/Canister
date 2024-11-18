@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.0.1"></a>
+## [6.0.1](https://www.github.com/JaCraig/Canister/releases/tag/v6.0.1) (2024-11-18)
+
+### Bug Fixes
+
+* update TargetFramework to net8.0 in docfx.json ([a1a6274](https://www.github.com/JaCraig/Canister/commit/a1a627444cc2365aa6243382c112b78bd94dd8da))
+
+### Other
+
+* Merge branch 'master' of https://github.com/JaCraig/Canister ([f1f9462](https://www.github.com/JaCraig/Canister/commit/f1f94622c967626ad8cfaf88c9f0b919b35467d5))
+
 <a name="6.0.0"></a>
 ## [6.0.0](https://www.github.com/JaCraig/Canister/releases/tag/v6.0.0) (2024-11-18)
 
