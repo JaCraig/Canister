@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.0.0"></a>
+## [6.0.0](https://www.github.com/JaCraig/Canister/releases/tag/v6.0.0) (2024-11-18)
+
+### Features
+
+* Apparently .Net 9 libraries are weird ([3064099](https://www.github.com/JaCraig/Canister/commit/30640999725b98f7996459dc708cb3d8dc323bca))
+
+### Breaking Changes
+
+* Apparently .Net 9 libraries are weird ([3064099](https://www.github.com/JaCraig/Canister/commit/30640999725b98f7996459dc708cb3d8dc323bca))
+
+### Other
+
+* Merge pull request #112 from JaCraig/dependabot/nuget/Canister.IoC.Example/dependencies-aab740826a ([8378215](https://www.github.com/JaCraig/Canister/commit/8378215b72f5f763cddfb62ae00cd97fb97cc089))
+* bump Fast.Activator ([069ca21](https://www.github.com/JaCraig/Canister/commit/069ca2195333d9562e194e4881605a469d6540a3))
+
 <a name="5.4.3"></a>
 ## [5.4.3](https://www.github.com/JaCraig/Canister/releases/tag/v5.4.3) (2024-11-14)
 
