@@ -46,7 +46,7 @@
 	</ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fast.Activator" Version="3.0.0" />
-	  <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.5" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.6" />
 	  <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
 	  <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0">
 		  <PrivateAssets>all</PrivateAssets>
