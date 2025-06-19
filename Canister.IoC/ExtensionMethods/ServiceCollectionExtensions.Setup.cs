@@ -3,6 +3,7 @@ using Canister.IoC.Attributes;
 using Canister.IoC.Utils;
 using Fast.Activator;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -68,7 +69,10 @@ namespace Microsoft.Extensions.DependencyInjection
                 .Select(type => (IModule)FastActivator.CreateInstance(type))
                 .OrderBy(x => x.Order))
             {
+                var ModuleName = ResolvedModule.GetType().Name;
+                CanisterConfiguration.Log("Module loading: {ResolvedModuleName}", ModuleName);
                 ResolvedModule.Load(serviceDescriptors);
+                CanisterConfiguration.Log("Module successfully loaded: {ResolvedModuleName}", ModuleName);
             }
 
             // Load types with the RegisterAttribute to the service collection
