@@ -19,19 +19,23 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Canister.Interfaces
 {
     /// <summary>
-    /// IoC module base class
+    /// Represents a module that can be loaded into the IoC container. Implementations define
+    /// service registrations and their order.
     /// </summary>
     public interface IModule
     {
         /// <summary>
-        /// Order to run this in
+        /// Gets the order in which this module should be loaded. Modules with lower order values
+        /// are loaded first.
         /// </summary>
         int Order { get; }
 
         /// <summary>
-        /// Loads the module using the service collection.
+        /// Loads the module and registers its services with the specified <see cref="IServiceCollection"/>.
         /// </summary>
-        /// <param name="serviceDescriptors">The service descriptors.</param>
+        /// <param name="serviceDescriptors">
+        /// The <see cref="IServiceCollection"/> to which services should be registered.
+        /// </param>
         void Load(IServiceCollection serviceDescriptors);
     }
 }
