@@ -35,8 +35,10 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             if (serviceDescriptors is null)
                 return serviceDescriptors;
-            foreach (Type? TempType in GetCanisterConfiguration(serviceDescriptors).AvailableTypes.Where(registerType.IsAssignableFrom))
+            var CanisterConfiguration = GetCanisterConfiguration(serviceDescriptors);
+            foreach (Type? TempType in CanisterConfiguration.AvailableTypes.Where(registerType.IsAssignableFrom))
             {
+                CanisterConfiguration.Log("Adding transient service: {0} as {1}", TempType.FullName, registerType.FullName);
                 _ = serviceDescriptors.AddTransient(TempType, TempType);
                 _ = serviceDescriptors.AddTransient(registerType, TempType);
             }
