@@ -90,145 +90,248 @@
 <pre><code class="lang-csharp">using Canister.Interfaces;
 using Canister.IoC.Attributes;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace Canister.IoC.Example
 {
-    /// &lt;summary&gt;
-    /// This is an example service interface that will be loaded into the service collection
-    /// &lt;/summary&gt;
+    // Interfaces and classes used in the examples
     internal interface IMyService
     {
-        /// &lt;summary&gt;
-        /// Gets the name.
-        /// &lt;/summary&gt;
-        /// &lt;value&gt;The name.&lt;/value&gt;
         string Name { get; }
     }
 
-    /// &lt;summary&gt;
-    /// Interface that has all classes that implement it registered as singletons
-    /// &lt;/summary&gt;
     [RegisterAll(ServiceLifetime.Singleton)]
     internal interface IRegisteredInterface
-    {
-    }
+    { }
 
-    /// &lt;summary&gt;
-    /// Example of how to use Canister
-    /// &lt;/summary&gt;
-    internal static class Program
+    // Example 1: Basic module registration and resolution
+    internal static class Example1
     {
-        /// &lt;summary&gt;
-        /// Defines the entry point of the application.
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;args&quot;&gt;The arguments.&lt;/param&gt;
-        private static void Main(string[] args)
+        public static void Run()
         {
-            // Basic service collection
-            ServiceProvider? ServiceProvider = new ServiceCollection()
-                                    // Add the canister modules
-                                    .AddCanisterModules()
-                                    // Add all classes that implement IMyService as singletons
-                                    .AddAllSingleton&lt;IMyService&gt;()
-                                    // Build the service provider
-                                    ?.BuildServiceProvider();
+            Console.WriteLine(&quot;--- Example 1: Basic module registration and resolution ---&quot;);
+            var services = new ServiceCollection();
+            services.AddCanisterModules();
+            services.AddAllSingleton&lt;IMyService&gt;();
+            var provider = services.BuildServiceProvider();
 
-            // Get all the services that implement IIRegisteredInterface
-            IEnumerable&lt;IRegisteredInterface&gt; RegisteredClasses = ServiceProvider?.GetServices&lt;IRegisteredInterface&gt;() ?? Array.Empty&lt;IRegisteredInterface&gt;();
-            // Write out the number of services found (should be 2)
-            Console.WriteLine(&quot;Number of registered classes found: {0}&quot;, RegisteredClasses.Count());
+            var registered = provider.GetServices&lt;IRegisteredInterface&gt;();
+            Console.WriteLine($&quot;Number of registered classes found: {registered.Count()}&quot;);
 
-            // Get all the services that implement IMyService
-            IEnumerable&lt;IMyService&gt; ServiceClasses = ServiceProvider?.GetServices&lt;IMyService&gt;() ?? Array.Empty&lt;IMyService&gt;();
-            // Write out the number of services found (should be 2)
-            Console.WriteLine(&quot;Number of services found: {0}&quot;, ServiceClasses.Count());
-            // Write out the names of the services found (should be ExampleService1 and ExampleService2)
-            foreach (IMyService ServiceClass in ServiceClasses)
-            {
-                Console.WriteLine(ServiceClass.Name);
-            }
-            // Write out the name of the simple example class (should be SimpleExampleClass)
-            SimpleExampleClass? SimpleExampleClass = ServiceProvider?.GetService&lt;SimpleExampleClass&gt;();
-            Console.WriteLine(SimpleExampleClass?.Name);
+            var serviceClasses = provider.GetServices&lt;IMyService&gt;();
+            Console.WriteLine($&quot;Number of services found: {serviceClasses.Count()}&quot;);
+            foreach (var svc in serviceClasses)
+                Console.WriteLine(svc.Name);
+
+            var simple = provider.GetService&lt;SimpleExampleClass&gt;();
+            Console.WriteLine(simple?.Name);
         }
     }
 
-    /// &lt;summary&gt;
-    /// Example service 1
-    /// &lt;/summary&gt;
-    /// &lt;seealso cref=&quot;IMyService&quot;/&gt;
+    // Example 2: Using UseLogger with Canister configuration
+    internal static class Example2
+    {
+        public static void Run()
+        {
+            Console.WriteLine(&quot;--- Example 2: Using UseLogger with Canister configuration ---&quot;);
+            using var loggerFactory = LoggerFactory.Create(builder =&gt;
+            {
+                builder.AddConsole();
+                builder.SetMinimumLevel(LogLevel.Information);
+            });
+            var logger = loggerFactory.CreateLogger(&quot;Canister.IoC.Example&quot;);
+
+            var services = new ServiceCollection();
+            services.AddCanisterModules(configure =&gt;
+                configure.UseLogger(logger, LogLevel.Information));
+            services.AddAllSingleton&lt;IMyService&gt;();
+            var provider = services.BuildServiceProvider();
+
+            var registered = provider.GetServices&lt;IRegisteredInterface&gt;();
+            Console.WriteLine($&quot;Number of registered classes found: {registered.Count()}&quot;);
+
+            var serviceClasses = provider.GetServices&lt;IMyService&gt;();
+            Console.WriteLine($&quot;Number of services found: {serviceClasses.Count()}&quot;);
+            foreach (var svc in serviceClasses)
+                Console.WriteLine(svc.Name);
+
+            var simple = provider.GetService&lt;SimpleExampleClass&gt;();
+            Console.WriteLine(simple?.Name);
+        }
+    }
+
+    // Example 3: Using RegisterAll* without Canister configuration
+    internal static class Example3
+    {
+        public static void Run()
+        {
+            Console.WriteLine(&quot;--- Example 3: Using RegisterAll* without Canister configuration ---&quot;);
+            var services = new ServiceCollection();
+            services.AddAllScoped&lt;IRegisteredInterface&gt;();
+            var provider = services.BuildServiceProvider();
+            var registered = provider.GetServices&lt;IRegisteredInterface&gt;();
+            Console.WriteLine($&quot;Number of registered classes found: {registered.Count()}&quot;);
+            foreach (var reg in registered)
+                Console.WriteLine(reg.GetType().Name);
+        }
+    }
+
+    internal static class Program
+    {
+        private static void Main(string[] args)
+        {
+            while (true)
+            {
+                Console.WriteLine(&quot;Select an example to run:&quot;);
+                Console.WriteLine(&quot;1. Basic module registration and resolution&quot;);
+                Console.WriteLine(&quot;2. Using UseLogger with Canister configuration&quot;);
+                Console.WriteLine(&quot;3. Using RegisterAll* without Canister configuration&quot;);
+                Console.WriteLine(&quot;Q. Quit&quot;);
+                Console.Write(&quot;Enter your choice: &quot;);
+                var input = Console.ReadLine();
+                if (string.Equals(input, &quot;q&quot;, StringComparison.OrdinalIgnoreCase))
+                    break;
+                switch (input)
+                {
+                    case &quot;1&quot;:
+                        Example1.Run();
+                        break;
+
+                    case &quot;2&quot;:
+                        Example2.Run();
+                        break;
+
+                    case &quot;3&quot;:
+                        Example3.Run();
+                        break;
+
+                    default:
+                        Console.WriteLine(&quot;Invalid selection.\n&quot;);
+                        break;
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+
     internal class ExampleService1 : IMyService
     {
-        /// &lt;summary&gt;
-        /// Gets the name.
-        /// &lt;/summary&gt;
-        /// &lt;value&gt;The name.&lt;/value&gt;
         public string Name =&gt; &quot;ExampleService1&quot;;
     }
 
-    /// &lt;summary&gt;
-    /// Example service 2
-    /// &lt;/summary&gt;
-    /// &lt;seealso cref=&quot;IMyService&quot;/&gt;
     internal class ExampleService2 : IMyService
     {
-        /// &lt;summary&gt;
-        /// Gets the name.
-        /// &lt;/summary&gt;
-        /// &lt;value&gt;The name.&lt;/value&gt;
         public string Name =&gt; &quot;ExampleService2&quot;;
     }
 
-    /// &lt;summary&gt;
-    /// This is a module that will be called and loaded into the service collection
-    /// &lt;/summary&gt;
-    /// &lt;seealso cref=&quot;IModule&quot;/&gt;
     internal class MyModule : IModule
     {
-        /// &lt;summary&gt;
-        /// Order to run this in
-        /// &lt;/summary&gt;
         public int Order { get; }
 
-        /// &lt;summary&gt;
-        /// Loads the module using the service collection.
-        /// &lt;/summary&gt;
-        /// &lt;param name=&quot;serviceDescriptors&quot;&gt;The service descriptors.&lt;/param&gt;
         public void Load(IServiceCollection serviceDescriptors) =&gt; serviceDescriptors.AddTransient&lt;SimpleExampleClass&gt;();
     }
 
-    /// &lt;summary&gt;
-    /// Class that implements IRegisteredInterface
-    /// &lt;/summary&gt;
     internal class RegisteredClass1 : IRegisteredInterface
-    {
-    }
+    { }
 
-    /// &lt;summary&gt;
-    /// Class that implements IRegisteredInterface
-    /// &lt;/summary&gt;
     internal class RegisteredClass2 : IRegisteredInterface
-    {
-    }
+    { }
 
-    /// &lt;summary&gt;
-    /// This is a simple example class
-    /// &lt;/summary&gt;
     internal class SimpleExampleClass
-    {
-        /// &lt;summary&gt;
-        /// Gets the name.
-        /// &lt;/summary&gt;
-        /// &lt;value&gt;The name.&lt;/value&gt;
-        public string Name =&gt; &quot;SimpleExampleClass&quot;;
-    }
+    { public string Name =&gt; &quot;SimpleExampleClass&quot;; }
 }
 </code></pre><h1 id="output">Output</h1>
-<pre><code>Number of registered classes found: 2
+<pre><code>Select an example to run:
+1. Basic module registration and resolution
+2. Using UseLogger with Canister configuration
+Q. Quit
+Enter your choice: 1
+--- Example 1: Basic module registration and resolution ---
+Number of registered classes found: 2
 Number of services found: 2
 ExampleService1
 ExampleService2
 SimpleExampleClass
+
+Select an example to run:
+1. Basic module registration and resolution
+2. Using UseLogger with Canister configuration
+Q. Quit
+Enter your choice: 2
+--- Example 2: Using UseLogger with Canister configuration ---
+info: Canister.IoC.Example[0]
+      Default assemblies added: Canister.IoC.Example, Canister.IoC
+info: Canister.IoC.Example[0]
+      Assembly loaded: Canister.IoC
+info: Canister.IoC.Example[0]
+      Assembly loaded: Canister.IoC.Example
+info: Canister.IoC.Example[0]
+      Assembly loaded: Fast.Activator
+info: Canister.IoC.Example[0]
+      Assembly loaded: Microsoft.Extensions.Configuration.Abstractions
+info: Canister.IoC.Example[0]
+      Assembly loaded: Microsoft.Extensions.Configuration.Binder
+info: Canister.IoC.Example[0]
+      Assembly loaded: Microsoft.Extensions.Configuration
+info: Canister.IoC.Example[0]
+      Assembly loaded: Microsoft.Extensions.DependencyInjection.Abstractions
+info: Canister.IoC.Example[0]
+      Assembly loaded: Microsoft.Extensions.DependencyInjection
+info: Canister.IoC.Example[0]
+      Assembly loaded: Microsoft.Extensions.Logging.Abstractions
+info: Canister.IoC.Example[0]
+      Assembly loaded: Microsoft.Extensions.Logging.Configuration
+info: Canister.IoC.Example[0]
+      Assembly loaded: Microsoft.Extensions.Logging.Console
+info: Canister.IoC.Example[0]
+      Assembly loaded: Microsoft.Extensions.Logging
+info: Canister.IoC.Example[0]
+      Assembly loaded: Microsoft.Extensions.Options.ConfigurationExtensions
+info: Canister.IoC.Example[0]
+      Assembly loaded: Microsoft.Extensions.Options
+info: Canister.IoC.Example[0]
+      Assembly loaded: Microsoft.Extensions.Primitives
+info: Canister.IoC.Example[0]
+      Assembly loaded: System.Diagnostics.DiagnosticSource
+info: Canister.IoC.Example[0]
+      Assembly loaded: System.IO.Pipelines
+info: Canister.IoC.Example[0]
+      Assembly loaded: System.Text.Encodings.Web
+info: Canister.IoC.Example[0]
+      Assembly loaded: System.Text.Json
+info: Canister.IoC.Example[0]
+      Adding transient service: Canister.IoC.Example.MyModule as Canister.Interfaces.IModule
+info: Canister.IoC.Example[0]
+      Adding transient service: Canister.IoC.Modules.DefaultModule as Canister.Interfaces.IModule
+info: Canister.IoC.Example[0]
+      Module loading: MyModule
+info: Canister.IoC.Example[0]
+      Module successfully loaded: MyModule
+info: Canister.IoC.Example[0]
+      Module loading: DefaultModule
+info: Canister.IoC.Example[0]
+      Module successfully loaded: DefaultModule
+info: Canister.IoC.Example[0]
+      Adding singleton service: Canister.IoC.Example.RegisteredClass1 as Canister.IoC.Example.IRegisteredInterface
+info: Canister.IoC.Example[0]
+      Adding singleton service: Canister.IoC.Example.RegisteredClass2 as Canister.IoC.Example.IRegisteredInterface
+Number of registered classes found: 2
+Number of services found: 2
+ExampleService1
+ExampleService2
+SimpleExampleClass
+
+Select an example to run:
+1. Basic module registration and resolution
+2. Using UseLogger with Canister configuration
+3. Using RegisterAll* without Canister configuration
+Q. Quit
+Enter your choice: 3
+--- Example 3: Using RegisterAll* without Canister configuration ---
+Number of registered classes found: 2
+RegisteredClass1
+RegisteredClass2
+
 </code></pre>
 
 </article>

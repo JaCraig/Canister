@@ -73,8 +73,28 @@
         <article data-uid="">
 <h1 id="-canister"><img src="https://jacraig.github.io/Canister/images/icon.png" style="height:25px" alt="Canister Icon"> Canister</h1>
 
-<p><a href="https://github.com/JaCraig/Canister/actions/workflows/dotnet-publish.yml"><img src="https://github.com/JaCraig/Canister/actions/workflows/dotnet-publish.yml/badge.svg" alt=".NET Publish"></a> <a href="https://coveralls.io/github/JaCraig/Canister?branch=master"><img src="https://coveralls.io/repos/github/JaCraig/Canister/badge.svg?branch=master" alt="Coverage Status"></a></p>
+<p><a href="https://github.com/JaCraig/Canister/actions/workflows/dotnet-publish.yml"><img src="https://github.com/JaCraig/Canister/actions/workflows/dotnet-publish.yml/badge.svg" alt=".NET Publish"></a> <a href="https://coveralls.io/github/JaCraig/Canister?branch=master"><img src="https://coveralls.io/repos/github/JaCraig/Canister/badge.svg?branch=master" alt="Coverage Status"></a> <a href="https://www.nuget.org/packages/Canister.IoC/"><img src="https://img.shields.io/nuget/v/Canister.IoC.svg" alt="NuGet"></a></p>
 <p>Canister is one of the easiest ways to get IoC configuration under control. No longer do you have to search for that one class that you forgot to register. Instead use Canister to handle discovery and registration for you using a simple interface.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#quick-start">Quick Start</a></li>
+<li><a href="#basic-usage">Basic Usage</a></li>
+<li><a href="#modules">Modules</a></li>
+<li><a href="#attributes">Attributes</a></li>
+<li><a href="#canister-extension-methods">Canister Extension Methods</a></li>
+<li><a href="#working-with-other-ioc-containers">Working With Other IoC Containers</a></li>
+<li><a href="#using-canister-in-your-library">Using Canister in Your Library</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#build-process">Build Process</a></li>
+</ul>
+<h2 id="quick-start">Quick Start</h2>
+<pre><code class="lang-csharp">using Microsoft.Extensions.DependencyInjection;
+
+var services = new ServiceCollection();
+services.AddCanisterModules();
+var provider = services.BuildServiceProvider();
+</code></pre>
+<p>For a more detailed example, you can check out the <a href="https://jacraig.github.io/Canister/articles/intro.html">Canister Example</a> which demonstrates how to use Canister in a couple simple scenarios.</p>
 <h2 id="basic-usage">Basic Usage</h2>
 <p>The system has a fairly simple interface and only a couple of functions that need explaining. The first is setup:</p>
 <pre><code class="lang-csharp">    public void ConfigureServices(IServiceCollection services)
@@ -93,9 +113,18 @@
         services.AddCanisterModules(configure =&gt; configure.AddAssembly(typeof(Startup).Assembly));
     }
 </code></pre>
-<p>It's recommended that you do this for security reasons as the default will search all assemblies found in the entry assembly's top level directory.</p>
+<blockquote>
+<p><strong>Note:</strong> For security reasons, it's recommended to explicitly specify which assemblies to scan. By default, Canister will search all assemblies found in the entry assembly's top-level directory.</p>
+</blockquote>
+<p>It is also possible to add logging to the system while configuring it. This is useful for debugging purposes or to get insights into the registration process. You can do this by passing an <code>ILogger</code> instance to the <code>UseLogger</code> method along with a default log level:</p>
+<pre><code class="lang-csharp">    public void ConfigureServices(IServiceCollection services, ILogger logger)
+    {
+        ...
+        services.AddCanisterModules().UseLogger(logger, LogLevel.Information);
+    }
+</code></pre>
 <h2 id="modules">Modules</h2>
-<p>Canister uses the concept of modules to wire things up. This allows you to place registration code in libraries that your system is using instead of worrying about it in every application. Simply add your library and Canister will automatically wire it up for you. In order to do this, under Canister.Interfaces there is the IModule interface. This interface, when implemented, has two items in it. The first is a property called Order. This determines the order that the modules are loaded in. The second is a function called Load:</p>
+<p>Canister uses the concept of modules to wire things up, but is not a requirement. This allows you to place registration code in libraries that your system is using instead of worrying about it in every application. Simply add your library and Canister will automatically wire it up for you. In order to do this, under Canister.Interfaces there is the IModule interface. This interface, when implemented, has two items in it. The first is a property called Order. This determines the order that the modules are loaded in. The second is a function called Load:</p>
 <pre><code class="lang-csharp">    public class TestModule : IModule
     {
         public int Order =&gt; 1;
@@ -130,7 +159,7 @@
     }
 </code></pre>
 <h3 id="canister-extension-methods">Canister Extension Methods</h3>
-<p>Canister provides a set of extension methods to streamline your IoC (Inversion of Control) container registration code. These methods offer convenient ways to conditionally register services based on certain criteria, enhancing the flexibility of your application's dependency injection setup.</p>
+<p>Canister provides a set of extension methods to streamline your IoC (Inversion of Control) container registration code. These methods offer convenient ways to conditionally register services based on certain criteria, enhancing the flexibility of your application's dependency injection setup. Note that these can be used even if you are not using the Canister modules.</p>
 <h4 id="1-addtransientif">1. <code>AddTransientIf()</code></h4>
 <p>The <code>AddTransientIf</code> method registers a service as transient only if a specified condition is met. This is useful when you want to dynamically determine whether a service should be transient or not.</p>
 <pre><code class="lang-csharp">services.AddTransientIf&lt;IMyService, MyService&gt;(services =&gt; condition);
@@ -154,6 +183,12 @@
     services.AddTransient&lt;IMyService, MyService&gt;();
 }
 </code></pre>
+<h4 id="6-addalltransient-addallscoped-addallsingleton">6. <code>AddAllTransient()</code>, <code>AddAllScoped()</code>, <code>AddAllSingleton()</code></h4>
+<p>These methods allow you to register all implementations of a given interface or class as transient, scoped, or singleton services, respectively. They are particularly useful for bulk registrations.</p>
+<pre><code class="lang-csharp">services.AddAllTransient&lt;IMyService&gt;();
+services.AddAllScoped&lt;IMyScopedService&gt;();
+services.AddAllSingleton&lt;IMySingletonService&gt;();
+</code></pre>
 <h3 id="usage-example">Usage Example</h3>
 <p>Here's an example of how you might use these methods:</p>
 <pre><code class="lang-csharp">
@@ -176,10 +211,10 @@ if (!services.Exists&lt;IService&gt;(key))
 <h2 id="working-with-other-ioc-containers">Working With Other IoC Containers</h2>
 <p>While the library assumes you are using the built in ServiceCollection, it is possible to work with IoC containers. All that is required is that it implements the IServiceCollection interface.</p>
 <h2 id="using-canister-in-your-library">Using Canister in Your library</h2>
-<p>If you wish to use Canister in your library it is recommended that you build an extension method off of the ICanisterConfiguration interface that will allow you to register your needed assemblies for the user to make the experience a bit simpler when they want to control configuration themselves.</p>
+<p>If you wish to use Canister in your library, it is recommended that you build an extension method off of the ICanisterConfiguration interface that will allow you to register your needed assemblies for the user to make the experience a bit simpler when they want to control configuration themselves.</p>
 <h2 id="installation">Installation</h2>
 <p>The library is available via Nuget with the package name &quot;Canister.IoC&quot;. To install it run the following command in the Package Manager Console:</p>
-<pre><code class="lang-powershell">Install-Package Canister.IoC
+<pre><code class="lang-powershell">dotnet add package Canister.IoC
 </code></pre>
 <h2 id="build-process">Build Process</h2>
 <p>In order to build the library you may require the following:</p>
@@ -187,6 +222,10 @@ if (!services.Exists&lt;IService&gt;(key))
 <li>Visual Studio 2022</li>
 </ol>
 <p>Other than that, just clone the project and you should be able to load the solution and build without too much effort.</p>
+<h2 id="license">License</h2>
+<p>This project is licensed under the Apache License 2.0 - see the <a href="../LICENSE">LICENSE</a> file for details.</p>
+<h2 id="contributing">Contributing</h2>
+<p>If you would like to contribute to the project, please fork the repository and submit a pull request. Contributions are welcome, and we appreciate any help in improving the library. Please refer to the <a href="../CONTRIBUTING.md">Contributing Guide</a> for more details on how to contribute.</p>
 
 </article>
 

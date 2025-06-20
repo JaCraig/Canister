@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface ICanisterConfiguration | Canister API Reference ">
       
-      <meta name="description" content="Canister configuration interface">
+      <meta name="description" content="Defines the contract for configuring Canister by specifying which assemblies to include for dependency injection and service registration.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Canister_Interfaces_ICanisterConfiguration" data-uid="Canister.Interfaces.ICanisterConfiguration" class="text-break">
-Interface ICanisterConfiguration  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/ICanisterConfiguration.cs/#L8"><i class="bi bi-code-slash"></i></a>
+Interface ICanisterConfiguration  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/ICanisterConfiguration.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Interface ICanisterConfiguration  <a class="header-action link-secondary" title=
   <dl><dt>Assembly</dt><dd>Canister.IoC.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Canister configuration interface</p>
+  <div class="markdown summary"><p>Defines the contract for configuring Canister by specifying which assemblies to include for
+dependency injection and service registration.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -123,12 +124,51 @@ Interface ICanisterConfiguration  <a class="header-action link-secondary" title=
 
   <a id="Canister_Interfaces_ICanisterConfiguration_AddAssembly_" data-uid="Canister.Interfaces.ICanisterConfiguration.AddAssembly*"></a>
 
-  <h3 id="Canister_Interfaces_ICanisterConfiguration_AddAssembly_System_Reflection_Assembly___" data-uid="Canister.Interfaces.ICanisterConfiguration.AddAssembly(System.Reflection.Assembly[])">
-  AddAssembly(params Assembly[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/ICanisterConfiguration.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Canister_Interfaces_ICanisterConfiguration_AddAssembly_System_Collections_Generic_IEnumerable_System_Reflection_Assembly__" data-uid="Canister.Interfaces.ICanisterConfiguration.AddAssembly(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+  AddAssembly(IEnumerable&lt;Assembly&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/ICanisterConfiguration.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds the assembly.</p>
+  <div class="markdown level1 summary"><p>Adds a collection of assemblies to the Canister configuration for scanning and registration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICanisterConfiguration AddAssembly(IEnumerable&lt;Assembly&gt; assemblies)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>assemblies</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a>&gt;</dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a> containing assemblies to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Canister.Interfaces.ICanisterConfiguration.html">ICanisterConfiguration</a></dt>
+    <dd><p>The current <a class="xref" href="Canister.Interfaces.ICanisterConfiguration.html">ICanisterConfiguration</a> instance for chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Canister_Interfaces_ICanisterConfiguration_AddAssembly_" data-uid="Canister.Interfaces.ICanisterConfiguration.AddAssembly*"></a>
+
+  <h3 id="Canister_Interfaces_ICanisterConfiguration_AddAssembly_System_Reflection_Assembly___" data-uid="Canister.Interfaces.ICanisterConfiguration.AddAssembly(System.Reflection.Assembly[])">
+  AddAssembly(params Assembly[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/ICanisterConfiguration.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds one or more assemblies to the Canister configuration for scanning and registration.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -139,14 +179,90 @@ Interface ICanisterConfiguration  <a class="header-action link-secondary" title=
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>assemblies</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a>[]</dt>
-    <dd><p>The assemblies.</p>
+    <dd><p>An array of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a> instances to add.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="Canister.Interfaces.ICanisterConfiguration.html">ICanisterConfiguration</a></dt>
-    <dd><p>This</p>
+    <dd><p>The current <a class="xref" href="Canister.Interfaces.ICanisterConfiguration.html">ICanisterConfiguration</a> instance for chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Canister_Interfaces_ICanisterConfiguration_AddDefaultAssemblies_" data-uid="Canister.Interfaces.ICanisterConfiguration.AddDefaultAssemblies*"></a>
+
+  <h3 id="Canister_Interfaces_ICanisterConfiguration_AddDefaultAssemblies" data-uid="Canister.Interfaces.ICanisterConfiguration.AddDefaultAssemblies">
+  AddDefaultAssemblies()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/ICanisterConfiguration.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the default assemblies, typically including the entry assembly and its referenced
+assemblies, to the Canister configuration for scanning and registration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICanisterConfiguration AddDefaultAssemblies()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Canister.Interfaces.ICanisterConfiguration.html">ICanisterConfiguration</a></dt>
+    <dd><p>The current <a class="xref" href="Canister.Interfaces.ICanisterConfiguration.html">ICanisterConfiguration</a> instance for chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Canister_Interfaces_ICanisterConfiguration_UseLogger_" data-uid="Canister.Interfaces.ICanisterConfiguration.UseLogger*"></a>
+
+  <h3 id="Canister_Interfaces_ICanisterConfiguration_UseLogger_Microsoft_Extensions_Logging_ILogger_Microsoft_Extensions_Logging_LogLevel_" data-uid="Canister.Interfaces.ICanisterConfiguration.UseLogger(Microsoft.Extensions.Logging.ILogger,Microsoft.Extensions.Logging.LogLevel)">
+  UseLogger(ILogger, LogLevel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/ICanisterConfiguration.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the logger and log level for diagnostics and logging in a fluent manner.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICanisterConfiguration UseLogger(ILogger logger, LogLevel logLevel = LogLevel.Information)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>logger</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger">ILogger</a></dt>
+    <dd><p>The logger to use.</p>
+</dd>
+    <dt><code>logLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.loglevel">LogLevel</a></dt>
+    <dd><p>The minimum log level (default: Information).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Canister.Interfaces.ICanisterConfiguration.html">ICanisterConfiguration</a></dt>
+    <dd><p>The current <a class="xref" href="Canister.Interfaces.ICanisterConfiguration.html">ICanisterConfiguration</a> instance for chaining.</p>
 </dd>
   </dl>
 
@@ -164,7 +280,7 @@ Interface ICanisterConfiguration  <a class="header-action link-secondary" title=
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/ICanisterConfiguration.cs/#L8" class="edit-link">Edit this page</a>
+          <a href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/ICanisterConfiguration.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
 

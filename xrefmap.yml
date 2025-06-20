@@ -13,6 +13,15 @@ references:
   commentId: T:Canister.Interfaces.ICanisterConfiguration
   fullName: Canister.Interfaces.ICanisterConfiguration
   nameWithType: ICanisterConfiguration
+- uid: Canister.Interfaces.ICanisterConfiguration.AddAssembly(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})
+  name: AddAssembly(IEnumerable<Assembly>)
+  href: api/Canister.Interfaces.ICanisterConfiguration.html#Canister_Interfaces_ICanisterConfiguration_AddAssembly_System_Collections_Generic_IEnumerable_System_Reflection_Assembly__
+  commentId: M:Canister.Interfaces.ICanisterConfiguration.AddAssembly(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})
+  name.vb: AddAssembly(IEnumerable(Of Assembly))
+  fullName: Canister.Interfaces.ICanisterConfiguration.AddAssembly(System.Collections.Generic.IEnumerable<System.Reflection.Assembly>)
+  fullName.vb: Canister.Interfaces.ICanisterConfiguration.AddAssembly(System.Collections.Generic.IEnumerable(Of System.Reflection.Assembly))
+  nameWithType: ICanisterConfiguration.AddAssembly(IEnumerable<Assembly>)
+  nameWithType.vb: ICanisterConfiguration.AddAssembly(IEnumerable(Of Assembly))
 - uid: Canister.Interfaces.ICanisterConfiguration.AddAssembly(System.Reflection.Assembly[])
   name: AddAssembly(params Assembly[])
   href: api/Canister.Interfaces.ICanisterConfiguration.html#Canister_Interfaces_ICanisterConfiguration_AddAssembly_System_Reflection_Assembly___
@@ -29,6 +38,32 @@ references:
   isSpec: "True"
   fullName: Canister.Interfaces.ICanisterConfiguration.AddAssembly
   nameWithType: ICanisterConfiguration.AddAssembly
+- uid: Canister.Interfaces.ICanisterConfiguration.AddDefaultAssemblies
+  name: AddDefaultAssemblies()
+  href: api/Canister.Interfaces.ICanisterConfiguration.html#Canister_Interfaces_ICanisterConfiguration_AddDefaultAssemblies
+  commentId: M:Canister.Interfaces.ICanisterConfiguration.AddDefaultAssemblies
+  fullName: Canister.Interfaces.ICanisterConfiguration.AddDefaultAssemblies()
+  nameWithType: ICanisterConfiguration.AddDefaultAssemblies()
+- uid: Canister.Interfaces.ICanisterConfiguration.AddDefaultAssemblies*
+  name: AddDefaultAssemblies
+  href: api/Canister.Interfaces.ICanisterConfiguration.html#Canister_Interfaces_ICanisterConfiguration_AddDefaultAssemblies_
+  commentId: Overload:Canister.Interfaces.ICanisterConfiguration.AddDefaultAssemblies
+  isSpec: "True"
+  fullName: Canister.Interfaces.ICanisterConfiguration.AddDefaultAssemblies
+  nameWithType: ICanisterConfiguration.AddDefaultAssemblies
+- uid: Canister.Interfaces.ICanisterConfiguration.UseLogger(Microsoft.Extensions.Logging.ILogger,Microsoft.Extensions.Logging.LogLevel)
+  name: UseLogger(ILogger, LogLevel)
+  href: api/Canister.Interfaces.ICanisterConfiguration.html#Canister_Interfaces_ICanisterConfiguration_UseLogger_Microsoft_Extensions_Logging_ILogger_Microsoft_Extensions_Logging_LogLevel_
+  commentId: M:Canister.Interfaces.ICanisterConfiguration.UseLogger(Microsoft.Extensions.Logging.ILogger,Microsoft.Extensions.Logging.LogLevel)
+  fullName: Canister.Interfaces.ICanisterConfiguration.UseLogger(Microsoft.Extensions.Logging.ILogger, Microsoft.Extensions.Logging.LogLevel)
+  nameWithType: ICanisterConfiguration.UseLogger(ILogger, LogLevel)
+- uid: Canister.Interfaces.ICanisterConfiguration.UseLogger*
+  name: UseLogger
+  href: api/Canister.Interfaces.ICanisterConfiguration.html#Canister_Interfaces_ICanisterConfiguration_UseLogger_
+  commentId: Overload:Canister.Interfaces.ICanisterConfiguration.UseLogger
+  isSpec: "True"
+  fullName: Canister.Interfaces.ICanisterConfiguration.UseLogger
+  nameWithType: ICanisterConfiguration.UseLogger
 - uid: Canister.Interfaces.IModule
   name: IModule
   href: api/Canister.Interfaces.IModule.html
@@ -174,6 +209,50 @@ references:
   isSpec: "True"
   fullName: Canister.IoC.Attributes.RegisterAttribute.ServiceKey
   nameWithType: RegisterAttribute.ServiceKey
+- uid: Canister.IoC.ExtensionMethods
+  name: Canister.IoC.ExtensionMethods
+  href: api/Canister.IoC.ExtensionMethods.html
+  commentId: N:Canister.IoC.ExtensionMethods
+  fullName: Canister.IoC.ExtensionMethods
+  nameWithType: Canister.IoC.ExtensionMethods
+- uid: Canister.IoC.ExtensionMethods.HashSetExtensions
+  name: HashSetExtensions
+  href: api/Canister.IoC.ExtensionMethods.HashSetExtensions.html
+  commentId: T:Canister.IoC.ExtensionMethods.HashSetExtensions
+  fullName: Canister.IoC.ExtensionMethods.HashSetExtensions
+  nameWithType: HashSetExtensions
+- uid: Canister.IoC.ExtensionMethods.HashSetExtensions.GetAvailableClasses(System.Collections.Generic.HashSet{System.Type})
+  name: GetAvailableClasses(HashSet<Type>)
+  href: api/Canister.IoC.ExtensionMethods.HashSetExtensions.html#Canister_IoC_ExtensionMethods_HashSetExtensions_GetAvailableClasses_System_Collections_Generic_HashSet_System_Type__
+  commentId: M:Canister.IoC.ExtensionMethods.HashSetExtensions.GetAvailableClasses(System.Collections.Generic.HashSet{System.Type})
+  name.vb: GetAvailableClasses(HashSet(Of Type))
+  fullName: Canister.IoC.ExtensionMethods.HashSetExtensions.GetAvailableClasses(System.Collections.Generic.HashSet<System.Type>)
+  fullName.vb: Canister.IoC.ExtensionMethods.HashSetExtensions.GetAvailableClasses(System.Collections.Generic.HashSet(Of System.Type))
+  nameWithType: HashSetExtensions.GetAvailableClasses(HashSet<Type>)
+  nameWithType.vb: HashSetExtensions.GetAvailableClasses(HashSet(Of Type))
+- uid: Canister.IoC.ExtensionMethods.HashSetExtensions.GetAvailableClasses*
+  name: GetAvailableClasses
+  href: api/Canister.IoC.ExtensionMethods.HashSetExtensions.html#Canister_IoC_ExtensionMethods_HashSetExtensions_GetAvailableClasses_
+  commentId: Overload:Canister.IoC.ExtensionMethods.HashSetExtensions.GetAvailableClasses
+  isSpec: "True"
+  fullName: Canister.IoC.ExtensionMethods.HashSetExtensions.GetAvailableClasses
+  nameWithType: HashSetExtensions.GetAvailableClasses
+- uid: Canister.IoC.ExtensionMethods.HashSetExtensions.GetAvailableInterfaces(System.Collections.Generic.HashSet{System.Type})
+  name: GetAvailableInterfaces(HashSet<Type>)
+  href: api/Canister.IoC.ExtensionMethods.HashSetExtensions.html#Canister_IoC_ExtensionMethods_HashSetExtensions_GetAvailableInterfaces_System_Collections_Generic_HashSet_System_Type__
+  commentId: M:Canister.IoC.ExtensionMethods.HashSetExtensions.GetAvailableInterfaces(System.Collections.Generic.HashSet{System.Type})
+  name.vb: GetAvailableInterfaces(HashSet(Of Type))
+  fullName: Canister.IoC.ExtensionMethods.HashSetExtensions.GetAvailableInterfaces(System.Collections.Generic.HashSet<System.Type>)
+  fullName.vb: Canister.IoC.ExtensionMethods.HashSetExtensions.GetAvailableInterfaces(System.Collections.Generic.HashSet(Of System.Type))
+  nameWithType: HashSetExtensions.GetAvailableInterfaces(HashSet<Type>)
+  nameWithType.vb: HashSetExtensions.GetAvailableInterfaces(HashSet(Of Type))
+- uid: Canister.IoC.ExtensionMethods.HashSetExtensions.GetAvailableInterfaces*
+  name: GetAvailableInterfaces
+  href: api/Canister.IoC.ExtensionMethods.HashSetExtensions.html#Canister_IoC_ExtensionMethods_HashSetExtensions_GetAvailableInterfaces_
+  commentId: Overload:Canister.IoC.ExtensionMethods.HashSetExtensions.GetAvailableInterfaces
+  isSpec: "True"
+  fullName: Canister.IoC.ExtensionMethods.HashSetExtensions.GetAvailableInterfaces
+  nameWithType: HashSetExtensions.GetAvailableInterfaces
 - uid: Canister.IoC.Modules
   name: Canister.IoC.Modules
   href: api/Canister.IoC.Modules.html

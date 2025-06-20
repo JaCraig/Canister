@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IModule | Canister API Reference ">
       
-      <meta name="description" content="IoC module base class">
+      <meta name="description" content="Represents a module that can be loaded into the IoC container. Implementations define service registrations and their order.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Canister_Interfaces_IModule" data-uid="Canister.Interfaces.IModule" class="text-break">
-Interface IModule  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/IModule.cs/#L24"><i class="bi bi-code-slash"></i></a>
+Interface IModule  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/IModule.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Interface IModule  <a class="header-action link-secondary" title="View source" h
   <dl><dt>Assembly</dt><dd>Canister.IoC.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>IoC module base class</p>
+  <div class="markdown summary"><p>Represents a module that can be loaded into the IoC container. Implementations define
+service registrations and their order.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -125,10 +126,11 @@ Interface IModule  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="Canister_Interfaces_IModule_Order" data-uid="Canister.Interfaces.IModule.Order">
   Order
-  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/IModule.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/IModule.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Order to run this in</p>
+  <div class="markdown level1 summary"><p>Gets the order in which this module should be loaded. Modules with lower order values
+are loaded first.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -161,10 +163,10 @@ Interface IModule  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="Canister_Interfaces_IModule_Load_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Canister.Interfaces.IModule.Load(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
   Load(IServiceCollection)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/IModule.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/IModule.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Loads the module using the service collection.</p>
+  <div class="markdown level1 summary"><p>Loads the module and registers its services with the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -175,7 +177,7 @@ Interface IModule  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>serviceDescriptors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
-    <dd><p>The service descriptors.</p>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a> to which services should be registered.</p>
 </dd>
   </dl>
 
@@ -194,7 +196,7 @@ Interface IModule  <a class="header-action link-secondary" title="View source" h
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/IModule.cs/#L24" class="edit-link">Edit this page</a>
+          <a href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/IModule.cs/#L25" class="edit-link">Edit this page</a>
         </div>
 
 
