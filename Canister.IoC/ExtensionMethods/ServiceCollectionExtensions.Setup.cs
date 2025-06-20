@@ -86,6 +86,9 @@ namespace Microsoft.Extensions.DependencyInjection
                 RegisterInterfaces(serviceDescriptors, RegisteredType);
             }
 
+            CanisterConfiguration.LogSummary(serviceDescriptors);
+            CanisterConfiguration.Log("Canister module registration completed.");
+
             serviceDescriptors.TryAddSingleton<CanisterRegisteredFlag>();
             _CanisterConfiguration.Remove(serviceDescriptors);
 

@@ -1,5 +1,6 @@
 ﻿using Canister.Interfaces;
 using Canister.IoC.ExtensionMethods;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using System;
@@ -304,6 +305,28 @@ namespace Canister.IoC.Utils
                 return this;
             Logger.Log(logLevel, exception, message, args ?? []);
             return this;
+        }
+
+        /// <summary>
+        /// Logs a summary of the service registrations in the provided <see cref="IServiceCollection"/>.
+        /// </summary>
+        /// <remarks>
+        /// This method logs the service registrations using the configured <see cref="ILogger"/>
+        /// and the default log level. It is a no-op if <paramref name="serviceDescriptors"/> is
+        /// <see langword="null"/>.
+        /// </remarks>
+        /// <param name="serviceDescriptors">
+        /// The <see cref="IServiceCollection"/> containing the service registrations to log. Can be
+        /// <see langword="null"/>, in which case no logging is performed.
+        /// </param>
+        /// <returns>
+        /// The same <see cref="IServiceCollection"/> instance that was provided, or <see
+        /// langword="null"/> if the input was <see langword="null"/>.
+        /// </returns>
+        public IServiceCollection? LogSummary(IServiceCollection? serviceDescriptors)
+        {
+            serviceDescriptors?.LogRegistrations(Logger, DefaultLogLevel);
+            return serviceDescriptors;
         }
 
         /// <summary>
