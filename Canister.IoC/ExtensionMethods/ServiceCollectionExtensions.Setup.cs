@@ -3,14 +3,11 @@ using Canister.IoC.Attributes;
 using Canister.IoC.Utils;
 using Fast.Activator;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -37,6 +34,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="serviceDescriptors">The service descriptors.</param>
         /// <param name="assemblies">Assemblies to scan for modules and registrations.</param>
         /// <returns>The service collection with Canister modules loaded.</returns>
+        [return: NotNullIfNotNull(nameof(serviceDescriptors))]
         public static IServiceCollection? AddCanisterModules(this IServiceCollection? serviceDescriptors, params Assembly[] assemblies) => serviceDescriptors?.AddCanisterModules(configure => configure.AddAssembly(assemblies));
 
         /// <summary>
@@ -48,6 +46,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// The configuration action to specify which assemblies to load the modules from.
         /// </param>
         /// <returns>The service collection with Canister modules loaded.</returns>
+        [return: NotNullIfNotNull(nameof(serviceDescriptors))]
         public static IServiceCollection? AddCanisterModules(this IServiceCollection? serviceDescriptors, Action<ICanisterConfiguration>? configure = default)
         {
             if (serviceDescriptors?.Exists<CanisterRegisteredFlag>() != false)

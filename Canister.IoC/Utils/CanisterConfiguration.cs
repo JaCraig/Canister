@@ -257,11 +257,11 @@ namespace Canister.IoC.Utils
         /// <returns>
         /// The current <see cref="CanisterConfiguration"/> instance, allowing for method chaining.
         /// </returns>
-        public CanisterConfiguration Log(LogLevel logLevel, string message, params object?[] args)
+        public CanisterConfiguration Log(LogLevel logLevel, string message, params object?[]? args)
         {
             if (Logger?.IsEnabled(logLevel) != true)
                 return this;
-            Logger.Log(logLevel, message, args);
+            Logger.Log(logLevel, message, args ?? []);
             return this;
         }
 
@@ -275,7 +275,7 @@ namespace Canister.IoC.Utils
         /// <returns>
         /// The current <see cref="CanisterConfiguration"/> instance, allowing for method chaining.
         /// </returns>
-        public CanisterConfiguration Log(string message, params object?[] args) => Log(DefaultLogLevel, message, args);
+        public CanisterConfiguration Log(string message, params object?[]? args) => Log(DefaultLogLevel, message, args);
 
         /// <summary>
         /// Logs a message with the specified log level, exception, and message format.
@@ -298,11 +298,11 @@ namespace Canister.IoC.Utils
         /// <returns>
         /// The current <see cref="CanisterConfiguration"/> instance, allowing for method chaining.
         /// </returns>
-        public CanisterConfiguration Log(LogLevel logLevel, Exception? exception, string message, params object?[] args)
+        public CanisterConfiguration Log(LogLevel logLevel, Exception? exception, string message, params object?[]? args)
         {
             if (Logger?.IsEnabled(logLevel) != true)
                 return this;
-            Logger.Log(logLevel, exception, message, args);
+            Logger.Log(logLevel, exception, message, args ?? []);
             return this;
         }
 

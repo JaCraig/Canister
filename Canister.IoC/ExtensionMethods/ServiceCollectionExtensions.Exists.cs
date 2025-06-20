@@ -1,13 +1,5 @@
-﻿using Canister.Interfaces;
-using Canister.IoC.Attributes;
-using Fast.Activator;
-using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
