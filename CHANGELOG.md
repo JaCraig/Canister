@@ -2,6 +2,60 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.1.0"></a>
+## [6.1.0](https://www.github.com/JaCraig/Canister/releases/tag/v6.1.0) (2025-06-20)
+
+### Features
+
+* **logging:** add logging capabilities to configuration ([e817972](https://www.github.com/JaCraig/Canister/commit/e8179721016b1b667c40f8440615b6771a276773))
+* **structure:** overhaul Canister IoC framework structure ([0b2b8ae](https://www.github.com/JaCraig/Canister/commit/0b2b8ae3a662dfa5383c3f733bbae5ff4b69dccc))
+
+### Bug Fixes
+
+* **dependency-injection:** improve service registration ([d727e79](https://www.github.com/JaCraig/Canister/commit/d727e799b7ecfcad87937d5646e060fad0c03c6e))
+
+### Other
+
+* Merge pull request #113 from JaCraig/dependabot/nuget/Canister.Tests/dependencies-617062173c ([0fdea61](https://www.github.com/JaCraig/Canister/commit/0fdea615787580c89e6a75881caae573f74313f5))
+* Merge pull request #114 from JaCraig/dependabot/nuget/SimpleMVCTests/dependencies-0eb5dce03c ([6d74442](https://www.github.com/JaCraig/Canister/commit/6d74442927ee7afb66cada59c300c1edffc8a4f0))
+* Merge pull request #115 from JaCraig/dependabot/nuget/Canister.Tests/dependencies-637ad84d5b ([f5a101d](https://www.github.com/JaCraig/Canister/commit/f5a101d816e2cd17786f72597fca214a3e379145))
+* Merge pull request #116 from JaCraig/dependabot/nuget/Canister.Tests/dependencies-37a7915f86 ([6b99fc0](https://www.github.com/JaCraig/Canister/commit/6b99fc02b6691f4d422ff6ba127d62f91ed894e9))
+* Merge pull request #117 from JaCraig/dependabot/nuget/Canister.Tests/dependencies-dac939b906 ([5ac30e4](https://www.github.com/JaCraig/Canister/commit/5ac30e4e91990bc26464715bbb9b91aa218a2b2d))
+* Merge pull request #118 from JaCraig/dependabot/nuget/Canister.Tests/dependencies-955fcb2e58 ([1667eed](https://www.github.com/JaCraig/Canister/commit/1667eed3afcc13bebef246ee856c0b9d3f985a65))
+* Merge pull request #119 from JaCraig/dependabot/nuget/Canister.IoC.Example/dependencies-ca3891f250 ([645e0dc](https://www.github.com/JaCraig/Canister/commit/645e0dc2e68cc3e13aeda43a20ca37159119f86b))
+* Merge pull request #120 from JaCraig/dependabot/nuget/Canister.Tests/dependencies-293c44675e ([e1c23cb](https://www.github.com/JaCraig/Canister/commit/e1c23cb9585453801661e9d1ca5d5e9c975e63b2))
+* Merge pull request #123 from JaCraig/dependabot/nuget/Canister.IoC.Example/dependencies-efc9bc0be0 ([cda7e85](https://www.github.com/JaCraig/Canister/commit/cda7e85564d6c3bb8d717fc4fbeb39f1e2bab959))
+* Merge pull request #124 from JaCraig/dependabot/nuget/Canister.Benchmarks/dependencies-836e21bf11 ([0f03000](https://www.github.com/JaCraig/Canister/commit/0f03000e59a6a6e305c5d87db9599f2700468e80))
+* Merge pull request #125 from JaCraig/dependabot/nuget/Canister.IoC.Example/dependencies-7722c165b9 ([1a4f47e](https://www.github.com/JaCraig/Canister/commit/1a4f47e7c23ebea9094822b64795276cde2ed4b4))
+* Merge pull request #126 from JaCraig/dependabot/nuget/Canister.IoC.Example/dependencies-8935c3bd05 ([4a6878a](https://www.github.com/JaCraig/Canister/commit/4a6878adf00f1f70a0b00006ce51510290a6b4ac))
+* Merge pull request #127 from JaCraig/dependabot/nuget/Canister.IoC.Example/dependencies-3ea7601fd9 ([ced5110](https://www.github.com/JaCraig/Canister/commit/ced511030c007fdd9aced60c54d1a31c0fa39f3c))
+* Merge pull request #128 from JaCraig/dependabot/nuget/Canister.IoC/Microsoft.Extensions.DependencyInjection-9.0.5 ([53ebe22](https://www.github.com/JaCraig/Canister/commit/53ebe2294531c24e7ff273d01a627c1e7c58578d))
+* Merge pull request #129 from JaCraig/dependabot/nuget/Canister.Benchmarks/BenchmarkDotNet-0.15.0 ([67d554f](https://www.github.com/JaCraig/Canister/commit/67d554f38855cc332fdadd80b3526eb1694b76d5))
+* Merge pull request #130 from JaCraig/dependabot/nuget/Canister.Benchmarks/dependencies-f88efadd4e ([f9db0ad](https://www.github.com/JaCraig/Canister/commit/f9db0ad206cf5287f17916eadcb40cef47f31112))
+* Merge pull request #131 from JaCraig/dependabot/nuget/Canister.IoC/dependencies-06431bbea4 ([73239ce](https://www.github.com/JaCraig/Canister/commit/73239ce95a8c45a6fcb45c695e46201171b88c94))
+* Merge pull request #132 from JaCraig/dependabot/nuget/Canister.Benchmarks/dependencies-e29392ff60 ([7c41223](https://www.github.com/JaCraig/Canister/commit/7c41223826cc51c5527b1011ea1af80da28cd2e5))
+* Update BenchmarkDotNet to 0.15.0 ([90fe26e](https://www.github.com/JaCraig/Canister/commit/90fe26e49f365bbccdf2e8f2af4e8aa03e9ba34a))
+* Update Microsoft.Extensions.DependencyInjection to 9.0.5 ([916aca4](https://www.github.com/JaCraig/Canister/commit/916aca46c5191b6e73ad9beab15fb83e35a2c9f0))
+* bump Fast.Activator ([2596089](https://www.github.com/JaCraig/Canister/commit/2596089330ad840251205c694741486dfbcbc3d9))
+* bump husky in /SimpleMVCTests in the dependencies group ([65f2acd](https://www.github.com/JaCraig/Canister/commit/65f2acd7d514b3f93f3307c8b8c9c2d41ce4b11f))
+* bump Microsoft.Extensions.DependencyInjection ([bb97685](https://www.github.com/JaCraig/Canister/commit/bb97685c79781c7989658a820b54e92b06d057b9))
+* bump Microsoft.Extensions.DependencyInjection ([55a2328](https://www.github.com/JaCraig/Canister/commit/55a2328dca1439d7a00cfaaf9223dbf62b8b8154))
+* bump Microsoft.Extensions.DependencyInjection ([cab8dca](https://www.github.com/JaCraig/Canister/commit/cab8dcab6cd13380e8fe4dd3a19da30ff9a94577))
+* bump Microsoft.Extensions.DependencyInjection ([f9cf807](https://www.github.com/JaCraig/Canister/commit/f9cf8078de6b4b60c93510b1165a9b4ba31ef5a2))
+* bump Microsoft.NET.Test.Sdk ([883a93b](https://www.github.com/JaCraig/Canister/commit/883a93b813874ceb93f9862cfcfad19a4f114b0a))
+* bump the dependencies group in /Canister.Tests with 2 updates ([a565710](https://www.github.com/JaCraig/Canister/commit/a565710dd2b8925815189f39b8afac0377a120f0))
+* bump the dependencies group in /Canister.Tests with 2 updates ([9b6dc1d](https://www.github.com/JaCraig/Canister/commit/9b6dc1d15eb8cee43127806faa132456f8f99939))
+* Bump the dependencies group with 1 update ([3bc25d2](https://www.github.com/JaCraig/Canister/commit/3bc25d271920a253afe174b4035712c45a6cc311))
+* Bump the dependencies group with 1 update ([8dbbe5c](https://www.github.com/JaCraig/Canister/commit/8dbbe5c1ad230559c12d1356e7f9da8dfd8284ac))
+* Bump the dependencies group with 1 update ([9b14ab6](https://www.github.com/JaCraig/Canister/commit/9b14ab6d53904fe31f1f88787ba0eca3596474f5))
+* bump versionize in /Canister.Benchmarks in the dependencies group ([73b348e](https://www.github.com/JaCraig/Canister/commit/73b348edb39f96441f5ad74660a901192ee65919))
+* bump xunit in /Canister.Tests in the dependencies group ([d897604](https://www.github.com/JaCraig/Canister/commit/d8976041425a31d54dc73b6d34ea980c31cf93ea))
+* bump xunit.runner.visualstudio ([c06ef68](https://www.github.com/JaCraig/Canister/commit/c06ef68c829bbb18de78b52bfbfab5055ec6d08c))
+* bump xunit.runner.visualstudio ([48c5e43](https://www.github.com/JaCraig/Canister/commit/48c5e43d7b0b76718fc6610faac3321f72b8364c))
+* Merge branch 'master' of https://github.com/JaCraig/Canister ([a5ff1ac](https://www.github.com/JaCraig/Canister/commit/a5ff1acfe30158fa967208c96757cce65876d566))
+* update .editorconfig with new suggestions for code style and naming conventions ([17be912](https://www.github.com/JaCraig/Canister/commit/17be912a9005e8ad6208e66cec1788a895a9be9f))
+* **example:** enhance module examples and documentation ([597d0d7](https://www.github.com/JaCraig/Canister/commit/597d0d74149f733da4d8eda77e6931f53f641c60))
+
 <a name="6.0.1"></a>
 ## [6.0.1](https://www.github.com/JaCraig/Canister/releases/tag/v6.0.1) (2024-11-18)
 
