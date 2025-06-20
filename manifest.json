@@ -152,6 +152,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.DependencyInjection.ServiceCollectionDecoratorExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.DependencyInjection.ServiceCollectionDecoratorExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Microsoft.Extensions.DependencyInjection.ServiceCollectionDecoratorExtensions",
+      "Summary": "<p sourcefile=\"api/Microsoft.Extensions.DependencyInjection.ServiceCollectionDecoratorExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension methods for decorating registered services.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.DependencyInjection.ServiceCollectionDiagnosticsExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.DependencyInjection.ServiceCollectionDiagnosticsExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Microsoft.Extensions.DependencyInjection.ServiceCollectionDiagnosticsExtensions",
+      "Summary": "<p sourcefile=\"api/Microsoft.Extensions.DependencyInjection.ServiceCollectionDiagnosticsExtensions.yml\" sourcestartlinenumber=\"1\">Provides diagnostic and debugging extension methods for IServiceCollection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.yml",
       "output": {
         ".html": {

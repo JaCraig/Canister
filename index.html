@@ -189,6 +189,30 @@ var provider = services.BuildServiceProvider();
 services.AddAllScoped&lt;IMyScopedService&gt;();
 services.AddAllSingleton&lt;IMySingletonService&gt;();
 </code></pre>
+<h4 id="7-tryaddalltransient-tryaddallscoped-tryaddallsingleton">7. <code>TryAddAllTransient()</code>, <code>TryAddAllScoped()</code>, <code>TryAddAllSingleton()</code></h4>
+<p>These methods attempt to register all implementations of a given interface or class as transient, scoped, or singleton services, but only if they have not already been registered. This is useful for ensuring that you do not accidentally override existing registrations.</p>
+<pre><code class="lang-csharp">services.TryAddAllTransient&lt;IMyService&gt;();
+services.TryAddAllScoped&lt;IMyScopedService&gt;();
+services.TryAddAllSingleton&lt;IMySingletonService&gt;();
+</code></pre>
+<h4 id="8-decorate">8. <code>Decorate()</code></h4>
+<p>The <code>Decorate</code> method allows you to wrap an existing service with a decorator. This is useful for adding additional behavior to a service without modifying its original implementation.</p>
+<pre><code class="lang-csharp">services.Decorate&lt;IMyService, MyServiceDecorator&gt;();
+</code></pre>
+<h4 id="9-addcanistermodules">9. <code>AddCanisterModules()</code></h4>
+<p>The <code>AddCanisterModules</code> method is used to automatically discover and register modules that implement the <code>IModule</code> interface. This method scans the specified assemblies for modules and loads them, allowing you to organize your service registrations in a modular way.</p>
+<pre><code class="lang-csharp">services.AddCanisterModules(config =&gt;
+{
+    // Optionally specify which assemblies to scan
+    config.AddAssembly(typeof(MyModule).Assembly)
+          .UseLogger(logger, LogLevel.Information);
+});
+</code></pre>
+<h4 id="10-getregistrationssummary">10. <code>GetRegistrationsSummary()</code></h4>
+<p>The <code>GetRegistrationsSummary</code> method provides a summary of all registered services in the IoC container. This can be useful for debugging and understanding what services are available in your application.</p>
+<pre><code class="lang-csharp">var summary = services.GetRegistrationsSummary();
+logger.LogInformation(&quot;Service Registrations: {Summary}&quot;, summary);
+</code></pre>
 <h3 id="usage-example">Usage Example</h3>
 <p>Here's an example of how you might use these methods:</p>
 <pre><code class="lang-csharp">

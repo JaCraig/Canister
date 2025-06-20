@@ -125,7 +125,7 @@ dependency injection and service registration.</p>
   <a id="Canister_Interfaces_ICanisterConfiguration_AddAssembly_" data-uid="Canister.Interfaces.ICanisterConfiguration.AddAssembly*"></a>
 
   <h3 id="Canister_Interfaces_ICanisterConfiguration_AddAssembly_System_Collections_Generic_IEnumerable_System_Reflection_Assembly__" data-uid="Canister.Interfaces.ICanisterConfiguration.AddAssembly(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
-  AddAssembly(IEnumerable&lt;Assembly&gt;)
+  AddAssembly(IEnumerable&lt;Assembly?&gt;?)
   <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/ICanisterConfiguration.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -134,7 +134,7 @@ dependency injection and service registration.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ICanisterConfiguration AddAssembly(IEnumerable&lt;Assembly&gt; assemblies)</code></pre>
+    <pre><code class="lang-csharp hljs">ICanisterConfiguration AddAssembly(IEnumerable&lt;Assembly?&gt;? assemblies)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -164,7 +164,7 @@ dependency injection and service registration.</p>
   <a id="Canister_Interfaces_ICanisterConfiguration_AddAssembly_" data-uid="Canister.Interfaces.ICanisterConfiguration.AddAssembly*"></a>
 
   <h3 id="Canister_Interfaces_ICanisterConfiguration_AddAssembly_System_Reflection_Assembly___" data-uid="Canister.Interfaces.ICanisterConfiguration.AddAssembly(System.Reflection.Assembly[])">
-  AddAssembly(params Assembly[])
+  AddAssembly(params Assembly?[]?)
   <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/ICanisterConfiguration.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -173,7 +173,7 @@ dependency injection and service registration.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ICanisterConfiguration AddAssembly(params Assembly[] assemblies)</code></pre>
+    <pre><code class="lang-csharp hljs">ICanisterConfiguration AddAssembly(params Assembly?[]? assemblies)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -237,7 +237,7 @@ assemblies, to the Canister configuration for scanning and registration.</p>
   <a id="Canister_Interfaces_ICanisterConfiguration_UseLogger_" data-uid="Canister.Interfaces.ICanisterConfiguration.UseLogger*"></a>
 
   <h3 id="Canister_Interfaces_ICanisterConfiguration_UseLogger_Microsoft_Extensions_Logging_ILogger_Microsoft_Extensions_Logging_LogLevel_" data-uid="Canister.Interfaces.ICanisterConfiguration.UseLogger(Microsoft.Extensions.Logging.ILogger,Microsoft.Extensions.Logging.LogLevel)">
-  UseLogger(ILogger, LogLevel)
+  UseLogger(ILogger?, LogLevel)
   <a class="header-action link-secondary" title="View source" href="https://github.com/JaCraig/Canister/blob/master/Canister.IoC/Interfaces/ICanisterConfiguration.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -246,7 +246,7 @@ assemblies, to the Canister configuration for scanning and registration.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ICanisterConfiguration UseLogger(ILogger logger, LogLevel logLevel = LogLevel.Information)</code></pre>
+    <pre><code class="lang-csharp hljs">ICanisterConfiguration UseLogger(ILogger? logger, LogLevel logLevel = LogLevel.Information)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
