@@ -153,7 +153,7 @@ namespace Canister.IoC.Utils
                     if (Assembly is null)
                         continue;
                     Assemblies.Add(Assembly);
-                    Log("Assembly added: {AssemblyFullName}", Assembly.FullName);
+                    Log("Assembly added: {AssemblyFullName}", Assembly.GetName().Name);
                 }
             }
             return this;
@@ -177,7 +177,7 @@ namespace Canister.IoC.Utils
                     if (Assembly is null)
                         continue;
                     Assemblies.Add(Assembly);
-                    Log("Assembly added: {AssemblyFullName}", Assembly.FullName);
+                    Log("Assembly added: {AssemblyFullName}", Assembly.GetName().Name);
                 }
             }
             return this;
@@ -208,7 +208,7 @@ namespace Canister.IoC.Utils
 
                 Assemblies.Add(EntryAssembly);
                 Assemblies.Add(ExecutingAssembly);
-                Log("Default assemblies added: {EntryAssemblyFullName}, {ExecutingAssemblyFullName}", EntryAssembly.FullName, ExecutingAssembly.FullName);
+                Log("Default assemblies added: {EntryAssemblyFullName}, {ExecutingAssemblyFullName}", EntryAssembly.GetName().Name, ExecutingAssembly.GetName().Name);
 
                 var PathsFound = new HashSet<string>
                 {
@@ -224,11 +224,11 @@ namespace Canister.IoC.Utils
                         {
                             var LoadedAssembly = Assembly.LoadFrom(AssemblyFile);
                             Assemblies.Add(LoadedAssembly);
-                            Log("Assembly loaded from file: {assemblyFile}", AssemblyFile);
+                            Log("Assembly loaded: {assemblyFile}", LoadedAssembly.GetName().Name);
                         }
                         catch (Exception Ex)
                         {
-                            Log(LogLevel.Warning, Ex, "Failed to load assembly from file: {assemblyFile}", AssemblyFile);
+                            Log(LogLevel.Warning, Ex, "Failed to load assembly: {assemblyFile}", AssemblyFile);
                         }
                     }
                 }
