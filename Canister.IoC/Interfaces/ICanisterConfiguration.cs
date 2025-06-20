@@ -15,7 +15,7 @@ namespace Canister.Interfaces
         /// </summary>
         /// <param name="assemblies">An array of <see cref="Assembly"/> instances to add.</param>
         /// <returns>The current <see cref="ICanisterConfiguration"/> instance for chaining.</returns>
-        ICanisterConfiguration AddAssembly(params Assembly[] assemblies);
+        ICanisterConfiguration AddAssembly(params Assembly?[]? assemblies);
 
         /// <summary>
         /// Adds a collection of assemblies to the Canister configuration for scanning and registration.
@@ -24,7 +24,7 @@ namespace Canister.Interfaces
         /// An <see cref="IEnumerable{Assembly}"/> containing assemblies to add.
         /// </param>
         /// <returns>The current <see cref="ICanisterConfiguration"/> instance for chaining.</returns>
-        ICanisterConfiguration AddAssembly(IEnumerable<Assembly> assemblies);
+        ICanisterConfiguration AddAssembly(IEnumerable<Assembly?>? assemblies);
 
         /// <summary>
         /// Adds the default assemblies, typically including the entry assembly and its referenced
@@ -39,6 +39,6 @@ namespace Canister.Interfaces
         /// <param name="logger">The logger to use.</param>
         /// <param name="logLevel">The minimum log level (default: Information).</param>
         /// <returns>The current <see cref="ICanisterConfiguration"/> instance for chaining.</returns>
-        ICanisterConfiguration UseLogger(ILogger logger, LogLevel logLevel = LogLevel.Information);
+        ICanisterConfiguration UseLogger(ILogger? logger, LogLevel logLevel = LogLevel.Information);
     }
 }

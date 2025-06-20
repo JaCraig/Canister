@@ -47,7 +47,10 @@ namespace Canister.Tests.Utils
         {
             public List<(LogLevel Level, string Message, Exception? Exception)> Logs { get; } = new();
 
-            public IDisposable BeginScope<TState>(TState state) => null!;
+            public IDisposable BeginScope<TState>(TState state) where TState : notnull
+            {
+                return null!;
+            }
 
             public bool IsEnabled(LogLevel logLevel) => true;
 

@@ -12,8 +12,7 @@ namespace Canister.IoC.Example
     }
 
     [RegisterAll(ServiceLifetime.Singleton)]
-    internal interface IRegisteredInterface
-    { }
+    internal interface IRegisteredInterface;
 
     // Example 1: Basic module registration and resolution
     internal static class Example1
@@ -142,11 +141,9 @@ namespace Canister.IoC.Example
         public void Load(IServiceCollection serviceDescriptors) => serviceDescriptors.AddTransient<SimpleExampleClass>();
     }
 
-    internal class RegisteredClass1 : IRegisteredInterface
-    { }
+    internal class RegisteredClass1 : IRegisteredInterface;
 
-    internal class RegisteredClass2 : IRegisteredInterface
-    { }
+    internal class RegisteredClass2 : IRegisteredInterface;
 
     internal class SimpleExampleClass
     { public string Name => "SimpleExampleClass"; }

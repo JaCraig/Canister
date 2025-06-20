@@ -38,7 +38,7 @@ namespace Canister.Tests.Utils
         public void AddAssembly_Enumerable_IgnoresNull()
         {
             var config = new CanisterConfiguration();
-            config.AddAssembly((IEnumerable<Assembly>)null);
+            config.AddAssembly((IEnumerable<Assembly>?)null);
 
             Assert.Empty(config.Assemblies);
         }
@@ -58,7 +58,7 @@ namespace Canister.Tests.Utils
             var config = new CanisterConfiguration();
             config.AddDefaultAssemblies();
 
-            Assert.Contains(Assembly.GetEntryAssembly(), config.Assemblies);
+            Assert.Contains(Assembly.GetEntryAssembly(), config.Assemblies!);
             Assert.Contains(Assembly.GetExecutingAssembly(), config.Assemblies);
         }
 
@@ -121,11 +121,11 @@ namespace Canister.Tests.Utils
         {
             public bool WasLogged { get; private set; }
 
-            public IDisposable BeginScope<TState>(TState state) => NullLogger.Instance.BeginScope(state);
+            public IDisposable BeginScope<TState>(TState state) where TState : notnull => NullLogger.Instance.BeginScope(state);
 
             public bool IsEnabled(LogLevel logLevel) => true;
 
-            public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
+            public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception, string> formatter)
             {
                 WasLogged = true;
             }

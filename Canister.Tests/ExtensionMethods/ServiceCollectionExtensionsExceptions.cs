@@ -25,9 +25,7 @@ namespace Canister.Tests.ErrorCases
             string Name { get; }
         }
 
-        public interface IService<T> : IService
-        {
-        }
+        public interface IService<T> : IService;
 
         public class MyTestService1 : IService<string>
         {

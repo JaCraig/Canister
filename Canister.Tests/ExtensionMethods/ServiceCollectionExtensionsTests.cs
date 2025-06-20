@@ -4,18 +4,13 @@ using Xunit;
 
 namespace Canister.Tests.ExtensionMethods
 {
-    public interface IModuleTestInterface
-    { }
+    public interface IModuleTestInterface;
 
-    public class ModuleTestClass
-    { }
+    public class ModuleTestClass;
 
-    public class ModuleTestClass1 : IModuleTestInterface
-    {
-    }
+    public class ModuleTestClass1 : IModuleTestInterface;
 
-    public class ModuleTestClass2 : IModuleTestInterface
-    { }
+    public class ModuleTestClass2 : IModuleTestInterface;
 
     public class ServiceCollectionExtensionsTests
     {

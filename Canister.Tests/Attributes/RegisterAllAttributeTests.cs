@@ -6,19 +6,13 @@ using Xunit;
 namespace Canister.Tests.Attributes
 {
     [RegisterAll(ServiceLifetime.Scoped)]
-    public interface IScopedRegisterAllTestInterface
-    {
-    }
+    public interface IScopedRegisterAllTestInterface;
 
     [RegisterAll(ServiceLifetime.Singleton)]
-    public interface ISingletonRegisterAllTestInterface
-    {
-    }
+    public interface ISingletonRegisterAllTestInterface;
 
     [RegisterAll(ServiceLifetime.Transient)]
-    public interface ITransientRegisterAllTestInterface
-    {
-    }
+    public interface ITransientRegisterAllTestInterface;
 
     public class RegisterAllAttributeTests
     {
@@ -89,35 +83,19 @@ namespace Canister.Tests.Attributes
         }
     }
 
-    public class ScopedTestClass1 : IScopedRegisterAllTestInterface
-    {
-    }
+    public class ScopedTestClass1 : IScopedRegisterAllTestInterface;
 
-    public class ScopedTestClass2 : IScopedRegisterAllTestInterface
-    {
-    }
+    public class ScopedTestClass2 : IScopedRegisterAllTestInterface;
 
-    public class ScopedTestClass3 : IScopedRegisterAllTestInterface
-    {
-    }
+    public class ScopedTestClass3 : IScopedRegisterAllTestInterface;
 
-    public class SingletonTestClass1 : ISingletonRegisterAllTestInterface
-    {
-    }
+    public class SingletonTestClass1 : ISingletonRegisterAllTestInterface;
 
-    public class SingletonTestClass2 : ISingletonRegisterAllTestInterface
-    {
-    }
+    public class SingletonTestClass2 : ISingletonRegisterAllTestInterface;
 
-    public class SingletonTestClass3 : ISingletonRegisterAllTestInterface
-    {
-    }
+    public class SingletonTestClass3 : ISingletonRegisterAllTestInterface;
 
-    public class TransientTestClass1 : ITransientRegisterAllTestInterface
-    {
-    }
+    public class TransientTestClass1 : ITransientRegisterAllTestInterface;
 
-    public class TransientTestClass2 : ITransientRegisterAllTestInterface
-    {
-    }
+    public class TransientTestClass2 : ITransientRegisterAllTestInterface;
 }

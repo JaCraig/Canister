@@ -32,20 +32,24 @@ namespace Canister.Tests.ExtensionMethods
             Assert.Contains("ServiceType: Canister.Tests.ExtensionMethods.ServiceCollectionDiagnosticsExtensionsTests+ITestService", logger.LastMessage);
         }
 
-        private interface ITestService { }
-        private class TestServiceImpl : ITestService { }
+        private interface ITestService;
 
         private class TestLogger : ILogger
         {
-            public bool Logged { get; private set; }
             public string LastMessage { get; private set; } = string.Empty;
-            public IDisposable BeginScope<TState>(TState state) => null!;
+            public bool Logged { get; private set; }
+
+            public IDisposable BeginScope<TState>(TState state) where TState : notnull => null!;
+
             public bool IsEnabled(LogLevel logLevel) => true;
+
             public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
             {
                 Logged = true;
                 LastMessage = formatter(state, exception);
             }
         }
+
+        private class TestServiceImpl : ITestService;
     }
 }

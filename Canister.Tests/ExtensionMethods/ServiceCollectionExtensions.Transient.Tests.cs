@@ -44,8 +44,7 @@ namespace Canister.Tests
             Assert.Null(result);
         }
 
-        private class AnotherService
-        { }
+        private class AnotherService;
 
         private class FakeCanisterConfiguration
         {
@@ -58,10 +57,8 @@ namespace Canister.Tests
             }
         }
 
-        private class TestService
-        { }
+        private class TestService;
 
-        private class TestServiceImpl : TestService
-        { }
+        private class TestServiceImpl : TestService;
     }
 }

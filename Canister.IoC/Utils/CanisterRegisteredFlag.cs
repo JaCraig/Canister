@@ -3,7 +3,5 @@
     /// <summary>
     /// Flag used internally to check if canister modules are already registered.
     /// </summary>
-    internal class CanisterRegisteredFlag
-    {
-    }
+    internal class CanisterRegisteredFlag;
 }

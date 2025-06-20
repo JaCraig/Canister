@@ -4,9 +4,7 @@ using Xunit;
 
 namespace Canister.Tests.Attributes
 {
-    public interface ITestInterface
-    {
-    }
+    public interface ITestInterface;
 
     public class RegisterAttributeTests
     {
@@ -42,12 +40,8 @@ namespace Canister.Tests.Attributes
     }
 
     [Register(ServiceLifetime.Singleton)]
-    public class TestClass : ITestInterface
-    {
-    }
+    public class TestClass : ITestInterface;
 
     [Register(ServiceLifetime.Singleton, "test")]
-    public class TestClassWithKey : ITestInterface
-    {
-    }
+    public class TestClassWithKey : ITestInterface;
 }

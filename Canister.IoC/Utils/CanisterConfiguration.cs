@@ -143,7 +143,7 @@ namespace Canister.IoC.Utils
         /// </summary>
         /// <param name="assemblies">An array of <see cref="Assembly"/> objects to add.</param>
         /// <returns>The current <see cref="ICanisterConfiguration"/> instance for method chaining.</returns>
-        public ICanisterConfiguration AddAssembly(params Assembly[] assemblies)
+        public ICanisterConfiguration AddAssembly(params Assembly?[]? assemblies)
         {
             if (assemblies is null || assemblies.Length == 0)
                 return this;
@@ -167,7 +167,7 @@ namespace Canister.IoC.Utils
         /// An <see cref="IEnumerable{Assembly}"/> containing assemblies to add.
         /// </param>
         /// <returns>The current <see cref="ICanisterConfiguration"/> instance for method chaining.</returns>
-        public ICanisterConfiguration AddAssembly(IEnumerable<Assembly> assemblies)
+        public ICanisterConfiguration AddAssembly(IEnumerable<Assembly?>? assemblies)
         {
             if (assemblies?.Any() != true)
                 return this;
@@ -335,7 +335,7 @@ namespace Canister.IoC.Utils
         /// <param name="logger">The logger to use.</param>
         /// <param name="logLevel">The minimum log level (default: Information).</param>
         /// <returns>The current <see cref="ICanisterConfiguration"/> instance for chaining.</returns>
-        public ICanisterConfiguration UseLogger(ILogger logger, LogLevel logLevel = LogLevel.Information)
+        public ICanisterConfiguration UseLogger(ILogger? logger, LogLevel logLevel = LogLevel.Information)
         {
             Logger = logger ?? NullLogger.Instance;
             DefaultLogLevel = logLevel;

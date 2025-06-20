@@ -8,30 +8,18 @@ using Xunit;
 namespace Canister.Tests.ExtensionMethods
 {
     [RegisterAll(ServiceLifetime.Singleton)]
-    public interface IInterfaceToAdd
-    {
-    }
+    public interface IInterfaceToAdd;
 
-    public interface IInterfaceToAdd2
-    {
-    }
+    public interface IInterfaceToAdd2;
 
     [Register(ServiceLifetime.Singleton)]
-    public class ClassToAdd : IInterfaceToAdd2
-    {
-    }
+    public class ClassToAdd : IInterfaceToAdd2;
 
-    public class ClassToAdd2 : IInterfaceToAdd
-    {
-    }
+    public class ClassToAdd2 : IInterfaceToAdd;
 
-    public class ClassToAdd3 : IInterfaceToAdd
-    {
-    }
+    public class ClassToAdd3 : IInterfaceToAdd;
 
-    public class ClassToNotAdd
-    {
-    }
+    public class ClassToNotAdd;
 
     public class ServiceCollectionAddByAttribute
     {
