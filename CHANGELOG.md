@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.2.1"></a>
+## [6.2.1](https://www.github.com/JaCraig/Canister/releases/tag/v6.2.1) (2025-06-20)
+
+### Bug Fixes
+
+* **ioc:** replace logging package with abstractions ([4737e34](https://www.github.com/JaCraig/Canister/commit/4737e3431b92ece605fbde2f818be5b31239a2a3))
+
+### Other
+
+* **merge:** Merging ([c077c28](https://www.github.com/JaCraig/Canister/commit/c077c28eb0e12b682167112a112aa4d175e47866))
+* **tests, app:** update package versions ([9853bd5](https://www.github.com/JaCraig/Canister/commit/9853bd55cbc996149689c9eb6f401177a0b633c8))
+
 <a name="6.2.0"></a>
 ## [6.2.0](https://www.github.com/JaCraig/Canister/releases/tag/v6.2.0) (2025-06-20)
 
