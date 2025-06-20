@@ -1,4 +1,4 @@
-using System;
+using Fast.Activator;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
@@ -34,17 +34,17 @@ namespace Microsoft.Extensions.DependencyInjection
                 {
                     { ImplementationType: not null } D => ServiceDescriptor.Describe(
                         typeof(TService),
-                        provider => (TService)Activator.CreateInstance(typeof(TDecorator),
+                        provider => (TService)FastActivator.CreateInstance(typeof(TDecorator),
                             ActivatorUtilities.GetServiceOrCreateInstance(provider, D.ImplementationType))!,
                         D.Lifetime),
                     { ImplementationFactory: not null } D => ServiceDescriptor.Describe(
                         typeof(TService),
-                        provider => (TService)Activator.CreateInstance(typeof(TDecorator),
+                        provider => (TService)FastActivator.CreateInstance(typeof(TDecorator),
                             D.ImplementationFactory(provider))!,
                         D.Lifetime),
                     { ImplementationInstance: not null } D => ServiceDescriptor.Describe(
                         typeof(TService),
-                        _ => (TService)Activator.CreateInstance(typeof(TDecorator), D.ImplementationInstance)!,
+                        _ => (TService)FastActivator.CreateInstance(typeof(TDecorator), D.ImplementationInstance)!,
                         D.Lifetime),
                     _ => null
                 };
