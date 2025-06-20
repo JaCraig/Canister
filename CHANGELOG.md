@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.2.0"></a>
+## [6.2.0](https://www.github.com/JaCraig/Canister/releases/tag/v6.2.0) (2025-06-20)
+
+### Features
+
+* **ioc:** introduce nullable reference types and decorators ([91d1af4](https://www.github.com/JaCraig/Canister/commit/91d1af454ee4eee8bbb97c1345d35307ffe1a5c5))
+
+### Bug Fixes
+
+* **dependency-injection:** replace Activator with FastActivator ([fd01b14](https://www.github.com/JaCraig/Canister/commit/fd01b14a095947586511b006095ccfd12193f5e6))
+* **ioc:** enhance service registration with nullability ([04147a0](https://www.github.com/JaCraig/Canister/commit/04147a0dc10ba6f20db71873e3c525c5886fe422))
+* **logging:** add logging for service registrations ([92de47e](https://www.github.com/JaCraig/Canister/commit/92de47e68750f948850c75d40874e017046a0b56))
+
+### Other
+
+* **logging:** improve logging and refactor methods ([5556fbe](https://www.github.com/JaCraig/Canister/commit/5556fbe31a3ea27246ab684a04be9eebdde63d15))
+* **readme:** Updating readme doc to reference newly added methods ([97f4ac7](https://www.github.com/JaCraig/Canister/commit/97f4ac7f1af95893ce757cf4f3e15bf0b4be5d8f))
+
 <a name="6.1.0"></a>
 ## [6.1.0](https://www.github.com/JaCraig/Canister/releases/tag/v6.1.0) (2025-06-20)
 
