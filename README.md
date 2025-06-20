@@ -172,6 +172,46 @@ services.AddAllScoped<IMyScopedService>();
 services.AddAllSingleton<IMySingletonService>();
 ```
 
+#### 7. `TryAddAllTransient()`, `TryAddAllScoped()`, `TryAddAllSingleton()`
+
+These methods attempt to register all implementations of a given interface or class as transient, scoped, or singleton services, but only if they have not already been registered. This is useful for ensuring that you do not accidentally override existing registrations.
+
+```csharp
+services.TryAddAllTransient<IMyService>();
+services.TryAddAllScoped<IMyScopedService>();
+services.TryAddAllSingleton<IMySingletonService>();
+```
+
+#### 8. `Decorate()`
+
+The `Decorate` method allows you to wrap an existing service with a decorator. This is useful for adding additional behavior to a service without modifying its original implementation.
+
+```csharp
+services.Decorate<IMyService, MyServiceDecorator>();
+```
+
+#### 9. `AddCanisterModules()`
+
+The `AddCanisterModules` method is used to automatically discover and register modules that implement the `IModule` interface. This method scans the specified assemblies for modules and loads them, allowing you to organize your service registrations in a modular way.
+
+```csharp
+services.AddCanisterModules(config =>
+{
+    // Optionally specify which assemblies to scan
+    config.AddAssembly(typeof(MyModule).Assembly)
+          .UseLogger(logger, LogLevel.Information);
+});
+```
+
+#### 10. `GetRegistrationsSummary()`
+
+The `GetRegistrationsSummary` method provides a summary of all registered services in the IoC container. This can be useful for debugging and understanding what services are available in your application.
+
+```csharp
+var summary = services.GetRegistrationsSummary();
+logger.LogInformation("Service Registrations: {Summary}", summary);
+```
+
 ### Usage Example
 
 Here's an example of how you might use these methods:
