@@ -98,8 +98,11 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         /// <param name="serviceCollection">The service collection.</param>
         /// <returns>The <see cref="CanisterConfiguration"/> instance.</returns>
-        private static CanisterConfiguration GetCanisterConfiguration(IServiceCollection serviceCollection)
+        [return: NotNullIfNotNull(nameof(serviceCollection))]
+        private static CanisterConfiguration? GetCanisterConfiguration(IServiceCollection? serviceCollection)
         {
+            if (serviceCollection is null)
+                return null;
             if (_CanisterConfiguration.TryGetValue(serviceCollection, out CanisterConfiguration? CanisterConfiguration))
                 return CanisterConfiguration;
             lock (_CanisterLockObject)

@@ -36,12 +36,16 @@ namespace Microsoft.Extensions.DependencyInjection
             var CanisterConfiguration = GetCanisterConfiguration(serviceDescriptors);
             foreach (Type? TempType in CanisterConfiguration.AvailableTypes.Where(registerType.IsAssignableFrom))
             {
-                CanisterConfiguration.Log("Adding scoped service: {0} as {1}", TempType.FullName, registerType.FullName);
+                CanisterConfiguration.Log("Adding scoped service: {0} as {1}", TempType.FullName, TempType.FullName);
                 _ = serviceDescriptors.AddScoped(TempType, TempType);
+                CanisterConfiguration.Log("Adding scoped service: {0} as {1}", TempType.FullName, registerType.FullName);
                 _ = serviceDescriptors.AddScoped(registerType, TempType);
             }
             if (registerType.IsGenericTypeDefinition)
+            {
+                CanisterConfiguration.Log("Adding scoped service: {0} as {1}", registerType.FullName, registerType.FullName);
                 _ = serviceDescriptors.AddScoped(registerType, registerType);
+            }
             return serviceDescriptors;
         }
 
@@ -68,9 +72,10 @@ namespace Microsoft.Extensions.DependencyInjection
         [return: NotNullIfNotNull(nameof(serviceDescriptors))]
         public static IServiceCollection? AddKeyedScopedIf(this IServiceCollection? serviceDescriptors, Func<IServiceCollection, bool> predicate, Type serviceType, object? serviceKey, Type implementationType)
         {
-            return serviceDescriptors is null || !predicate(serviceDescriptors)
-                ? serviceDescriptors
-                : serviceDescriptors.AddKeyedScoped(serviceType, serviceKey, implementationType);
+            if (serviceDescriptors is null || !predicate(serviceDescriptors))
+                return serviceDescriptors;
+            GetCanisterConfiguration(serviceDescriptors)?.Log("Adding scoped keyed service: {key}: {0} as {1}", serviceKey?.ToString() ?? "null", serviceType.FullName, implementationType.FullName);
+            return serviceDescriptors.AddKeyedScoped(serviceType, serviceKey, implementationType);
         }
 
         /// <summary>
@@ -86,9 +91,10 @@ namespace Microsoft.Extensions.DependencyInjection
         [return: NotNullIfNotNull(nameof(serviceDescriptors))]
         public static IServiceCollection? AddKeyedScopedIf(this IServiceCollection? serviceDescriptors, Func<IServiceCollection, bool> predicate, Type serviceType, object? serviceKey, Func<IServiceProvider, object?, object> implementationFactory)
         {
-            return serviceDescriptors is null || !predicate(serviceDescriptors)
-                ? serviceDescriptors
-                : serviceDescriptors.AddKeyedScoped(serviceType, serviceKey, implementationFactory);
+            if (serviceDescriptors is null || !predicate(serviceDescriptors))
+                return serviceDescriptors;
+            GetCanisterConfiguration(serviceDescriptors)?.Log("Adding scoped keyed service: {key}: {0} as {1}", serviceKey?.ToString() ?? "null", serviceType.FullName, serviceType.FullName);
+            return serviceDescriptors.AddKeyedScoped(serviceType, serviceKey, implementationFactory);
         }
 
         /// <summary>
@@ -101,7 +107,13 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="serviceKey">The key for the service registration.</param>
         /// <returns>The updated service collection.</returns>
         [return: NotNullIfNotNull(nameof(serviceDescriptors))]
-        public static IServiceCollection? AddKeyedScopedIf(this IServiceCollection? serviceDescriptors, Func<IServiceCollection, bool> predicate, Type serviceType, object? serviceKey) => serviceDescriptors is null || !predicate(serviceDescriptors) ? serviceDescriptors : serviceDescriptors.AddKeyedScoped(serviceType, serviceKey);
+        public static IServiceCollection? AddKeyedScopedIf(this IServiceCollection? serviceDescriptors, Func<IServiceCollection, bool> predicate, Type serviceType, object? serviceKey)
+        {
+            if (serviceDescriptors is null || !predicate(serviceDescriptors))
+                return serviceDescriptors;
+            GetCanisterConfiguration(serviceDescriptors)?.Log("Adding scoped keyed service: {key}: {0} as {1}", serviceKey?.ToString() ?? "null", serviceType.FullName, serviceType.FullName);
+            return serviceDescriptors.AddKeyedScoped(serviceType, serviceKey);
+        }
 
         /// <summary>
         /// Adds a scoped service of the specified type with a factory specified in <paramref
@@ -118,9 +130,10 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection? AddKeyedScopedIf<TService>(this IServiceCollection? serviceDescriptors, Func<IServiceCollection, bool> predicate, object? serviceKey, Func<IServiceProvider, object?, TService> implementationFactory)
             where TService : class
         {
-            return serviceDescriptors is null || !predicate(serviceDescriptors)
-                ? serviceDescriptors
-                : serviceDescriptors.AddKeyedScoped(serviceKey, implementationFactory);
+            if (serviceDescriptors is null || !predicate(serviceDescriptors))
+                return serviceDescriptors;
+            GetCanisterConfiguration(serviceDescriptors)?.Log("Adding scoped keyed service: {key}: {0} as {1}", serviceKey?.ToString() ?? "null", typeof(TService).FullName, typeof(TService).FullName);
+            return serviceDescriptors.AddKeyedScoped(serviceKey, implementationFactory);
         }
 
         /// <summary>
@@ -134,7 +147,13 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns>The updated service collection.</returns>
         [return: NotNullIfNotNull(nameof(serviceDescriptors))]
         public static IServiceCollection? AddKeyedScopedIf<TService>(this IServiceCollection? serviceDescriptors, Func<IServiceCollection, bool> predicate, object? serviceKey)
-            where TService : class => serviceDescriptors is null || !predicate(serviceDescriptors) ? serviceDescriptors : serviceDescriptors.AddKeyedScoped<TService>(serviceKey);
+            where TService : class
+        {
+            if (serviceDescriptors is null || !predicate(serviceDescriptors))
+                return serviceDescriptors;
+            GetCanisterConfiguration(serviceDescriptors)?.Log("Adding scoped keyed service: {key}: {0} as {1}", serviceKey?.ToString() ?? "null", typeof(TService).FullName, typeof(TService).FullName);
+            return serviceDescriptors.AddKeyedScoped<TService>(serviceKey);
+        }
 
         /// <summary>
         /// Adds a scoped service of the specified type with an implementation factory to the
@@ -152,9 +171,10 @@ namespace Microsoft.Extensions.DependencyInjection
             where TService : class
             where TImplementation : class, TService
         {
-            return serviceDescriptors is null || !predicate(serviceDescriptors)
-                ? serviceDescriptors
-                : serviceDescriptors.AddKeyedScoped<TService, TImplementation>(serviceKey, implementationFactory);
+            if (serviceDescriptors is null || !predicate(serviceDescriptors))
+                return serviceDescriptors;
+            GetCanisterConfiguration(serviceDescriptors)?.Log("Adding scoped keyed service: {key}: {0} as {1}", serviceKey?.ToString() ?? "null", typeof(TImplementation).FullName, typeof(TService).FullName);
+            return serviceDescriptors.AddKeyedScoped<TService, TImplementation>(serviceKey, implementationFactory);
         }
 
         /// <summary>
@@ -172,9 +192,10 @@ namespace Microsoft.Extensions.DependencyInjection
             where TService : class
             where TImplementation : class, TService
         {
-            return serviceDescriptors is null || !predicate(serviceDescriptors)
-                ? serviceDescriptors
-                : serviceDescriptors.AddKeyedScoped<TService, TImplementation>(serviceKey);
+            if (serviceDescriptors is null || !predicate(serviceDescriptors))
+                return serviceDescriptors;
+            GetCanisterConfiguration(serviceDescriptors)?.Log("Adding scoped keyed service: {key}: {0} as {1}", serviceKey?.ToString() ?? "null", typeof(TImplementation).FullName, typeof(TService).FullName);
+            return serviceDescriptors.AddKeyedScoped<TService, TImplementation>(serviceKey);
         }
 
         /// <summary>
@@ -189,9 +210,10 @@ namespace Microsoft.Extensions.DependencyInjection
         [return: NotNullIfNotNull(nameof(serviceDescriptors))]
         public static IServiceCollection? AddScopedIf(this IServiceCollection? serviceDescriptors, Func<IServiceCollection, bool> predicate, Type serviceType, Type implementationType)
         {
-            return serviceDescriptors is null || !predicate(serviceDescriptors)
-                ? serviceDescriptors
-                : serviceDescriptors.AddScoped(serviceType, implementationType);
+            if (serviceDescriptors is null || !predicate(serviceDescriptors))
+                return serviceDescriptors;
+            GetCanisterConfiguration(serviceDescriptors)?.Log("Adding scoped service: {0} as {1}", implementationType.FullName, serviceType.FullName);
+            return serviceDescriptors.AddScoped(serviceType, implementationType);
         }
 
         /// <summary>
@@ -206,9 +228,10 @@ namespace Microsoft.Extensions.DependencyInjection
         [return: NotNullIfNotNull(nameof(serviceDescriptors))]
         public static IServiceCollection? AddScopedIf(this IServiceCollection? serviceDescriptors, Func<IServiceCollection, bool> predicate, Type serviceType, Func<IServiceProvider, object> implementationFactory)
         {
-            return serviceDescriptors is null || !predicate(serviceDescriptors)
-                ? serviceDescriptors
-                : serviceDescriptors.AddScoped(serviceType, implementationFactory);
+            if (serviceDescriptors is null || !predicate(serviceDescriptors))
+                return serviceDescriptors;
+            GetCanisterConfiguration(serviceDescriptors)?.Log("Adding scoped service: {0}", serviceType.FullName);
+            return serviceDescriptors.AddScoped(serviceType, implementationFactory);
         }
 
         /// <summary>
@@ -220,7 +243,13 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="serviceType">The service type to register.</param>
         /// <returns>The updated service collection.</returns>
         [return: NotNullIfNotNull(nameof(serviceDescriptors))]
-        public static IServiceCollection? AddScopedIf(this IServiceCollection? serviceDescriptors, Func<IServiceCollection, bool> predicate, Type serviceType) => serviceDescriptors is null || !predicate(serviceDescriptors) ? serviceDescriptors : serviceDescriptors.AddScoped(serviceType);
+        public static IServiceCollection? AddScopedIf(this IServiceCollection? serviceDescriptors, Func<IServiceCollection, bool> predicate, Type serviceType)
+        {
+            if (serviceDescriptors is null || !predicate(serviceDescriptors))
+                return serviceDescriptors;
+            GetCanisterConfiguration(serviceDescriptors)?.Log("Adding scoped service: {0}", serviceType.FullName);
+            return serviceDescriptors.AddScoped(serviceType);
+        }
 
         /// <summary>
         /// Adds a scoped service of the specified type with a factory specified in <paramref
@@ -236,9 +265,10 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection? AddScopedIf<TService>(this IServiceCollection? serviceDescriptors, Func<IServiceCollection, bool> predicate, Func<IServiceProvider, TService> implementationFactory)
             where TService : class
         {
-            return serviceDescriptors is null || !predicate(serviceDescriptors)
-                ? serviceDescriptors
-                : serviceDescriptors.AddScoped(implementationFactory);
+            if (serviceDescriptors is null || !predicate(serviceDescriptors))
+                return serviceDescriptors;
+            GetCanisterConfiguration(serviceDescriptors)?.Log("Adding scoped service: {0}", typeof(TService).FullName);
+            return serviceDescriptors.AddScoped(implementationFactory);
         }
 
         /// <summary>
@@ -251,7 +281,13 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns>The updated service collection.</returns>
         [return: NotNullIfNotNull(nameof(serviceDescriptors))]
         public static IServiceCollection? AddScopedIf<TService>(this IServiceCollection? serviceDescriptors, Func<IServiceCollection, bool> predicate)
-            where TService : class => serviceDescriptors is null || !predicate(serviceDescriptors) ? serviceDescriptors : serviceDescriptors.AddScoped<TService>();
+            where TService : class
+        {
+            if (serviceDescriptors is null || !predicate(serviceDescriptors))
+                return serviceDescriptors;
+            GetCanisterConfiguration(serviceDescriptors)?.Log("Adding scoped service: {0}", typeof(TService).FullName);
+            return serviceDescriptors.AddScoped<TService>();
+        }
 
         /// <summary>
         /// Adds a scoped service of the specified type with an implementation factory to the
@@ -268,9 +304,10 @@ namespace Microsoft.Extensions.DependencyInjection
             where TService : class
             where TImplementation : class, TService
         {
-            return serviceDescriptors is null || !predicate(serviceDescriptors)
-                ? serviceDescriptors
-                : serviceDescriptors.AddScoped<TService, TImplementation>(implementationFactory);
+            if (serviceDescriptors is null || !predicate(serviceDescriptors))
+                return serviceDescriptors;
+            GetCanisterConfiguration(serviceDescriptors)?.Log("Adding scoped service: {0} as {1}", typeof(TImplementation).FullName, typeof(TService).FullName);
+            return serviceDescriptors.AddScoped<TService, TImplementation>(implementationFactory);
         }
 
         /// <summary>
@@ -287,9 +324,10 @@ namespace Microsoft.Extensions.DependencyInjection
             where TService : class
             where TImplementation : class, TService
         {
-            return serviceDescriptors is null || !predicate(serviceDescriptors)
-                ? serviceDescriptors
-                : serviceDescriptors.AddScoped<TService, TImplementation>();
+            if (serviceDescriptors is null || !predicate(serviceDescriptors))
+                return serviceDescriptors;
+            GetCanisterConfiguration(serviceDescriptors)?.Log("Adding scoped service: {0} as {1}", typeof(TImplementation).FullName, typeof(TService).FullName);
+            return serviceDescriptors.AddScoped<TService, TImplementation>();
         }
 
         /// <summary>
@@ -341,12 +379,16 @@ namespace Microsoft.Extensions.DependencyInjection
             var CanisterConfiguration = GetCanisterConfiguration(serviceDescriptors);
             foreach (Type? TempType in CanisterConfiguration.AvailableTypes.Where(registerType.IsAssignableFrom))
             {
-                CanisterConfiguration.Log("Adding scoped service: {0} as {1}", TempType.FullName, registerType.FullName);
+                CanisterConfiguration.Log("Adding scoped service: {0} as {1}", TempType.FullName, TempType.FullName);
                 serviceDescriptors.TryAddScoped(TempType, TempType);
+                CanisterConfiguration.Log("Adding scoped service: {0} as {1}", TempType.FullName, registerType.FullName);
                 serviceDescriptors.TryAddScoped(registerType, TempType);
             }
             if (registerType.IsGenericTypeDefinition)
+            {
+                CanisterConfiguration.Log("Adding scoped service: {0} as {1}", registerType.FullName, registerType.FullName);
                 serviceDescriptors.TryAddScoped(registerType, registerType);
+            }
             return serviceDescriptors;
         }
     }
