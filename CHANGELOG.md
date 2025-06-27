@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.2.2"></a>
+## [6.2.2](https://www.github.com/JaCraig/Canister/releases/tag/v6.2.2) (2025-06-27)
+
+### Bug Fixes
+
+* **dependabot:** standardize directory paths in configuration ([f091572](https://www.github.com/JaCraig/Canister/commit/f091572e50e5f2b6b591e710383de83cc9c742c3))
+
 <a name="6.2.1"></a>
 ## [6.2.1](https://www.github.com/JaCraig/Canister/releases/tag/v6.2.1) (2025-06-20)
 
