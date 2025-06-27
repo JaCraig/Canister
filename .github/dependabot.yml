@@ -6,58 +6,58 @@
 version: 2
 updates:
   - package-ecosystem: "nuget" # See documentation for possible values
-    directory: "/Canister.Ioc" # Location of package manifests
+    directory: "/Canister.IoC/" # Location of package manifests
     schedule:
       interval: "daily"
     commit-message:
       prefix: "fix"
     groups:
       dependencies:
-        patterns: 
+        patterns:
           - "*"
 
   - package-ecosystem: "nuget" # See documentation for possible values
-    directory: "/Canister.Tests" # Location of package manifests
+    directory: "/Canister.Tests/" # Location of package manifests
     schedule:
       interval: "daily"
     commit-message:
       prefix: "chore"
     groups:
       dependencies:
-        patterns: 
+        patterns:
           - "*"
 
   - package-ecosystem: "nuget" # See documentation for possible values
-    directory: "/Canister.IoC.Example" # Location of package manifests
+    directory: "/Canister.IoC.Example/" # Location of package manifests
     schedule:
       interval: "daily"
     commit-message:
       prefix: "chore"
     groups:
       dependencies:
-        patterns: 
+        patterns:
           - "*"
 
   - package-ecosystem: "nuget" # See documentation for possible values
-    directory: "/Canister.Benchmarks" # Location of package manifests
+    directory: "/Canister.Benchmarks/" # Location of package manifests
     schedule:
       interval: "daily"
     commit-message:
       prefix: "chore"
     groups:
       dependencies:
-        patterns: 
+        patterns:
           - "*"
 
   - package-ecosystem: "nuget" # See documentation for possible values
-    directory: "/SimpleMVCTests" # Location of package manifests
+    directory: "/SimpleMVCTests/" # Location of package manifests
     schedule:
       interval: "daily"
     commit-message:
       prefix: "chore"
     groups:
       dependencies:
-        patterns: 
+        patterns:
           - "*"
 
   - package-ecosystem: "github-actions"
@@ -68,5 +68,5 @@ updates:
       prefix: "chore"
     groups:
       dependencies:
-        patterns: 
+        patterns:
           - "*"
