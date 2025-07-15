@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.2.4"></a>
+## [6.2.4](https://www.github.com/JaCraig/Canister/releases/tag/v6.2.4) (2025-07-15)
+
+### Bug Fixes
+
+* **dependency-injection:** improve CanisterConfiguration storage ([9d1678f](https://www.github.com/JaCraig/Canister/commit/9d1678fe1b80d274292316b9ef99b829ff4aca52))
+
+### Other
+
+* Merge pull request #135 from JaCraig/dependabot/nuget/Canister.IoC.Example/dependencies-c946add4b7 ([68afb7f](https://www.github.com/JaCraig/Canister/commit/68afb7f6c601869d2ec42a2b15260c5287817096))
+* Merge pull request #136 from JaCraig/dependabot/nuget/Canister.Tests/dependencies-f5ef2f2cd0 ([ea7fc45](https://www.github.com/JaCraig/Canister/commit/ea7fc45e0d274dbcffec9b01bc109610668c5327))
+* Bump the dependencies group with 1 update ([de1c052](https://www.github.com/JaCraig/Canister/commit/de1c052a05994eb251d9455c3d73193cdaf77561))
+* Bump the dependencies group with 3 updates ([ffc90a7](https://www.github.com/JaCraig/Canister/commit/ffc90a75cbf2de5127c8419607444636d6150b3b))
+* merge ([dcab10c](https://www.github.com/JaCraig/Canister/commit/dcab10ccf8cf5714b2887d2facc65d4f284bac49))
+
 <a name="6.2.3"></a>
 ## [6.2.3](https://www.github.com/JaCraig/Canister/releases/tag/v6.2.3) (2025-06-27)
 
