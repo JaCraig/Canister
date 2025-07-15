@@ -113,7 +113,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 if (_CanisterConfiguration.TryGetValue(serviceCollection, out CanisterConfiguration))
                     return CanisterConfiguration;
                 CanisterConfiguration = new CanisterConfiguration();
-                _CanisterConfiguration[serviceCollection] = CanisterConfiguration;
+                _CanisterConfiguration.TryAdd(serviceCollection, CanisterConfiguration);
                 return CanisterConfiguration;
             }
         }
