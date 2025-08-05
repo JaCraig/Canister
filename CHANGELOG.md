@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.2.5"></a>
+## [6.2.5](https://www.github.com/JaCraig/Canister/releases/tag/v6.2.5) (2025-08-05)
+
+### Bug Fixes
+
+* Bump the dependencies group with 2 updates ([3351534](https://www.github.com/JaCraig/Canister/commit/3351534f36671455a7e77f66818f0f5597383876))
+
+### Other
+
+* Merge pull request #137 from JaCraig/dependabot/nuget/SimpleMVCTests/dependencies-2ebfa0c586 ([6452def](https://www.github.com/JaCraig/Canister/commit/6452def4c4fcfaf082e58fcf812000a8e975a6b2))
+* Merge pull request #138 from JaCraig/dependabot/nuget/Canister.Tests/dependencies-0b34180b1d ([bc4c53b](https://www.github.com/JaCraig/Canister/commit/bc4c53bbfffcd9a4b5dd657634e51dd3076a9ca5))
+* Merge pull request #139 from JaCraig/dependabot/nuget/Canister.IoC.Example/dependencies-f3785c3550 ([8986cc1](https://www.github.com/JaCraig/Canister/commit/8986cc1fefcabf0b011efb1143c26dcbc14357e2))
+* Merge pull request #140 from JaCraig/dependabot/nuget/Canister.IoC/dependencies-164769468c ([ddf13aa](https://www.github.com/JaCraig/Canister/commit/ddf13aa3ad1612ca6642e8d7e0a0bc84ed4ae53a))
+* Merge pull request #141 from JaCraig/dependabot/nuget/Canister.IoC/dependencies-164769468c ([ffd0c40](https://www.github.com/JaCraig/Canister/commit/ffd0c409f0f13471e48713166eae706c2b98db4d))
+* Bump the dependencies group with 1 update ([5cd87ef](https://www.github.com/JaCraig/Canister/commit/5cd87efc4e81fbf011b7d7e7050151a93b3b0237))
+* Bump the dependencies group with 1 update ([b916526](https://www.github.com/JaCraig/Canister/commit/b916526623f40c6e87627d016b834988d8f68360))
+* Bump the dependencies group with 2 updates ([39cea48](https://www.github.com/JaCraig/Canister/commit/39cea48c82501802ecf2effc41ba9ee695344c21))
+* Bump the dependencies group with 3 updates ([5cee8df](https://www.github.com/JaCraig/Canister/commit/5cee8df092f8ca628287bb3f9b5bfb6fa643a458))
+
 <a name="6.2.4"></a>
 ## [6.2.4](https://www.github.com/JaCraig/Canister/releases/tag/v6.2.4) (2025-07-15)
 
