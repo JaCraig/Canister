@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.3.2"></a>
+## [6.3.2](https://www.github.com/JaCraig/Canister/releases/tag/v6.3.2) (2026-02-12)
+
+### Bug Fixes
+
+* Bump the dependencies group with 1 update ([46f4486](https://www.github.com/JaCraig/Canister/commit/46f4486d0082f0ed95fb2cf72a26f15873824aa7))
+
+### Other
+
+* Merge pull request #171 from JaCraig/dependabot/nuget/Canister.IoC.Example/dependencies-d69bf2547d ([088d4ce](https://www.github.com/JaCraig/Canister/commit/088d4ce9ed7a04bad5a36cbba1de809184970785))
+* Merge pull request #173 from JaCraig/dependabot/nuget/Canister.IoC.Example/dependencies-86c6255876 ([294bf5c](https://www.github.com/JaCraig/Canister/commit/294bf5c5e4f588ac7a309081c0b83c4fb9c175b8))
+* Merge pull request #174 from JaCraig/dependabot/nuget/Canister.IoC/dependencies-0008c12acd ([2b2365c](https://www.github.com/JaCraig/Canister/commit/2b2365c52a21b72b02729398d52647e527a0a099))
+* Merge pull request #175 from JaCraig/dependabot/nuget/dot-config/dependencies-5dd2fc9133 ([a4c0e8d](https://www.github.com/JaCraig/Canister/commit/a4c0e8d88ffc02baa2d4eb908c7038d89c256503))
+* Merge pull request #176 from JaCraig/dependabot/nuget/Canister.IoC/dependencies-6c03799d5c ([94fe993](https://www.github.com/JaCraig/Canister/commit/94fe9936ba4228578c975f65f870d692d88c0d5c))
+* Merge pull request #178 from JaCraig/dependabot/nuget/Canister.IoC.Example/dependencies-01ecb13ccb ([0c8ae21](https://www.github.com/JaCraig/Canister/commit/0c8ae211cabbdfb7245102188f44b8420bff358b))
+* Merge pull request #179 from JaCraig/dependabot/nuget/Canister.IoC/dependencies-1deb6e8be6 ([6e5f8b0](https://www.github.com/JaCraig/Canister/commit/6e5f8b08fdca49adb52f43441078aa30be70e048))
+* Merge pull request #180 from JaCraig/dependabot/nuget/Canister.IoC/dependencies-1deb6e8be6 ([fcb41d9](https://www.github.com/JaCraig/Canister/commit/fcb41d9349b1a9bea9b40e7094becd576c9c41ac))
+* Bump Microsoft.Extensions.Logging.Console from 10.0.1 to 10.0.2 ([188c6ee](https://www.github.com/JaCraig/Canister/commit/188c6eee2ce86251a0fd3a54d654f6a28e62ff76))
+* Bump the dependencies group with 1 update ([9e8bf37](https://www.github.com/JaCraig/Canister/commit/9e8bf372ea17ff324714c4a087812281dfd1aace))
+* Bump the dependencies group with 1 update ([e2e42aa](https://www.github.com/JaCraig/Canister/commit/e2e42aa92155b6b6beeed3054f28e3a0235db659))
+* Bump the dependencies group with 1 update ([9545ecd](https://www.github.com/JaCraig/Canister/commit/9545ecdfc140854bd9ccf12790ec69c1732484f3))
+* Bump the dependencies group with 4 updates ([2302158](https://www.github.com/JaCraig/Canister/commit/23021585d54696eebd35243a6a68f99f2d86f2df))
+* Bump the dependencies group with 5 updates ([22713e7](https://www.github.com/JaCraig/Canister/commit/22713e776fa3d3ed80889ac9e9f83cdf916d0ddf))
+* Bump the dependencies group with 5 updates ([1ac664d](https://www.github.com/JaCraig/Canister/commit/1ac664d1d56c5e563a986dc8edb5cfc1e201f43b))
+
 <a name="6.3.1"></a>
 ## [6.3.1](https://www.github.com/JaCraig/Canister/releases/tag/v6.3.1) (2026-01-17)
 
