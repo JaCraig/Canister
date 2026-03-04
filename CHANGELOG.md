@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.4.0"></a>
+## [6.4.0](https://www.github.com/JaCraig/Canister/releases/tag/v6.4.0) (2026-03-04)
+
+### Features
+
+* **config:** improve assembly loading robustness ([b7fa4a8](https://www.github.com/JaCraig/Canister/commit/b7fa4a87ac649c4b53f4d6bae4391214e548856a))
+
+### Other
+
+* Merge pull request #183 from JaCraig/dependabot/nuget/Canister.Tests/dependencies-164813a1f6 ([f46d9fa](https://www.github.com/JaCraig/Canister/commit/f46d9fa12e1286d6fe8698c19fbb29fbff621670))
+* Merge pull request #184 from JaCraig/dependabot/nuget/Canister.Tests/dependencies-5154da677c ([343f42c](https://www.github.com/JaCraig/Canister/commit/343f42ced8389b4f96d2939684fbdc4be1ce312f))
+* Bump the dependencies group with 1 update ([01ce9dc](https://www.github.com/JaCraig/Canister/commit/01ce9dc3343599ecbabbd47c4ef41a9b955daf17))
+* Bump the dependencies group with 2 updates ([85e5566](https://www.github.com/JaCraig/Canister/commit/85e5566a3706429e301b488afe504d7e2809c991))
+
 <a name="6.3.3"></a>
 ## [6.3.3](https://www.github.com/JaCraig/Canister/releases/tag/v6.3.3) (2026-02-13)
 
