@@ -94,7 +94,7 @@ namespace Canister.IoC.Utils
                 Assemblies ??= [];
                 if (Assemblies.Count == 0)
                 {
-                    AddDefaultAssemblies();
+                    _ = AddDefaultAssemblies();
                 }
                 if (_Types is not null)
                     return _Types;
@@ -149,12 +149,12 @@ namespace Canister.IoC.Utils
                 return this;
             lock (AssemblyLockObject)
             {
-                foreach (var Assembly in assemblies)
+                foreach (Assembly? Assembly in assemblies)
                 {
                     if (Assembly is null)
                         continue;
-                    Assemblies.Add(Assembly);
-                    Log("Assembly added: {AssemblyFullName}", Assembly.GetName().Name);
+                    _ = Assemblies.Add(Assembly);
+                    _ = Log("Assembly added: {AssemblyFullName}", Assembly.GetName().Name);
                 }
             }
             return this;
@@ -173,12 +173,12 @@ namespace Canister.IoC.Utils
                 return this;
             lock (AssemblyLockObject)
             {
-                foreach (var Assembly in assemblies)
+                foreach (Assembly? Assembly in assemblies)
                 {
                     if (Assembly is null)
                         continue;
-                    Assemblies.Add(Assembly);
-                    Log("Assembly added: {AssemblyFullName}", Assembly.GetName().Name);
+                    _ = Assemblies.Add(Assembly);
+                    _ = Log("Assembly added: {AssemblyFullName}", Assembly.GetName().Name);
                 }
             }
             return this;
@@ -196,40 +196,52 @@ namespace Canister.IoC.Utils
                 var EntryAssembly = Assembly.GetEntryAssembly();
                 if (EntryAssembly is null)
                 {
-                    Log(LogLevel.Warning, "Entry assembly not found.");
+                    _ = Log(LogLevel.Warning, "Entry assembly not found.");
                     return this;
                 }
 
                 var ExecutingAssembly = Assembly.GetExecutingAssembly();
                 if (ExecutingAssembly is null)
                 {
-                    Log(LogLevel.Warning, "Executing assembly not found.");
+                    _ = Log(LogLevel.Warning, "Executing assembly not found.");
                     return this;
                 }
 
-                Assemblies.Add(EntryAssembly);
-                Assemblies.Add(ExecutingAssembly);
-                Log("Default assemblies added: {EntryAssemblyFullName}, {ExecutingAssemblyFullName}", EntryAssembly.GetName().Name, ExecutingAssembly.GetName().Name);
+                _ = Assemblies.Add(EntryAssembly);
+                _ = Assemblies.Add(ExecutingAssembly);
+                _ = Log("Default assemblies added: {EntryAssemblyFullName}, {ExecutingAssemblyFullName}", EntryAssembly.GetName().Name, ExecutingAssembly.GetName().Name);
 
-                var PathsFound = new HashSet<string>
+                var PathsFound = new HashSet<string>();
+                if (!string.IsNullOrEmpty(EntryAssembly.Location))
+                    _ = PathsFound.Add(Path.GetDirectoryName(EntryAssembly.Location) ?? "");
+                if (!string.IsNullOrEmpty(ExecutingAssembly.Location))
+                    _ = PathsFound.Add(Path.GetDirectoryName(ExecutingAssembly.Location) ?? "");
+
+                if (PathsFound.Count == 0)
                 {
-                    Path.GetDirectoryName(EntryAssembly.Location) ?? "",
-                    Path.GetDirectoryName(ExecutingAssembly.Location) ?? ""
-                };
+                    _ = Log("No assembly paths found from entry or executing assemblies. Defaulting to base directory: {BaseDirectory}", AppContext.BaseDirectory);
+                    _ = PathsFound.Add(AppContext.BaseDirectory);
+                    foreach (Assembly Assembly in AppDomain.CurrentDomain.GetAssemblies())
+                    {
+                        _ = Assemblies.Add(Assembly);
+                        _ = Log("Assembly added from current domain: {AssemblyFullName}", Assembly.GetName().Name);
+                    }
+                }
 
                 foreach (var Path in PathsFound)
                 {
+                    _ = Log("Loading assemblies from directory: {path}", Path);
                     foreach (var AssemblyFile in Directory.EnumerateFiles(Path, "*.dll", SearchOption.TopDirectoryOnly))
                     {
                         try
                         {
                             var LoadedAssembly = Assembly.LoadFrom(AssemblyFile);
-                            Assemblies.Add(LoadedAssembly);
-                            Log("Assembly loaded: {assemblyFile}", LoadedAssembly.GetName().Name);
+                            _ = Assemblies.Add(LoadedAssembly);
+                            _ = Log("Assembly loaded: {assemblyFile}", LoadedAssembly.GetName().Name);
                         }
                         catch (Exception Ex)
                         {
-                            Log(LogLevel.Warning, Ex, "Failed to load assembly: {assemblyFile}", AssemblyFile);
+                            _ = Log(LogLevel.Warning, Ex, "Failed to load assembly: {assemblyFile}", AssemblyFile);
                         }
                     }
                 }

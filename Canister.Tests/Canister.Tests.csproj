@@ -4,7 +4,7 @@
     <Description>Tests for Canister</Description>
     <AssemblyTitle>Canister.Tests</AssemblyTitle>
     <Authors>James Craig</Authors>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
     <DebugType>portable</DebugType>
     <AssemblyName>Canister.Tests</AssemblyName>
     <PackageId>Canister.Tests</PackageId>
