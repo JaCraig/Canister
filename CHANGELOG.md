@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.4.2"></a>
+## [6.4.2](https://www.github.com/JaCraig/Canister/releases/tag/v6.4.2) (2026-03-16)
+
+### Bug Fixes
+
+* Bump the dependencies group with 1 update ([1e19e9c](https://www.github.com/JaCraig/Canister/commit/1e19e9c4060c8c431c73d6eff374485f545b42a2))
+
+### Other
+
+* Merge pull request #195 from JaCraig/dependabot/nuget/dot-config/dependencies-8bbbd064bf ([13c0c38](https://www.github.com/JaCraig/Canister/commit/13c0c38983e3a1fddcd14cbbc2e3f95f7769ae90))
+* Merge pull request #196 from JaCraig/dependabot/nuget/Canister.IoC/dependencies-58af369bf1 ([cde83cb](https://www.github.com/JaCraig/Canister/commit/cde83cbcfb42a39a82506c249713b62d25c3d0c9))
+* Merge pull request #197 from JaCraig/dependabot/nuget/Canister.IoC/dependencies-58af369bf1 ([0f62076](https://www.github.com/JaCraig/Canister/commit/0f6207643ba7651f39d2a63ec4c432b78c8a4069))
+* Merge pull request #198 from JaCraig/dependabot/nuget/Canister.IoC/dependencies-58af369bf1 ([2a3e552](https://www.github.com/JaCraig/Canister/commit/2a3e552e0ebc5d452acab7de88e25f242dbcae32))
+* Bump the dependencies group with 1 update ([75c86f7](https://www.github.com/JaCraig/Canister/commit/75c86f7adf132a49c669e1aae6777b31eb88d77e))
+* Bump the dependencies group with 1 update ([2c0219e](https://www.github.com/JaCraig/Canister/commit/2c0219e3ce33972760bf141f28278acd7f739c6d))
+* Bump the dependencies group with 1 update ([fb70b9c](https://www.github.com/JaCraig/Canister/commit/fb70b9c0eee334ed2777365acab3df304cefe04c))
+
 <a name="6.4.1"></a>
 ## [6.4.1](https://www.github.com/JaCraig/Canister/releases/tag/v6.4.1) (2026-03-13)
 
