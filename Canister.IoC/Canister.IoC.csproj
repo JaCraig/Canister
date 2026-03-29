@@ -1,7 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Canister adds functionality to the IServiceCollection including adding all objects of a certain type, automatic registration of types via modules, etc.</Description>
+    <Description>Canister adds functionality to the IServiceCollection including adding all objects
+      of a certain type, automatic registration of types via modules, etc.</Description>
     <AssemblyTitle>Canister IoC</AssemblyTitle>
     <Authors>James Craig</Authors>
     <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
@@ -18,7 +19,8 @@
     <Version>6.4.2</Version>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>
+      $(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <Nullable>enable</Nullable>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -27,35 +29,37 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/JaCraig/Canister</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-	  <PackageReleaseNotes>https://github.com/JaCraig/Canister/blob/master/CHANGELOG.md</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/JaCraig/Canister/blob/master/CHANGELOG.md</PackageReleaseNotes>
     <Copyright>Copyright © James Craig 2016</Copyright>
     <Title>Canister.IoC</Title>
   </PropertyGroup>
-	<PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
-		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-	</PropertyGroup>
-	<ItemGroup>
-		<None Include="..\Icon.png">
-		  <Pack>True</Pack>
-		  <PackagePath>\</PackagePath>
-		</None>
-		<None Include="..\README.md">
-		  <Pack>True</Pack>
-		  <PackagePath>\</PackagePath>
-		</None>
-	</ItemGroup>
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\Icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fast.Activator" Version="3.1.4" />
-	  <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.5" />
-	  <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.5" />
-	  <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.201" PrivateAssets="All" />
-	  <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.201">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-	  </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.5" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.201" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.201">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
-	<Target Name="Husky" BeforeTargets="Restore;CollectPackageReferences" Condition="'$(HUSKY)' != 0">
-		<Exec Command="dotnet tool restore" StandardOutputImportance="Low" StandardErrorImportance="High" />
-		<Exec Command="dotnet husky install" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory=".." />
-	</Target>
+  <Target Name="Husky" BeforeTargets="Restore;CollectPackageReferences" Condition="'$(HUSKY)' != 0">
+    <Exec Command="dotnet tool restore" StandardOutputImportance="Low"
+      StandardErrorImportance="High" />
+    <Exec Command="dotnet husky install" StandardOutputImportance="Low"
+      StandardErrorImportance="High" WorkingDirectory=".." />
+  </Target>
 </Project>
