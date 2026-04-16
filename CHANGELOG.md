@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.4.5"></a>
+## [6.4.5](https://www.github.com/JaCraig/Canister/releases/tag/v6.4.5) (2026-04-16)
+
+### Bug Fixes
+
+* Bump the dependencies group with 1 update ([4f2e63c](https://www.github.com/JaCraig/Canister/commit/4f2e63cfdc64aa96c4cf6684b073e33b0c4bdb7e))
+
+### Other
+
+* Merge pull request #204 from JaCraig/dependabot/nuget/Canister.IoC/dependencies-53461f232e ([aaf9be6](https://www.github.com/JaCraig/Canister/commit/aaf9be678052b8ba1a41d848bad425e3aa4af893))
+
 <a name="6.4.4"></a>
 ## [6.4.4](https://www.github.com/JaCraig/Canister/releases/tag/v6.4.4) (2026-04-15)
 
