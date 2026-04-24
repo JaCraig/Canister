@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.4.8"></a>
+## [6.4.8](https://www.github.com/JaCraig/Canister/releases/tag/v6.4.8) (2026-04-24)
+
+### Bug Fixes
+
+* **dependencies:** update package versions and enhance service decoration ([768caa4](https://www.github.com/JaCraig/Canister/commit/768caa4a85524d5f6d648f64f88eae721a900007))
+
 <a name="6.4.7"></a>
 ## [6.4.7](https://www.github.com/JaCraig/Canister/releases/tag/v6.4.7) (2026-04-23)
 
