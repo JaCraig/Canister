@@ -30,6 +30,34 @@ namespace Canister.Tests.ExtensionMethods
         }
 
         [Fact]
+        public void Decorate_WorksWithKeyedFactory()
+        {
+            var services = new ServiceCollection();
+            services.AddKeyedTransient<ITestService>("A", (_, __) => new TestService());
+            services.Decorate<ITestService, TestServiceDecorator>();
+            var provider = services.BuildServiceProvider();
+            var service = provider.GetKeyedService<ITestService>("A");
+            Assert.NotNull(service);
+            Assert.IsType<TestServiceDecorator>(service);
+            Assert.Equal("decorated(original)", service.GetValue());
+            Assert.Null(provider.GetService<ITestService>());
+        }
+
+        [Fact]
+        public void Decorate_WorksWithKeyedType()
+        {
+            var services = new ServiceCollection();
+            services.AddKeyedTransient<ITestService, TestService>("A");
+            services.Decorate<ITestService, TestServiceDecorator>();
+            var provider = services.BuildServiceProvider();
+            var service = provider.GetKeyedService<ITestService>("A");
+            Assert.NotNull(service);
+            Assert.IsType<TestServiceDecorator>(service);
+            Assert.Equal("decorated(original)", service.GetValue());
+            Assert.Null(provider.GetService<ITestService>());
+        }
+
+        [Fact]
         public void Decorate_WrapsServiceWithDecorator()
         {
             var services = new ServiceCollection();

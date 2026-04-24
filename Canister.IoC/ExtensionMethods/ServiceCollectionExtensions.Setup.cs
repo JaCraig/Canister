@@ -52,48 +52,57 @@ namespace Microsoft.Extensions.DependencyInjection
             if (serviceDescriptors?.Exists<CanisterRegisteredFlag>() != false)
                 return serviceDescriptors;
 
-            // Set up types
-            configure ??= (config) => config.AddDefaultAssemblies();
-            var CanisterConfiguration = GetCanisterConfiguration(serviceDescriptors);
-            configure(CanisterConfiguration);
-
-            // Add assemblies and modules to the service collection
-            serviceDescriptors.TryAddTransient<IEnumerable<Assembly>>(_ => CanisterConfiguration.Assemblies);
-            _ = serviceDescriptors.AddAllTransient<IModule>();
-
-            // Load modules to the service collection
-            foreach (IModule ResolvedModule in CanisterConfiguration
-                .AvailableTypes
-                .Where(type => typeof(IModule).IsAssignableFrom(type))
-                .Select(type => (IModule)FastActivator.CreateInstance(type))
-                .OrderBy(x => x.Order))
+            try
             {
-                var ModuleName = ResolvedModule.GetType().Name;
-                CanisterConfiguration.Log("Module loading: {ResolvedModuleName}", ModuleName);
-                ResolvedModule.Load(serviceDescriptors);
-                CanisterConfiguration.Log("Module successfully loaded: {ResolvedModuleName}", ModuleName);
-            }
+                // Set up types
+                configure ??= (config) => config.AddDefaultAssemblies();
+                var CanisterConfiguration = GetCanisterConfiguration(serviceDescriptors);
+                configure(CanisterConfiguration);
 
-            // Load types with the RegisterAttribute to the service collection
-            foreach (Type RegisteredType in CanisterConfiguration
-                .AvailableTypes
-                .Where(type => type.GetCustomAttributes<RegisterAttribute>().Any())
-                .Concat(CanisterConfiguration
-                    .AvailableInterfaces
-                    .Where(type => type.GetCustomAttributes<RegisterAllAttribute>().Any())))
+                // Add assemblies and modules to the service collection
+                serviceDescriptors.TryAddTransient<IEnumerable<Assembly>>(_ => CanisterConfiguration.Assemblies);
+                _ = serviceDescriptors.AddAllTransient<IModule>();
+
+                // Load modules to the service collection
+                foreach (IModule ResolvedModule in CanisterConfiguration
+                    .AvailableTypes
+                    .Where(type => typeof(IModule).IsAssignableFrom(type))
+                    .Select(type => (IModule)FastActivator.CreateInstance(type))
+                    .OrderBy(x => x.Order))
+                {
+                    var ModuleName = ResolvedModule.GetType().Name;
+                    CanisterConfiguration.Log("Module loading: {ResolvedModuleName}", ModuleName);
+                    ResolvedModule.Load(serviceDescriptors);
+                    CanisterConfiguration.Log("Module successfully loaded: {ResolvedModuleName}", ModuleName);
+                }
+
+                // Load types with the RegisterAttribute to the service collection
+                foreach (Type RegisteredType in CanisterConfiguration
+                    .AvailableTypes
+                    .Where(type => type.GetCustomAttributes<RegisterAttribute>().Any())
+                    .Concat(CanisterConfiguration
+                        .AvailableInterfaces
+                        .Where(type => type.GetCustomAttributes<RegisterAllAttribute>().Any())))
+                {
+                    RegisterClasses(serviceDescriptors, RegisteredType);
+                    RegisterInterfaces(serviceDescriptors, RegisteredType);
+                }
+
+                CanisterConfiguration.LogSummary(serviceDescriptors);
+                CanisterConfiguration.Log("Canister module registration completed.");
+
+                serviceDescriptors.TryAddSingleton<CanisterRegisteredFlag>();
+
+                // Clear info and return
+                return serviceDescriptors;
+            }
+            finally
             {
-                RegisterClasses(serviceDescriptors, RegisteredType);
-                RegisterInterfaces(serviceDescriptors, RegisteredType);
+                lock (_CanisterLockObject)
+                {
+                    _CanisterConfiguration.Remove(serviceDescriptors);
+                }
             }
-
-            CanisterConfiguration.LogSummary(serviceDescriptors);
-            CanisterConfiguration.Log("Canister module registration completed.");
-
-            serviceDescriptors.TryAddSingleton<CanisterRegisteredFlag>();
-            _CanisterConfiguration.Remove(serviceDescriptors);
-
-            // Clear info and return
-            return serviceDescriptors;
         }
 
         /// <summary>
