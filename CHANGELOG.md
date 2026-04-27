@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.5.0"></a>
+## [6.5.0](https://www.github.com/JaCraig/Canister/releases/tag/v6.5.0) (2026-04-27)
+
+### Features
+
+* **tests, setup:** enhance setup script and add concurrency tests ([59cc638](https://www.github.com/JaCraig/Canister/commit/59cc638935319ff023c2fc71831f2d2f7fe3d749))
+
+### Bug Fixes
+
+* **tests:** add explicit assembly registration tests for ServiceCollection ([454ce22](https://www.github.com/JaCraig/Canister/commit/454ce2249a9eb5b56cdfe206a4ef01fb28cabcd1))
+
+### Other
+
+* Enhance commit message linting functionality ([d07d331](https://www.github.com/JaCraig/Canister/commit/d07d331cacca02ec5f3bfd64abf36af4e034600b))
+
 <a name="6.4.8"></a>
 ## [6.4.8](https://www.github.com/JaCraig/Canister/releases/tag/v6.4.8) (2026-04-24)
 
