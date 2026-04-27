@@ -102,11 +102,43 @@ namespace Canister.IoC.Utils
                 {
                     if (_Types is not null)
                         return _Types;
-                    _Types = [.. Assemblies.SelectMany(x => { try { return x.GetTypes(); } catch (ReflectionTypeLoadException) { return []; } })];
+                    _Types = [.. Assemblies.SelectMany(GetTypesFromAssembly)];
                 }
                 return _Types;
             }
         }
+
+        /// <summary>
+        /// Gets all loadable types from an assembly while preserving partial results when a type
+        /// load failure occurs.
+        /// </summary>
+        /// <param name="assembly">The assembly to inspect.</param>
+        /// <returns>The set of types that were successfully loaded.</returns>
+        internal IEnumerable<Type> GetTypesFromAssembly(Assembly assembly)
+        {
+            try
+            {
+                return GetAssemblyTypes(assembly);
+            }
+            catch (ReflectionTypeLoadException Ex)
+            {
+                foreach (Exception? LoaderException in Ex.LoaderExceptions ?? [])
+                {
+                    if (LoaderException is null)
+                        continue;
+                    _ = Log(LogLevel.Warning, LoaderException, "Failed to load one or more types from assembly: {AssemblyFullName}", assembly.FullName ?? assembly.GetName().Name);
+                }
+
+                return Ex.Types.Where(Type => Type is not null)!.Cast<Type>();
+            }
+        }
+
+        /// <summary>
+        /// Gets all types from an assembly.
+        /// </summary>
+        /// <param name="assembly">The assembly to inspect.</param>
+        /// <returns>The types defined by the assembly.</returns>
+        internal virtual Type[] GetAssemblyTypes(Assembly assembly) => assembly.GetTypes();
 
         /// <summary>
         /// Lock object used to synchronize access to the <see cref="Assemblies"/> property.

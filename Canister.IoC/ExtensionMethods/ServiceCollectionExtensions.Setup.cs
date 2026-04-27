@@ -4,6 +4,7 @@ using Canister.IoC.Utils;
 using Fast.Activator;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -20,12 +21,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <summary>
         /// Stores the Canister configuration for each <see cref="IServiceCollection"/> instance.
         /// </summary>
-        private static readonly Dictionary<IServiceCollection, CanisterConfiguration> _CanisterConfiguration = [];
-
-        /// <summary>
-        /// Lock object used to synchronize access to the Canister configuration dictionary.
-        /// </summary>
-        private static readonly object _CanisterLockObject = new();
+        private static readonly ConcurrentDictionary<IServiceCollection, CanisterConfiguration> _CanisterConfiguration = [];
 
         /// <summary>
         /// Finds the Canister modules and loads them into the service collection using the
@@ -98,10 +94,7 @@ namespace Microsoft.Extensions.DependencyInjection
             }
             finally
             {
-                lock (_CanisterLockObject)
-                {
-                    _CanisterConfiguration.Remove(serviceDescriptors);
-                }
+                _ = serviceDescriptors is null ? false : _CanisterConfiguration.TryRemove(serviceDescriptors, out _);
             }
         }
 
@@ -115,16 +108,8 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             if (serviceCollection is null)
                 return null;
-            if (_CanisterConfiguration.TryGetValue(serviceCollection, out CanisterConfiguration? CanisterConfiguration))
-                return CanisterConfiguration;
-            lock (_CanisterLockObject)
-            {
-                if (_CanisterConfiguration.TryGetValue(serviceCollection, out CanisterConfiguration))
-                    return CanisterConfiguration;
-                CanisterConfiguration = new CanisterConfiguration();
-                _CanisterConfiguration.TryAdd(serviceCollection, CanisterConfiguration);
-                return CanisterConfiguration;
-            }
+
+            return _CanisterConfiguration.GetOrAdd(serviceCollection, _ => new CanisterConfiguration());
         }
 
         /// <summary>

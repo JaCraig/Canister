@@ -117,6 +117,49 @@ namespace Canister.Tests.Utils
             Assert.True(logger.WasLogged);
         }
 
+        [Fact]
+        public void Types_PreservesLoadableTypes_WhenReflectionTypeLoadExceptionOccurs()
+        {
+            var LoaderException = new TypeLoadException("loader failure");
+            var TypeLoadException = new ReflectionTypeLoadException([typeof(string), null!], [LoaderException]);
+            var config = new ThrowingTypeLoadCanisterConfiguration(TypeLoadException);
+            var logger = new CapturingLogger();
+
+            config.UseLogger(logger, LogLevel.Warning);
+            config.AddAssembly(typeof(CanisterConfigurationTests).Assembly);
+
+            var Types = config.Types;
+
+            Assert.Contains(typeof(string), Types);
+            Assert.Contains(logger.Logs, x => x.Level == LogLevel.Warning && x.Exception == LoaderException);
+        }
+
+        private sealed class ThrowingTypeLoadCanisterConfiguration : CanisterConfiguration
+        {
+            private readonly ReflectionTypeLoadException _Exception;
+
+            public ThrowingTypeLoadCanisterConfiguration(ReflectionTypeLoadException exception)
+            {
+                _Exception = exception;
+            }
+
+            internal override Type[] GetAssemblyTypes(Assembly assembly) => throw _Exception;
+        }
+
+        private sealed class CapturingLogger : ILogger
+        {
+            public List<(LogLevel Level, string Message, Exception? Exception)> Logs { get; } = [];
+
+            public IDisposable BeginScope<TState>(TState state) where TState : notnull => NullLogger.Instance.BeginScope(state);
+
+            public bool IsEnabled(LogLevel logLevel) => true;
+
+            public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
+            {
+                Logs.Add((logLevel, formatter(state, exception), exception));
+            }
+        }
+
         private class TestLogger : ILogger
         {
             public bool WasLogged { get; private set; }
