@@ -256,7 +256,8 @@ dotnet add package Canister.IoC
 
 In order to build the library you may require the following:
 
-1. Visual Studio 2022
+1. Visual Studio 2026 or VS Code with the C# extension.
+2. .NET 10 SDK or later.
 
 Other than that, just clone the project and you should be able to load the solution and build without too much effort.
 
