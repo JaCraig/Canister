@@ -64,6 +64,48 @@ namespace Canister.Tests.Default
             Assert.NotNull(Provider.GetService<TestClass2>());
         }
 
+        [Fact]
+        public void TryRegisterAllScoped_DoesNotReplaceExistingInterfaceRegistration()
+        {
+            IServiceCollection temp = GetBootstrapper();
+            _ = temp.AddScoped<ITestClass, TestClass>();
+
+            ServiceProvider? provider = temp.TryAddAllScoped<ITestClass>()?.BuildServiceProvider();
+
+            Assert.NotNull(provider?.GetService<ITestClass>());
+            Assert.Single(provider.GetServices<ITestClass>());
+            Assert.NotNull(provider.GetService<TestClass>());
+            Assert.NotNull(provider.GetService<TestClass2>());
+        }
+
+        [Fact]
+        public void TryRegisterAllSingleton_DoesNotReplaceExistingInterfaceRegistration()
+        {
+            IServiceCollection temp = GetBootstrapper();
+            _ = temp.AddSingleton<ITestClass, TestClass>();
+
+            ServiceProvider? provider = temp.TryAddAllSingleton<ITestClass>()?.BuildServiceProvider();
+
+            Assert.NotNull(provider?.GetService<ITestClass>());
+            Assert.Single(provider.GetServices<ITestClass>());
+            Assert.NotNull(provider.GetService<TestClass>());
+            Assert.NotNull(provider.GetService<TestClass2>());
+        }
+
+        [Fact]
+        public void TryRegisterAllTransient_DoesNotReplaceExistingInterfaceRegistration()
+        {
+            IServiceCollection temp = GetBootstrapper();
+            _ = temp.AddTransient<ITestClass, TestClass>();
+
+            ServiceProvider? provider = temp.TryAddAllTransient<ITestClass>()?.BuildServiceProvider();
+
+            Assert.NotNull(provider?.GetService<ITestClass>());
+            Assert.Single(provider.GetServices<ITestClass>());
+            Assert.NotNull(provider.GetService<TestClass>());
+            Assert.NotNull(provider.GetService<TestClass2>());
+        }
+
         private static IServiceCollection GetBootstrapper() => new ServiceCollection();
 
         protected interface ITestClass

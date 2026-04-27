@@ -9,6 +9,18 @@ namespace Canister.Tests.Attributes
     public class RegisterAttributeTests
     {
         [Fact]
+        public void RegisterAttribute_Constructors_SetExpectedValues()
+        {
+            var defaultAttribute = new RegisterAttribute();
+            Assert.Equal(ServiceLifetime.Transient, defaultAttribute.Lifetime);
+            Assert.Null(defaultAttribute.ServiceKey);
+
+            var keyedAttribute = new RegisterAttribute(ServiceLifetime.Singleton, "my-key");
+            Assert.Equal(ServiceLifetime.Singleton, keyedAttribute.Lifetime);
+            Assert.Equal("my-key", keyedAttribute.ServiceKey);
+        }
+
+        [Fact]
         public void RegisterAttributeTests_Register()
         {
             var Container = new ServiceCollection();

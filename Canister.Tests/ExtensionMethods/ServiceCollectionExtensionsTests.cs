@@ -476,6 +476,18 @@ namespace Canister.Tests.ExtensionMethods
             Assert.False(GetServices().AddKeyedTransient<IModuleTestInterface, ModuleTestClass1>("A").Exists(typeof(ModuleTestClass1), "A"));
         }
 
+        [Fact]
+        public void Exists_ReturnsFalse_WhenServiceCollectionIsNull()
+        {
+            IServiceCollection? services = null;
+
+            Assert.False(services.Exists<ModuleTestClass1>());
+            Assert.False(services.Exists(typeof(ModuleTestClass1)));
+            Assert.False(services.Exists(typeof(ModuleTestClass1), typeof(ModuleTestClass1)));
+            Assert.False(services.Exists<ModuleTestClass1>("missing"));
+            Assert.False(services.Exists(typeof(ModuleTestClass1), "missing"));
+        }
+
         private static IServiceCollection GetServices() => new ServiceCollection();
     }
 
