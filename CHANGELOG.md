@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.5.1"></a>
+## [6.5.1](https://www.github.com/JaCraig/Canister/releases/tag/v6.5.1) (2026-04-27)
+
+### Bug Fixes
+
+* Bump the dependencies group with 1 update ([97b64b2](https://www.github.com/JaCraig/Canister/commit/97b64b29f86a02ba3a660d0e54b3ebaf41cc46b6))
+
+### Other
+
+* Merge pull request #209 from JaCraig/dependabot/nuget/Canister.IoC/dependencies-570ade73b5 ([1d0b223](https://www.github.com/JaCraig/Canister/commit/1d0b223a24c0950e84281b4b93735fbd784bfa70))
+* **docs:** update Visual Studio and .NET SDK requirements ([eeebbbc](https://www.github.com/JaCraig/Canister/commit/eeebbbcc1dcc479a226608c14a49f2a0e09f8e30))
+* **tests:** add comprehensive unit tests for various components ([e046994](https://www.github.com/JaCraig/Canister/commit/e046994373f763f44bb7ec7d02fa7235fd8eeadd))
+* **version:** update version to 6.5.0 ([e3b4bea](https://www.github.com/JaCraig/Canister/commit/e3b4bea83b87bd0e9e2a4bbf6f6a271b456e59e6))
+
 <a name="6.5.0"></a>
 ## [6.5.0](https://www.github.com/JaCraig/Canister/releases/tag/v6.5.0) (2026-04-27)
 
