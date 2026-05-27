@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="6.5.4"></a>
+## [6.5.4](https://www.github.com/JaCraig/Canister/releases/tag/v6.5.4) (2026-05-27)
+
+### Bug Fixes
+
+* **workflows:** remove unnecessary secrets from CI configurations ([60b5775](https://www.github.com/JaCraig/Canister/commit/60b57752803a55505416cbdac64d2d8f310009a4))
+
+### Other
+
+* Merge pull request #213 from JaCraig/dependabot/nuget/Canister.IoC.Example/dependencies-e07255ac91 ([9f516e5](https://www.github.com/JaCraig/Canister/commit/9f516e5728a520adf7f894a5dbc49f24acfcd4e1))
+* Merge pull request #214 from JaCraig/dependabot/nuget/Canister.Tests/dependencies-3fec291e4a ([995fc3c](https://www.github.com/JaCraig/Canister/commit/995fc3cf1575ecfe8b40acd5770cb77c8f2032ba))
+* Bump the dependencies group with 1 update ([047acb8](https://www.github.com/JaCraig/Canister/commit/047acb81b72bcdeae50d7df899958615a2e135df))
+* Bump the dependencies group with 2 updates ([fc927c9](https://www.github.com/JaCraig/Canister/commit/fc927c9817ce1ab8fa84287b49b34476e3d243c8))
+* **copilot:** add commit message guidelines ([5746b71](https://www.github.com/JaCraig/Canister/commit/5746b717fb89556fb5f95d0a8ed214494b3eaa28))
+
 <a name="6.5.3"></a>
 ## [6.5.3](https://www.github.com/JaCraig/Canister/releases/tag/v6.5.3) (2026-05-14)
 
