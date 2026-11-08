@@ -28,7 +28,6 @@ jobs:
       id-token: write
     env:
       BUILD_CONFIG: "Release"
-
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v8
