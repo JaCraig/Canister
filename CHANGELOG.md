@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="7.0.0"></a>
+## [7.0.0](https://www.github.com/JaCraig/Canister/releases/tag/v7.0.0) (2026-11-12)
+
+### Features
+
+* **framework:** target .NET 10 and 11 ([6b41933](https://www.github.com/JaCraig/Canister/commit/6b4193356bfa1d5ce28866b22c64fdd26d1a0ed1))
+
+### Bug Fixes
+
+* Bump the dependencies group with 1 update ([8164a3a](https://www.github.com/JaCraig/Canister/commit/8164a3a827ff72e24b702e2791c13486e803ef40))
+
+### Breaking Changes
+
+* **framework:** target .NET 10 and 11 ([6b41933](https://www.github.com/JaCraig/Canister/commit/6b4193356bfa1d5ce28866b22c64fdd26d1a0ed1))
+
+### Other
+
+* Merge pull request #240 from JaCraig/dependabot/nuget/Canister.IoC/dependencies-deffb813c7 ([56b5f8e](https://www.github.com/JaCraig/Canister/commit/56b5f8e47eeb899676a58048007fe06e3474c88b))
+* **workflow:** remove unnecessary blank line in dotnet-publish.yml ([e090520](https://www.github.com/JaCraig/Canister/commit/e090520176b848fe4c44058ef4ae5641534ea017))
+
 <a name="6.5.6"></a>
 ## [6.5.6](https://www.github.com/JaCraig/Canister/releases/tag/v6.5.6) (2026-11-07)
 
